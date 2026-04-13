@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const religions = [
+  {
+    name: "藏传佛教",
+    description: "在藏传佛教中，冈仁波齐被认为是胜乐金刚的居所，是密宗的圣地。虔诚的藏传佛教徒相信，绕山转一圈可以洗净一生的罪孽；转十圈，可免除地狱之苦；转一百零八圈，可以立地成佛。",
+    deity: "胜乐金刚",
+    practice: "磕长头、转经筒、悬挂经幡"
+  },
+  {
+    name: "印度教",
+    description: "印度教视冈仁波齐（Kailash）为湿婆神的居所，是其与妻子雪山神女冥想的圣地。印度教徒相信，在神山脚下沐浴圣湖玛旁雍错的湖水可以洗净罪孽，而绕山则是灵魂净化的最高形式。",
+    deity: "湿婆神",
+    practice: "沐浴圣湖、顺时针绕山"
+  },
+  {
+    name: "苯教",
+    description: "作为西藏的原始宗教，苯教认为冈仁波齐是九层雍仲山的中心，是苯教创始人敦巴辛饶从天而降的地方。苯教徒以逆时针方向绕山，与其他宗教相反。",
+    deity: "敦巴辛饶",
+    practice: "逆时针绕山、祭祀山神"
+  },
+  {
+    name: "耆那教",
+    description: "耆那教徒相信，其第一位祖师勒舍波在此山获得解脱。冈仁波齐在耆那教传统中象征着精神解放的最高峰。",
+    deity: "勒舍波",
+    practice: "冥想、苦行"
+  }
+];
+
+const legends = [
+  {
+    title: "米拉日巴与那若本琼斗法",
+    content: "相传在11世纪，藏传佛教噶举派祖师米拉日巴与苯教大师那若本琼在此斗法。两人约定以日出为证，谁先到达山顶谁便赢得神山。那若本琼骑鼓而上，米拉日巴则乘阳光而登。最终米拉日巴获胜，确立了佛教在西藏的主导地位，但苯教仍保留逆时针转山的传统。"
+  },
+  {
+    title: "释迦牟尼的足迹",
+    content: "传说释迦牟尼曾在冈仁波齐讲法，山脚下的诸多圣迹都被认为与佛陀有关。佛教徒相信，转山可以追随佛陀的足迹，获得无上功德。"
+  },
+  {
+    title: "世界的中心",
+    content: "古印度吠陀文献记载，冈仁波齐位于世界的中心，四条大河——狮泉河、象泉河、孔雀河、马泉河——分别从神山的四面发源，流向不同的方向，滋养着南亚和东亚的文明。"
+  }
+];
+---
+
+<Layout title="神山文化 - 冈仁波齐的信仰传承">
+  <!-- Hero Section -->
+  <section class="relative py-32 bg-kailash-dark">
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/50 to-kailash-dark"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+        神山文化
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        四大宗教共同的圣地，千年信仰的精神图腾
+      </p>
+    </div>
+  </section>
+
+  <!-- Four Religions -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">四大宗教的圣地</h2>
+        <p class="text-lg text-gray-600">不同信仰，同一座山，共同的崇敬</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {religions.map((religion) => (
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <h3 class="font-display text-2xl font-bold text-kailash-dark mb-4">{religion.name}</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">{religion.description}</p>
+            <div class="flex flex-wrap gap-4 text-sm">
+              <span class="bg-kailash-gold/10 text-kailash-dark px-3 py-1 rounded-full">
+                主神: {religion.deity}
+              </span>
+              <span class="bg-kailash-gold/10 text-kailash-dark px-3 py-1 rounded-full">
+                {religion.practice}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Legends -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">传说与故事</h2>
+        <p class="text-lg text-gray-600">流淌在时光中的神圣记忆</p>
+      </div>
+
+      <div class="space-y-12">
+        {legends.map((legend, index) => (
+          <div class="flex gap-6">
+            <div class="flex-shrink-0 w-12 h-12 bg-kailash-gold rounded-full flex items-center justify-center text-kailash-dark font-bold text-xl">
+              {index + 1}
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">{legend.title}</h3>
+              <p class="text-gray-600 leading-relaxed">{legend.content}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Geological Wonder -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-display text-4xl font-bold mb-6">地理奇观</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-kailash-gold font-semibold mb-2">金字塔形山峰</h3>
+              <p class="text-gray-400">冈仁波齐海拔6656米，其独特的金字塔形山形和终年积雪的峰顶，在阳光的照耀下闪耀着圣洁的光芒，被信徒称为"水晶山"。</p>
+            </div>
+            <div>
+              <h3 class="text-kailash-gold font-semibold mb-2">万水之源</h3>
+              <p class="text-gray-400">四条亚洲主要河流——印度河、萨特累季河、布拉马普特拉河（雅鲁藏布江）、恒河——都发源于冈仁波齐周边，滋养着数亿人口的文明。</p>
+            </div>
+            <div>
+              <h3 class="text-kailash-gold font-semibold mb-2">圣湖鬼湖</h3>
+              <p class="text-gray-400">神山南侧是被誉为"西天瑶池"的玛旁雍错，是世界上海拔最高的淡水湖之一；北侧则是咸水湖拉昂错，两湖相映，一淡一咸，神秘莫测。</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white/5 rounded-2xl p-8 aspect-square flex items-center justify-center">
+          <div class="text-center text-gray-500">
+            <svg class="w-24 h-24 mx-auto mb-4 text-kailash-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <p>冈仁波齐山峰示意图</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
+        亲身感受神山的魅力
+      </h2>
+      <p class="text-kailash-dark/80 mb-8">
+        踏上朝圣之路，在转山中体验信仰的力量
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/routes" class="bg-kailash-dark text-white px-8 py-3 rounded-lg font-semibold hover:bg-kailash-dark/90 transition">
+          查看转山路线
+        </a>
+        <a href="/booking" class="bg-white text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+          预订朝圣之旅
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

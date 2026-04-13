@@ -1,0 +1,57 @@
+---
+const features = [
+  {
+    title: "神山文化",
+    description: "深入了解冈仁波齐在藏传佛教、印度教、苯教中的神圣地位，探索千年来的信仰传承。",
+    link: "/culture",
+    icon: "📿"
+  },
+  {
+    title: "朝圣攻略",
+    description: "最佳时间、装备清单、高反预防、边防证办理——一份详尽的转山准备指南。",
+    link: "/guide",
+    icon: "🎒"
+  },
+  {
+    title: "转山路线",
+    description: "52公里外转全程详解，从塔尔钦出发，翻越5630米卓玛拉垭口，完成心灵洗礼。",
+    link: "/routes",
+    icon: "🗺️"
+  },
+  {
+    title: "行程预订",
+    description: "专业向导团队、完善的后勤保障、灵活的行程方案，让您的朝圣之旅安心无忧。",
+    link: "/booking",
+    icon: "✨"
+  }
+];
+---
+
+<section class="py-20 bg-kailash-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">探索冈仁波齐</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        无论您是虔诚的朝圣者，还是寻求心灵宁静的旅人，这里都有您需要的一切信息
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {features.map((feature) => (
+        <a href={feature.link} class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+          <div class="text-4xl mb-4">{feature.icon}</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3 group-hover:text-kailash-gold transition">
+            {feature.title}
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            {feature.description}
+          </p>
+          <div class="mt-4 flex items-center text-kailash-gold font-medium text-sm">
+            了解更多
+            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const routeDays = [
+  {
+    day: "第一天",
+    title: "塔尔钦 → 止热寺",
+    distance: "22公里",
+    altitude: "4560m → 5080m",
+    duration: "6-8小时",
+    description: "从塔尔钦出发，经曲古寺，沿拉曲河谷上行，最终抵达止热寺。这是适应海拔的第一天，路况相对平缓。",
+    highlights: ["曲古寺", "玛尼堆群", "止热寺（宿营地）"],
+    tips: "第一天不要走太快，给身体适应海拔的时间"
+  },
+  {
+    day: "第二天",
+    title: "止热寺 → 尊最普寺",
+    distance: "18公里",
+    altitude: "5080m → 5630m → 4820m",
+    duration: "8-10小时",
+    description: "最艰难的一天。凌晨出发翻越5630米的卓玛拉垭口，这是整个转山路线最高点。下山经过托吉错（慈悲湖），最终抵达尊最普寺。",
+    highlights: ["卓玛拉垭口（5630m，最高点）", "托吉错", "尊最普寺（宿营地）"],
+    tips: "垭口前1公里最陡，保持节奏；下山保护膝盖"
+  },
+  {
+    day: "第三天",
+    title: "尊最普寺 → 塔尔钦",
+    distance: "12公里",
+    altitude: "4820m → 4560m",
+    duration: "3-4小时",
+    description: "轻松的一天，沿峡谷平缓下降，回到塔尔钦，完成转山。",
+    highlights: ["峡谷风光", "玛旁雍错远眺", "塔尔钦（终点）"],
+    tips: "胜利在望，但不要大意，注意脚下安全"
+  }
+];
+
+const checkpoints = [
+  { name: "塔尔钦", altitude: 4560, type: "start", desc: "转山起点和终点，阿里地区最繁华的城镇，有住宿和补给" },
+  { name: "曲古寺", altitude: 4860, type: "checkpoint", desc: "供奉无量光佛的寺庙，可短暂休息" },
+  { name: "止热寺", altitude: 5080, type: "camp", desc: "第一晚住宿点，正对冈仁波齐北壁，景色壮丽" },
+  { name: "卓玛拉垭口", altitude: 5630, type: "peak", desc: "全程最高点，挂满经幡，是 spiritually 意义上的最高点" },
+  { name: "托吉错", altitude: 5200, type: "checkpoint", desc: "意为\"慈悲湖\"，传说中空行母的浴池" },
+  { name: "尊最普寺", altitude: 4820, type: "camp", desc: "第二晚住宿点，有茶馆和简易住宿" },
+  { name: "塔尔钦", altitude: 4560, type: "end", desc: "转山完成！祝贺！" }
+];
+---
+
+<Layout title="转山路线 - 52公里朝圣之旅">
+  <!-- Hero -->
+  <section class="relative py-32 bg-kailash-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+        转山路线
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        52公里，三天两夜，从信仰出发，向心灵回归
+      </p>
+      <div class="flex justify-center gap-8 mt-8">
+        <div class="text-center">
+          <p class="text-3xl font-bold text-kailash-gold">52km</p>
+          <p class="text-gray-400 text-sm">总距离</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-bold text-kailash-gold">5630m</p>
+          <p class="text-gray-400 text-sm">最高点</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-bold text-kailash-gold">3天</p>
+          <p class="text-gray-400 text-sm">标准行程</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Overview -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">路线概览</h2>
+        <p class="text-lg text-gray-600">海拔变化与关键节点</p>
+      </div>
+
+      <!-- Altitude Chart Placeholder -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+        <div class="aspect-[21/9] bg-gradient-to-r from-gray-100 to-gray-50 rounded-xl flex items-center justify-center">
+          <div class="text-center text-gray-500">
+            <svg class="w-16 h-16 mx-auto mb-4 text-kailash-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+            </svg>
+            <p>海拔变化图表（4560m → 5630m → 4560m）</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checkpoints -->
+      <div class="space-y-4">
+        {checkpoints.map((cp, index) => (
+          <div class={`flex items-center gap-6 p-6 rounded-xl ${cp.type === 'peak' ? 'bg-kailash-gold/20 border-2 border-kailash-gold' : 'bg-white shadow-md'}`}>
+            <div class={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-lg ${
+              cp.type === 'start' || cp.type === 'end' ? 'bg-green-500 text-white' :
+              cp.type === 'peak' ? 'bg-kailash-gold text-kailash-dark' :
+              cp.type === 'camp' ? 'bg-blue-500 text-white' :
+              'bg-gray-200 text-gray-700'
+            }`}>
+              {cp.altitude}m
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-1">
+                <h3 class="font-display text-xl font-bold">{cp.name}</h3>
+                {cp.type === 'camp' && <span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs">宿营</span>}
+                {cp.type === 'peak' && <span class="bg-kailash-gold/30 text-kailash-dark px-2 py-0.5 rounded text-xs font-semibold">最高点</span>}
+              </div>
+              <p class="text-gray-600">{cp.desc}</p>
+            </div>
+            <div class="text-2xl text-gray-300 font-bold">
+              {String(index + 1).padStart(2, '0')}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Day by Day -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">每日详情</h2>
+        <p class="text-lg text-gray-600">三天转山路，一步一修行</p>
+      </div>
+
+      <div class="space-y-12">
+        {routeDays.map((day, index) => (
+          <div class="bg-kailash-light rounded-2xl overflow-hidden">
+            <div class="bg-kailash-dark text-white p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-kailash-gold font-semibold">{day.day}</span>
+                  <h3 class="font-display text-2xl font-bold mt-1">{day.title}</h3>
+                </div>
+                <div class="text-right text-sm text-gray-400">
+                  <p>{day.distance}</p>
+                  <p>{day.altitude}</p>
+                  <p>{day.duration}</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-8">
+              <p class="text-gray-700 mb-6 leading-relaxed">{day.description}</p>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold mb-3 flex items-center gap-2">
+                    <span class="text-kailash-gold">★</span> 途经亮点
+                  </h4>
+                  <ul class="space-y-2">
+                    {day.highlights.map(h => (
+                      <li class="flex items-center gap-2 text-gray-600">
+                        <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div class="bg-amber-50 rounded-xl p-4">
+                  <h4 class="font-semibold mb-2 text-amber-800">💡 温馨提示</h4>
+                  <p class="text-amber-700 text-sm">{day.tips}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking CTA -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
+        准备好踏上朝圣之路了吗？
+      </h2>
+      <p class="text-kailash-dark/80 mb-8">
+        专业向导、完善保障，让您的转山之旅安全又难忘
+      </p>
+      <a href="/booking" class="inline-flex items-center bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-kailash-dark/90 transition">
+        预订朝圣之旅
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+      </a>
+    </div>
+  </section>
+</Layout>

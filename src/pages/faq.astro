@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    category: "行程预订",
+    questions: [
+      {
+        q: "如何预订行程？",
+        a: "您可以通过网站上的预订表单直接提交申请，也可以发送邮件至 contact@kailash2026.com 或添加微信 Kailash2026 进行咨询。我们的客服人员会在24小时内与您联系，确认行程细节。"
+      },
+      {
+        q: "需要提前多久预订？",
+        a: "建议至少提前1-2个月预订。5-6月和9-10月是旺季，名额紧张，建议提前3个月预订以确保位置。"
+      },
+      {
+        q: "订金多少？如何支付？",
+        a: "预订时需支付30%订金（标准团¥2,640，尊享团¥4,740），余款在出发前15天付清。支持银行转账、支付宝、微信支付。"
+      },
+      {
+        q: "取消政策是怎样的？",
+        a: "出发前30天取消，全额退还订金；15-30天取消，退还80%订金；7-15天取消，退还50%订金；7天内取消，订金不予退还，但可改期一次（需提前7天申请）。"
+      }
+    ]
+  },
+  {
+    category: "身体状况",
+    questions: [
+      {
+        q: "没有高原经验可以参加吗？",
+        a: "可以。我们的行程会安排2-3天在拉萨（3650米）适应海拔。但建议出发前咨询医生，确认身体状况适合高原活动。严重心肺疾病、高血压患者不建议参加。"
+      },
+      {
+        q: "高原反应严重怎么办？",
+        a: "团队配备氧气罐和常用药品。如遇严重高反，向导会立即安排下撤至低海拔地区，必要时使用卫星电话呼叫救援。所有路线均规划了下撤点，确保安全。"
+      },
+      {
+        q: "需要带什么药品？",
+        a: "建议携带：红景天（提前1周开始服用）、高原安、葡萄糖、感冒药、肠胃药、创可贴。团队也会准备常用药品和氧气。"
+      }
+    ]
+  },
+  {
+    category: "装备准备",
+    questions: [
+      {
+        q: "睡袋可以租借吗？",
+        a: "可以。我们提供羽绒睡袋租借服务（¥100/全程），但建议使用自己的睡袋更卫生舒适。如需租借请提前告知。"
+      },
+      {
+        q: "登山杖需要自带吗？",
+        a: "建议自带，选择双杖可大大节省体力。如不方便携带，我们也提供租借服务（¥50/全程）。"
+      },
+      {
+        q: "穿什么衣服合适？",
+        a: "采用三层穿衣法：内层排汗（速干衣）、中层保暖（抓绒/羽绒）、外层防风防水（冲锋衣）。颜色建议选择鲜艳色彩，拍照好看且便于识别。"
+      }
+    ]
+  },
+  {
+    category: "转山过程",
+    questions: [
+      {
+        q: "转山一定要走三天吗？",
+        a: "标准行程是3天2夜。体力好的 pilgrim 可以选择2天完成（第一天到止热寺，第二天翻垭口后直接回塔尔钦）。也可以雇佣背夫或马匹协助。"
+      },
+      {
+        q: "途中住宿条件如何？",
+        a: "塔尔钦有酒店标间；止热寺和尊最普寺是板房或帐篷通铺，条件简陋但干净，有被子提供。尊享团提供羽绒睡袋和充气垫。"
+      },
+      {
+        q: "途中吃什么？",
+        a: "塔尔钦有餐厅；转山途中检查站有简单补给（泡面、饼干、开水）。建议自备高能量零食（巧克力、坚果、能量棒）。团队提供早晚餐。"
+      },
+      {
+        q: "手机有信号吗？",
+        a: "塔尔钦、止热寺有4G信号；翻垭口途中信号不稳定；部分路段无信号。团队配备对讲机和卫星电话（紧急使用）。"
+      }
+    ]
+  },
+  {
+    category: "证件手续",
+    questions: [
+      {
+        q: "需要什么证件？",
+        a: "中国大陆公民：身份证 + 边防证（注明阿里地区）；港澳台同胞：回乡证/台胞证 + 边防证；外籍人士：护照 + 进藏函（需提前通过旅行社办理）。"
+      },
+      {
+        q: "边防证怎么办理？",
+        a: "两种方式：1）在户籍所在地公安局办理（免费，建议提前1周）；2）在拉萨办理（我们可协助，需提前1天）。"
+      }
+    ]
+  }
+];
+---
+
+<Layout title="常见问题 - 冈仁波齐朝圣之旅">
+  <!-- Hero -->
+  <section class="relative py-32 bg-gradient-to-b from-kailash-dark to-kailash-dark/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+        常见问题
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        关于行程、装备、高原反应的一切，这里都有答案
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {faqs.map((category, idx) => (
+        <div class="mb-16 last:mb-0">
+          <h2 class="font-display text-2xl font-bold text-kailash-dark mb-8 pb-4 border-b-2 border-kailash-gold">
+            {category.category}
+          </h2>
+          <div class="space-y-6">
+            {category.questions.map((item, qIdx) => (
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h3 class="font-semibold text-lg text-kailash-dark mb-3 flex items-start gap-3">
+                  <span class="text-kailash-gold font-bold">Q.</span>
+                  {item.q}
+                </h3>
+                <p class="text-gray-600 pl-7 leading-relaxed">
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Still have questions -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">还有问题？</h2>
+      <p class="text-gray-600 mb-8">没找到您想问的？直接联系我们，我们会尽快回复</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="mailto:contact@kailash2026.com" class="inline-flex items-center justify-center gap-2 bg-kailash-gold text-kailash-dark px-6 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          发送邮件
+        </a>
+        <div class="inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-lg">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.045c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.49.49 0 0 1 .177-.554C23.034 18.106 24 16.357 24 14.423c0-3.255-3.01-5.565-6.062-5.565zm-1.951 2.89c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982z"/>
+          </svg>
+          微信: Kailash2026
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

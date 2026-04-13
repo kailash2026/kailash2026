@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const contactInfo = [
+  {
+    icon: "📧",
+    title: "电子邮件",
+    content: "contact@kailash2026.com",
+    desc: "24小时内回复",
+    action: "发送邮件",
+    link: "mailto:contact@kailash2026.com"
+  },
+  {
+    icon: "💬",
+    title: "微信",
+    content: "Kailash2026",
+    desc: "扫码添加咨询",
+    action: "复制微信号",
+    link: "#"
+  },
+  {
+    icon: "📱",
+    title: "电话",
+    content: "+86 xxx-xxxx-xxxx",
+    desc: "工作日 9:00-18:00",
+    action: "拨打电话",
+    link: "tel:+86xxxxxxxxxxx"
+  }
+];
+
+const officeHours = [
+  { day: "周一至周五", time: "09:00 - 18:00" },
+  { day: "周六", time: "10:00 - 16:00" },
+  { day: "周日", time: "休息" }
+];
+---
+
+<Layout title="联系我们 - Kailash 2026">
+  <!-- Hero -->
+  <section class="relative py-32 bg-gradient-to-b from-kailash-dark to-kailash-dark/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+        联系我们
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        有任何问题或特殊需求，我们随时为您服务
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Methods -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        {contactInfo.map(method => (
+          <div class="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
+            <div class="text-5xl mb-4">{method.icon}</div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">{method.title}</h3>
+            <p class="text-kailash-gold font-semibold text-lg mb-1">{method.content}</p>
+            <p class="text-gray-500 text-sm mb-6">{method.desc}</p>
+            <a href={method.link} class="inline-block bg-kailash-gold text-kailash-dark px-6 py-2 rounded-lg font-medium hover:bg-kailash-accent transition">
+              {method.action}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Office Hours -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-display text-3xl font-bold text-kailash-dark mb-6">工作时间</h2>
+          <div class="space-y-4">
+            {officeHours.map(schedule => (
+              <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                <span class="font-medium text-kailash-dark">{schedule.day}</span>
+                <span class="text-gray-600">{schedule.time}</span>
+              </div>
+            ))}
+          </div>
+          <div class="mt-8 p-4 bg-amber-50 rounded-xl">
+            <p class="text-amber-800 text-sm">
+              <span class="font-semibold">💡 提示：</span>
+              朝圣季节（5-10月）期间，我们提供7×24小时紧急服务热线。
+            </p>
+          </div>
+        </div>
+        <div class="bg-kailash-light rounded-2xl p-8">
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-4">快速回复承诺</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <div>
+                <p class="font-medium">邮件咨询</p>
+                <p class="text-gray-600 text-sm">24小时内回复</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <div>
+                <p class="font-medium">微信咨询</p>
+                <p class="text-gray-600 text-sm">工作时间内2小时内回复</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <div>
+                <p class="font-medium">电话咨询</p>
+                <p class="text-gray-600 text-sm">工作时间内即时接听</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
+        准备好开启您的朝圣之旅了吗？
+      </h2>
+      <p class="text-kailash-dark/80 mb-8">
+        直接预订行程，我们的团队会尽快与您联系
+      </p>
+      <a href="/booking" class="inline-flex items-center bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-kailash-dark/90 transition gap-2">
+        立即预订
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

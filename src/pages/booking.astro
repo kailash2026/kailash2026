@@ -1,0 +1,180 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingForm from '../components/BookingForm.tsx';
+
+const packages = [
+  {
+    name: "标准朝圣团",
+    price: "¥8,800",
+    duration: "7天6晚",
+    features: [
+      "拉萨-阿里往返交通",
+      "专业向导全程陪同",
+      "全程住宿（标间/床位）",
+      "转山期间后勤支援",
+      "氧气、医疗包",
+      "旅行保险"
+    ],
+    recommended: false
+  },
+  {
+    name: "尊享朝圣团",
+    price: "¥15,800",
+    duration: "7天6晚",
+    features: [
+      "含标准团所有服务",
+      "拉萨五星酒店2晚",
+      "全程精品住宿",
+      "专属摄影跟拍",
+      "1:2向导配比",
+      "应急马匹/背夫",
+      "特色藏餐体验"
+    ],
+    recommended: true
+  },
+  {
+    name: "定制朝圣",
+    price: "面议",
+    duration: "灵活",
+    features: [
+      "个性化行程设计",
+      "私人向导团队",
+      "直升机接送（可选）",
+      "全程专车",
+      "VIP医疗保障",
+      "24小时客服"
+    ],
+    recommended: false
+  }
+];
+
+const faqs = [
+  {
+    q: "没有高原经验可以参加吗？",
+    a: "可以。我们的行程会安排2-3天在拉萨适应海拔。但建议提前咨询医生，确认身体状况适合高原活动。"
+  },
+  {
+    q: "如果高反严重无法继续怎么办？",
+    a: "团队配备氧气罐和常用药品。如遇严重高反，我们会安排人员陪同下撤至低海拔地区，必要时使用卫星电话呼叫救援。"
+  },
+  {
+    q: "可以单独一人报名吗？",
+    a: "可以。很多朝圣者都是独自前来。我们会将单人报名者编入小队，不会让您孤单上路。"
+  },
+  {
+    q: "取消政策是怎样的？",
+    a: "出发前30天取消全额退款；15-30天退80%；7-15天退50%；7天内不可退款，但可改期一次。"
+  },
+  {
+    q: "需要自带睡袋吗？",
+    a: "建议自带。虽然团队会提供，但自己的睡袋更卫生舒适。需要能承受-10°C以下的羽绒睡袋。"
+  }
+];
+---
+
+<Layout title="预订行程 - 开启您的朝圣之旅">
+  <!-- Hero -->
+  <section class="relative py-32 bg-gradient-to-b from-kailash-dark to-kailash-dark/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+        预订行程
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        专业团队为您打造安全、难忘的朝圣体验
+      </p>
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">选择您的朝圣方案</h2>
+        <p class="text-lg text-gray-600">不同需求，同样专业的服务</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {packages.map((pkg) => (
+          <div class={`rounded-2xl overflow-hidden ${pkg.recommended ? 'ring-4 ring-kailash-gold transform scale-105' : 'bg-white shadow-lg'}`}>
+            {pkg.recommended && (
+              <div class="bg-kailash-gold text-kailash-dark text-center py-2 font-semibold">
+                ⭐ 推荐选择
+              </div>
+            )}
+            <div class="bg-white p-8">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark mb-2">{pkg.name}</h3>
+              <p class="text-gray-500 mb-4">{pkg.duration}</p>
+              <div class="text-4xl font-bold text-kailash-gold mb-6">
+                {pkg.price}<span class="text-lg text-gray-400 font-normal">/人起</span>
+              </div>
+              <ul class="space-y-3 mb-8">
+                {pkg.features.map(f => (
+                  <li class="flex items-start gap-3 text-gray-600">
+                    <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <button 
+                onclick={`document.getElementById('booking-form').scrollIntoView({behavior: 'smooth'})`}
+                class={`w-full py-3 rounded-lg font-semibold transition ${
+                  pkg.recommended 
+                    ? 'bg-kailash-gold text-kailash-dark hover:bg-kailash-accent' 
+                    : 'bg-kailash-dark text-white hover:bg-kailash-dark/90'
+                }`}
+              >
+                选择此方案
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section id="booking-form" class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">填写预订信息</h2>
+        <p class="text-gray-600">我们会在24小时内与您联系确认行程</p>
+      </div>
+
+      <BookingForm client:load />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">常见问题</h2>
+        <p class="text-gray-600">预订前您可能想了解的问题</p>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq, index) => (
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <h3 class="font-semibold text-lg text-kailash-dark mb-2 flex items-start gap-3">
+              <span class="text-kailash-gold">Q{index + 1}.</span>
+              {faq.q}
+            </h3>
+            <p class="text-gray-600 pl-8">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 mb-4">还有其他问题？</p>
+        <a href="mailto:contact@kailash2026.com" class="inline-flex items-center text-kailash-gold hover:text-kailash-dark transition">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          contact@kailash2026.com
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

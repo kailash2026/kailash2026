@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const values = [
+  {
+    title: "安全第一",
+    desc: "高原环境严酷，我们始终把 pilgrim 的安全放在首位。专业向导、医疗支持、应急预案，全程守护。",
+    icon: "🛡️"
+  },
+  {
+    title: "尊重信仰",
+    desc: "深刻理解冈仁波齐的神圣意义，以敬畏之心对待每一次朝圣之旅，尊重当地文化和宗教习俗。",
+    icon: "🙏"
+  },
+  {
+    title: "专业服务",
+    desc: "多年高原带队经验，熟悉每一条路线、每一个 checkpoint，为您提供最专业的朝圣服务。",
+    icon: "✨"
+  },
+  {
+    title: "环保责任",
+    desc: "践行负责任的朝圣理念，带走垃圾、保护环境，让神山永远圣洁。",
+    icon: "🌿"
+  }
+];
+
+const team = [
+  {
+    name: "洛桑",
+    role: "首席向导",
+    desc: "藏族，20年冈仁波齐转山向导经验，熟悉神山每一处圣迹。",
+    avatar: "👤"
+  },
+  {
+    name: "张明",
+    role: "领队",
+    desc: "户外探险专家，10年高海拔领队经验，擅长高原医疗急救。",
+    avatar: "👤"
+  },
+  {
+    name: "格桑",
+    role: "文化顾问",
+    desc: "藏学研究学者，为您解读神山背后的宗教文化与历史传说。",
+    avatar: "👤"
+  }
+];
+---
+
+<Layout title="关于我们 - 专注冈仁波齐朝圣之旅">
+  <!-- Hero -->
+  <section class="relative py-32 bg-kailash-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+        关于 Kailash 2026
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        专注冈仁波齐朝圣服务，用专业与敬畏，守护每一位 pilgrim 的神山之旅
+      </p>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center">我们的故事</h2>
+      <div class="prose prose-lg mx-auto text-gray-600">
+        <p class="mb-6">
+          Kailash 2026 诞生于对神山的热爱和对朝圣者的敬意。我们的创始团队由资深向导、户外探险专家和藏学研究者组成，每个人都有着多次冈仁波齐转山的亲身经历。
+        </p>
+        <p class="mb-6">
+          多年来，我们见证了无数 pilgrim 在转山过程中的身心转变——有人在卓玛拉垭口流泪，有人在玛旁雍错湖畔顿悟，有人在塔尔钦的起点找到重新出发的勇气。
+        </p>
+        <p>
+          我们深知，朝圣不仅是一次身体的旅行，更是一场心灵的修行。因此，我们致力于为每一位朝圣者提供专业、安全、有深度的服务，让您的神山之旅成为生命中最珍贵的记忆。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-12 text-center">我们的理念</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {values.map(v => (
+          <div class="text-center p-6">
+            <div class="text-5xl mb-4">{v.icon}</div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">{v.title}</h3>
+            <p class="text-gray-600 text-sm">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-4xl font-bold text-kailash-dark">500+</p>
+          <p class="text-kailash-dark/70 mt-2">服务朝圣者</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-dark">10+</p>
+          <p class="text-kailash-dark/70 mt-2">专业向导</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-dark">100%</p>
+          <p class="text-kailash-dark/70 mt-2">安全记录</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-dark">5年</p>
+          <p class="text-kailash-dark/70 mt-2">专注服务</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-12 text-center">核心团队</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {team.map(member => (
+          <div class="bg-white rounded-2xl p-8 shadow-lg text-center">
+            <div class="text-6xl mb-4">{member.avatar}</div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark">{member.name}</h3>
+            <p class="text-kailash-gold font-medium mb-3">{member.role}</p>
+            <p class="text-gray-600 text-sm">{member.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold mb-4">与我们取得联系</h2>
+      <p class="text-gray-400 mb-8">有任何问题或特殊需求，欢迎随时联系我们</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="mailto:contact@kailash2026.com" class="bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+          发送邮件
+        </a>
+        <a href="/booking" class="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-kailash-dark transition">
+          预订咨询
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const photos = [
+  {
+    title: "神山晨曦",
+    desc: "日出时分的冈仁波齐，金字塔形山峰被朝阳染成金色",
+    category: "风景"
+  },
+  {
+    title: "转山道",
+    desc: "虔诚的朝圣者行走在转山道上，经幡随风飘扬",
+    category: "朝圣"
+  },
+  {
+    title: "卓玛拉垭口",
+    desc: "海拔5630米的最高点，经幡阵与雪山交相辉映",
+    category: "风景"
+  },
+  {
+    title: "玛旁雍错",
+    desc: "被誉为\"西天瑶池\"的圣湖，湖水清澈见底",
+    category: "风景"
+  },
+  {
+    title: "止热寺",
+    desc: "第一晚的宿营地，正对神山北壁",
+    category: "人文"
+  },
+  {
+    title: "朝圣者",
+    desc: "用身体丈量朝圣之路，三步一拜的虔诚",
+    category: "人文"
+  },
+  {
+    title: "星空下的神山",
+    desc: "银河横跨冈仁波齐上空，满天繁星",
+    category: "风景"
+  },
+  {
+    title: "经幡阵",
+    desc: "五彩经幡承载着无数的祈祷与祝福",
+    category: "人文"
+  },
+  {
+    title: "转山完成",
+    desc: "回到塔尔钦，完成52公里的 spiritual 之旅",
+    category: "朝圣"
+  }
+];
+---
+
+<Layout title="图库 - 冈仁波齐的视觉之旅">
+  <!-- Hero -->
+  <section class="relative py-32 bg-kailash-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+        神山图库
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        用影像记录神圣的土地，感受视觉的震撼
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Filter Tags -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <span class="bg-kailash-gold text-kailash-dark px-4 py-2 rounded-full text-sm font-medium">全部</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">风景</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">人文</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">朝圣</span>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {photos.map((photo, index) => (
+          <div class="group relative aspect-[4/3] bg-gray-200 rounded-xl overflow-hidden cursor-pointer">
+            {/* Placeholder - replace with actual image */}
+            <div class="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
+              <svg class="w-16 h-16 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            {/* Overlay */}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <span class="inline-block bg-kailash-gold text-kailash-dark text-xs px-2 py-1 rounded mb-2">{photo.category}</span>
+                <h3 class="text-white font-bold text-lg">{photo.title}</h3>
+                <p class="text-gray-300 text-sm mt-1">{photo.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Load More -->
+      <div class="text-center mt-12">
+        <button class="bg-white text-kailash-dark px-8 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition">
+          加载更多
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Submit Photos CTA -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold mb-4">分享您的神山记忆</h2>
+      <p class="text-gray-400 mb-8">如果您有冈仁波齐的精彩照片，欢迎分享给我们，让更多人感受神山的魅力</p>
+      <a href="mailto:contact@kailash2026.com?subject=照片投稿" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+        </svg>
+        投稿照片
+      </a>
+    </div>
+  </section>
+</Layout>

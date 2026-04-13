@@ -1,0 +1,291 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const bestTime = {
+  season: "4月-10月",
+  peak: "5月-6月、9月-10月",
+  notes: "避开7-8月雨季，冬季大雪封山"
+};
+
+const equipment = {
+  required: [
+    { item: "冲锋衣裤", desc: "防风防水，三合一更佳" },
+    { item: "登山鞋", desc: "高帮防水，已磨合" },
+    { item: "背包", desc: "30-40L，有腰带支撑" },
+    { item: "睡袋", desc: "羽绒，-10°C以下" },
+    { item: "保暖层", desc: "抓绒或羽绒内胆" }
+  ],
+  recommended: [
+    { item: "登山杖", desc: "双杖，省力护膝" },
+    { item: "头灯", desc: "夜行备用" },
+    { item: "防晒霜", desc: "SPF50+，高原紫外线强" },
+    { item: "墨镜", desc: "防雪盲" },
+    { item: "保温水壶", desc: "500ml以上" },
+    { item: "急救包", desc: "常用药品、创可贴" }
+  ],
+  provided: [
+    "氧气罐",
+    "应急药品",
+    "对讲机",
+    "卫星电话（紧急）"
+  ]
+};
+
+const altitudeTips = [
+  {
+    title: "提前适应",
+    content: "建议在拉萨（3650m）停留2-3天，再去日喀则、珠峰大本营逐步适应海拔。"
+  },
+  {
+    title: "缓慢上升",
+    content: "每天上升不超过500米，给身体适应时间。"
+  },
+  {
+    title: "充足水分",
+    content: "每天至少喝3-4升水，避免脱水加重高反。"
+  },
+  {
+    title: "避免劳累",
+    content: "第一晚不要洗头洗澡，避免感冒。"
+  },
+  {
+    title: "药物预防",
+    content: "可提前服用红景天、高原安等，但效果因人而异。"
+  },
+  {
+    title: "及时下撤",
+    content: "出现严重头痛、呕吐、呼吸困难，立即停止上升，必要时下撤。"
+  }
+];
+
+const permits = [
+  {
+    name: "边防证",
+    desc: "进入阿里地区必须办理，可在户籍所在地或拉萨办理",
+    required: true
+  },
+  {
+    name: "身份证",
+    desc: "全程随身携带，检查站频繁",
+    required: true
+  },
+  {
+    name: "进藏函（外籍）",
+    desc: "外籍人士需通过旅行社办理",
+    required: false
+  }
+];
+---
+
+<Layout title="朝圣攻略 - 冈仁波齐转山指南">
+  <!-- Hero -->
+  <section class="relative py-32 bg-gradient-to-b from-kailash-dark to-kailash-dark/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+        朝圣攻略
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        从准备到出发，一份详尽的冈仁波齐转山指南
+      </p>
+    </div>
+  </section>
+
+  <!-- Best Time -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-6">最佳时间</h2>
+          <div class="space-y-6">
+            <div class="bg-white rounded-xl p-6 shadow-md">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl">🌸</span>
+                <h3 class="font-semibold text-lg">开放季节</h3>
+              </div>
+              <p class="text-kailash-gold font-bold text-xl">{bestTime.season}</p>
+              <p class="text-gray-600 mt-2">每年冬季（11月-次年3月）大雪封山，转山道关闭</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-md">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl">⭐</span>
+                <h3 class="font-semibold text-lg">最佳月份</h3>
+              </div>
+              <p class="text-kailash-gold font-bold text-xl">{bestTime.peak}</p>
+              <p class="text-gray-600 mt-2">天气稳定，能见度高，转山体验最佳</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-6">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl">⚠️</span>
+                <h3 class="font-semibold text-lg">注意事项</h3>
+              </div>
+              <p class="text-gray-700">{bestTime.notes}</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <h3 class="font-display text-xl font-bold mb-6">月度天气参考</h3>
+          <div class="space-y-3">
+            {[
+              { month: "4月", temp: "-5°C ~ 10°C", note: "转山道刚开放，可能积雪" },
+              { month: "5-6月", temp: "0°C ~ 15°C", note: "天气最佳，推荐" },
+              { month: "7-8月", temp: "5°C ~ 18°C", note: "雨季，偶有泥石流" },
+              { month: "9-10月", temp: "-2°C ~ 12°C", note: "秋高气爽，推荐" }
+            ].map(m => (
+              <div class="flex justify-between items-center py-3 border-b border-gray-100 last:border-0">
+                <span class="font-medium">{m.month}</span>
+                <span class="text-gray-600">{m.temp}</span>
+                <span class="text-sm text-gray-500">{m.note}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipment -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">装备清单</h2>
+        <p class="text-lg text-gray-600">充分准备，才能应对高原的严酷环境</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Required -->
+        <div class="bg-red-50 rounded-2xl p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">必</span>
+            <h3 class="font-display text-xl font-bold">必备装备</h3>
+          </div>
+          <ul class="space-y-4">
+            {equipment.required.map(item => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <p class="font-medium">{item.item}</p>
+                  <p class="text-sm text-gray-600">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Recommended -->
+        <div class="bg-blue-50 rounded-2xl p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">荐</span>
+            <h3 class="font-display text-xl font-bold">推荐装备</h3>
+          </div>
+          <ul class="space-y-4">
+            {equipment.recommended.map(item => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <p class="font-medium">{item.item}</p>
+                  <p class="text-sm text-gray-600">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Provided -->
+        <div class="bg-green-50 rounded-2xl p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">团</span>
+            <h3 class="font-display text-xl font-bold">团队提供</h3>
+          </div>
+          <p class="text-gray-600 mb-4">参加我们的朝圣团，以下装备由团队提供：</p>
+          <ul class="space-y-3">
+            {equipment.provided.map(item => (
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Altitude Sickness -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold mb-4">高原反应预防</h2>
+        <p class="text-gray-400">海拔4560米起步，最高5630米，高反是最大挑战</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {altitudeTips.map((tip, index) => (
+          <div class="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition">
+            <div class="flex items-start gap-4">
+              <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                {index + 1}
+              </span>
+              <div>
+                <h3 class="font-semibold text-lg mb-2">{tip.title}</h3>
+                <p class="text-gray-400 text-sm">{tip.content}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 bg-red-500/10 border border-red-500/30 rounded-xl p-6">
+        <div class="flex items-start gap-4">
+          <span class="text-2xl">🚨</span>
+          <div>
+            <h3 class="font-semibold text-lg text-red-400 mb-2">紧急情况</h3>
+            <p class="text-gray-300">如出现意识模糊、剧烈头痛、肺水肿症状（咳粉红色泡沫痰），必须立即下撤至低海拔地区并就医。我们的团队配备卫星电话，可随时呼叫救援。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Permits -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">证件办理</h2>
+        <p class="text-lg text-gray-600">提前准备，避免耽误行程</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div class="divide-y divide-gray-100">
+          {permits.map(permit => (
+            <div class="p-6 flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <span class={`w-3 h-3 rounded-full ${permit.required ? 'bg-red-500' : 'bg-yellow-500'}`}></span>
+                <div>
+                  <h3 class="font-semibold text-lg">{permit.name}</h3>
+                  <p class="text-gray-600">{permit.desc}</p>
+                </div>
+              </div>
+              <span class={`px-3 py-1 rounded-full text-sm ${permit.required ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'}`}>
+                {permit.required ? '必须' : '特定人群'}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-8 text-center">
+        <p class="text-gray-600 mb-4">不确定需要哪些证件？联系我们协助办理</p>
+        <a href="/booking" class="inline-flex items-center bg-kailash-gold text-kailash-dark px-6 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+          咨询详情
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

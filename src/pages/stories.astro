@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const stories = [
+  {
+    title: "我的第一次转山：在5630米流泪",
+    excerpt: "当翻越卓玛拉垭口的那一刻，我终于明白什么是信仰的力量。高原的稀薄空气让每一步都变得艰难，但内心却前所未有地平静...",
+    author: "张先生",
+    date: "2025年9月",
+    category: "个人经历",
+    readTime: "5分钟"
+  },
+  {
+    title: "带着母亲去朝圣：70岁的神山之旅",
+    excerpt: "母亲念叨了十年的冈仁波齐，终于在70岁生日这天成行。看着她在止热寺前双手合十的样子，我知道这趟旅程值了...",
+    author: "李女士",
+    date: "2025年6月",
+    category: "家庭故事",
+    readTime: "8分钟"
+  },
+  {
+    title: "一个摄影师眼中的神山：光影之间",
+    excerpt: "为了拍摄冈仁波齐的星空，我在塔尔钦等了七天。第七天的凌晨，银河终于横跨神山顶峰，那一刻的震撼无法用语言描述...",
+    author: "王摄影师",
+    date: "2025年5月",
+    category: "摄影故事",
+    readTime: "6分钟"
+  },
+  {
+    title: "与藏族同胞同行：三日转山记",
+    excerpt: "选择跟随藏族同胞一起转山，用他们的节奏走完52公里。他们教我念诵六字真言，告诉我转山不是征服，而是臣服...",
+    author: "陈同学",
+    date: "2024年10月",
+    category: "文化体验",
+    readTime: "7分钟"
+  },
+  {
+    title: "创业失败后，我在神山找到了答案",
+    excerpt: "公司倒闭的那一年，我独自一人来到冈仁波齐。三天两夜的转山，没有手机信号，只有脚步声和呼吸声。当我回到塔尔钦时，我知道该怎么做了...",
+    author: "刘先生",
+    date: "2024年8月",
+    category: "心灵之旅",
+    readTime: "10分钟"
+  }
+];
+---
+
+<Layout title="朝圣故事 - 他们的神山之旅">
+  <!-- Hero -->
+  <section class="relative py-32 bg-gradient-to-b from-kailash-dark to-kailash-dark/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+        朝圣故事
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        每一个转山的人，都有一段独特的故事
+      </p>
+    </div>
+  </section>
+
+  <!-- Stories List -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-8">
+        {stories.map((story, index) => (
+          <article class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-kailash-gold/10 text-kailash-dark text-xs px-3 py-1 rounded-full font-medium">{story.category}</span>
+              <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">{story.readTime}阅读</span>
+            </div>
+            <h2 class="font-display text-2xl font-bold text-kailash-dark mb-3 hover:text-kailash-gold transition-colors cursor-pointer">
+              {story.title}
+            </h2>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              {story.excerpt}
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center text-kailash-dark font-bold">
+                  {story.author[0]}
+                </div>
+                <div>
+                  <p class="font-medium text-kailash-dark">{story.author}</p>
+                  <p class="text-sm text-gray-500">{story.date}</p>
+                </div>
+              </div>
+              <button class="text-kailash-gold font-medium hover:text-kailash-dark transition-colors flex items-center gap-1">
+                阅读全文
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex justify-center gap-2 mt-12">
+        <button class="w-10 h-10 rounded-lg bg-kailash-gold text-kailash-dark font-medium">1</button>
+        <button class="w-10 h-10 rounded-lg bg-white text-gray-600 hover:bg-gray-100">2</button>
+        <button class="w-10 h-10 rounded-lg bg-white text-gray-600 hover:bg-gray-100">3</button>
+        <span class="w-10 h-10 flex items-center justify-center text-gray-400">...</span>
+        <button class="w-10 h-10 rounded-lg bg-white text-gray-600 hover:bg-gray-100">
+          <svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Submit Story CTA -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">分享您的故事</h2>
+      <p class="text-gray-600 mb-8">您的神山经历可能会激励更多人踏上朝圣之路</p>
+      <div class="bg-kailash-light rounded-2xl p-8">
+        <div class="grid md:grid-cols-3 gap-6 text-left mb-8">
+          <div class="flex items-start gap-3">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</span>
+            <div>
+              <h3 class="font-semibold text-kailash-dark">撰写故事</h3>
+              <p class="text-sm text-gray-600">记录您的转山经历，不少于500字</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</span>
+            <div>
+              <h3 class="font-semibold text-kailash-dark">附上照片</h3>
+              <p class="text-sm text-gray-600">精选3-5张旅途中的精彩照片</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</span>
+            <div>
+              <h3 class="font-semibold text-kailash-dark">发送给我们</h3>
+              <p class="text-sm text-gray-600">邮件投稿，审核后发布</p>
+            </div>
+          </div>
+        </div>
+        <a href="mailto:contact@kailash2026.com?subject=故事投稿" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+          </svg>
+          投稿故事
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
