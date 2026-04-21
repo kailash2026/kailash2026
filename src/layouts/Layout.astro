@@ -10,15 +10,15 @@ export interface Props {
 const { title, description } = Astro.props;
 
 const navItems = [
-  { label: '首页', href: '/' },
-  { label: '神山文化', href: '/culture' },
-  { label: '朝圣攻略', href: '/guide' },
-  { label: '转山路线', href: '/routes' },
-  { label: '朝圣故事', href: '/stories' },
-  { label: '图库', href: '/gallery' },
-  { label: '常见问题', href: '/faq' },
-  { label: '关于我们', href: '/about' },
-  { label: '联系我们', href: '/contact' },
+  { label: 'གཙོ་ངོས།', labelZh: '首页', labelEn: 'Home', href: '/' },
+  { label: 'ལྷ་རིའི་རིག་གནས།', labelZh: '神山文化', labelEn: 'Culture', href: '/culture' },
+  { label: 'མཇལ་བསྐོར་གནས་ཚུལ།', labelZh: '朝圣攻略', labelEn: 'Guide', href: '/guide' },
+  { label: 'ལམ་ཐིག', labelZh: '转山路线', labelEn: 'Routes', href: '/routes' },
+  { label: 'སྒྲོལ་ལྗོངས།', labelZh: '朝圣故事', labelEn: 'Stories', href: '/stories' },
+  { label: 'བརྙན་མཛོད།', labelZh: '图库', labelEn: 'Gallery', href: '/gallery' },
+  { label: 'ཟུང་བྲལ།', labelZh: '常见问题', labelEn: 'FAQ', href: '/faq' },
+  { label: 'ང་ཚོ།', labelZh: '关于我们', labelEn: 'About', href: '/about' },
+  { label: 'འབྲེལ་བ།', labelZh: '联系我们', labelEn: 'Contact', href: '/contact' },
 ];
 ---
 
@@ -39,8 +39,9 @@ const navItems = [
         {/* Desktop Nav */}
         <div class="hidden lg:flex items-center space-x-6">
           {navItems.slice(0, 5).map(item => (
-            <a href={item.href} class="text-white hover:text-kailash-gold transition text-sm">
-              {item.label}
+            <a href={item.href} class="text-white hover:text-kailash-gold transition text-sm group relative">
+              <span>{item.labelZh}</span>
+              <span class="hidden group-hover:inline text-xs text-kailash-gold ml-1">{item.label}</span>
             </a>
           ))}
           
@@ -62,7 +63,7 @@ const navItems = [
         <div class="flex flex-col space-y-3">
           {navItems.map(item => (
             <a href={item.href} class="text-white hover:text-kailash-gold transition py-2">
-              {item.label}
+              {item.labelZh}
             </a>
           ))}
           <a href="/booking" class="bg-kailash-gold text-kailash-dark px-4 py-3 rounded-lg font-medium text-center">
