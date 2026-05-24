@@ -2,52 +2,67 @@
 export interface Props {
   title: string;
   description?: string;
+  descriptionEn?: string;
   image?: string;
   type?: string;
   publishDate?: string;
   modifiedDate?: string;
   author?: string;
+  keywords?: string[];
 }
 
 const {
   title,
   description = "冈仁波齐朝圣之旅 - 世界的中心，信仰的高地。提供专业的神山文化介绍、朝圣攻略和行程预订服务。",
+  descriptionEn = "Mount Kailash Pilgrimage - The center of the world, the height of faith. Professional sacred mountain culture, pilgrimage guides, and travel services.",
   image = "/images/og-image.jpg",
   type = "website",
   publishDate,
   modifiedDate,
-  author = "Kailash 2026"
+  author = "Kailash 2026",
+  keywords = ["冈仁波齐", "Mount Kailash", "Kailash", "朝圣", "pilgrimage", "神山", "sacred mountain", "西藏", "Tibet", "转山", "Kora", "玛旁雍错", "Manasarovar"]
 } = Astro.props;
 
 const siteUrl = "https://kailash2026.com";
 const canonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImage = new URL(image, siteUrl).toString();
+
+// 构建双语 description（优先中文，附带英文）
+const fullDescription = `${description} | ${descriptionEn}`;
 ---
 
 <!-- 基础 Meta -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content={description} />
+<meta name="description" lang="en" content={descriptionEn} />
 <meta name="author" content={author} />
 <meta name="generator" content={Astro.generator} />
+<meta name="keywords" content={keywords.join(", ")} />
 
 <!-- 规范链接 -->
 <link rel="canonical" href={canonicalURL} />
 
-<!-- Open Graph -->
+<!-- 多语言声明 - 当前页面为双语混合 -->
+<link rel="alternate" hreflang="zh-CN" href={canonicalURL} />
+<link rel="alternate" hreflang="en" href={canonicalURL} />
+<link rel="alternate" hreflang="x-default" href={canonicalURL} />
+
+<!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={fullDescription} />
 <meta property="og:image" content={ogImage} />
-<meta property="og:site_name" content="Kailash 2026" />
+<meta property="og:site_name" content="Kailash 2026 | 冈仁波齐" />
 <meta property="og:locale" content="zh_CN" />
+<meta property="og:locale:alternate" content="en_US" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={fullDescription} />
 <meta name="twitter:image" content={ogImage} />
 
 <!-- 文章相关 -->
@@ -61,3 +76,76 @@ const ogImage = new URL(image, siteUrl).toString();
 
 <!-- 主题色 -->
 <meta name="theme-color" content="#1a1a2e" />
+
+<!-- Schema.org 结构化数据: 冈仁波齐作为圣地/旅游景点 -->
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": [
+    {{"@language": "zh", "@value": "冈仁波齐"}},
+    {{"@language": "en", "@value": "Mount Kailash"}}
+  ],
+  "alternateName": ["Kailash", "Kailasa", "Gang Rinpoche", "岗仁波切", "凯拉萨"],
+  "description": "{fullDescription}",
+  "url": "{canonicalURL}",
+  "image": "{ogImage}",
+  "additionalType": ["PlaceOfWorship", "LandmarksOrHistoricalBuildings"],
+  "geo": {{
+    "@type": "GeoCoordinates",
+    "latitude": "31.0675",
+    "longitude": "81.3119"
+  }},
+  "address": {{
+    "@type": "PostalAddress",
+    "addressLocality": "塔尔钦",
+    "addressRegion": "阿里地区",
+    "addressCountry": "CN"
+  }},
+  "isAccessibleForFree": true,
+  "publicAccess": true,
+  "tourBookingPage": "https://kailash2026.com/booking",
+  "sameAs": [
+    "https://en.wikipedia.org/wiki/Mount_Kailash",
+    "https://wikidata.org/wiki/Q201071"
+  ]
+}}
+</script>
+
+<!-- Schema.org: 网站组织信息 -->
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Kailash 2026",
+  "alternateName": "冈仁波齐2026",
+  "url": "https://kailash2026.com",
+  "logo": "https://kailash2026.com/favicon.svg",
+  "sameAs": [],
+  "description": "全球冈仁波齐神山文化平台 | Global Mount Kailash Sacred Mountain Culture Platform",
+  "areaServed": {{
+    "@type": "Place",
+    "name": "Mount Kailash",
+    "geo": {{
+      "@type": "GeoCoordinates",
+      "latitude": "31.0675",
+      "longitude": "81.3119"
+    }}
+  }},
+  "knowsAbout": [
+    "藏传佛教",
+    "Tibetan Buddhism",
+    "印度教",
+    "Hinduism",
+    "苯教",
+    "Bön",
+    "耆那教",
+    "Jainism",
+    "冈仁波齐",
+    "Mount Kailash",
+    "Kailash Kora",
+    "转山",
+    "Pilgrimage"
+  ]
+}}
+</script>

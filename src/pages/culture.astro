@@ -3,81 +3,356 @@ import Layout from '../layouts/Layout.astro';
 
 const religions = [
   {
-    name: "藏传佛教",
-    description: "在藏传佛教中，冈仁波齐被认为是胜乐金刚的居所，是密宗的圣地。虔诚的藏传佛教徒相信，绕山转一圈可以洗净一生的罪孽；转十圈，可免除地狱之苦；转一百零八圈，可以立地成佛。",
-    deity: "胜乐金刚",
-    practice: "磕长头、转经筒、悬挂经幡"
+    name: `藏传佛教`,
+    nameEn: `Tibetan Buddhism`,
+    icon: `📿`,
+    description: `在藏传佛教中，冈仁波齐被称为「岗仁波切」（Gang Rinpoche），意为「珍贵的雪山」。密宗传统将其视为胜乐金刚的修行圣地。
+
+一个有趣的细节：藏传佛教徒绕山时走的是顺时针方向，与印度教一致。而苯教恰恰相反，走的是逆时针。这一方向差异，背后藏着一段藏传佛教与苯教争夺神山话语权的历史。`,
+    descriptionEn: `In Tibetan Buddhism, Mount Kailash is called "Gang Rinpoche," meaning "Precious Snow Mountain." Tantric tradition regards it as the sacred practice ground of Chakrasamvara.
+
+A fascinating detail: Tibetan Buddhists circumambulate clockwise—the same direction as Hindus. Bön practitioners walk counter-clockwise. This directional difference reflects a historical contest between Tibetan Buddhism and Bön for authority over the sacred mountain.`,
+    history: `公元7世纪，佛教从印度传入西藏。经过几个世纪的传播与融合，到了11世纪，藏传佛教的噶举派开始将冈仁波齐确立为重要的修行圣地。
+
+关于佛教何时、如何将冈仁波齐纳入圣地体系，目前缺乏连续的文字记录。早期佛教经典中并没有提到佛陀曾到过冈仁波齐——这个说法更多出现在后期的密宗文献中，是宗教宇宙观的投射，而非历史传记。`,
+    historyEn: `In the 7th century, Buddhism arrived in Tibet from India. After centuries of transmission and integration, by the 11th century, the Kagyu school of Tibetan Buddhism began establishing Kailash as an important sacred site.
+
+The exact timeline of how and when Buddhism incorporated Kailash into its sacred geography remains unclear. Early Buddhist scriptures do not mention the Buddha visiting Kailash—this association appears more prominently in later tantric texts, reflecting cosmological projection rather than historical biography.`
   },
   {
-    name: "印度教",
-    description: "印度教视冈仁波齐（Kailash）为湿婆神的居所，是其与妻子雪山神女冥想的圣地。印度教徒相信，在神山脚下沐浴圣湖玛旁雍错的湖水可以洗净罪孽，而绕山则是灵魂净化的最高形式。",
-    deity: "湿婆神",
-    practice: "沐浴圣湖、顺时针绕山"
+    name: `印度教`,
+    nameEn: `Hinduism`,
+    icon: `🕉️`,
+    description: `印度教徒称冈仁波齐为「凯拉萨」（Kailasa），这是湿婆神的居所。在印度教的宇宙观中，这里是众神的聚会之地，也是宇宙中最为纯净的空间。
+
+每年，成千上万的印度教徒踏上凯拉萨-玛旁雍错朝圣之路（Kailash Mansarovar Yatra）。对他们而言，在神山脚下沐浴圣湖之水，绕山一周，是灵魂净化的最高形式。`,
+    descriptionEn: `Hindus call Mount Kailash "Kailasa," the abode of Lord Shiva. In Hindu cosmology, this is where the gods assemble, and the most pristine space in the universe.
+
+Every year, thousands of Hindus undertake the Kailash Mansarovar Yatra. For them, bathing in the sacred lake at the mountain's feet and circumambulating the peak represents the highest form of soul purification.`,
+    history: `印度教与冈仁波齐的关联，可以追溯到古代吠陀文献。但这里有一个容易被忽略的问题：早期吠陀经典中的「凯拉萨」，是否就是今天我们所指的冈仁波齐峰？
+
+一些学者认为，「凯拉萨」最初可能是一个神话化的概念，象征着喜马拉雅山脉的神圣性，后来才被具体化为这座特定的山峰。这意味着，印度教徒大规模前往冈仁波齐朝圣的历史，可能比我们想象的要晚一些。`,
+    historyEn: `Hinduism's connection to Kailash traces back to ancient Vedic texts. But an easily overlooked question remains: does "Kailasa" in early Vedic scriptures refer to the specific peak we call Mount Kailash today?
+
+Some scholars suggest "Kailasa" was originally a mythologized concept symbolizing the Himalayas' sacredness, later localized to this particular mountain. This means large-scale Hindu pilgrimage to Kailash may have begun later than commonly assumed.`
   },
   {
-    name: "苯教",
-    description: "作为西藏的原始宗教，苯教认为冈仁波齐是九层雍仲山的中心，是苯教创始人敦巴辛饶从天而降的地方。苯教徒以逆时针方向绕山，与其他宗教相反。",
-    deity: "敦巴辛饶",
-    practice: "逆时针绕山、祭祀山神"
+    name: `苯教`,
+    nameEn: `Bön`,
+    icon: `☸️`,
+    description: `苯教是西藏最古老的宗教。在苯教的宇宙观中，冈仁波齐是世界的中心，是连接天、地、人三界的宇宙之轴。
+
+苯教徒转山时走的是逆时针方向——这与藏传佛教和印度教正好相反。这个方向差异不是偶然，而是苯教坚持自身独立传统的标志。苯教的创始人敦巴辛饶被认为从天而降于此山。`,
+    descriptionEn: `Bön is Tibet's oldest religion. In Bön cosmology, Mount Kailash is the center of the world, the cosmic axis connecting heaven, earth, and humanity.
+
+Bön practitioners circumambulate counter-clockwise—the opposite of Tibetan Buddhists and Hindus. This difference is no accident; it marks Bön's insistence on maintaining its independent tradition. Bön's founder, Tonpa Shenrab, is believed to have descended from heaven to this mountain.`,
+    history: `关于苯教的年代，学术界存在不同看法。一派观点认为，苯教是在佛教传入西藏后，为确立自身独立性而进行了系统化的改造，其经典大量借鉴了佛教的框架。另一派观点则认为，苯教是西藏土生土长的原始宗教，拥有完全独立的起源。
+
+这种争议也延伸到了苯教与冈仁波齐的关联上。苯教传统中逆时针转山的做法，究竟是佛教传入前就有的古老习俗，还是后来为与佛教区分而有意建构的符号？目前缺乏决定性的考古证据来回答这个问题。`,
+    historyEn: `Scholars hold differing views on Bön's dating. One school argues Bön was systematically reformed after Buddhism entered Tibet, borrowing heavily from Buddhist frameworks. Another maintains Bön is an indigenous Tibetan religion with entirely independent origins.
+
+This dispute extends to Bön's relationship with Kailash. Was counter-clockwise circumambulation an ancient pre-Buddhist practice, or a later symbol constructed to distinguish Bön from Buddhism? Definitive archaeological evidence is still lacking.`
   },
   {
-    name: "耆那教",
-    description: "耆那教徒相信，其第一位祖师勒舍波在此山获得解脱。冈仁波齐在耆那教传统中象征着精神解放的最高峰。",
-    deity: "勒舍波",
-    practice: "冥想、苦行"
+    name: `耆那教`,
+    nameEn: `Jainism`,
+    icon: `🪔`,
+    description: `耆那教是印度最古老的宗教之一，与佛教同时期兴起。耆那教徒相信，他们的第一位祖师勒舍波在冈仁波齐获得了最终的解脱。
+
+在耆那教传统中，冈仁波齐被称为「八足山」（Astapada），象征着精神修行的最高境界。虽然耆那教朝圣者前往冈仁波齐的人数相对较少，但这座山在他们心中的神圣地位，与其他宗教并无二致。`,
+    descriptionEn: `Jainism is among India's oldest religions, emerging alongside Buddhism. Jains believe their first Tirthankara, Rishabhanatha, attained final liberation at Mount Kailash.
+
+In Jain tradition, Kailash is called "Astapada" (Eight-Footed Mountain), symbolizing the highest realm of spiritual practice. Though Jain pilgrims to Kailash are relatively few, the mountain holds equally sacred status in their hearts as in other faiths.`,
+    history: `耆那教与冈仁波齐的关联，在四大宗教中拥有最少的直接文献依据。耆那教经典中对「八足山」的描述比较抽象，并未明确指向今日西藏阿里地区的这座具体山峰。
+
+这种「文献薄弱」不等于「信仰虚假」。耆那教徒对冈仁波齐的虔诚是真实的。但从学术研究的角度来看，我们需要承认：相比于藏传佛教和印度教，耆那教与冈仁波齐的关联链条需要更多的文本学研究来支撑。`,
+    historyEn: `Jainism's connection to Kailash has the weakest direct textual basis among the four religions. Jain scriptures describe "Astapada" in abstract terms without clearly identifying today's specific peak in Tibet's Ngari Prefecture.
+
+This "textual thinness" does not equal "false faith." Jain devotion to Kailash is genuine. But from an academic standpoint, we must acknowledge that Jainism's Kailash connection requires more philological study compared to Tibetan Buddhism and Hinduism.`
+  }
+];
+
+const timeline = [
+  {
+    year: `公元前？`,
+    yearEn: `Prehistory?`,
+    title: `苯教的宇宙中心`,
+    titleEn: `Bön's Cosmic Center`,
+    content: `苯教将冈仁波齐确立为宇宙之轴。但苯教本身的起源年代尚无定论——可能是西藏史前时期的原始信仰，也可能是在佛教影响下的后期系统化宗教。`,
+    contentEn: `Bön established Kailash as the cosmic axis. But Bön's own origins remain undated—possibly a prehistorical Tibetan belief, or a later systematized religion influenced by Buddhism.`
+  },
+  {
+    year: `公元7世纪`,
+    yearEn: `7th Century CE`,
+    title: `佛教传入西藏`,
+    titleEn: `Buddhism Enters Tibet`,
+    content: `松赞干布统一西藏后，佛教从印度和中原传入。但佛教何时开始将冈仁波齐纳入圣地体系，具体时间线并不清晰。`,
+    contentEn: `After Songtsen Gampo unified Tibet, Buddhism arrived from India and China. But when Buddhism began incorporating Kailash into its sacred geography remains unclear.`
+  },
+  {
+    year: `公元11世纪`,
+    yearEn: `11th Century`,
+    title: `密宗与神山`,
+    titleEn: `Tantra and the Sacred Mountain`,
+    content: `藏传佛教噶举派兴起，开始系统性地将冈仁波齐建构为密宗修行圣地。同时期流传的米拉日巴与苯教大师斗法的传说，成为佛教确立神山主导权的标志性叙事。`,
+    contentEn: `The Kagyu school rose, systematically establishing Kailash as a tantric sacred site. The legend of Milarepa's contest with the Bön master became Buddhism's signature narrative for claiming authority over the mountain.`
+  },
+  {
+    year: `公元15-20世纪`,
+    yearEn: `15th–20th Century`,
+    title: `朝圣路线形成`,
+    titleEn: `Pilgrimage Routes Form`,
+    content: `印度教徒经尼泊尔、西藏前往冈仁波齐的路线逐渐固定。英国殖民时期的探险家记录了这条路线上的朝圣活动。`,
+    contentEn: `Hindu pilgrimage routes through Nepal and Tibet to Kailash gradually stabilized. British colonial-era explorers documented pilgrimage activities along these paths.`
+  },
+  {
+    year: `1980年代至今`,
+    yearEn: `1980s–Present`,
+    title: `现代朝圣时代`,
+    titleEn: `Modern Pilgrimage Era`,
+    content: `中国对外开放阿里地区，国际朝圣者可以申请进入。印度政府于1981年开始组织官方朝圣团。`,
+    contentEn: `China opened Ngari Prefecture to the outside world; international pilgrims could apply for entry. India's government began organizing official Yatra groups in 1981.`
   }
 ];
 
 const legends = [
   {
-    title: "米拉日巴与那若本琼斗法",
-    content: "相传在11世纪，藏传佛教噶举派祖师米拉日巴与苯教大师那若本琼在此斗法。两人约定以日出为证，谁先到达山顶谁便赢得神山。那若本琼骑鼓而上，米拉日巴则乘阳光而登。最终米拉日巴获胜，确立了佛教在西藏的主导地位，但苯教仍保留逆时针转山的传统。"
+    title: `米拉日巴与那若本琼的斗法`,
+    titleEn: `The Contest of Milarepa and Naro Bönchung`,
+    summary: `一个传说，两个版本`,
+    summaryEn: `One Legend, Two Versions`,
+    content: `这是冈仁波齐最著名的传说。藏传佛教的说法是：11世纪，噶举派祖师米拉日巴与苯教大师那若本琼约定，谁先到达山顶谁就赢得神山。那若本琼骑鼓飞升，米拉日巴则乘阳光而登，最终佛教获胜，苯教保留逆时针转山的传统。
+
+但苯教版本的传说完全不同。在苯教的叙述中，双方并未分出胜负，而是达成了共存协议——佛教顺时针转山，苯教逆时针转山，两教共享神山。
+
+从历史研究的角度来看，这个传说最早见于15世纪的《米拉日巴传》，距传说发生的11世纪已有约400年间隔。它更可能是为确立佛教主导地位而建构的宗教政治叙事，而非严格意义上的历史记录。`,
+    contentEn: `Kailash's most famous legend. The Buddhist version: in the 11th century, Kagyu master Milarepa and Bön master Naro Bönchung agreed—whoever reached the summit first would claim the mountain. Naro Bönchung flew on his drum; Milarepa ascended on a sunbeam. Buddhism won; Bön retained counter-clockwise circumambulation.
+
+The Bön version differs entirely. In their telling, neither won nor lost. Instead, both reached a coexistence agreement—Buddhists walk clockwise, Bön practitioners counter-clockwise, sharing the mountain.
+
+From a historical perspective, this legend first appears in the 15th-century "Life of Milarepa," roughly 400 years after the purported events. It was likely constructed as religious-political narrative to establish Buddhist dominance, not strict historical record.`
   },
   {
-    title: "释迦牟尼的足迹",
-    content: "传说释迦牟尼曾在冈仁波齐讲法，山脚下的诸多圣迹都被认为与佛陀有关。佛教徒相信，转山可以追随佛陀的足迹，获得无上功德。"
+    title: `释迦牟尼是否到过冈仁波齐？`,
+    titleEn: `Did the Buddha Visit Kailash?`,
+    summary: `信仰的真实 vs 文献的空白`,
+    summaryEn: `Faith Truth vs. Documentary Gap`,
+    content: `藏传佛教传统认为佛陀曾在冈仁波齐讲法，转山即是追随佛陀的足迹。但这一说法面临着文献学上的挑战：早期佛教经典（如巴利文三藏、梵文大乘经典）中，并没有佛陀前往冈仁波齐的直接记载。
+
+佛陀一生的主要活动范围在今印度比哈尔邦和尼泊尔南部，地理上距冈仁波齐约1500公里。将佛陀与冈仁波齐关联起来的说法，更多出现在后期的密宗文献中，是一种宗教宇宙观的投射——将佛陀的 spiritual 存在扩展到神山之上。
+
+这里需要区分两个层面的「真实」：在信仰层面上，佛陀与冈仁波齐的关联是深刻的精神真实；在历史考证层面上，这一关联缺乏早期文献的直接支撑。`,
+    contentEn: `Tibetan Buddhist tradition holds that the Buddha taught at Kailash; circumambulating follows his footsteps. But this faces philological challenges: early Buddhist scriptures (Pali Tripitaka, Sanskrit Mahayana sutras) contain no direct record of the Buddha traveling to Kailash.
+
+The Buddha's lifetime activity centered in present-day Bihar, India and southern Nepal—roughly 1,500 km from Kailash. The Buddha-Kailash association appears more prominently in later tantric texts, projecting the Buddha's spiritual presence onto the sacred mountain.
+
+We must distinguish two levels of "truth": at the faith level, the Buddha-Kailash connection is profound spiritual truth; at the historical verification level, it lacks early documentary support.`
   },
   {
-    title: "世界的中心",
-    content: "古印度吠陀文献记载，冈仁波齐位于世界的中心，四条大河——狮泉河、象泉河、孔雀河、马泉河——分别从神山的四面发源，流向不同的方向，滋养着南亚和东亚的文明。"
+    title: `四条圣河与亚洲文明`,
+    titleEn: `Four Rivers and Asian Civilization`,
+    summary: `地理事实与宗教象征`,
+    summaryEn: `Geographic Fact vs. Religious Symbolism`,
+    content: `古印度吠陀文献和藏传佛教典籍都记载，四条大河发源于冈仁波齐的四面：狮泉河（印度河支流）、象泉河（萨特累季河上游）、孔雀河（恒河流域）、马泉河（雅鲁藏布江/布拉马普特拉河上游）。
+
+从地理学上看，这四条河确实发源于冈仁波齐周边的冈底斯山脉冰川融水区。但严格来说，它们的「最源头」并非冈仁波齐峰顶本身，而是其周边广阔的冰川网络。
+
+宗教文献中将四河与四动物（狮、象、孔雀、马）关联，并赋予方向性，这是一种典型的宇宙观建构。「冈仁波齐是亚洲文明的源头」这个说法，在地理学上是指河流源头，在文化学上是指精神象征——两者不应混为一谈。`,
+    contentEn: `Ancient Indian Vedic texts and Tibetan Buddhist scriptures record four great rivers originating from Kailash's four faces: Lion Spring (Indus tributary), Elephant Spring (upper Sutlej), Peacock Spring (Ganges basin), Horse Spring (upper Brahmaputra/Yarlung Tsangpo).
+
+Geologically, these rivers do originate in the Gangdise Range's glacial melt zones around Kailash. But strictly speaking, their absolute sources are not Kailash's summit itself, but the broader glacial network surrounding it.
+
+Religious texts associate four rivers with four animals (lion, elephant, peacock, horse) and assign directions—typical cosmological construction. Calling Kailash "the source of Asian civilization" means river sources geographically, spiritual symbol culturally—these should not be conflated.`
+  },
+  {
+    title: `圣湖与鬼湖：玛旁雍错和拉昂错`,
+    titleEn: `The Sacred Lake and the Demon Lake`,
+    summary: `自然差异如何变成道德对立`,
+    summaryEn: `How Natural Differences Become Moral Opposites`,
+    content: `冈仁波齐南侧的玛旁雍错是淡水湖，湖水清澈透明，被藏族人称为「西天瑶池」。北侧的拉昂错是咸水湖，因风大浪急而显得神秘莫测，被称为「鬼湖」。
+
+从自然科学的角度看，两湖的差异是水化学性质的客观结果：淡水湖和咸水湖的形成与地下水补给、蒸发量、矿物质积累等因素有关。
+
+但宗教传统将这种自然差异赋予了道德意义——一个「圣」、一个「魔」。这种二元对立是典型的文化诠释，而非水体本身的「善恶」。两湖相距仅数公里，共享同一山脉的冰川融水，却在人类的文化想象中成为了对立的两极。`,
+    contentEn: `South of Kailash lies Lake Manasarovar—freshwater, crystal clear, called "the Jade Pool of the Western Heaven" by Tibetans. North of Kailash lies Lake Rakshastal—saltwater, mysteriously turbulent, called the "Demon Lake."
+
+From a natural science perspective, the difference is objective hydrochemistry: freshwater and saltwater lakes form through groundwater recharge, evaporation rates, and mineral accumulation.
+
+But religious tradition invested this natural difference with moral meaning—one "sacred," one "demonic." This binary opposition is cultural interpretation, not the water's intrinsic "goodness" or "evil." The lakes sit just kilometers apart, sharing the same mountain's glacial melt, yet became opposite poles in human cultural imagination.`
+  }
+];
+
+const koraMeaning = [
+  {
+    title: `身体的朝圣`,
+    titleEn: `The Body`,
+    content: `52公里高原徒步，翻越5630米的卓玛拉垭口。这不是普通的徒步旅行，而是对身体极限的挑战。高原缺氧、气温骤降、路况艰险——每一个 checkpoint 都是对意志的考验。`,
+    contentEn: `52 kilometers of high-altitude trekking, crossing the 5,630-meter Dolma La pass. This is no ordinary hike; it is a challenge to the body's limits. Thin air, plummeting temperatures, treacherous trails—every checkpoint tests the will.`
+  },
+  {
+    title: `心灵的朝圣`,
+    titleEn: `The Mind`,
+    content: `三天没有手机信号，没有工作邮件，没有社交媒体的干扰。只有脚步声、呼吸声，以及高原上呼啸的风声。这种「被迫的独处」，让很多人第一次真正听到自己内心的声音。`,
+    contentEn: `Three days without phone signal, no work emails, no social media. Only footsteps, breathing, and the howling wind on the plateau. This "forced solitude" lets many hear their own inner voice for the first time.`
+  },
+  {
+    title: `精神的朝圣`,
+    titleEn: `The Spirit`,
+    content: `在各自的宗教框架内，转山被赋予了神圣的意义。藏传佛教认为转一圈等于念诵六字真言六亿遍；印度教相信可以净化累世的罪业；苯教视为与宇宙能量的校准。这些意义在信仰中是真实的。`,
+    contentEn: `Within each religion's framework, Kora carries sacred meaning. Tibetan Buddhism equates one circuit to 600 million Om Mani Padme Hum recitations; Hinduism believes it purifies accumulated karma; Bön sees it as alignment with cosmic energy. These meanings are real within faith.`
+  },
+  {
+    title: `文化的朝圣`,
+    titleEn: `Culture`,
+    content: `与来自不同国家、不同宗教背景的人同行。在止热寺共享一壶酥油茶，在垭口互相搀扶一把——这种跨越语言和信仰的人类联结，是冈仁波齐独有的文化景观。`,
+    contentEn: `Walking alongside people from different countries and faiths. Sharing butter tea at Drirapuk Monastery, helping each other at the mountain pass—this human connection transcending language and belief is Kailash's unique cultural landscape.`
+  }
+];
+
+const geoFeatures = [
+  {
+    title: `金字塔形的山峰`,
+    titleEn: `The Pyramid Peak`,
+    content: `冈仁波齐海拔6656米，其独特的四棱锥形山体在地质学上被称为「角峰」，是由冰川长期侵蚀形成的。南坡中央有一条垂直的冰槽与水平方向的岩层相交，形成了类似万字符的几何图案。
+
+在信徒眼中，这是神圣的印记；在地质学家眼中，这是冰川作用和岩层构造共同塑造的自然奇观。两种解读并行不悖——自然创造了形态，人类赋予了意义。`,
+    contentEn: `At 6,656 meters, Kailash's distinctive four-sided pyramid shape is geologically called a "horn peak," formed by long-term glacial erosion. A vertical ice channel intersects horizontal strata on the south face, creating a swastika-like geometric pattern.
+
+To believers, this is a sacred imprint. To geologists, a natural wonder shaped by glacial action and rock structure. Both interpretations coexist—nature creates the form; humans give it meaning.`
+  },
+  {
+    title: `万水之源`,
+    titleEn: `Source of Waters`,
+    content: `冈仁波齐周边的冰川融水孕育了四条亚洲主要河流的上游。这些河流滋养着下游的农业文明，让南亚和东亚的数十亿人口得以繁衍生息。
+
+从水文地理学的角度看，冈仁波齐是这几条大河的重要水源地之一。但从文明史的角度看，将其称为「亚洲文明的中心」是一种文化叙事，而非精确的地理学表述。`,
+    contentEn: `Glacial melt around Kailash feeds the upper reaches of four major Asian rivers. These waters nourish agricultural civilizations downstream, sustaining billions across South and East Asia.
+
+Hydrologically, Kailash is an important water source for these rivers. But from civilization history's perspective, calling it "the center of Asian civilization" is cultural narrative, not precise geography.`
+  },
+  {
+    title: `玛旁雍错与拉昂错`,
+    titleEn: `Manasarovar and Rakshastal`,
+    content: `玛旁雍错（海拔4588米）是世界上海拔最高的淡水湖之一，湖水清澈见底。拉昂错（海拔4573米）是咸水湖，因含盐量高而呈现出深邃的蓝色。
+
+两湖相距仅数公里，海拔几乎相同，却一个是淡水、一个是咸水。地质学家认为，它们可能曾经是同一个古湖泊，后来因为地壳运动和排水系统的改变而分离，各自演化出了不同的水化学特征。`,
+    contentEn: `Lake Manasarovar (4,588m) is among the world's highest freshwater lakes, its waters crystal clear. Lake Rakshastal (4,573m) is saltwater, its high mineral content giving it deep blue color.
+
+Just kilometers apart at nearly identical elevations, yet one freshwater, one saltwater. Geologists believe they were once a single ancient lake, later separated by tectonic shifts and drainage changes, each developing distinct hydrochemical signatures.`
   }
 ];
 ---
 
-<Layout title="神山文化 - 冈仁波齐的信仰传承 | Kailash 2026" description="了解冈仁波齐在藏传佛教、印度教、苯教、耆那教中的神圣地位。探索千年信仰传承、历史传说与地理奇观。">
-  <!-- Hero Section -->
-  <section class="relative py-32 bg-kailash-dark">
-    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/50 to-kailash-dark"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
-        神山文化
+<Layout title="神山文化 - 冈仁波齐的千年信仰传承 | Sacred Mountain Culture" description="探索冈仁波齐的千年信仰传承：藏传佛教、印度教、苯教、耆那教四大宗教的神圣交汇。深度文化解读、历史传说与地理奇观。Explore the millennia of faith traditions at Mount Kailash.">
+
+  <!-- Hero -->
+  <section class="relative py-32 bg-kailash-dark overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/80 to-kailash-dark">
+      <div class="absolute inset-0 bg-[url('/images/culture-religions.jpg')] bg-cover bg-center opacity-40"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-kailash-gold text-sm tracking-widest uppercase mb-4">Sacred Mountain Culture · 神山文化</p>
+      <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        冈仁波齐
+        <span class="block text-kailash-gold mt-2">千年信仰传承</span>
       </h1>
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-        四大宗教共同的圣地，千年信仰的精神图腾
+      <p class="text-xl md:text-2xl text-gray-300 mb-2 font-light">
+        四大宗教共同的圣地，亚洲文明的 spiritual 中心
+      </p>
+      <p class="text-lg text-gray-400 italic">
+        Four Religions, One Mountain · 不同信仰，同一座山
       </p>
     </div>
   </section>
 
-  <!-- Four Religions -->
+  <!-- Introduction -->
   <section class="py-20 bg-kailash-light">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg mx-auto text-gray-700">
+        <p class="text-xl leading-relaxed mb-6 text-center font-light">
+          在西藏阿里地区，海拔6656米的冈仁波齐峰静静矗立。它不只是一座山，而是四个古老宗教的共同信仰中心，是亚洲数十亿人心中的精神坐标。
+        </p>
+        <p class="text-lg leading-relaxed mb-6 text-center text-gray-500 italic">
+          At 6,656 meters in Tibet's Ngari Prefecture, Mount Kailash stands in stillness. It is not merely a mountain, but a shared center of faith for four ancient religions, a spiritual coordinate in the hearts of billions across Asia.
+        </p>
+        <div class="bg-white rounded-2xl p-8 shadow-md my-8">
+          <p class="mb-4">
+            藏传佛教称它为<strong>「岗仁波切」</strong>（Gang Rinpoche），意为珍贵的雪山，是胜乐金刚的居所；
+            印度教称它为<strong>「凯拉萨」</strong>（Kailasa），是湿婆神的冥想宝座；
+            苯教称它为<strong>宇宙之轴</strong>，是天地人三界的连接点；
+            耆那教称它为<strong>「八足山」</strong>（Astapada），是第一位祖师获得解脱的地方。
+          </p>
+          <p class="text-gray-500 italic text-sm">
+            Tibetan Buddhism calls it <strong>「Gang Rinpoche」</strong> (Precious Snow Mountain), home of Chakrasamvara.
+            Hinduism calls it <strong>「Kailasa,」</strong> Shiva's meditation throne.
+            Bön calls it the <strong>Cosmic Axis,</strong> connecting heaven, earth, and humanity.
+            Jainism calls it <strong>「Astapada,」</strong> where the first Tirthankara attained liberation.
+          </p>
+        </div>
+        <p class="text-center text-lg">
+          这座山的独特之处在于：它不是某一宗教的专属财产，而是所有信仰者平等朝拜的圣地。
+        </p>
+        <p class="text-center text-gray-500 italic text-sm">
+          This mountain's uniqueness: it is no single religion's exclusive property, but a sacred site where all believers worship as equals.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2">历史时间线</h2>
+        <p class="text-lg text-gray-500 italic">Timeline of Sacred History</p>
+      </div>
+
+      <div class="relative">
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-kailash-gold/30 transform md:-translate-x-1/2"></div>
+        {timeline.map((item, index) => (
+          <div class={`relative flex items-start mb-12 last:mb-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+            <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-kailash-gold rounded-full border-4 border-white shadow-lg transform md:-translate-x-1/2 mt-1.5 z-10"></div>
+            <div class={`ml-12 md:ml-0 md:w-5/12 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+              <div class="bg-kailash-light rounded-xl p-6">
+                <span class="text-kailash-gold font-bold text-sm tracking-wider">{item.year}</span>
+                <span class="text-gray-400 text-xs block">{item.yearEn}</span>
+                <h3 class="font-display text-xl font-bold text-kailash-dark mt-1 mb-1">{item.title}</h3>
+                <p class="text-xs text-gray-400 italic mb-3">{item.titleEn}</p>
+                <p class="text-gray-700 text-sm leading-relaxed mb-2">{item.content}</p>
+                <p class="text-gray-500 text-xs italic">{item.contentEn}</p>
+              </div>
+            </div>
+            <div class="hidden md:block md:w-5/12"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Four Religions -->
+  <section class="py-20 bg-kailash-dark text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">四大宗教的圣地</h2>
-        <p class="text-lg text-gray-600">不同信仰，同一座山，共同的崇敬</p>
+        <h2 class="font-display text-4xl font-bold mb-2">四大宗教的神山观</h2>
+        <p class="text-lg text-gray-400 italic">How Four Religions See the Sacred Mountain</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
-        {religions.map((religion) => (
-          <div class="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 class="font-display text-2xl font-bold text-kailash-dark mb-4">{religion.name}</h3>
-            <p class="text-gray-600 mb-6 leading-relaxed">{religion.description}</p>
-            <div class="flex flex-wrap gap-4 text-sm">
-              <span class="bg-kailash-gold/10 text-kailash-dark px-3 py-1 rounded-full">
-                主神: {religion.deity}
-              </span>
-              <span class="bg-kailash-gold/10 text-kailash-dark px-3 py-1 rounded-full">
-                {religion.practice}
-              </span>
+        {religions.map((religion, index) => (
+          <div class="bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="text-4xl">{religion.icon}</div>
+              <div>
+                <h3 class="font-display text-2xl font-bold">{religion.name}</h3>
+                <p class="text-kailash-gold text-sm italic">{religion.nameEn}</p>
+              </div>
+            </div>
+            <p class="text-gray-300 leading-relaxed mb-4">{religion.description}</p>
+            <p class="text-gray-400 text-sm italic leading-relaxed border-t border-white/10 pt-4">{religion.descriptionEn}</p>
+            <div class="bg-white/5 rounded-xl p-4 border-l-4 border-kailash-gold mt-4">
+              <h4 class="text-kailash-gold text-sm font-semibold mb-2">历史溯源 / Historical Origins</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">{religion.history}</p>
+              <p class="text-gray-500 text-xs italic mt-2">{religion.historyEn}</p>
             </div>
           </div>
         ))}
@@ -86,58 +361,113 @@ const legends = [
   </section>
 
   <!-- Legends -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-kailash-light">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">传说与故事</h2>
-        <p class="text-lg text-gray-600">流淌在时光中的神圣记忆</p>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2">传说与神话</h2>
+        <p class="text-lg text-gray-500 italic">Sacred Legends & Mythology</p>
       </div>
 
-      <div class="space-y-12">
+      <div class="space-y-8">
         {legends.map((legend, index) => (
-          <div class="flex gap-6">
-            <div class="flex-shrink-0 w-12 h-12 bg-kailash-gold rounded-full flex items-center justify-center text-kailash-dark font-bold text-xl">
-              {index + 1}
+          <details class="group bg-white rounded-2xl shadow-md overflow-hidden">
+            <summary class="list-none cursor-pointer p-8">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-kailash-gold rounded-full flex items-center justify-center text-kailash-dark font-bold text-xl">
+                  {index + 1}
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-display text-xl font-bold text-kailash-dark">{legend.title}</h3>
+                  <p class="text-sm text-gray-500 italic">{legend.titleEn}</p>
+                  <p class="text-kailash-gold text-sm font-medium mt-1">{legend.summary}</p>
+                  <p class="text-gray-400 text-xs italic">{legend.summaryEn}</p>
+                </div>
+                <div class="text-kailash-gold group-open:hidden">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="text-kailash-gold hidden group-open:block">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+                </div>
+              </div>
+            </summary>
+            <div class="px-8 pb-8 pt-0">
+              <div class="border-t border-gray-100 pt-6 ml-16">
+                <p class="text-gray-700 leading-relaxed mb-4 whitespace-pre-line">{legend.content}</p>
+                <div class="bg-kailash-light rounded-lg p-4">
+                  <p class="text-gray-500 text-sm italic leading-relaxed whitespace-pre-line">{legend.contentEn}</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">{legend.title}</h3>
-              <p class="text-gray-600 leading-relaxed">{legend.content}</p>
-            </div>
-          </div>
+          </details>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Geological Wonder -->
+  <!-- Meaning of Kora -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2">转山的四重意义</h2>
+        <p class="text-lg text-gray-500 italic">The Four Dimensions of Kora</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {koraMeaning.map((item, index) => (
+          <div class="bg-kailash-light rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
+            <div class="w-16 h-16 bg-kailash-gold rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-kailash-dark font-bold text-2xl">{index + 1}</span>
+            </div>
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-1">{item.title}</h3>
+            <p class="text-sm text-gray-500 italic mb-3">{item.titleEn}</p>
+            <p class="text-gray-600 text-sm mb-3">{item.content}</p>
+            <p class="text-gray-400 text-xs italic">{item.contentEn}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 bg-kailash-dark rounded-2xl p-8 text-white text-center">
+        <p class="text-lg leading-relaxed">
+          「转山不是征服自然，而是臣服于更大的存在。每一步都是放下，每一圈都是重生。」
+        </p>
+        <p class="text-gray-400 italic mt-2">
+          "Kora is not conquering nature, but surrendering to something greater. Every step is letting go; every circuit is rebirth."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Geological Wonders -->
   <section class="py-20 bg-kailash-dark text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="font-display text-4xl font-bold mb-6">地理奇观</h2>
-          <div class="space-y-6">
-            <div>
-              <h3 class="text-kailash-gold font-semibold mb-2">金字塔形山峰</h3>
-              <p class="text-gray-400">冈仁波齐海拔6656米，其独特的金字塔形山形和终年积雪的峰顶，在阳光的照耀下闪耀着圣洁的光芒，被信徒称为"水晶山"。</p>
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold mb-2">地理与地质奇观</h2>
+        <p class="text-lg text-gray-400 italic">Geological Wonders of Kailash</p>
+      </div>
+
+      <div class="space-y-12">
+        {geoFeatures.map((feature, index) => (
+          <div class={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+            <div class={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+              <div class="bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10">
+                <div class="text-center text-gray-500">
+                  <svg class="w-16 h-16 mx-auto mb-4 text-kailash-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <p class="text-sm">{feature.title} / {feature.titleEn}</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 class="text-kailash-gold font-semibold mb-2">万水之源</h3>
-              <p class="text-gray-400">四条亚洲主要河流——印度河、萨特累季河、布拉马普特拉河（雅鲁藏布江）、恒河——都发源于冈仁波齐周边，滋养着数亿人口的文明。</p>
-            </div>
-            <div>
-              <h3 class="text-kailash-gold font-semibold mb-2">圣湖鬼湖</h3>
-              <p class="text-gray-400">神山南侧是被誉为"西天瑶池"的玛旁雍错，是世界上海拔最高的淡水湖之一；北侧则是咸水湖拉昂错，两湖相映，一淡一咸，神秘莫测。</p>
+            <div class={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <h3 class="font-display text-2xl font-bold mb-2">{feature.title}</h3>
+              <p class="text-kailash-gold text-sm italic mb-4">{feature.titleEn}</p>
+              <p class="text-gray-300 leading-relaxed mb-4 whitespace-pre-line">{feature.content}</p>
+              <div class="bg-white/5 rounded-lg p-4">
+                <p class="text-gray-400 text-sm italic leading-relaxed whitespace-pre-line">{feature.contentEn}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="bg-white/5 rounded-2xl p-8 aspect-square flex items-center justify-center">
-          <div class="text-center text-gray-500">
-            <svg class="w-24 h-24 mx-auto mb-4 text-kailash-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <p>冈仁波齐山峰示意图</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -146,19 +476,23 @@ const legends = [
   <section class="py-20 bg-kailash-gold">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
-        亲身感受神山的魅力
+        冈仁波齐：在信仰与历史之间
       </h2>
-      <p class="text-kailash-dark/80 mb-8">
-        踏上朝圣之路，在转山中体验信仰的力量
+      <p class="text-kailash-dark/80 text-lg mb-4 leading-relaxed">
+        我们承认：关于冈仁波齐的「确定知识」远比各宗教传统所宣称的要少。但我们同时也承认：正是这种知识上的不确定性，为信仰、体验和文化想象留下了空间。
+      </p>
+      <p class="text-kailash-dark/60 italic mb-8">
+        We acknowledge: the "certain knowledge" about Kailash is far less than religious traditions claim. Yet we also acknowledge: it is precisely this epistemic uncertainty that leaves room for faith, experience, and cultural imagination.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/routes" class="bg-kailash-dark text-white px-8 py-3 rounded-lg font-semibold hover:bg-kailash-dark/90 transition">
-          查看转山路线
+          探索转山路线 / Explore Routes
         </a>
         <a href="/booking" class="bg-white text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-          预订朝圣之旅
+          预订朝圣之旅 / Book Pilgrimage
         </a>
       </div>
     </div>
   </section>
+
 </Layout>

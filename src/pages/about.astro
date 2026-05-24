@@ -3,58 +3,53 @@ import Layout from '../layouts/Layout.astro';
 
 const values = [
   {
-    title: "安全第一",
-    desc: "高原环境严酷，我们始终把 pilgrim 的安全放在首位。专业向导、医疗支持、应急预案，全程守护。",
-    icon: "🛡️"
+    title: "跨宗教中立",
+    titleEn: "Interfaith Neutrality",
+    desc: "同时呈现藏传佛教、印度教、苯教、耆那教四大传统，不站队、不偏袒，尊重每一种真诚的信仰。",
+    descEn: "Presenting Tibetan Buddhism, Hinduism, Bön, and Jainism without taking sides. Every sincere faith deserves respect.",
+    icon: "⚖️"
   },
   {
-    title: "尊重信仰",
-    desc: "深刻理解冈仁波齐的神圣意义，以敬畏之心对待每一次朝圣之旅，尊重当地文化和宗教习俗。",
-    icon: "🙏"
+    title: "学术诚实",
+    titleEn: "Academic Honesty",
+    desc: "区分宗教叙事与历史可证性，承认不确定，呈现争议，不编造年份和细节。",
+    descEn: "Distinguishing religious narrative from historical verifiability. Acknowledging uncertainty and presenting disputes without fabricating dates or details.",
+    icon: "📚"
   },
   {
-    title: "专业服务",
-    desc: "多年高原带队经验，熟悉每一条路线、每一个 checkpoint，为您提供最专业的朝圣服务。",
-    icon: "✨"
+    title: "一手经验",
+    titleEn: "Firsthand Experience",
+    desc: "内容基于实地走访与亲身转山经历，不是二手搬运，不是想象。",
+    descEn: "Content grounded in field visits and personal Kora experience—not secondhand copy or imagination.",
+    icon: "🥾"
   },
   {
-    title: "环保责任",
-    desc: "践行负责任的朝圣理念，带走垃圾、保护环境，让神山永远圣洁。",
-    icon: "🌿"
-  }
-];
-
-const team = [
-  {
-    name: "洛桑",
-    role: "首席向导",
-    desc: "藏族，20年冈仁波齐转山向导经验，熟悉神山每一处圣迹。",
-    avatar: "👤"
-  },
-  {
-    name: "张明",
-    role: "领队",
-    desc: "户外探险专家，10年高海拔领队经验，擅长高原医疗急救。",
-    avatar: "👤"
-  },
-  {
-    name: "格桑",
-    role: "文化顾问",
-    desc: "藏学研究学者，为您解读神山背后的宗教文化与历史传说。",
-    avatar: "👤"
+    title: "开放共享",
+    titleEn: "Open Sharing",
+    desc: "文字内容采用 Creative Commons 授权，欢迎全球媒体、学者、创作者引用。",
+    descEn: "Text content under Creative Commons license. Global media, scholars, and creators are welcome to cite and adapt.",
+    icon: "🌐"
   }
 ];
 ---
 
-<Layout title="关于我们 - 专注冈仁波齐朝圣之旅">
+<Layout title="关于我们 - 冈仁波齐全球文化平台 | About Kailash 2026" description="Kailash 2026 是全球首个跨宗教中立的神山文化平台。我们呈现藏传佛教、印度教、苯教、耆那教四大传统，以学术严谨与通俗表达并行的方式，服务全球 pilgrims 与研究者。">
+
   <!-- Hero -->
-  <section class="relative py-32 bg-kailash-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <section class="relative py-32 bg-kailash-dark overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/80 to-kailash-dark">
+      <div class="absolute inset-0 bg-[url('/images/hero.jpg')] bg-cover bg-center opacity-30"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-kailash-gold text-sm tracking-widest uppercase mb-4">About Us · 关于我们</p>
       <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
         关于 Kailash 2026
       </h1>
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-        专注冈仁波齐朝圣服务，用专业与敬畏，守护每一位 pilgrim 的神山之旅
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
+        全球首个跨宗教中立的冈仁波齐神山文化平台
+      </p>
+      <p class="text-lg text-gray-400 italic">
+        The world's first interfaith-neutral sacred mountain culture platform for Mount Kailash
       </p>
     </div>
   </section>
@@ -62,16 +57,16 @@ const team = [
   <!-- Story -->
   <section class="py-20 bg-kailash-light">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center">我们的故事</h2>
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center">我们的故事 / Our Story</h2>
       <div class="prose prose-lg mx-auto text-gray-600">
-        <p class="mb-6">
-          Kailash 2026 诞生于对神山的热爱和对朝圣者的敬意。我们的创始团队由资深向导、户外探险专家和藏学研究者组成，每个人都有着多次冈仁波齐转山的亲身经历。
+        <p class="mb-6 text-lg leading-relaxed">
+          Kailash 2026 诞生于一个简单的观察：关于冈仁波齐，全球没有一个网站真正同时回答四大宗教信徒的问题。印度教网站不讲苯教，佛教网站不提湿婆，旅行指南没有宗教深度，而学术文章又太艰深。
         </p>
-        <p class="mb-6">
-          多年来，我们见证了无数 pilgrim 在转山过程中的身心转变——有人在卓玛拉垭口流泪，有人在玛旁雍错湖畔顿悟，有人在塔尔钦的起点找到重新出发的勇气。
+        <p class="mb-6 text-lg leading-relaxed">
+          我们想做的是——一个让藏传佛教徒、印度教徒、苯教信徒、耆那教徒，以及什么都不信只是好奇的人，都能找到自己需要的信息的地方。中立、诚实、有深度。
         </p>
-        <p>
-          我们深知，朝圣不仅是一次身体的旅行，更是一场心灵的修行。因此，我们致力于为每一位朝圣者提供专业、安全、有深度的服务，让您的神山之旅成为生命中最珍贵的记忆。
+        <p class="text-lg leading-relaxed">
+          这不是一个旅行社网站。我们不卖团、不催单。我们传播神山文化，建立信任，然后让 pilgrims 自己决定何时、以何种方式前往。
         </p>
       </div>
     </div>
@@ -79,74 +74,63 @@ const team = [
 
   <!-- Values -->
   <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-12 text-center">我们的理念</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {values.map(v => (
-          <div class="text-center p-6">
-            <div class="text-5xl mb-4">{v.icon}</div>
-            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">{v.title}</h3>
-            <p class="text-gray-600 text-sm">{v.desc}</p>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-2">我们的原则</h2>
+        <p class="text-lg text-gray-500 italic">Our Principles</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        {values.map((value, index) => (
+          <div class="bg-kailash-light rounded-2xl p-8">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="text-4xl">{value.icon}</div>
+              <div>
+                <h3 class="font-display text-xl font-bold text-kailash-dark">{value.title}</h3>
+                <p class="text-sm text-gray-500 italic">{value.titleEn}</p>
+              </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">{value.desc}</p>
+            <p class="text-gray-500 text-sm italic mt-2">{value.descEn}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Stats -->
-  <section class="py-20 bg-kailash-gold">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <p class="text-4xl font-bold text-kailash-dark">500+</p>
-          <p class="text-kailash-dark/70 mt-2">服务朝圣者</p>
-        </div>
-        <div>
-          <p class="text-4xl font-bold text-kailash-dark">10+</p>
-          <p class="text-kailash-dark/70 mt-2">专业向导</p>
-        </div>
-        <div>
-          <p class="text-4xl font-bold text-kailash-dark">100%</p>
-          <p class="text-kailash-dark/70 mt-2">安全记录</p>
-        </div>
-        <div>
-          <p class="text-4xl font-bold text-kailash-dark">5年</p>
-          <p class="text-kailash-dark/70 mt-2">专注服务</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Team -->
-  <section class="py-20 bg-kailash-light">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-12 text-center">核心团队</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        {team.map(member => (
-          <div class="bg-white rounded-2xl p-8 shadow-lg text-center">
-            <div class="text-6xl mb-4">{member.avatar}</div>
-            <h3 class="font-display text-xl font-bold text-kailash-dark">{member.name}</h3>
-            <p class="text-kailash-gold font-medium mb-3">{member.role}</p>
-            <p class="text-gray-600 text-sm">{member.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact CTA -->
+  <!-- Press Kit CTA -->
   <section class="py-20 bg-kailash-dark text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-display text-3xl font-bold mb-4">与我们取得联系</h2>
-      <p class="text-gray-400 mb-8">有任何问题或特殊需求，欢迎随时联系我们</p>
+      <h2 class="font-display text-3xl font-bold mb-4">媒体与创作者</h2>
+      <p class="text-gray-300 mb-4">
+        我们为记者、学者、博主提供免费的素材包、引用格式与采访支持。
+      </p>
+      <p class="text-gray-400 italic mb-8">
+        We offer free press kits, citation formats, and interview support for journalists, scholars, and content creators.
+      </p>
+      <a href="/press-kit" class="bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition inline-block">
+        访问媒体素材包 / Visit Press Kit
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
+        加入我们的旅程
+      </h2>
+      <p class="text-kailash-dark/80 text-lg mb-8 leading-relaxed">
+        无论你是计划朝圣、研究神山文化，还是单纯好奇——这里都有属于你的内容。
+      </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="mailto:contact@kailash2026.com" class="bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
-          发送邮件
+        <a href="/culture" class="bg-kailash-dark text-white px-8 py-3 rounded-lg font-semibold hover:bg-kailash-dark/90 transition">
+          探索神山文化 / Explore Culture
         </a>
-        <a href="/booking" class="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-kailash-dark transition">
-          预订咨询
+        <a href="/contact" class="bg-white text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+          联系我们 / Contact
         </a>
       </div>
     </div>
   </section>
+
 </Layout>
