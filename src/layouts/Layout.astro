@@ -1,4 +1,5 @@
 ---
+import Analytics from '../components/Analytics.astro';
 import SEO from '../components/SEO.astro';
 import '../styles/global.css';
 
@@ -26,6 +27,7 @@ const navItems = [
 <html lang="zh-CN">
 <head>
   <SEO title={title} description={description} />
+  <Analytics />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
@@ -45,9 +47,9 @@ const navItems = [
             </a>
           ))}
           
-          <a href="/booking" class="bg-kailash-gold text-kailash-dark px-4 py-2 rounded-lg font-medium hover:bg-kailash-accent transition text-sm">
-            预订行程 / Book
-          </a>
+        <a href="/guide" class="bg-kailash-gold text-kailash-dark px-4 py-2 rounded-lg font-medium hover:bg-kailash-accent transition text-sm">
+          Explore / 探索
+        </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -66,8 +68,8 @@ const navItems = [
               {item.labelZh}
             </a>
           ))}
-          <a href="/booking" class="bg-kailash-gold text-kailash-dark px-4 py-3 rounded-lg font-medium text-center">
-            预订行程 / Book
+          <a href="/guide" class="bg-kailash-gold text-kailash-dark px-4 py-3 rounded-lg font-medium text-center">
+            Explore / 探索
           </a>
         </div>
       </div>

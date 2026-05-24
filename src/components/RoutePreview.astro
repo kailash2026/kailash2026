@@ -1,18 +1,18 @@
 ---
 const checkpoints = [
-  { name: "塔尔钦", altitude: "4560m", day: "起点", distance: "0km" },
-  { name: "曲古寺", altitude: "4860m", day: "第1天", distance: "12km" },
-  { name: "止热寺", altitude: "5080m", day: "第1天", distance: "22km" },
-  { name: "卓玛拉垭口", altitude: "5630m", day: "第2天", distance: "30km", highlight: true },
-  { name: "尊最普寺", altitude: "4820m", day: "第2天", distance: "38km" },
-  { name: "塔尔钦", altitude: "4560m", day: "终点", distance: "52km" }
+  { name: "Darchen", nameZh: "塔尔钦", altitude: "4,560m", day: "Start", distance: "0km" },
+  { name: "Dirapuk Monastery", nameZh: "曲古寺", altitude: "4,860m", day: "Day 1", distance: "12km" },
+  { name: "Zutulpuk Monastery", nameZh: "止热寺", altitude: "5,080m", day: "Day 1", distance: "22km" },
+  { name: "Dolma La Pass", nameZh: "卓玛拉垭口", altitude: "5,630m", day: "Day 2", distance: "30km", highlight: true },
+  { name: "Zongze Temple", nameZh: "尊最普寺", altitude: "4,820m", day: "Day 2", distance: "38km" },
+  { name: "Darchen", nameZh: "塔尔钦", altitude: "4,560m", day: "Finish", distance: "52km" }
 ];
 
 const stats = [
-  { label: "总距离", value: "52", unit: "km" },
-  { label: "最高海拔", value: "5630", unit: "m" },
-  { label: "建议天数", value: "2-3", unit: "天" },
-  { label: "最佳季节", value: "5-10", unit: "月" }
+  { label: "Total Distance", value: "52", unit: "km" },
+  { label: "Max Altitude", value: "5,630", unit: "m" },
+  { label: "Duration", value: "2-3", unit: "days" },
+  { label: "Best Season", value: "May-Oct", unit: "" }
 ];
 ---
 
@@ -21,9 +21,9 @@ const stats = [
     <!-- Section Header -->
     <div class="text-center mb-16">
       <span class="text-kailash-gold text-sm font-semibold tracking-widest uppercase mb-4 block">The Sacred Route</span>
-      <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">52公里转山道</h2>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">52km Kora Circuit</h2>
       <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-        从塔尔钦出发，翻越5630米的卓玛拉垭口，完成三天两夜的心灵洗礼
+        Starting from Darchen, crossing the 5,630m Dolma La Pass, completing a 2-3 day spiritual transformation
       </p>
     </div>
     
@@ -49,8 +49,11 @@ const stats = [
             </div>
             <div class="flex-1 min-w-0">
               <div class="flex justify-between items-center mb-1">
-                <h4 class="font-medium text-white text-lg">{cp.name}</h4>
-                {cp.highlight && <span class="text-xs bg-kailash-gold text-kailash-dark px-2 py-1 rounded-full font-semibold">最高点</span>}
+                <div>
+                  <h4 class="font-medium text-white text-lg">{cp.name}</h4>
+                  <span class="text-xs text-gray-500">{cp.nameZh}</span>
+                </div>
+                {cp.highlight && <span class="text-xs bg-kailash-gold text-kailash-dark px-2 py-1 rounded-full font-semibold">Highest Point</span>}
               </div>
               <div class="flex gap-4 text-sm">
                 <span class="text-gray-400">{cp.day}</span>
@@ -62,7 +65,7 @@ const stats = [
         ))}
         
         <a href="/routes" class="inline-flex items-center mt-6 text-kailash-gold hover:text-kailash-accent transition group">
-          <span>查看完整路线详情</span>
+          <span>View Full Route Details</span>
           <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
       </div>
@@ -73,8 +76,8 @@ const stats = [
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center">
               <svg class="w-24 h-24 mx-auto mb-4 text-kailash-gold/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-              <p class="text-gray-500 text-lg">路线地图</p>
-              <p class="text-gray-600 text-sm mt-2">等待真实地图图片</p>
+              <p class="text-gray-500 text-lg">Route Map</p>
+              <p class="text-gray-600 text-sm mt-2">Waiting for professional map image</p>
             </div>
           </div>
         </div>
