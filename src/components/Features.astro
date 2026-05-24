@@ -27,28 +27,40 @@ const features = [
 ];
 ---
 
-<section class="py-20 bg-kailash-light">
+<section class="py-24 bg-kailash-light">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">Kailash 2026：全球朝圣者的精神家园</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        无论你是印度教徒、佛教徒、苯教徒还是耆那教徒，这里都是你的朝圣目的地。我们连接全球信仰者，提供专业服务，让每位朝圣者安全完成心愿
+    <!-- Section Header -->
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <span class="text-kailash-gold text-sm font-semibold tracking-widest uppercase mb-4 block">Why Kailash 2026</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-6">全球朝圣者的精神家园</h2>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        无论你是印度教徒、佛教徒、苯教徒还是耆那教徒，这里都是你的朝圣目的地。我们连接全球信仰者，提供专业服务。
       </p>
     </div>
     
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {features.map((feature) => (
-        <a href={feature.link} class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-          <div class="text-4xl mb-4">{feature.icon}</div>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3 group-hover:text-kailash-gold transition">
+    <!-- Features Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {features.map((feature, index) => (
+        <a href={feature.link} class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 hover:border-kailash-gold/20">
+          <!-- Icon -->
+          <div class="w-14 h-14 rounded-xl bg-kailash-gold/10 flex items-center justify-center text-3xl mb-6 group-hover:bg-kailash-gold/20 transition-colors">
+            {feature.icon}
+          </div>
+          
+          <!-- Content -->
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3 group-hover:text-kailash-gold transition-colors">
             {feature.title}
           </h3>
-          <p class="text-gray-600 text-sm leading-relaxed">
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">
             {feature.description}
           </p>
-          <div class="mt-4 flex items-center text-kailash-gold font-medium text-sm">
-            了解更多
-            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          
+          <!-- Link -->
+          <div class="flex items-center text-kailash-gold font-medium text-sm group/link">
+            <span>了解更多</span>
+            <svg class="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
           </div>
         </a>
       ))}

@@ -7,52 +7,74 @@ const checkpoints = [
   { name: "尊最普寺", altitude: "4820m", day: "第2天", distance: "38km" },
   { name: "塔尔钦", altitude: "4560m", day: "终点", distance: "52km" }
 ];
+
+const stats = [
+  { label: "总距离", value: "52", unit: "km" },
+  { label: "最高海拔", value: "5630", unit: "m" },
+  { label: "建议天数", value: "2-3", unit: "天" },
+  { label: "最佳季节", value: "5-10", unit: "月" }
+];
 ---
 
-<section class="py-20 bg-kailash-dark">
+<section class="py-24 bg-kailash-dark">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <h2 class="font-display text-4xl font-bold text-white mb-4">
-          52公里转山道
-        </h2>
-        <p class="text-gray-400 text-lg mb-8">
-          从塔尔钦出发，翻越5630米的卓玛拉垭口，完成三天两夜的心灵洗礼。这不仅是一次身体的挑战，更是一场精神的朝圣。
-        </p>
-        
-        <div class="space-y-4">
-          {checkpoints.map((cp, index) => (
-            <div class={`flex items-center gap-4 p-4 rounded-lg ${cp.highlight ? 'bg-kailash-gold/20 border border-kailash-gold' : 'bg-white/5'}`}>
-              <div class="w-12 h-12 rounded-full bg-kailash-gold/20 flex items-center justify-center text-kailash-gold font-bold">
-                {index + 1}
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="text-kailash-gold text-sm font-semibold tracking-widest uppercase mb-4 block">The Sacred Route</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">52公里转山道</h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        从塔尔钦出发，翻越5630米的卓玛拉垭口，完成三天两夜的心灵洗礼
+      </p>
+    </div>
+    
+    <!-- Stats Bar -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+      {stats.map(stat => (
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-white/10">
+          <div class="text-3xl md:text-4xl font-bold text-kailash-gold">
+            {stat.value}<span class="text-lg">{stat.unit}</span>
+          </div>
+          <div class="text-sm text-gray-400 mt-1">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Route Checkpoints -->
+      <div class="space-y-3">
+        {checkpoints.map((cp, index) => (
+          <div class={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${cp.highlight ? 'bg-kailash-gold/20 border border-kailash-gold/50' : 'bg-white/5 border border-white/10 hover:bg-white/10'}`}>
+            <div class={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg ${cp.highlight ? 'bg-kailash-gold text-kailash-dark' : 'bg-white/10 text-kailash-gold'}`}>
+              {index + 1}
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex justify-between items-center mb-1">
+                <h4 class="font-medium text-white text-lg">{cp.name}</h4>
+                {cp.highlight && <span class="text-xs bg-kailash-gold text-kailash-dark px-2 py-1 rounded-full font-semibold">最高点</span>}
               </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <h4 class="font-medium text-white">{cp.name}</h4>
-                  {cp.highlight && <span class="text-xs bg-kailash-gold text-kailash-dark px-2 py-1 rounded">最高点</span>}
-                </div>
-                <div class="text-sm text-gray-400 flex gap-4 mt-1">
-                  <span>海拔: {cp.altitude}</span>
-                  <span>累计: {cp.distance}</span>
-                </div>
+              <div class="flex gap-4 text-sm">
+                <span class="text-gray-400">{cp.day}</span>
+                <span class="text-kailash-gold">{cp.altitude}</span>
+                <span class="text-gray-500">{cp.distance}</span>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
         
-        <a href="/routes" class="inline-flex items-center mt-8 text-kailash-gold hover:text-kailash-accent transition">
-          查看完整路线详情
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        <a href="/routes" class="inline-flex items-center mt-6 text-kailash-gold hover:text-kailash-accent transition group">
+          <span>查看完整路线详情</span>
+          <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
       </div>
       
-      <div class="relative">
-        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-b from-kailash-gold/20 to-kailash-dark">
-          <!-- Placeholder for route map/image -->
-          <div class="absolute inset-0 flex items-center justify-center text-gray-500">
+      <!-- Route Map Placeholder -->
+      <div class="relative lg:sticky lg:top-24">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-b from-kailash-gold/10 to-kailash-dark border border-white/10">
+          <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center">
-              <svg class="w-20 h-20 mx-auto mb-4 text-kailash-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-              <p>路线地图</p>
+              <svg class="w-24 h-24 mx-auto mb-4 text-kailash-gold/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+              <p class="text-gray-500 text-lg">路线地图</p>
+              <p class="text-gray-600 text-sm mt-2">等待真实地图图片</p>
             </div>
           </div>
         </div>

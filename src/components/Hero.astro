@@ -18,34 +18,74 @@ const features = [
 ];
 ---
 
-<section class="relative h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background placeholder - replace with actual mountain image -->
-  <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark via-kailash-dark/80 to-kailash-dark">
-    <div class="absolute inset-0 bg-[url('/images/kailash-hero.jpg')] bg-cover bg-center opacity-60"></div>
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+  <!-- Background with overlay -->
+  <div class="absolute inset-0 bg-kailash-dark">
+    <div class="absolute inset-0 bg-[url('/images/kailash-hero.jpg')] bg-cover bg-center opacity-50"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/40 to-kailash-dark"></div>
   </div>
   
-  <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-    <h1 class="font-display text-5xl md:text-7xl text-white font-bold mb-6 leading-tight">
+  <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
+      <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+      <span class="text-white/80 text-sm">2026年朝圣季开放预订</span>
+    </div>
+    
+    <!-- Main Title -->
+    <h1 class="font-display text-6xl md:text-8xl text-white font-bold mb-4 leading-none tracking-tight">
       Kailash 2026
-      <span class="block text-kailash-gold mt-2">全球朝圣者平台</span>
-      <span class="block text-2xl md:text-3xl text-kailash-gold/80 mt-2">Where Pilgrims Unite</span>
     </h1>
-    <p class="text-xl md:text-2xl text-gray-200 mb-8 font-light">
-      连接全球信仰者 · 四大宗教圣地 · 专业服务支持
+    
+    <!-- Subtitle -->
+    <p class="font-display text-3xl md:text-5xl text-kailash-gold font-semibold mb-6">
+      全球朝圣者平台
     </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="/guide" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold text-lg hover:bg-kailash-accent transition inline-flex items-center justify-center gap-2">
-        开始探索 / Explore
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+    
+    <!-- Tagline -->
+    <p class="text-xl md:text-2xl text-white/70 font-light mb-4 tracking-wide">
+      Where Pilgrims Unite
+    </p>
+    
+    <!-- Description -->
+    <p class="text-lg text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
+      连接全球信仰者 · 四大宗教圣地 · 专业服务支持<br class="hidden md:block">
+      印度教 · 藏传佛教 · 苯教 · 耆那教
+    </p>
+    
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="/guide" class="group bg-kailash-gold text-kailash-dark px-8 py-4 rounded-xl font-semibold text-lg hover:bg-kailash-accent transition-all duration-300 inline-flex items-center gap-2 shadow-lg shadow-kailash-gold/25 hover:shadow-xl hover:shadow-kailash-gold/30 hover:-translate-y-0.5">
+        开始探索
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
       </a>
-      <a href="/booking" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-kailash-dark transition">
-        预订行程 / Book Now
+      <a href="/booking" class="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300">
+        预订行程
       </a>
+    </div>
+    
+    <!-- Stats -->
+    <div class="grid grid-cols-3 gap-8 max-w-lg mx-auto mt-16 pt-8 border-t border-white/10">
+      <div class="text-center">
+        <div class="text-3xl font-bold text-kailash-gold">52<span class="text-lg">km</span></div>
+        <div class="text-sm text-white/50 mt-1">转山路线</div>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold text-kailash-gold">5630<span class="text-lg">m</span></div>
+        <div class="text-sm text-white/50 mt-1">最高海拔</div>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold text-kailash-gold">4<span class="text-lg">大</span></div>
+        <div class="text-sm text-white/50 mt-1">宗教信仰</div>
+      </div>
     </div>
   </div>
   
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
+    <span class="text-xs tracking-widest uppercase">Scroll</span>
+    <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+      <div class="w-1.5 h-3 bg-white/60 rounded-full animate-bounce"></div>
+    </div>
   </div>
 </section>
