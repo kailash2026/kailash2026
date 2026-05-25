@@ -3,49 +3,58 @@ import Layout from '../layouts/Layout.astro';
 
 const photos = [
   {
-    title: "神山晨曦",
-    desc: "日出时分的冈仁波齐，金字塔形山峰被朝阳染成金色",
-    category: "风景"
+    title: "航拍神山",
+    desc: "从空中俯瞰冈仁波齐，金字塔形山峰巍峨壮观",
+    category: "风景",
+    image: "kailash-aerial.jpg"
   },
   {
-    title: "转山道",
-    desc: "虔诚的朝圣者行走在转山道上，经幡随风飘扬",
-    category: "朝圣"
+    title: "草原牦牛",
+    desc: "牦牛群在冈仁波齐脚下的草原上悠然吃草",
+    category: "人文",
+    image: "kailash-yaks.jpg"
   },
   {
-    title: "卓玛拉垭口",
-    desc: "海拔5630米的最高点，经幡阵与雪山交相辉映",
-    category: "风景"
+    title: "神山全景",
+    desc: "蓝天白云下的冈仁波齐，草原与雪山交相辉映",
+    category: "风景",
+    image: "kailash-prairie.jpg"
   },
   {
     title: "玛旁雍错",
-    desc: "被誉为\"西天瑶池\"的圣湖，湖水清澈见底",
-    category: "风景"
+    desc: "圣湖玛旁雍错与冈仁波齐遥相呼应",
+    category: "风景",
+    image: "kailash-lake.jpg"
   },
   {
-    title: "止热寺",
-    desc: "第一晚的宿营地，正对神山北壁",
-    category: "人文"
+    title: "候鸟翔集",
+    desc: "成群的候鸟在圣湖上空飞翔，生机盎然",
+    category: "风景",
+    image: "kailash-birds.jpg"
   },
   {
-    title: "朝圣者",
-    desc: "用身体丈量朝圣之路，三步一拜的虔诚",
-    category: "人文"
+    title: "日出金顶",
+    desc: "朝阳将冈仁波齐染成金色，庄严神圣",
+    category: "风景",
+    image: "kailash-sunrise.jpg"
+  },
+  {
+    title: "日照金山",
+    desc: "夕阳下的冈仁波齐，金色光芒照耀神山",
+    category: "风景",
+    image: "kailash-golden.jpg"
   },
   {
     title: "星空下的神山",
     desc: "银河横跨冈仁波齐上空，满天繁星",
-    category: "风景"
+    category: "风景",
+    image: "kailash-hero.jpg"
   },
   {
     title: "经幡阵",
     desc: "五彩经幡承载着无数的祈祷与祝福",
-    category: "人文"
-  },
-  {
-    title: "转山完成",
-    desc: "回到塔尔钦，完成52公里的 spiritual 之旅",
-    category: "朝圣"
+    category: "人文",
+    image: "gallery-pilgrim.jpg"
   }
 ];
 ---
@@ -79,7 +88,12 @@ const photos = [
         {photos.map((photo, index) => (
           <div class="group relative aspect-[4/3] bg-gray-200 rounded-xl overflow-hidden cursor-pointer">
             <img 
-              src={`/images/gallery-${index % 3 === 0 ? 'landscape-1' : index % 3 === 1 ? 'landscape-2' : 'pilgrim'}.jpg`}
+            <img 
+            src={`/images/${photo.image}`}
+            alt={photo.title}
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            loading="lazy"
+          />
               alt={photo.title}
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
