@@ -5,10 +5,11 @@ export default {
     extend: {
       colors: {
         kailash: {
-          dark: '#1a1a2e',
-          gold: '#d4a574',
-          light: '#f5f5f0',
-          accent: '#c9a86c'
+          dark: '#1C1917',
+          gold: '#C8956C',
+          light: '#FAFAF8',
+          accent: '#B8835A',
+          warm: '#D4A574'
         }
       },
       fontFamily: {
