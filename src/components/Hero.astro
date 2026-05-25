@@ -18,70 +18,69 @@ const features = [
 ];
 ---
 
-<!-- Split Layout Hero - Image Left, Content Right -->
-<section class="relative min-h-screen flex flex-col lg:flex-row overflow-hidden bg-kailash-dark">
+<!-- Fullscreen Background Hero -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
   
-  <!-- Left: Full Photo -->
-  <div class="relative w-full lg:w-3/5 h-[50vh] lg:h-screen flex-shrink-0">
-    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
-    <!-- Subtle gradient on mobile for text readability -->
-    <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark via-transparent to-transparent lg:hidden"></div>
+  <!-- Background with overlay -->
+  <div class="absolute inset-0 bg-kailash-dark">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center opacity-60"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/40 to-kailash-dark"></div>
   </div>
   
-  <!-- Right: Content -->
-  <div class="relative w-full lg:w-2/5 flex flex-col justify-center px-6 py-12 lg:px-12 lg:py-0 bg-kailash-dark">
+  <!-- Content -->
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
     
     <!-- Badge -->
-    <div class="inline-flex items-center gap-2 bg-kailash-gold/10 border border-kailash-gold/20 rounded-full px-4 py-2 mb-6 w-fit">
+    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
       <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-      <span class="text-kailash-gold text-sm">2026 Pilgrimage Season Now Open / 2026年朝圣季开放预订</span>
+      <span class="text-white/90 text-sm">2026 Pilgrimage Season Now Open / 2026年朝圣季开放预订</span>
     </div>
     
     <!-- Main Title -->
-    <h1 class="font-display text-5xl lg:text-6xl text-white font-bold mb-3 leading-tight">
-      Kailash<br><span class="text-kailash-gold">2026</span>
+    <h1 class="font-display text-6xl md:text-7xl lg:text-8xl text-white font-bold mb-4 leading-tight">
+      Kailash <span class="text-kailash-gold">2026</span>
     </h1>
     
     <!-- Subtitle -->
-    <p class="font-display text-xl lg:text-2xl text-kailash-gold font-semibold mb-4">
-      Global Pilgrimage Platform<br><span class="text-white/60 text-lg">全球朝圣者平台</span>
+    <p class="font-display text-2xl md:text-3xl text-kailash-gold font-semibold mb-4">
+      Global Pilgrimage Platform / 全球朝圣者平台
     </p>
     
     <!-- Tagline -->
-    <p class="text-lg text-white/50 mb-6">
+    <p class="text-xl text-white/70 mb-8">
       Where Pilgrims Unite / 朝圣者在此相聚
     </p>
     
     <!-- Description -->
-    <p class="text-white/40 max-w-md mb-8 leading-relaxed">
+    <p class="text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
       Connecting Global Faiths · Four Sacred Traditions · Professional Support<br>
-      <span class="text-white/30">连接全球信仰者 · 四大宗教圣地 · 专业服务支持</span>
+      <span class="text-white/40">连接全球信仰者 · 四大宗教圣地 · 专业服务支持</span>
     </p>
     
     <!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row gap-3 mb-10">
-      <a href="/guide" class="group bg-kailash-gold text-kailash-dark px-6 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition-all inline-flex items-center gap-2">
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+      <a href="/guide" class="group bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition-all inline-flex items-center justify-center gap-2">
         Explore Now / 开始探索
-        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
       </a>
-      <a href="/contact" class="border border-white/20 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/5 transition-all text-center">
+      <a href="/contact" class="border border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-all text-center backdrop-blur-sm">
         Contact Us / 联系我们
       </a>
     </div>
     
     <!-- Stats -->
-    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
+    <div class="grid grid-cols-3 gap-8 max-w-lg mx-auto pt-8 border-t border-white/20">
       <div>
-        <div class="text-2xl font-bold text-kailash-gold">52<span class="text-sm">km</span></div>
-        <div class="text-xs text-white/40 mt-1">Kora Route<br>转山路线</div>
+        <div class="text-3xl font-bold text-kailash-gold">52<span class="text-lg">km</span></div>
+        <div class="text-sm text-white/50 mt-1">Kora Route<br>转山路线</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-kailash-gold">5630<span class="text-sm">m</span></div>
-        <div class="text-xs text-white/40 mt-1">Highest Point<br>最高海拔</div>
+        <div class="text-3xl font-bold text-kailash-gold">5630<span class="text-lg">m</span></div>
+        <div class="text-sm text-white/50 mt-1">Highest Point<br>最高海拔</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-kailash-gold">4</div>
-        <div class="text-xs text-white/40 mt-1">Sacred Faiths<br>宗教信仰</div>
+        <div class="text-3xl font-bold text-kailash-gold">4</div>
+        <div class="text-sm text-white/50 mt-1">Sacred Faiths<br>宗教信仰</div>
       </div>
     </div>
   </div>
