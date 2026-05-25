@@ -46,31 +46,36 @@ const checkpoints = [
 ---
 
 <Layout title="转山路线 - 52公里朝圣之旅 | Kailash 2026" description="冈仁波齐52公里外转路线详解：三天两夜行程、海拔变化、途经寺庙与地标。从塔尔钦出发，翻越5630米卓玛拉垭口。">
-  <!-- Hero -->
-  <section class="relative py-32 bg-kailash-dark overflow-hidden">
-    <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-[url('/images/kailash-yaks.jpg')] bg-cover bg-top opacity-30"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/70 to-kailash-dark/90"></div>
+  <!-- Hero: Photo on top, content below -->
+  <section class="relative bg-kailash-dark">
+    <!-- Full-width photo -->
+    <div class="relative w-full h-[45vh] lg:h-[55vh]">
+      <div class="absolute inset-0 bg-[url('/images/kailash-yaks.jpg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-kailash-dark"></div>
     </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
-        转山路线
-      </h1>
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-        52公里，三天两夜，从信仰出发，向心灵回归
-      </p>
-      <div class="flex justify-center gap-8 mt-8">
-        <div class="text-center">
-          <p class="text-3xl font-bold text-kailash-gold">52km</p>
-          <p class="text-gray-400 text-sm">总距离</p>
-        </div>
-        <div class="text-center">
-          <p class="text-3xl font-bold text-kailash-gold">5630m</p>
-          <p class="text-gray-400 text-sm">最高点</p>
-        </div>
-        <div class="text-center">
-          <p class="text-3xl font-bold text-kailash-gold">3天</p>
-          <p class="text-gray-400 text-sm">标准行程</p>
+    
+    <!-- Content below photo -->
+    <div class="relative -mt-20 z-10 px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="max-w-7xl mx-auto text-center">
+        <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-4">
+          转山路线
+        </h1>
+        <p class="text-xl text-white/60 max-w-3xl mx-auto">
+          52公里，三天两夜，从信仰出发，向心灵回归
+        </p>
+        <div class="flex justify-center gap-8 mt-8">
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">52km</p>
+            <p class="text-white/40 text-sm">总距离</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">5630m</p>
+            <p class="text-white/40 text-sm">最高点</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">3天</p>
+            <p class="text-white/40 text-sm">标准行程</p>
+          </div>
         </div>
       </div>
     </div>

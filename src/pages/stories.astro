@@ -51,19 +51,24 @@ const stories = [
 ---
 
 <Layout title="朝圣故事 - 他们的神山之旅">
-  <!-- Hero -->
-  <section class="relative py-32 bg-kailash-dark overflow-hidden">
-    <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-[url('/images/kailash-sunrise.jpg')] bg-cover bg-top opacity-40"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/80 to-kailash-dark"></div>
+  <!-- Hero: Photo on top, content below -->
+  <section class="relative bg-kailash-dark">
+    <!-- Full-width photo -->
+    <div class="relative w-full h-[45vh] lg:h-[55vh]">
+      <div class="absolute inset-0 bg-[url('/images/kailash-sunrise.jpg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-kailash-dark"></div>
     </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
-        朝圣故事
-      </h1>
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-        每一个转山的人，都有一段独特的故事
-      </p>
+    
+    <!-- Content below photo -->
+    <div class="relative -mt-20 z-10 px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="max-w-7xl mx-auto text-center">
+        <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-4">
+          朝圣故事
+        </h1>
+        <p class="text-xl text-white/60 max-w-3xl mx-auto">
+          每一个转山的人，都有一段独特的故事
+        </p>
+      </div>
     </div>
   </section>
 
