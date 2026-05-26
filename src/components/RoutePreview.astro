@@ -1,85 +1,81 @@
 ---
-const checkpoints = [
-  { name: "Darchen", nameZh: "塔尔钦", altitude: "4,560m", day: "Start / 起点", distance: "0km" },
-  { name: "Dirapuk Monastery", nameZh: "曲古寺", altitude: "4,860m", day: "Day 1 / 第1天", distance: "12km" },
-  { name: "Zutulpuk Monastery", nameZh: "止热寺", altitude: "5,080m", day: "Day 1 / 第1天", distance: "22km" },
-  { name: "Dolma La Pass", nameZh: "卓玛拉垭口", altitude: "5,630m", day: "Day 2 / 第2天", distance: "30km", highlight: true },
-  { name: "Zongze Temple", nameZh: "尊最普寺", altitude: "4,820m", day: "Day 2 / 第2天", distance: "38km" },
-  { name: "Darchen", nameZh: "塔尔钦", altitude: "4,560m", day: "Finish / 终点", distance: "52km" }
-];
-
-const stats = [
-  { label: "Total Distance / 总距离", value: "52", unit: "km" },
-  { label: "Max Altitude / 最高海拔", value: "5,630", unit: "m" },
-  { label: "Duration / 建议天数", value: "2-3", unit: "days / 天" },
-  { label: "Best Season / 最佳季节", value: "May-Oct", unit: "" }
-];
+// Route Preview Component - Bilingual
 ---
 
-<section class="py-24 bg-kailash-dark">
+<section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section Header -->
-    <div class="text-center mb-16">
-      <span class="text-kailash-gold text-sm font-semibold tracking-widest uppercase mb-4 block">The Sacred Route / 神圣路线</span>
-      <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">52km Kora Circuit / 52公里转山道</h2>
-      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-        Starting from Darchen, crossing the 5,630m Dolma La Pass, completing a 2-3 day spiritual transformation / 从塔尔钦出发，翻越5630米的卓玛拉垭口，完成三天两夜的心灵洗礼
-      </p>
-    </div>
-    
-    <!-- Stats Bar -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-      {stats.map(stat => (
-        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-white/10">
-          <div class="text-3xl md:text-4xl font-bold text-kailash-gold">
-            {stat.value}<span class="text-lg">{stat.unit}</span>
-          </div>
-          <div class="text-sm text-gray-400 mt-1">{stat.label}</div>
-        </div>
-      ))}
-    </div>
-    
-    <div class="grid lg:grid-cols-2 gap-12 items-start">
-      <!-- Route Checkpoints -->
-      <div class="space-y-3">
-        {checkpoints.map((cp, index) => (
-          <div class={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${cp.highlight ? 'bg-kailash-gold/20 border border-kailash-gold/50' : 'bg-white/5 border border-white/10 hover:bg-white/10'}`}>
-            <div class={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg ${cp.highlight ? 'bg-kailash-gold text-kailash-dark' : 'bg-white/10 text-kailash-gold'}`}>
-              {index + 1}
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="flex justify-between items-center mb-1">
-                <div>
-                  <h4 class="font-medium text-white text-lg">{cp.name}</h4>
-                  <span class="text-xs text-gray-500">{cp.nameZh}</span>
-                </div>
-                {cp.highlight && <span class="text-xs bg-kailash-gold text-kailash-dark px-2 py-1 rounded-full font-semibold">Highest Point / 最高点</span>}
-              </div>
-              <div class="flex gap-4 text-sm">
-                <span class="text-gray-400">{cp.day}</span>
-                <span class="text-kailash-gold">{cp.altitude}</span>
-                <span class="text-gray-500">{cp.distance}</span>
-              </div>
-            </div>
-          </div>
-        ))}
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">
+          52公里转山路线
+        </h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">
+          52km Kora Circuit
+        </h2>
+        <p class="text-lg text-gray-600 mb-8" data-lang-content="zh">
+          三天两夜的高原徒步，从塔尔钦出发，翻越5630米的卓玛拉垭口，最终回到起点。这是一段身体与心灵的双重旅程。
+        </p>
+        <p class="text-lg text-gray-600 mb-8" data-lang-content="en" style="display: none;">
+          A 3-day high-altitude trek from Darchen, crossing the 5,630m Dolma La pass, returning to the starting point. A journey of both body and soul.
+        </p>
         
-        <a href="/routes" class="inline-flex items-center mt-6 text-kailash-gold hover:text-kailash-accent transition group">
-          <span>View Full Route Details / 查看完整路线详情</span>
-          <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-kailash-gold rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-kailash-dark font-bold">1</span>
+            </div>
+            <div>
+              <h3 class="font-semibold text-kailash-dark" data-lang-content="zh">第一天：塔尔钦 → 止热寺（20km）</h3>
+              <h3 class="font-semibold text-kailash-dark" data-lang-content="en" style="display: none;">Day 1: Darchen → Drirapuk (20km)</h3>
+              <p class="text-gray-600 text-sm" data-lang-content="zh">平缓起步，适应海拔，沿途可见神山北壁</p>
+              <p class="text-gray-600 text-sm" data-lang-content="en" style="display: none;">Gentle start, altitude acclimatization, view of Kailash's north face</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-kailash-gold rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-kailash-dark font-bold">2</span>
+            </div>
+            <div>
+              <h3 class="font-semibold text-kailash-dark" data-lang-content="zh">第二天：止热寺 → 尊珠寺（18km）</h3>
+              <h3 class="font-semibold text-kailash-dark" data-lang-content="en" style="display: none;">Day 2: Drirapuk → Dzultripuk (18km)</h3>
+              <p class="text-gray-600 text-sm" data-lang-content="zh">翻越卓玛拉垭口，最具挑战的一天</p>
+              <p class="text-gray-600 text-sm" data-lang-content="en" style="display: none;">Crossing Dolma La pass - the most challenging day</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-kailash-gold rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-kailash-dark font-bold">3</span>
+            </div>
+            <div>
+              <h3 class="font-semibold text-kailash-dark" data-lang-content="zh">第三天：尊珠寺 → 塔尔钦（14km）</h3>
+              <h3 class="font-semibold text-kailash-dark" data-lang-content="en" style="display: none;">Day 3: Dzultripuk → Darchen (14km)</h3>
+              <p class="text-gray-600 text-sm" data-lang-content="zh">轻松返程，完成神圣的转山之旅</p>
+              <p class="text-gray-600 text-sm" data-lang-content="en" style="display: none;">Easy return, completing the sacred kora</p>
+            </div>
+          </div>
+        </div>
+        
+        <a href="/routes" class="inline-flex items-center mt-8 text-kailash-gold font-semibold hover:text-kailash-accent transition">
+          <span data-lang-content="zh">查看详细路线</span>
+          <span data-lang-content="en" style="display: none;">View Detailed Route</span>
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
         </a>
       </div>
       
-        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-b from-kailash-gold/10 to-kailash-dark border border-white/10 relative">
-          <img src="/images/kailash-aerial.jpg" alt="Kailash Aerial View" class="w-full h-full object-cover opacity-70" />
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="text-center bg-kailash-dark/60 backdrop-blur-sm rounded-xl p-6">
-              <svg class="w-16 h-16 mx-auto mb-3 text-kailash-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-              <p class="text-white text-lg font-medium">52km Sacred Kora Route</p>
-              <p class="text-kailash-gold text-sm mt-1">52公里神圣转山道</p>
-            </div>
-          </div>
+      <div class="relative">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+          <div class="absolute inset-0 bg-[url('/images/kailash-aerial.jpg')] bg-cover bg-center"></div>
         </div>
+        <div class="absolute -bottom-6 -right-6 bg-kailash-gold text-kailash-dark p-6 rounded-xl shadow-lg">
+          <p class="text-sm font-medium" data-lang-content="zh">海拔高度</p>
+          <p class="text-sm font-medium" data-lang-content="en" style="display: none;">Elevation</p>
+          <p class="text-3xl font-bold">4,560m - 5,630m</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

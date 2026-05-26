@@ -1,87 +1,89 @@
 ---
-const features = [
-  {
-    title: "The Center of the World / 世界的中心",
-    description: "Mount Kailash is revered as the sacred mountain by four major religions: Hinduism, Tibetan Buddhism, Bön, and Jainism. Every year, tens of thousands of pilgrims from around the world come to complete the holy Kora. / 冈仁波齐被藏传佛教、印度教、苯教、耆那教四大宗教共同尊为神山，每年吸引全球数万名朝圣者前来转山。",
-    icon: "🌍"
-  },
-  {
-    title: "Global Pilgrim Community / 全球朝圣者社区",
-    description: "Connect with pilgrims from India, Nepal, China, Europe, America, and beyond. Share routes, experiences, and spiritual stories across borders and faiths. / 连接来自印度、尼泊尔、中国、欧美等地的朝圣者，分享路线、经验与信仰故事。",
-    icon: "🤝"
-  },
-  {
-    title: "Professional Services / 专业服务",
-    description: "Multilingual guides, international team support, medical and logistics assistance. Ensuring every pilgrim completes their journey safely and meaningfully. / 多语言向导、国际团队接待、医疗与后勤支持，让每位朝圣者安全完成心愿。",
-    icon: "✨"
-  }
-];
+// Hero Component - Bilingual Version
 ---
 
-<!-- Fullscreen Background Hero -->
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  
-  <!-- Background with overlay -->
-  <div class="absolute inset-0 bg-kailash-dark">
-    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center opacity-60"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/40 to-kailash-dark"></div>
-  </div>
+  <!-- Background Image -->
+  <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/40 to-kailash-dark"></div>
   
   <!-- Content -->
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-    
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
-      <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-      <span class="text-white/90 text-sm">2026 Pilgrimage Season Now Open / 2026年朝圣季开放预订</span>
+  <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+    <!-- Chinese Content -->
+    <div data-lang-content="zh">
+      <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">
+        世界中心 · 神圣朝圣之旅
+      </p>
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+        冈仁波齐
+        <span class="block text-kailash-gold mt-2">2026</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">
+        四大宗教共同的圣地，连接印度、西藏与世界的精神桥梁
+      </p>
+      <p class="text-lg text-white/60 mb-8 max-w-2xl mx-auto">
+        藏传佛教 · 印度教 · 苯教 · 耆那教
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mb-12 text-sm text-white/50">
+        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg> 6656m 神山</span>
+        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 01-.553-.894L15 7m0 13V7"/></svg> 52km 转山</span>
+        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 四大宗教圣地</span>
+      </div>
     </div>
     
-    <!-- Main Title -->
-    <h1 class="font-display text-6xl md:text-7xl lg:text-8xl text-white font-bold mb-4 leading-tight">
-      Kailash <span class="text-kailash-gold">2026</span>
-    </h1>
+    <!-- English Content (Hidden by default) -->
+    <div data-lang-content="en" style="display: none;">
+      <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">
+        Center of the World · Sacred Pilgrimage
+      </p>
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+        Mount Kailash
+        <span class="block text-kailash-gold mt-2">2026</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">
+        Sacred to Four Religions, Connecting India, Tibet & the World
+      </p>
+      <p class="text-lg text-white/60 mb-8 max-w-2xl mx-auto">
+        Tibetan Buddhism · Hinduism · Bön · Jainism
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mb-12 text-sm text-white/50">
+        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg> 6,656m Sacred Peak</span>
+        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 01-.553-.894L15 7m0 13V7"/></svg> 52km Kora Circuit</span>
+        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Four Sacred Traditions</span>
+      </div>
+    </div>
     
-    <!-- Subtitle -->
-    <p class="font-display text-2xl md:text-3xl text-kailash-gold font-semibold mb-4">
-      Global Pilgrimage Platform / 全球朝圣者平台
-    </p>
-    
-    <!-- Tagline -->
-    <p class="text-xl text-white/70 mb-8">
-      Where Pilgrims Unite / 朝圣者在此相聚
-    </p>
-    
-    <!-- Description -->
-    <p class="text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
-      Connecting Global Faiths · Four Sacred Traditions · Professional Support<br>
-      <span class="text-white/40">连接全球信仰者 · 四大宗教圣地 · 专业服务支持</span>
-    </p>
-    
-    <!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-      <a href="/guide" class="group bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition-all inline-flex items-center justify-center gap-2">
-        Explore Now / 开始探索
-        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+    <!-- Bilingual CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/guide" class="group bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition inline-flex items-center justify-center gap-2">
+        <span data-lang-content="zh">开始探索</span>
+        <span data-lang-content="en" style="display: none;">Start Exploring</span>
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
       </a>
-      <a href="/contact" class="border border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-all text-center backdrop-blur-sm">
-        Contact Us / 联系我们
+      <a href="/booking" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition inline-flex items-center justify-center gap-2">
+        <span data-lang-content="zh">预订朝圣之旅</span>
+        <span data-lang-content="en" style="display: none;">Book Pilgrimage</span>
       </a>
     </div>
     
-    <!-- Stats -->
-    <div class="grid grid-cols-3 gap-8 max-w-lg mx-auto pt-8 border-t border-white/20">
-      <div>
-        <div class="text-3xl font-bold text-kailash-gold">52<span class="text-lg">km</span></div>
-        <div class="text-sm text-white/50 mt-1">Kora Route<br>转山路线</div>
-      </div>
-      <div>
-        <div class="text-3xl font-bold text-kailash-gold">5630<span class="text-lg">m</span></div>
-        <div class="text-sm text-white/50 mt-1">Highest Point<br>最高海拔</div>
-      </div>
-      <div>
-        <div class="text-3xl font-bold text-kailash-gold">4</div>
-        <div class="text-sm text-white/50 mt-1">Sacred Faiths<br>宗教信仰</div>
-      </div>
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
     </div>
   </div>
 </section>
+
+<script>
+  // Hero parallax effect
+  document.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.relative.min-h-screen');
+    if (hero) {
+      hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+    }
+  });
+</script>

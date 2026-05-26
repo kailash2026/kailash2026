@@ -1,0 +1,53 @@
+---
+// Language Switcher Component
+const { currentLang = 'zh' } = Astro.props;
+
+const languages = [
+  { code: 'zh', label: '中文', labelEn: 'Chinese' },
+  { code: 'en', label: 'English', labelEn: 'English' }
+];
+---
+
+<div class="language-switcher flex items-center gap-2">
+  {languages.map(lang => (
+    <button
+      class={`px-3 py-1 rounded-full text-sm font-medium transition ${
+        currentLang === lang.code
+          ? 'bg-kailash-gold text-kailash-dark'
+          : 'text-white/70 hover:text-white hover:bg-white/10'
+      }`}
+      data-lang={lang.code}
+      onclick={`switchLanguage('${lang.code}')`}
+    >
+      {lang.label}
+    </button>
+  ))}
+</div>
+
+<script>
+  function switchLanguage(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    localStorage.setItem('preferred-lang', lang);
+    
+    // Toggle visibility of language-specific content
+    document.querySelectorAll('[data-lang-content]').forEach(el => {
+      if (el.getAttribute('data-lang-content') === lang) {
+        el.style.display = '';
+      } else {
+        el.style.display = 'none';
+      }
+    });
+  }
+  
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferred-lang') || 'zh';
+    switchLanguage(savedLang);
+  });
+</script>
+
+<style>
+  .language-switcher {
+    @apply inline-flex;
+  }
+</style>

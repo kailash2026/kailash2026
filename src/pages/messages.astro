@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// This would be fetched from an API in production
+const messages = [
+  {
+    id: 1,
+    name: "张明",
+    nameEn: "Zhang Ming",
+    location: "北京",
+    locationEn: "Beijing",
+    date: "2026-05-20",
+    content: "2025年刚完成转山，神山的力量让人震撼。希望2026年能带父母一起去。",
+    contentEn: "Just completed the kora in 2025. The power of the sacred mountain is overwhelming. Hope to bring my parents in 2026.",
+    avatar: "张"
+  },
+  {
+    id: 2,
+    name: "Rajesh Kumar",
+    nameEn: "Rajesh Kumar",
+    location: "印度德里",
+    locationEn: "Delhi, India",
+    date: "2026-05-18",
+    content: "Kailash is the abode of Lord Shiva. I have been waiting for 3 years to get the permit. Hope 2026 will be my year.",
+    contentEn: "Kailash is the abode of Lord Shiva. I have been waiting for 3 years to get the permit. Hope 2026 will be my year.",
+    avatar: "R"
+  },
+  {
+    id: 3,
+    name: "李雪",
+    nameEn: "Li Xue",
+    location: "成都",
+    locationEn: "Chengdu",
+    date: "2026-05-15",
+    content: "去年去过西藏，但没来得及去冈仁波齐。今年一定要完成这个心愿！",
+    contentEn: "Visited Tibet last year but didn't make it to Kailash. This year I must fulfill this wish!",
+    avatar: "李"
+  }
+];
+---
+
+<Layout title="留言板 - 全球朝圣者交流 | Message Board" description="与来自世界各地的朝圣者交流，分享您的冈仁波齐之旅计划与感悟。Connect with pilgrims worldwide.">
+  
+  <!-- Hero -->
+  <section class="relative bg-kailash-dark py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4" data-lang-content="zh">
+        全球朝圣者留言板
+      </h1>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4" data-lang-content="en" style="display: none;">
+        Global Pilgrims Message Board
+      </h1>
+      <p class="text-xl text-white/70" data-lang-content="zh">
+        分享您的故事，连接世界各地的同路人
+      </p>
+      <p class="text-xl text-white/70" data-lang-content="en" style="display: none;">
+        Share your story, connect with fellow pilgrims worldwide
+      </p>
+    </div>
+  </section>
+
+  <!-- Message Form -->
+  <section class="py-12 bg-kailash-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+        <h2 class="font-display text-2xl font-bold text-kailash-dark mb-6" data-lang-content="zh">
+          发表留言
+        </h2>
+        <h2 class="font-display text-2xl font-bold text-kailash-dark mb-6" data-lang-content="en" style="display: none;">
+          Post a Message
+        </h2>
+        
+        <form id="message-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-lang-content="zh">姓名 / Name</label>
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-lang-content="en" style="display: none;">Name</label>
+              <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kailash-gold focus:border-transparent" placeholder="Your name">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-lang-content="zh">来自 / From</label>
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-lang-content="en" style="display: none;">From</label>
+              <input type="text" name="location" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kailash-gold focus:border-transparent" placeholder="City, Country">
+            </div>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang-content="zh">留言内容 / Message</label>
+            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang-content="en" style="display: none;">Message</label>
+            <textarea name="content" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kailash-gold focus:border-transparent" placeholder="Share your thoughts, plans, or experiences..."></textarea>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <button type="submit" class="bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+              <span data-lang-content="zh">发表留言</span>
+              <span data-lang-content="en" style="display: none;">Post Message</span>
+            </button>
+            <p class="text-sm text-gray-500" data-lang-content="zh">支持中文和英文</p>
+            <p class="text-sm text-gray-500" data-lang-content="en" style="display: none;">Chinese & English supported</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Messages List -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-2xl font-bold text-kailash-dark mb-8" data-lang-content="zh">
+        最新留言
+      </h2>
+      <h2 class="font-display text-2xl font-bold text-kailash-dark mb-8" data-lang-content="en" style="display: none;">
+        Recent Messages
+      </h2>
+      
+      <div class="space-y-6" id="messages-container">
+        {messages.map((msg) => (
+          <div class="bg-kailash-light rounded-2xl p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-kailash-gold rounded-full flex items-center justify-center text-kailash-dark font-bold text-lg flex-shrink-0">
+                {msg.avatar}
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="font-semibold text-kailash-dark">{msg.name}</span>
+                  <span class="text-sm text-gray-500">{msg.location}</span>
+                  <span class="text-sm text-gray-400">{msg.date}</span>
+                </div>
+                <p class="text-gray-700 leading-relaxed">{msg.content}</p>
+                <p class="text-gray-500 text-sm italic mt-2">{msg.contentEn}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Stats -->
+  <section class="py-12 bg-kailash-dark text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">1,200+</p>
+          <p data-lang-content="zh">留言总数</p>
+          <p data-lang-content="en" style="display: none;">Total Messages</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">45+</p>
+          <p data-lang-content="zh">国家地区</p>
+          <p data-lang-content="en" style="display: none;">Countries</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">8,500+</p>
+          <p data-lang-content="zh">计划朝圣者</p>
+          <p data-lang-content="en" style="display: none;">Planned Pilgrims</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">2026</p>
+          <p data-lang-content="zh">出发年份</p>
+          <p data-lang-content="en" style="display: none;">Departure Year</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Handle form submission
+  document.getElementById('message-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const data = {
+      name: formData.get('name'),
+      location: formData.get('location'),
+      content: formData.get('content'),
+      date: new Date().toISOString().split('T')[0]
+    };
+    
+    // In production, this would be sent to an API
+    console.log('New message:', data);
+    alert('感谢您的留言！审核通过后将显示。\nThank you for your message! It will appear after review.');
+    
+    e.target.reset();
+  });
+</script>

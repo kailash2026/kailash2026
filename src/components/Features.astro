@@ -1,68 +1,79 @@
 ---
+// Features Component - Bilingual
 const features = [
   {
-    title: "Sacred to Four Religions / 四大宗教圣地",
-    description: "Mount Kailash is revered by Hinduism, Tibetan Buddhism, Bön, and Jainism. Pilgrims from across the world meet here to complete the sacred Kora together. / 冈仁波齐是印度教、藏传佛教、苯教、耆那教共同尊奉的神山。来自世界各地的朝圣者在此相遇，共同完成神圣的转山之旅。",
-    link: "/culture",
-    icon: "🕉️"
+    icon: "🕉️",
+    titleZh: "四大宗教圣地",
+    titleEn: "Sacred to Four Religions",
+    descZh: "藏传佛教、印度教、苯教、耆那教共同尊奉的世界中心，全球唯一被四大宗教同时视为圣地的山峰",
+    descEn: "Revered by Tibetan Buddhism, Hinduism, Bön, and Jainism—the world's only peak sacred to all four traditions"
   },
   {
-    title: "Global Pilgrim Community / 全球朝圣者社区",
-    description: "Connect with pilgrims from India, Nepal, China, Europe, and America. Share routes, experiences, and build spiritual connections across borders. / 连接印度、尼泊尔、中国、欧美等地的朝圣者。分享路线经验、信仰故事，建立跨越国界的 spiritual 连接。",
-    link: "/stories",
-    icon: "🤝"
+    icon: "🏔️",
+    titleZh: "6656米神山",
+    titleEn: "6,656m Sacred Peak",
+    descZh: "从未被攀登的圣洁之峰，金字塔形山体独一无二，南坡万字符印记神秘庄严",
+    descEn: "Never climbed, unique pyramid-shaped sacred peak with a mysterious swastika pattern on its south face"
   },
   {
-    title: "International Services / 国际专业服务",
-    description: "Multilingual guides familiar with pilgrims from all nations. Medical support, logistics, and oxygen assistance for a safe journey. / 多语言向导团队，熟悉各国朝圣者需求。提供医疗、后勤、氧气支持，让每位朝圣者安全完成心愿。",
-    link: "/guide",
-    icon: "🌐"
+    icon: "🚶",
+    titleZh: "52公里转山",
+    titleEn: "52km Kora Circuit",
+    descZh: "三天两夜高原徒步，翻越5630米卓玛拉垭口，每转一圈相当于念诵六字真言六亿遍",
+    descEn: "3-day high-altitude trek crossing 5,630m Dolma La pass—one circuit equals 600 million mantra recitations"
   },
   {
-    title: "Premium Kora Experience / 精品转山体验",
-    description: "52km outer route from Darchen to 5,630m Dolma La Pass. Flexible group sizes, professional support, walk the path of faith. / 52公里外转路线，从塔尔钦到5630米卓玛拉垭口。灵活成团，专业保障，用脚丈量信仰的高度。",
-    link: "/routes",
-    icon: "🏔️"
+    icon: "💧",
+    titleZh: "圣湖玛旁雍错",
+    titleEn: "Lake Manasarovar",
+    descZh: "世界上海拔最高的淡水湖之一，四大河流的发源地，被称为「西天瑶池」",
+    descEn: "One of the world's highest freshwater lakes, source of four great rivers, called the 'Jade Pool of the Western Heaven'"
+  },
+  {
+    icon: "🌏",
+    titleZh: "全球朝圣者",
+    titleEn: "Global Pilgrims",
+    descZh: "每年数十万朝圣者来自印度、尼泊尔、中国及世界各地，不同信仰者在此平等朝拜",
+    descEn: "Hundreds of thousands of pilgrims from India, Nepal, China & worldwide worship as equals"
+  },
+  {
+    icon: "📅",
+    titleZh: "2026朝圣之旅",
+    titleEn: "2026 Pilgrimage",
+    descZh: "精心策划的行程，专业团队全程保障您的安全，早鸟预订享受专属优惠",
+    descEn: "Carefully planned itinerary with professional team support—early bird booking with exclusive discounts"
   }
 ];
 ---
 
-<section class="py-24 bg-kailash-light">
+<section class="py-20 bg-kailash-light">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section Header -->
-    <div class="text-center mb-16 max-w-3xl mx-auto">
-      <span class="text-kailash-gold text-sm font-semibold tracking-widest uppercase mb-4 block">Why Kailash 2026 / 为什么选择 Kailash 2026</span>
-      <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-6">A Spiritual Home for Global Pilgrims / 全球朝圣者的精神家园</h2>
-      <p class="text-lg text-gray-600 leading-relaxed">
-        Whether you are Hindu, Buddhist, Bön practitioner, or Jain, this is your pilgrimage destination. We connect global faith communities with professional services. / 无论你是印度教徒、佛教徒、苯教徒还是耆那教徒，这里都是你的朝圣目的地。我们连接全球信仰者，提供专业服务。
-      </p>
+    <div class="text-center mb-16">
+      <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="zh">
+        为什么选择冈仁波齐
+      </h2>
+      <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="en" style="display: none;">
+        Why Mount Kailash
+      </h2>
+      <p class="text-lg text-gray-600" data-lang-content="zh">世界中心，信仰之巅</p>
+      <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">Center of the World, Peak of Faith</p>
+      <p class="text-sm text-gray-400 mt-2" data-lang-content="zh">全球唯一被四大宗教共同尊奉的神山</p>
+      <p class="text-sm text-gray-400 mt-2" data-lang-content="en" style="display: none;">The world's only sacred mountain revered by four major religions</p>
     </div>
-    
-    <!-- Features Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {features.map((feature, index) => (
-        <a href={feature.link} class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 hover:border-kailash-gold/20">
-          <!-- Icon -->
-          <div class="w-14 h-14 rounded-xl bg-kailash-gold/10 flex items-center justify-center text-3xl mb-6 group-hover:bg-kailash-gold/20 transition-colors">
-            {feature.icon}
-          </div>
-          
-          <!-- Content -->
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3 group-hover:text-kailash-gold transition-colors">
-            {feature.title}
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow group">
+          <div class="text-4xl mb-4">{feature.icon}</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-2" data-lang-content="zh">
+            {feature.titleZh}
           </h3>
-          <p class="text-gray-600 text-sm leading-relaxed mb-6">
-            {feature.description}
-          </p>
-          
-          <!-- Link -->
-          <div class="flex items-center text-kailash-gold font-medium text-sm group/link">
-            <span>Learn More / 了解更多</span>
-            <svg class="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </div>
-        </a>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-2" data-lang-content="en" style="display: none;">
+            {feature.titleEn}
+          </h3>
+          <p class="text-gray-600" data-lang-content="zh">{feature.descZh}</p>
+          <p class="text-gray-600" data-lang-content="en" style="display: none;">{feature.descEn}</p>
+        </div>
       ))}
     </div>
   </div>

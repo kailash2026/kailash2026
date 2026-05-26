@@ -46,6 +46,24 @@ const stories = [
     date: "2024年8月",
     category: "心灵之旅",
     readTime: "10分钟"
+  },
+  {
+    title: "一个印度教徒的凯拉萨之旅",
+    excerpt: "作为虔诚的湿婆信徒，凯拉萨（Kailasa）是我一生的向往。2025年，我终于踏上了这片神圣的土地...",
+    content: "我是孟买的一名软件工程师，从小在祖母的故事中长大——湿婆神在凯拉萨山顶冥想，雪山神女帕尔瓦蒂陪伴左右。凯拉萨不只是一座山，它是我的精神故乡。\n\n申请印度政府组织的Kailash Mansarovar Yatra花了两年时间。名额有限，每年只有800-1000人能获得资格。2025年夏天，我终于收到了批准通知。\n\n从德里出发，经过北阿坎德邦的里普列克山口进入西藏。当冈仁波齐第一次出现在视野中时，我跪了下来。不是因为高原反应，而是因为那种跨越千年的信仰连接。\n\n在玛旁雍错沐浴的那一刻，我念诵着湿婆真言。湖水冰冷刺骨，但内心却无比温暖。完成了108圈转山中的第一圈，我知道余生还会再来。\n\n冈仁波齐对印度教徒来说，是湿婆的居所，是灵魂净化的最高形式。但当我看到藏族同胞、汉族朋友、来自世界各地的朝圣者一起转山时，我意识到这座山属于所有信仰者。",
+    author: "Ravi Sharma",
+    date: "2025年7月",
+    category: "印度教朝圣",
+    readTime: "8分钟"
+  },
+  {
+    title: "苯教信徒的神山朝圣",
+    excerpt: "作为苯教修行者，我逆时针转山。在冈仁波齐，我找到了与祖先信仰的连接...",
+    content: "我来自四川阿坝的藏族家庭，世代信奉苯教。从小听爷爷讲述敦巴辛饶从天而降的故事，冈仁波齐在我心中一直是宇宙的中心。\n\n与藏传佛教和印度教不同，苯教徒转山走的是逆时针方向。这不是为了标新立异，而是我们古老传统的延续。在止热寺附近，我遇到了几位藏传佛教的 pilgrims，我们互相点头致意，各自沿着自己的方向前行。\n\n在卓玛拉垭口，我挂起了五彩经幡，念诵着苯教的祈祷文。风很大，经幡猎猎作响。那一刻，我感受到了祖先的灵魂与我同在。\n\n苯教在西藏的历史比佛教更悠久，但我们的声音往往被忽视。我希望通过分享我的故事，让更多人了解苯教——西藏最古老的宗教，以及我们对神山的独特理解。",
+    author: "索朗旺姆",
+    date: "2025年8月",
+    category: "苯教朝圣",
+    readTime: "6分钟"
   }
 ];
 ---
@@ -68,6 +86,21 @@ const stories = [
         <p class="text-xl text-white/60 max-w-3xl mx-auto">
           每一个转山的人，都有一段独特的故事
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="py-8 bg-kailash-light">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="bg-kailash-gold text-kailash-dark px-4 py-2 rounded-full text-sm font-medium cursor-pointer">全部</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">个人经历</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">家庭故事</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">心灵之旅</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">文化体验</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">印度教朝圣</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">苯教朝圣</span>
       </div>
     </div>
   </section>
