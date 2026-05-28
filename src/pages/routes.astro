@@ -41,10 +41,14 @@ const supplyStations = [
     nameEn: "Tarqin",
     altitude: 4600,
     distance: "0km（起点）",
+    distanceEn: "0km (Start)",
     type: "start",
     supplies: ["矿泉水", "可乐", "能量饮料", "方便面", "面包", "巧克力", "牛肉干", "压缩饼干", "氧气瓶", "冲锋衣", "帽子", "手套", "登山杖", "护膝", "防晒霜", "唇膏"],
+    suppliesEn: ["Water", "Coke", "Energy Drinks", "Instant Noodles", "Bread", "Chocolate", "Beef Jerky", "Compressed Biscuits", "Oxygen", "Jackets", "Hats", "Gloves", "Trekking Poles", "Knee Pads", "Sunscreen", "Lip Balm"],
     lodging: "客栈、酒店（多人间/标间）",
-    services: "餐厅、商店、加油站、邮局、网吧、医务室、租车/马/背夫"
+    lodgingEn: "Guesthouses & Hotels (dorms/private rooms)",
+    services: "餐厅、商店、加油站、邮局、网吧、医务室、租车/马/背夫",
+    servicesEn: "Restaurants, shops, gas station, post office, internet café, clinic, vehicle/horse/porter rental"
   },
   {
     id: 2,
@@ -52,10 +56,14 @@ const supplyStations = [
     nameEn: "Sexung Prayer Flags",
     altitude: 4700,
     distance: "7km",
+    distanceEn: "7km",
     type: "teahouse",
     supplies: ["酥油茶", "奶茶", "热水", "泡面", "饼干"],
+    suppliesEn: ["Butter Tea", "Milk Tea", "Hot Water", "Instant Noodles", "Biscuits"],
     lodging: "无住宿",
-    services: "小型茶馆，建议停留10–20分钟"
+    lodgingEn: "No lodging",
+    services: "小型茶馆，建议停留10–20分钟",
+    servicesEn: "Small teahouse, recommended stop 10–20 min"
   },
   {
     id: 3,
@@ -63,10 +71,14 @@ const supplyStations = [
     nameEn: "Choku Bridge",
     altitude: 4800,
     distance: "+2.6km",
+    distanceEn: "+2.6km",
     type: "teahouse",
     supplies: ["热水", "饮料", "零食"],
+    suppliesEn: ["Hot Water", "Drinks", "Snacks"],
     lodging: "无住宿",
-    services: "路边小铺"
+    lodgingEn: "No lodging",
+    services: "路边小铺",
+    servicesEn: "Roadside stall"
   },
   {
     id: 4,
@@ -74,10 +86,14 @@ const supplyStations = [
     nameEn: "Jomu Waterfall",
     altitude: 4900,
     distance: "+4.5km",
+    distanceEn: "+4.5km",
     type: "teahouse",
     supplies: ["酥油茶", "热水", "泡面"],
+    suppliesEn: ["Butter Tea", "Hot Water", "Instant Noodles"],
     lodging: "无住宿",
-    services: "临时板房"
+    lodgingEn: "No lodging",
+    services: "临时板房",
+    servicesEn: "Temporary shelter"
   },
   {
     id: 5,
@@ -85,10 +101,14 @@ const supplyStations = [
     nameEn: "Hayagriva Rock Teahouse",
     altitude: 5000,
     distance: "+2.3km",
+    distanceEn: "+2.3km",
     type: "teahouse",
     supplies: ["酥油茶", "奶茶", "热水", "泡面", "饼干", "能量棒"],
+    suppliesEn: ["Butter Tea", "Milk Tea", "Hot Water", "Instant Noodles", "Biscuits", "Energy Bars"],
     lodging: "无住宿",
-    services: "中型茶馆"
+    lodgingEn: "No lodging",
+    services: "中型茶馆",
+    servicesEn: "Medium teahouse"
   },
   {
     id: 6,
@@ -96,10 +116,14 @@ const supplyStations = [
     nameEn: "Drirapuk Gompa",
     altitude: 5200,
     distance: "+4.2km（D1住宿点）",
+    distanceEn: "+4.2km (D1 Camp)",
     type: "camp",
     supplies: ["酥油茶", "奶茶", "藏面", "蛋炒饭", "泡面", "饼干", "巧克力", "牛肉干", "矿泉水", "饮料", "零食", "简单药品", "氧气瓶"],
+    suppliesEn: ["Butter Tea", "Milk Tea", "Tibetan Noodles", "Egg Fried Rice", "Instant Noodles", "Biscuits", "Chocolate", "Beef Jerky", "Water", "Drinks", "Snacks", "Basic Medicine", "Oxygen"],
     lodging: "多人间（5–10人）、毛毯/被子，建议自备-10℃睡袋",
-    services: "大型补给站：餐厅+住宿+商店"
+    lodgingEn: "Dorm rooms (5–10 people), blankets. Bring -10°C sleeping bag",
+    services: "大型补给站：餐厅+住宿+商店",
+    servicesEn: "Major supply station: restaurant + lodging + shop"
   },
   {
     id: 7,
@@ -107,10 +131,14 @@ const supplyStations = [
     nameEn: "Drolma La Pass",
     altitude: 5648,
     distance: "+5.8km（最高点）",
+    distanceEn: "+5.8km (Highest Point)",
     type: "peak",
     supplies: [],
+    suppliesEn: [],
     lodging: "无补给",
-    services: "只有经幡、玛尼堆，停留5–10分钟，快速通过，注意防风保暖"
+    lodgingEn: "No supplies",
+    services: "只有经幡、玛尼堆，停留5–10分钟，快速通过，注意防风保暖",
+    servicesEn: "Prayer flags & mani stones only. Stop 5–10 min, pass quickly. Stay warm & windproof"
   },
   {
     id: 8,
@@ -118,10 +146,14 @@ const supplyStations = [
     nameEn: "Tsoji Lake",
     altitude: 5400,
     distance: "+2.6km",
+    distanceEn: "+2.6km",
     type: "teahouse",
     supplies: ["酥油茶", "热水", "泡面"],
+    suppliesEn: ["Butter Tea", "Hot Water", "Instant Noodles"],
     lodging: "无住宿",
-    services: "小茶馆"
+    lodgingEn: "No lodging",
+    services: "小茶馆",
+    servicesEn: "Small teahouse"
   },
   {
     id: 9,
@@ -129,10 +161,14 @@ const supplyStations = [
     nameEn: "3rd Immovable Peg Teahouse",
     altitude: 5100,
     distance: "+2.4km",
+    distanceEn: "+2.4km",
     type: "teahouse",
     supplies: ["酥油茶", "奶茶", "热水", "泡面", "饼干"],
+    suppliesEn: ["Butter Tea", "Milk Tea", "Hot Water", "Instant Noodles", "Biscuits"],
     lodging: "无住宿",
-    services: "中型茶馆"
+    lodgingEn: "No lodging",
+    services: "中型茶馆",
+    servicesEn: "Medium teahouse"
   },
   {
     id: 10,
@@ -140,10 +176,14 @@ const supplyStations = [
     nameEn: "Sky Dancer Exit",
     altitude: 4900,
     distance: "+3km",
+    distanceEn: "+3km",
     type: "teahouse",
     supplies: ["热水", "饮料", "零食"],
+    suppliesEn: ["Hot Water", "Drinks", "Snacks"],
     lodging: "无住宿",
-    services: "临时板房"
+    lodgingEn: "No lodging",
+    services: "临时板房",
+    servicesEn: "Temporary shelter"
   },
   {
     id: 11,
@@ -151,10 +191,14 @@ const supplyStations = [
     nameEn: "Zhongzhepu Temple",
     altitude: 4800,
     distance: "+4.5km",
+    distanceEn: "+4.5km",
     type: "camp",
     supplies: ["酥油茶", "藏面", "泡面", "零食"],
+    suppliesEn: ["Butter Tea", "Tibetan Noodles", "Instant Noodles", "Snacks"],
     lodging: "多人间（旺季开放）",
-    services: "中型补给，简易住宿"
+    lodgingEn: "Dorms (open in peak season)",
+    services: "中型补给，简易住宿",
+    servicesEn: "Medium supplies, basic lodging"
   },
   {
     id: 12,
@@ -162,10 +206,14 @@ const supplyStations = [
     nameEn: "Zongdui Teahouse",
     altitude: 4700,
     distance: "+6.2km",
+    distanceEn: "+6.2km",
     type: "teahouse",
     supplies: ["热水", "饮料", "零食"],
+    suppliesEn: ["Hot Water", "Drinks", "Snacks"],
     lodging: "无住宿",
-    services: "路边小铺"
+    lodgingEn: "No lodging",
+    services: "路边小铺",
+    servicesEn: "Roadside stall"
   },
   {
     id: 13,
@@ -173,10 +221,14 @@ const supplyStations = [
     nameEn: "Tarqin",
     altitude: 4600,
     distance: "+4km（终点）",
+    distanceEn: "+4km (Finish)",
     type: "end",
     supplies: ["矿泉水", "可乐", "能量饮料", "方便面", "面包", "巧克力", "牛肉干", "压缩饼干", "氧气瓶", "冲锋衣", "帽子", "手套", "登山杖", "护膝", "防晒霜", "唇膏"],
+    suppliesEn: ["Water", "Coke", "Energy Drinks", "Instant Noodles", "Bread", "Chocolate", "Beef Jerky", "Compressed Biscuits", "Oxygen", "Jackets", "Hats", "Gloves", "Trekking Poles", "Knee Pads", "Sunscreen", "Lip Balm"],
     lodging: "客栈、酒店（多人间/标间）",
-    services: "餐厅、商店、加油站、邮局、网吧、医务室、租车/马/背夫"
+    lodgingEn: "Guesthouses & Hotels (dorms/private rooms)",
+    services: "餐厅、商店、加油站、邮局、网吧、医务室、租车/马/背夫",
+    servicesEn: "Restaurants, shops, gas station, post office, internet café, clinic, vehicle/horse/porter rental"
   }
 ];
 ---
@@ -249,8 +301,81 @@ const supplyStations = [
         </div>
       </div>
 
-      <!-- 分段补给明细 -->
-      <div class="mt-16">
+      <!-- 转山路线地图与风光 -->
+      <div class="mt-16 mb-16">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
+            <span data-lang-content="zh">转山地图与沿途风光</span>
+            <span data-lang-content="en" style="display: none;">Route Map & Scenery</span>
+          </h2>
+          <p class="text-lg text-gray-600">
+            <span data-lang-content="zh">用脚步丈量信仰，用双眼记录神山</span>
+            <span data-lang-content="en" style="display: none;">Measure faith with your steps, record the sacred mountain with your eyes</span>
+          </p>
+        </div>
+
+        <!-- 地图区域 -->
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3]">
+              <img src="/images/route-map-1.png" alt="卓玛拉垭口经幡与朝圣者" class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">卓玛拉垭口 · 经幡阵</p>
+                <p class="text-white/80 text-sm">Drolma La Pass · Prayer Flags</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">海拔5648米的最高点，朝圣者在此悬挂经幡祈福，五彩经幡在风中诵念真言。</p>
+              <p class="text-gray-500 text-sm mt-1" data-lang-content="en" style="display: none;">At 5,648m, pilgrims hang prayer flags for blessings. The colorful lungta chant mantras in the wind.</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3]">
+              <img src="/images/route-map-2.png" alt="冈仁波齐与马帮" class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">神山远景 · 马帮休整</p>
+                <p class="text-white/80 text-sm">Mount Kailash View · Horse Caravan Rest</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">云雾缭绕中的冈仁波齐，马帮在 valley 中休整，远处可见临时营地炊烟袅袅。</p>
+              <p class="text-gray-500 text-sm mt-1" data-lang-content="en" style="display: none;">Mount Kailash veiled in clouds, horse caravan resting in the valley, camp smoke rising in the distance.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 风光照片 -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3]">
+              <img src="/images/route-scenery-1.png" alt="曲古寺路标" class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">曲古寺路标 · 三语标识</p>
+                <p class="text-white/80 text-sm">Choku Gompa Sign · Trilingual Marker</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">藏汉英三语路标指向曲古寺，红色山体与蓝天形成强烈对比，典型的阿里地貌。</p>
+              <p class="text-gray-500 text-sm mt-1" data-lang-content="en" style="display: none;">Trilingual sign (Tibetan/Chinese/English) pointing to Choku Gompa. Red rock formations against deep blue sky—typical Ali landscape.</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3]">
+              <img src="/images/route-scenery-2.png" alt="冈仁波齐近景" class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">冈仁波齐 · 经幡 foreground</p>
+                <p class="text-white/80 text-sm">Mount Kailash · Prayer Flags Foreground</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">近观神山金字塔形峰顶，经幡在前景中飘扬，岩石层理清晰可见，海拔6638米的永恒庄严。</p>
+              <p class="text-gray-500 text-sm mt-1" data-lang-content="en" style="display: none;">Close view of the pyramid-shaped summit. Prayer flags flutter in the foreground, rock strata clearly visible—the eternal majesty of 6,638m.</p>
+            </div>
+          </div>
+        </div>
+      </div>
         <div class="text-center mb-12">
           <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
             <span data-lang-content="zh">分段补给明细</span>
@@ -295,7 +420,10 @@ const supplyStations = [
                       {station.type === 'end' && <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-semibold" data-lang-content="zh">🏁 终点</span>}
                       {station.type === 'teahouse' && <span class="bg-kailash-gold/20 text-kailash-dark px-2 py-0.5 rounded text-xs font-semibold" data-lang-content="zh">🍵 茶馆</span>}
                     </div>
-                    <p class="text-sm text-gray-500 font-medium">{station.distance}</p>
+                    <p class="text-sm text-gray-500 font-medium">
+                      <span data-lang-content="zh">{station.distance}</span>
+                      <span data-lang-content="en" style="display: none;">{station.distanceEn}</span>
+                    </p>
                   </div>
                   <div class="text-2xl text-gray-300 font-bold shrink-0">
                     {String(index + 1).padStart(2, '0')}
@@ -307,10 +435,17 @@ const supplyStations = [
                 {station.supplies.length > 0 && (
                   <div class="mb-3">
                     <h4 class="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
-                      <span class="text-kailash-gold">●</span> 可购买
+                      <span class="text-kailash-gold">●</span>
+                      <span data-lang-content="zh">可购买</span>
+                      <span data-lang-content="en" style="display: none;">Available</span>
                     </h4>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2" data-lang-content="zh">
                       {station.supplies.map(item => (
+                        <span class="bg-white border border-gray-200 px-2 py-1 rounded text-sm text-gray-600">{item}</span>
+                      ))}
+                    </div>
+                    <div class="flex flex-wrap gap-2" data-lang-content="en" style="display: none;">
+                      {station.suppliesEn.map(item => (
                         <span class="bg-white border border-gray-200 px-2 py-1 rounded text-sm text-gray-600">{item}</span>
                       ))}
                     </div>
@@ -320,15 +455,21 @@ const supplyStations = [
                 <div class="grid md:grid-cols-2 gap-3">
                   <div>
                     <h4 class="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1">
-                      <span class="text-kailash-gold">●</span> 住宿
+                      <span class="text-kailash-gold">●</span>
+                      <span data-lang-content="zh">住宿</span>
+                      <span data-lang-content="en" style="display: none;">Lodging</span>
                     </h4>
-                    <p class="text-sm text-gray-600">{station.lodging}</p>
+                    <p class="text-sm text-gray-600" data-lang-content="zh">{station.lodging}</p>
+                    <p class="text-sm text-gray-600" data-lang-content="en" style="display: none;">{station.lodgingEn}</p>
                   </div>
                   <div>
                     <h4 class="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1">
-                      <span class="text-kailash-gold">●</span> 服务
+                      <span class="text-kailash-gold">●</span>
+                      <span data-lang-content="zh">服务</span>
+                      <span data-lang-content="en" style="display: none;">Services</span>
                     </h4>
-                    <p class="text-sm text-gray-600">{station.services}</p>
+                    <p class="text-sm text-gray-600" data-lang-content="zh">{station.services}</p>
+                    <p class="text-sm text-gray-600" data-lang-content="en" style="display: none;">{station.servicesEn}</p>
                   </div>
                 </div>
               </div>

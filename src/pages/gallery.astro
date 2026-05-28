@@ -3,58 +3,76 @@ import Layout from '../layouts/Layout.astro';
 
 const photos = [
   {
-    title: "航拍神山",
+    title: "航拍冈仁波齐",
+    titleEn: "Aerial View of Kailash",
     desc: "从空中俯瞰冈仁波齐，金字塔形山峰巍峨壮观",
+    descEn: "Overlooking Mount Kailash from above, the pyramid-shaped peak is majestic",
     category: "风景",
+    categoryEn: "Landscape",
     image: "kailash-aerial.jpg"
   },
   {
     title: "草原牦牛",
+    titleEn: "Yaks on the Prairie",
     desc: "牦牛群在冈仁波齐脚下的草原上悠然吃草",
+    descEn: "Yaks grazing peacefully on the prairie at the foot of Kailash",
     category: "人文",
+    categoryEn: "Culture",
     image: "kailash-yaks.jpg"
   },
   {
-    title: "神山全景",
+    title: "冈仁波齐全景",
+    titleEn: "Panorama of Kailash",
     desc: "蓝天白云下的冈仁波齐，草原与雪山交相辉映",
+    descEn: "Mount Kailash under blue sky, prairie and snow mountains shining together",
     category: "风景",
+    categoryEn: "Landscape",
     image: "kailash-prairie.jpg"
   },
   {
     title: "玛旁雍错",
+    titleEn: "Lake Manasarovar",
     desc: "圣湖玛旁雍错与冈仁波齐遥相呼应",
+    descEn: "Sacred Lake Manasarovar echoes Mount Kailash from afar",
     category: "风景",
+    categoryEn: "Landscape",
     image: "kailash-lake.jpg"
   },
   {
     title: "候鸟翔集",
+    titleEn: "Migratory Birds",
     desc: "成群的候鸟在圣湖上空飞翔，生机盎然",
+    descEn: "Flocks of migratory birds flying over the sacred lake",
     category: "风景",
+    categoryEn: "Landscape",
     image: "kailash-birds.jpg"
   },
   {
     title: "日出金顶",
+    titleEn: "Golden Sunrise",
     desc: "朝阳将冈仁波齐染成金色，庄严神圣",
+    descEn: "Morning sun dyes Mount Kailash golden, solemn and sacred",
     category: "风景",
+    categoryEn: "Landscape",
     image: "kailash-sunrise.jpg"
   },
   {
     title: "日照金山",
+    titleEn: "Golden Hour",
     desc: "夕阳下的冈仁波齐，金色光芒照耀神山",
+    descEn: "Mount Kailash at sunset, bathed in golden light",
     category: "风景",
+    categoryEn: "Landscape",
     image: "kailash-golden.jpg"
   },
   {
-    title: "星空下的神山",
-    desc: "银河横跨冈仁波齐上空，满天繁星",
+    title: "冈仁波齐与草原",
+    titleEn: "Kailash and Prairie",
+    desc: "广袤草原与冈仁波齐神山交相辉映",
+    descEn: "Vast prairie and sacred Mount Kailash shine together",
     category: "风景",
-    image: "kailash-hero.jpg"
-  },
-  {
-    title: "经幡阵",
-    desc: "五彩经幡承载着无数的祈祷与祝福",
-    category: "人文",
-    image: "gallery-pilgrim.jpg"
+    categoryEn: "Landscape",
+    image: "kailash-prairie.jpg"
   }
 ];
 ---
@@ -63,11 +81,17 @@ const photos = [
   <!-- Hero -->
   <section class="relative py-32 bg-kailash-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
-        神山图库
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6" data-lang-content="zh">
+        冈仁波齐图库
       </h1>
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6" data-lang-content="en" style="display: none;">
+        Kailash Gallery
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-lang-content="zh">
         用影像记录神圣的土地，感受视觉的震撼
+      </p>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-lang-content="en" style="display: none;">
+        Capturing the sacred land through images, feel the visual impact
       </p>
     </div>
   </section>
@@ -77,10 +101,14 @@ const photos = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Filter Tags -->
       <div class="flex flex-wrap justify-center gap-3 mb-12">
-        <span class="bg-kailash-gold text-kailash-dark px-4 py-2 rounded-full text-sm font-medium">全部</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">风景</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">人文</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition">朝圣</span>
+        <span class="bg-kailash-gold text-kailash-dark px-4 py-2 rounded-full text-sm font-medium" data-lang-content="zh">全部</span>
+        <span class="bg-kailash-gold text-kailash-dark px-4 py-2 rounded-full text-sm font-medium" data-lang-content="en" style="display: none;">All</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="zh">风景</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="en" style="display: none;">Landscape</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="zh">人文</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="en" style="display: none;">Culture</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="zh">朝圣</span>
+        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="en" style="display: none;">Pilgrimage</span>
       </div>
 
       <!-- Grid -->
@@ -88,12 +116,7 @@ const photos = [
         {photos.map((photo, index) => (
           <div class="group relative aspect-[4/3] bg-gray-200 rounded-xl overflow-hidden cursor-pointer">
             <img 
-            <img 
-            src={`/images/${photo.image}`}
-            alt={photo.title}
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            loading="lazy"
-          />
+              src={`/images/${photo.image}`}
               alt={photo.title}
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
@@ -101,9 +124,12 @@ const photos = [
             {/* Overlay */}
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div class="absolute bottom-0 left-0 right-0 p-6">
-                <span class="inline-block bg-kailash-gold text-kailash-dark text-xs px-2 py-1 rounded mb-2">{photo.category}</span>
-                <h3 class="text-white font-bold text-lg">{photo.title}</h3>
-                <p class="text-gray-300 text-sm mt-1">{photo.desc}</p>
+                <span class="inline-block bg-kailash-gold text-kailash-dark text-xs px-2 py-1 rounded mb-2" data-lang-content="zh">{photo.category}</span>
+                <span class="inline-block bg-kailash-gold text-kailash-dark text-xs px-2 py-1 rounded mb-2" data-lang-content="en" style="display: none;">{photo.categoryEn || photo.category}</span>
+                <h3 class="text-white font-bold text-lg" data-lang-content="zh">{photo.title}</h3>
+                <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">{photo.titleEn || photo.title}</h3>
+                <p class="text-gray-300 text-sm mt-1" data-lang-content="zh">{photo.desc}</p>
+                <p class="text-gray-300 text-sm mt-1" data-lang-content="en" style="display: none;">{photo.descEn || photo.desc}</p>
               </div>
             </div>
           </div>
@@ -112,8 +138,11 @@ const photos = [
 
       <!-- Load More -->
       <div class="text-center mt-12">
-        <button class="bg-white text-kailash-dark px-8 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition">
+        <button class="bg-white text-kailash-dark px-8 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition" data-lang-content="zh">
           加载更多
+        </button>
+        <button class="bg-white text-kailash-dark px-8 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition" data-lang-content="en" style="display: none;">
+          Load More
         </button>
       </div>
     </div>
@@ -122,13 +151,21 @@ const photos = [
   <!-- Submit Photos CTA -->
   <section class="py-20 bg-kailash-dark text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-display text-3xl font-bold mb-4">分享您的神山记忆</h2>
-      <p class="text-gray-400 mb-8">如果您有冈仁波齐的精彩照片，欢迎分享给我们，让更多人感受神山的魅力</p>
-      <a href="mailto:contact@kailash2026.com?subject=照片投稿" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+      <h2 class="font-display text-3xl font-bold mb-4" data-lang-content="zh">分享您的冈仁波齐记忆</h2>
+      <h2 class="font-display text-3xl font-bold mb-4" data-lang-content="en" style="display: none;">Share Your Kailash Memories</h2>
+      <p class="text-gray-400 mb-8" data-lang-content="zh">如果您有冈仁波齐的精彩照片，欢迎分享给我们，让更多人感受冈仁波齐的魅力</p>
+      <p class="text-gray-400 mb-8" data-lang-content="en" style="display: none;">If you have amazing Kailash photos, please share them with us and let more people feel the charm of Kailash</p>
+      <a href="mailto:kailash2026Lucas@outlook.com?subject=照片投稿" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition" data-lang-content="zh">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
         </svg>
         投稿照片
+      </a>
+      <a href="mailto:kailash2026Lucas@outlook.com?subject=Photo Submission" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition" data-lang-content="en" style="display: none;">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+        </svg>
+        Submit Photos
       </a>
     </div>
   </section>

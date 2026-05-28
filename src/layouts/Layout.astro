@@ -131,7 +131,7 @@ const navItems = [
         
         <div>
           <h4 class="font-medium mb-4">联系我们</h4>
-          <p class="text-gray-400 text-sm">contact@kailash2026.com</p>
+          <p class="text-gray-400 text-sm">kailash2026Lucas@outlook.com</p>
           <p class="text-gray-400 text-sm mt-2">微信: Kailash2026</p>
         </div>
       </div>
@@ -151,37 +151,40 @@ const navItems = [
     });
   </script>
   <!-- Global Language Switch Script -->
-  <script>
-    function switchLanguage(lang) {
-      document.documentElement.setAttribute('data-lang', lang);
-      localStorage.setItem('preferred-lang', lang);
+  <script is:inline>
+    (function() {
+      function switchLanguage(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('preferred-lang', lang);
+        
+        // Update button styles
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.remove('text-white/60', 'hover:text-white');
+            btn.classList.add('text-kailash-gold', 'font-medium');
+          } else {
+            btn.classList.remove('text-kailash-gold', 'font-medium');
+            btn.classList.add('text-white/60', 'hover:text-white');
+          }
+        });
+        
+        // Toggle content visibility
+        document.querySelectorAll('[data-lang-content]').forEach(el => {
+          if (el.getAttribute('data-lang-content') === lang) {
+            el.style.display = '';
+          } else {
+            el.style.display = 'none';
+          }
+        });
+      }
       
-      // Update button styles
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        if (btn.getAttribute('data-lang') === lang) {
-          btn.classList.remove('text-white/60', 'hover:text-white');
-          btn.classList.add('text-kailash-gold', 'font-medium');
-        } else {
-          btn.classList.remove('text-kailash-gold', 'font-medium');
-          btn.classList.add('text-white/60', 'hover:text-white');
-        }
-      });
-      
-      // Toggle content visibility
-      document.querySelectorAll('[data-lang-content]').forEach(el => {
-        if (el.getAttribute('data-lang-content') === lang) {
-          el.style.display = '';
-        } else {
-          el.style.display = 'none';
-        }
-      });
-    }
-    
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize on page load
       const savedLang = localStorage.getItem('preferred-lang') || 'zh';
       switchLanguage(savedLang);
-    });
+      
+      // Expose to global scope for onclick handlers
+      window.switchLanguage = switchLanguage;
+    })();
   </script>
 </body>
 </html>

@@ -5,33 +5,20 @@ const contactInfo = [
   {
     icon: "📧",
     title: "电子邮件",
-    content: "contact@kailash2026.com",
-    desc: "24小时内回复",
+    titleEn: "Email",
+    content: "kailash2026Lucas@outlook.com",
+    desc: "对网站意见建议都可以发邮箱，24小时内回复",
+    descEn: "Send feedback or suggestions, reply within 24 hours",
     action: "发送邮件",
-    link: "mailto:contact@kailash2026.com"
-  },
-  {
-    icon: "💬",
-    title: "微信",
-    content: "Kailash2026",
-    desc: "扫码添加咨询",
-    action: "复制微信号",
-    link: "#"
-  },
-  {
-    icon: "📱",
-    title: "电话",
-    content: "+86 xxx-xxxx-xxxx",
-    desc: "工作日 9:00-18:00",
-    action: "拨打电话",
-    link: "tel:+86xxxxxxxxxxx"
+    actionEn: "Send Email",
+    link: "mailto:kailash2026Lucas@outlook.com"
   }
 ];
 
 const officeHours = [
-  { day: "周一至周五", time: "09:00 - 18:00" },
-  { day: "周六", time: "10:00 - 16:00" },
-  { day: "周日", time: "休息" }
+  { day: "周一至周五", dayEn: "Mon - Fri", time: "09:00 - 18:00" },
+  { day: "周六", dayEn: "Saturday", time: "10:00 - 16:00" },
+  { day: "周日", dayEn: "Sunday", time: "休息", timeEn: "Closed" }
 ];
 ---
 
@@ -48,10 +35,12 @@ const officeHours = [
     <div class="relative -mt-20 z-10 px-4 sm:px-6 lg:px-8 pb-16">
       <div class="max-w-7xl mx-auto text-center">
         <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-4">
-          联系我们
+          <span data-lang-content="zh">联系我们</span>
+          <span data-lang-content="en" style="display: none;">Contact Us</span>
         </h1>
         <p class="text-xl text-white/60 max-w-3xl mx-auto">
-          有任何问题或特殊需求，我们随时为您服务
+          <span data-lang-content="zh">有任何问题或特殊需求，我们随时为您服务</span>
+          <span data-lang-content="en" style="display: none;">Have questions or special needs? We are here for you anytime</span>
         </p>
       </div>
     </div>
@@ -64,11 +53,18 @@ const officeHours = [
         {contactInfo.map(method => (
           <div class="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
             <div class="text-5xl mb-4">{method.icon}</div>
-            <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">{method.title}</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">
+              <span data-lang-content="zh">{method.title}</span>
+              <span data-lang-content="en" style="display: none;">{method.titleEn}</span>
+            </h3>
             <p class="text-kailash-gold font-semibold text-lg mb-1">{method.content}</p>
-            <p class="text-gray-500 text-sm mb-6">{method.desc}</p>
+            <p class="text-gray-500 text-sm mb-6">
+              <span data-lang-content="zh">{method.desc}</span>
+              <span data-lang-content="en" style="display: none;">{method.descEn}</span>
+            </p>
             <a href={method.link} class="inline-block bg-kailash-gold text-kailash-dark px-6 py-2 rounded-lg font-medium hover:bg-kailash-accent transition">
-              {method.action}
+              <span data-lang-content="zh">{method.action}</span>
+              <span data-lang-content="en" style="display: none;">{method.actionEn}</span>
             </a>
           </div>
         ))}
@@ -81,32 +77,52 @@ const officeHours = [
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="font-display text-3xl font-bold text-kailash-dark mb-6">工作时间</h2>
+          <h2 class="font-display text-3xl font-bold text-kailash-dark mb-6">
+            <span data-lang-content="zh">工作时间</span>
+            <span data-lang-content="en" style="display: none;">Office Hours</span>
+          </h2>
           <div class="space-y-4">
             {officeHours.map(schedule => (
               <div class="flex justify-between items-center py-3 border-b border-gray-100">
-                <span class="font-medium text-kailash-dark">{schedule.day}</span>
-                <span class="text-gray-600">{schedule.time}</span>
+                <span class="font-medium text-kailash-dark">
+                  <span data-lang-content="zh">{schedule.day}</span>
+                  <span data-lang-content="en" style="display: none;">{schedule.dayEn}</span>
+                </span>
+                <span class="text-gray-600">
+                  <span data-lang-content="zh">{schedule.time}</span>
+                  <span data-lang-content="en" style="display: none;">{schedule.timeEn}</span>
+                </span>
               </div>
             ))}
           </div>
           <div class="mt-8 p-4 bg-amber-50 rounded-xl">
             <p class="text-amber-800 text-sm">
-              <span class="font-semibold">💡 提示：</span>
-              朝圣季节（5-10月）期间，我们提供7×24小时紧急服务热线。
+              <span class="font-semibold" data-lang-content="zh">💡 提示：</span>
+              <span class="font-semibold" data-lang-content="en" style="display: none;">💡 Tip:</span>
+              <span data-lang-content="zh">朝圣季节（5-10月）期间，我们提供7×24小时紧急服务热线。</span>
+              <span data-lang-content="en" style="display: none;">During the pilgrimage season (May-Oct), we provide a 7×24 emergency hotline.</span>
             </p>
           </div>
         </div>
         <div class="bg-kailash-light rounded-2xl p-8">
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-4">快速回复承诺</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-4">
+            <span data-lang-content="zh">快速回复承诺</span>
+            <span data-lang-content="en" style="display: none;">Fast Response Promise</span>
+          </h3>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <div>
-                <p class="font-medium">邮件咨询</p>
-                <p class="text-gray-600 text-sm">24小时内回复</p>
+                <p class="font-medium">
+                  <span data-lang-content="zh">邮件咨询</span>
+                  <span data-lang-content="en" style="display: none;">Email Inquiry</span>
+                </p>
+                <p class="text-gray-600 text-sm">
+                  <span data-lang-content="zh">24小时内回复</span>
+                  <span data-lang-content="en" style="display: none;">Reply within 24 hours</span>
+                </p>
               </div>
             </li>
             <li class="flex items-start gap-3">
@@ -114,8 +130,14 @@ const officeHours = [
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <div>
-                <p class="font-medium">微信咨询</p>
-                <p class="text-gray-600 text-sm">工作时间内2小时内回复</p>
+                <p class="font-medium">
+                  <span data-lang-content="zh">微信咨询</span>
+                  <span data-lang-content="en" style="display: none;">WeChat Inquiry</span>
+                </p>
+                <p class="text-gray-600 text-sm">
+                  <span data-lang-content="zh">工作时间内2小时内回复</span>
+                  <span data-lang-content="en" style="display: none;">Reply within 2 hours during work time</span>
+                </p>
               </div>
             </li>
             <li class="flex items-start gap-3">
@@ -123,8 +145,14 @@ const officeHours = [
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <div>
-                <p class="font-medium">电话咨询</p>
-                <p class="text-gray-600 text-sm">工作时间内即时接听</p>
+                <p class="font-medium">
+                  <span data-lang-content="zh">电话咨询</span>
+                  <span data-lang-content="en" style="display: none;">Phone Inquiry</span>
+                </p>
+                <p class="text-gray-600 text-sm">
+                  <span data-lang-content="zh">工作时间内即时接听</span>
+                  <span data-lang-content="en" style="display: none;">Answered instantly during work time</span>
+                </p>
               </div>
             </li>
           </ul>
@@ -137,13 +165,16 @@ const officeHours = [
   <section class="py-20 bg-kailash-gold">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
-        准备好开启您的朝圣之旅了吗？
+        <span data-lang-content="zh">准备好开启您的朝圣之旅了吗？</span>
+        <span data-lang-content="en" style="display: none;">Ready to start your pilgrimage journey?</span>
       </h2>
       <p class="text-kailash-dark/80 mb-8">
-        直接预订行程，我们的团队会尽快与您联系
+        <span data-lang-content="zh">直接预订行程，我们的团队会尽快与您联系</span>
+        <span data-lang-content="en" style="display: none;">Book directly and our team will contact you as soon as possible</span>
       </p>
       <a href="/booking" class="inline-flex items-center bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-kailash-dark/90 transition gap-2">
-        立即预订
+        <span data-lang-content="zh">立即预订</span>
+        <span data-lang-content="en" style="display: none;">Book Now</span>
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
         </svg>

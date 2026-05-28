@@ -27,7 +27,7 @@ ${pages.map(page => `  <url>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="${siteUrl}${page.url}" />
-    <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}${page.url}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}${page.url}?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}${page.url}" />
   </url>`).join('\n')}
 </urlset>`;
