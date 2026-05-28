@@ -1,38 +1,136 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const routeDays = [
-  {
-    day: "第一天",
-    title: "塔尔钦 → 止热寺",
-    distance: "22公里",
-    altitude: "4560m → 5080m",
-    duration: "6-8小时",
-    description: "从塔尔钦出发，经曲古寺，沿拉曲河谷上行，最终抵达止热寺。这是适应海拔的第一天，路况相对平缓。",
-    highlights: ["曲古寺", "玛尼堆群", "止热寺（宿营地）"],
-    tips: "第一天不要走太快，给身体适应海拔的时间"
+const routePlans = {
+  twoDay: {
+    name: "两天转山",
+    nameEn: "2-Day Kora",
+    subtitle: "挑战极限 · 适合体能好、海拔适应快的朝圣者",
+    subtitleEn: "For experienced trekkers with good altitude adaptation",
+    totalDistance: "52公里",
+    totalDistanceEn: "52 km",
+    totalDuration: "2天1夜",
+    totalDurationEn: "2 Days 1 Night",
+    difficulty: "困难",
+    difficultyEn: "Hard",
+    difficultyColor: "red",
+    description: "第一天从塔尔钦直接走到止热寺（22km），第二天凌晨3-4点出发，翻越卓玛拉垭口后直接回到塔尔钦（30km）。全程只有一晚住宿，第二天强度极大。",
+    descriptionEn: "Day 1: Darchen to Drirapuk (22km). Day 2: Start at 3-4 AM, cross Drolma La and return to Darchen (30km). Only one night stay, extremely demanding second day.",
+    warning: "⚠️ 第二天需行走30公里且翻越5648米垭口，对体能要求极高，不建议初次转山者选择",
+    warningEn: "⚠️ Day 2 requires 30km with 5648m pass crossing. Extremely demanding. Not recommended for first-time pilgrims.",
+    days: [
+      {
+        day: "第一天",
+        dayEn: "Day 1",
+        title: "塔尔钦 → 止热寺",
+        titleEn: "Darchen → Drirapuk",
+        distance: "22公里",
+        distanceEn: "22 km",
+        altitude: "4600m → 5200m",
+        altitudeEn: "4600m → 5200m",
+        duration: "6-8小时",
+        durationEn: "6-8 hours",
+        description: "从塔尔钦出发，经曲古寺，沿拉曲河谷上行，最终抵达止热寺。这是适应海拔的第一天，路况相对平缓。建议下午3点前到达止热寺，尽早休息为第二天储备体力。",
+        descriptionEn: "Depart from Darchen, pass Choku Gompa, follow Lhaqu Valley upstream to Drirapuk. Relatively gentle terrain for altitude adaptation. Arrive before 3 PM to rest early for Day 2.",
+        highlights: ["曲古寺", "玛尼堆群", "止热寺（唯一住宿点）"],
+        highlightsEn: ["Choku Gompa", "Mani Stone Piles", "Drirapuk (only lodging)"],
+        tips: "第一天不要走太快，给身体适应海拔的时间。止热寺是唯一住宿点，旺季需提前确认床位。",
+        tipsEn: "Don't rush on Day 1. Allow time for altitude adaptation. Drirapuk is the only lodging—confirm bed availability in peak season."
+      },
+      {
+        day: "第二天",
+        dayEn: "Day 2",
+        title: "止热寺 → 卓玛拉垭口 → 塔尔钦",
+        titleEn: "Drirapuk → Drolma La → Darchen",
+        distance: "30公里",
+        distanceEn: "30 km",
+        altitude: "5200m → 5648m → 4600m",
+        altitudeEn: "5200m → 5648m → 4600m",
+        duration: "10-14小时",
+        durationEn: "10-14 hours",
+        description: "凌晨3-4点摸黑出发，借助头灯翻越5648米的卓玛拉垭口。下山经过托吉错、仲哲普寺，不停留住宿，直接走回塔尔钦。这是对身体和意志的终极考验。",
+        descriptionEn: "Depart at 3-4 AM in darkness with headlamps. Cross 5648m Drolma La. Descend past Tsoji Lake and Zhongzhepu Temple without stopping, continue directly to Darchen. Ultimate test of body and will.",
+        highlights: ["卓玛拉垭口（5648m，最高点）", "托吉错", "仲哲普寺", "塔尔钦（终点）"],
+        highlightsEn: ["Drolma La (5648m, highest point)", "Tsoji Lake", "Zhongzhepu Temple", "Darchen (finish)"],
+        tips: "必须带头灯！垭口前1公里最陡，保持节奏。下山保护膝盖，途中茶馆可快速补充热水。建议请背夫或骑马节省体力。",
+        tipsEn: "Headlamp mandatory! The 1km before the pass is steepest—pace yourself. Protect knees on descent. Quick hot water refills at teahouses. Consider porter or horse to save energy."
+      }
+    ]
   },
-  {
-    day: "第二天",
-    title: "止热寺 → 尊最普寺",
-    distance: "18公里",
-    altitude: "5080m → 5630m → 4820m",
-    duration: "8-10小时",
-    description: "最艰难的一天。凌晨出发翻越5630米的卓玛拉垭口，这是整个转山路线最高点。下山经过托吉错（慈悲湖），最终抵达尊最普寺。",
-    highlights: ["卓玛拉垭口（5630m，最高点）", "托吉错", "尊最普寺（宿营地）"],
-    tips: "垭口前1公里最陡，保持节奏；下山保护膝盖"
-  },
-  {
-    day: "第三天",
-    title: "尊最普寺 → 塔尔钦",
-    distance: "12公里",
-    altitude: "4820m → 4560m",
-    duration: "3-4小时",
-    description: "轻松的一天，沿峡谷平缓下降，回到塔尔钦，完成转山。",
-    highlights: ["峡谷风光", "玛旁雍错远眺", "塔尔钦（终点）"],
-    tips: "胜利在望，但不要大意，注意脚下安全"
+  threeDay: {
+    name: "三天转山",
+    nameEn: "3-Day Kora",
+    subtitle: "标准行程 · 适合大多数朝圣者，节奏舒适",
+    subtitleEn: "Standard itinerary · Comfortable pace for most pilgrims",
+    totalDistance: "52公里",
+    totalDistanceEn: "52 km",
+    totalDuration: "3天2夜",
+    totalDurationEn: "3 Days 2 Nights",
+    difficulty: "中等",
+    difficultyEn: "Moderate",
+    difficultyColor: "blue",
+    description: "最经典的转山行程。第一天适应海拔，第二天翻越垭口，第三天轻松返程。两晚分别在止热寺和尊最普寺住宿，节奏合理，适合大多数朝圣者。",
+    descriptionEn: "The classic Kora itinerary. Day 1 for altitude adaptation, Day 2 for pass crossing, Day 3 easy return. Two nights at Drirapuk and Zunzhepu. Reasonable pace for most pilgrims.",
+    warning: "",
+    warningEn: "",
+    days: [
+      {
+        day: "第一天",
+        dayEn: "Day 1",
+        title: "塔尔钦 → 止热寺",
+        titleEn: "Darchen → Drirapuk",
+        distance: "22公里",
+        distanceEn: "22 km",
+        altitude: "4600m → 5200m",
+        altitudeEn: "4600m → 5200m",
+        duration: "6-8小时",
+        durationEn: "6-8 hours",
+        description: "从塔尔钦出发，经曲古寺，沿拉曲河谷上行，最终抵达止热寺。这是适应海拔的第一天，路况相对平缓。止热寺正对冈仁波齐北壁，是拍摄神山倒影的绝佳位置。",
+        descriptionEn: "Depart from Darchen, pass Choku Gompa, follow Lhaqu Valley upstream to Drirapuk. Gentle terrain for altitude adaptation. Drirapuk faces Kailash's north face—perfect for photos.",
+        highlights: ["曲古寺", "玛尼堆群", "止热寺（D1住宿点，北壁景观）"],
+        highlightsEn: ["Choku Gompa", "Mani Stone Piles", "Drirapuk (D1 camp, north face view)"],
+        tips: "第一天不要走太快，给身体适应海拔的时间。止热寺住宿条件简陋，建议自备-10℃睡袋。",
+        tipsEn: "Don't rush on Day 1. Allow time for altitude adaptation. Lodging is basic—bring a -10°C sleeping bag."
+      },
+      {
+        day: "第二天",
+        dayEn: "Day 2",
+        title: "止热寺 → 尊最普寺",
+        titleEn: "Drirapuk → Zunzhepu",
+        distance: "18公里",
+        distanceEn: "18 km",
+        altitude: "5200m → 5648m → 4800m",
+        altitudeEn: "5200m → 5648m → 4800m",
+        duration: "8-10小时",
+        durationEn: "8-10 hours",
+        description: "最艰难的一天。凌晨出发翻越5648米的卓玛拉垭口，这是整个转山路线最高点。下山经过托吉错（慈悲湖），最终抵达尊最普寺。途中可在多个茶馆休息补给。",
+        descriptionEn: "The hardest day. Depart early to cross 5648m Drolma La, the highest point. Descend past Tsoji Lake (Mercy Lake) to Zunzhepu Temple. Multiple teahouses along the way for rest and resupply.",
+        highlights: ["卓玛拉垭口（5648m，最高点）", "托吉错", "尊最普寺（D2住宿点）"],
+        highlightsEn: ["Drolma La (5648m, highest point)", "Tsoji Lake", "Zunzhepu Temple (D2 camp)"],
+        tips: "垭口前1公里最陡，保持节奏；下山保护膝盖。尊最普寺住宿条件比止热寺更简陋，旺季可能满员。",
+        tipsEn: "The 1km before the pass is steepest—pace yourself. Protect knees on descent. Zunzhepu lodging is more basic than Drirapuk and may be full in peak season."
+      },
+      {
+        day: "第三天",
+        dayEn: "Day 3",
+        title: "尊最普寺 → 塔尔钦",
+        titleEn: "Zunzhepu → Darchen",
+        distance: "12公里",
+        distanceEn: "12 km",
+        altitude: "4800m → 4600m",
+        altitudeEn: "4800m → 4600m",
+        duration: "3-4小时",
+        durationEn: "3-4 hours",
+        description: "轻松的一天，沿峡谷平缓下降，回到塔尔钦，完成转山。胜利在望，可以在宗堆茶馆做最后一次休息。",
+        descriptionEn: "Easy day with gentle descent through the canyon back to Darchen. Victory is near—last rest stop at Zongdui Teahouse.",
+        highlights: ["峡谷风光", "玛旁雍错远眺", "宗堆茶馆", "塔尔钦（终点）"],
+        highlightsEn: ["Canyon scenery", "Lake Manasarovar view", "Zongdui Teahouse", "Darchen (finish)"],
+        tips: "胜利在望，但不要大意，注意脚下安全。回到塔尔钦后可以好好吃一顿，庆祝转山完成！",
+        tipsEn: "Victory is near but stay careful—watch your step. Celebrate with a good meal back in Darchen!"
+      }
+    ]
   }
-];
+};
 
 const supplyStations = [
   {
@@ -480,8 +578,283 @@ const supplyStations = [
     </div>
   </section>
 
-  <!-- Day by Day -->
+  <!-- Route Plans Comparison -->
   <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
+          <span data-lang-content="zh">选择您的转山行程</span>
+          <span data-lang-content="en" style="display: none;">Choose Your Kora Itinerary</span>
+        </h2>
+        <p class="text-lg text-gray-600">
+          <span data-lang-content="zh">两天挑战极限，三天经典舒适</span>
+          <span data-lang-content="en" style="display: none;">2-day challenge or 3-day classic comfort</span>
+        </p>
+      </div>
+
+      <!-- Plan Cards -->
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <!-- 2-Day Plan -->
+        <div class="bg-kailash-light rounded-2xl overflow-hidden border-2 border-red-200">
+          <div class="bg-red-50 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">
+                <span data-lang-content="zh">{routePlans.twoDay.name}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.twoDay.nameEn}</span>
+              </h3>
+              <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <span data-lang-content="zh">{routePlans.twoDay.difficulty}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.twoDay.difficultyEn}</span>
+              </span>
+            </div>
+            <p class="text-gray-600 text-sm">
+              <span data-lang-content="zh">{routePlans.twoDay.subtitle}</span>
+              <span data-lang-content="en" style="display: none;">{routePlans.twoDay.subtitleEn}</span>
+            </p>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.twoDay.totalDistance}</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">总距离</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Distance</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.twoDay.totalDuration}</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">总时长</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Duration</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">1</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">住宿夜</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Nights</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">
+              <span data-lang-content="zh">{routePlans.twoDay.description}</span>
+              <span data-lang-content="en" style="display: none;">{routePlans.twoDay.descriptionEn}</span>
+            </p>
+            <div class="bg-red-50 border border-red-200 rounded-lg p-3">
+              <p class="text-red-700 text-sm">
+                <span data-lang-content="zh">{routePlans.twoDay.warning}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.twoDay.warningEn}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3-Day Plan -->
+        <div class="bg-kailash-light rounded-2xl overflow-hidden border-2 border-blue-200">
+          <div class="bg-blue-50 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">
+                <span data-lang-content="zh">{routePlans.threeDay.name}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.threeDay.nameEn}</span>
+              </h3>
+              <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <span data-lang-content="zh">{routePlans.threeDay.difficulty}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.threeDay.difficultyEn}</span>
+              </span>
+            </div>
+            <p class="text-gray-600 text-sm">
+              <span data-lang-content="zh">{routePlans.threeDay.subtitle}</span>
+              <span data-lang-content="en" style="display: none;">{routePlans.threeDay.subtitleEn}</span>
+            </p>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.threeDay.totalDistance}</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">总距离</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Distance</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.threeDay.totalDuration}</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">总时长</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Duration</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">2</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">住宿夜</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Nights</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">
+              <span data-lang-content="zh">{routePlans.threeDay.description}</span>
+              <span data-lang-content="en" style="display: none;">{routePlans.threeDay.descriptionEn}</span>
+            </p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+              <p class="text-blue-700 text-sm">
+                <span data-lang-content="zh">✅ 推荐大多数朝圣者选择，节奏合理，有充足休息时间</span>
+                <span data-lang-content="en" style="display: none;">✅ Recommended for most pilgrims. Reasonable pace with adequate rest.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-Day Detail -->
+      <div class="mb-16">
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-2">
+            <span data-lang-content="zh">两天转山详细行程</span>
+            <span data-lang-content="en" style="display: none;">2-Day Kora Detailed Itinerary</span>
+          </h3>
+          <div class="w-20 h-1 bg-red-400 mx-auto rounded"></div>
+        </div>
+        <div class="space-y-8">
+          {routePlans.twoDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl overflow-hidden border-l-4 border-red-400">
+              <div class="bg-kailash-dark text-white p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-kailash-gold font-semibold">
+                      <span data-lang-content="zh">{day.day}</span>
+                      <span data-lang-content="en" style="display: none;">{day.dayEn}</span>
+                    </span>
+                    <h4 class="font-display text-xl font-bold mt-1">
+                      <span data-lang-content="zh">{day.title}</span>
+                      <span data-lang-content="en" style="display: none;">{day.titleEn}</span>
+                    </h4>
+                  </div>
+                  <div class="text-right text-sm text-gray-400">
+                    <p>
+                      <span data-lang-content="zh">{day.distance}</span>
+                      <span data-lang-content="en" style="display: none;">{day.distanceEn}</span>
+                    </p>
+                    <p>
+                      <span data-lang-content="zh">{day.altitude}</span>
+                      <span data-lang-content="en" style="display: none;">{day.altitudeEn}</span>
+                    </p>
+                    <p>
+                      <span data-lang-content="zh">{day.duration}</span>
+                      <span data-lang-content="en" style="display: none;">{day.durationEn}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                  <span data-lang-content="zh">{day.description}</span>
+                  <span data-lang-content="en" style="display: none;">{day.descriptionEn}</span>
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+                      <span class="text-kailash-gold">★</span>
+                      <span data-lang-content="zh">途经亮点</span>
+                      <span data-lang-content="en" style="display: none;">Highlights</span>
+                    </h5>
+                    <ul class="space-y-1">
+                      {day.highlights.map((h, i) => (
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                          <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                          <span data-lang-content="zh">{h}</span>
+                          <span data-lang-content="en" style="display: none;">{day.highlightsEn[i]}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="bg-amber-50 rounded-xl p-4">
+                    <h5 class="font-semibold mb-2 text-amber-800 text-sm">
+                      <span data-lang-content="zh">💡 温馨提示</span>
+                      <span data-lang-content="en" style="display: none;">💡 Tips</span>
+                    </h5>
+                    <p class="text-amber-700 text-sm">
+                      <span data-lang-content="zh">{day.tips}</span>
+                      <span data-lang-content="en" style="display: none;">{day.tipsEn}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- 3-Day Detail -->
+      <div>
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-2">
+            <span data-lang-content="zh">三天转山详细行程</span>
+            <span data-lang-content="en" style="display: none;">3-Day Kora Detailed Itinerary</span>
+          </h3>
+          <div class="w-20 h-1 bg-blue-400 mx-auto rounded"></div>
+        </div>
+        <div class="space-y-8">
+          {routePlans.threeDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl overflow-hidden border-l-4 border-blue-400">
+              <div class="bg-kailash-dark text-white p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-kailash-gold font-semibold">
+                      <span data-lang-content="zh">{day.day}</span>
+                      <span data-lang-content="en" style="display: none;">{day.dayEn}</span>
+                    </span>
+                    <h4 class="font-display text-xl font-bold mt-1">
+                      <span data-lang-content="zh">{day.title}</span>
+                      <span data-lang-content="en" style="display: none;">{day.titleEn}</span>
+                    </h4>
+                  </div>
+                  <div class="text-right text-sm text-gray-400">
+                    <p>
+                      <span data-lang-content="zh">{day.distance}</span>
+                      <span data-lang-content="en" style="display: none;">{day.distanceEn}</span>
+                    </p>
+                    <p>
+                      <span data-lang-content="zh">{day.altitude}</span>
+                      <span data-lang-content="en" style="display: none;">{day.altitudeEn}</span>
+                    </p>
+                    <p>
+                      <span data-lang-content="zh">{day.duration}</span>
+                      <span data-lang-content="en" style="display: none;">{day.durationEn}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                  <span data-lang-content="zh">{day.description}</span>
+                  <span data-lang-content="en" style="display: none;">{day.descriptionEn}</span>
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+                      <span class="text-kailash-gold">★</span>
+                      <span data-lang-content="zh">途经亮点</span>
+                      <span data-lang-content="en" style="display: none;">Highlights</span>
+                    </h5>
+                    <ul class="space-y-1">
+                      {day.highlights.map((h, i) => (
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                          <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                          <span data-lang-content="zh">{h}</span>
+                          <span data-lang-content="en" style="display: none;">{day.highlightsEn[i]}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="bg-amber-50 rounded-xl p-4">
+                    <h5 class="font-semibold mb-2 text-amber-800 text-sm">
+                      <span data-lang-content="zh">💡 温馨提示</span>
+                      <span data-lang-content="en" style="display: none;">💡 Tips</span>
+                    </h5>
+                    <p class="text-amber-700 text-sm">
+                      <span data-lang-content="zh">{day.tips}</span>
+                      <span data-lang-content="en" style="display: none;">{day.tipsEn}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day by Day (Legacy - can be removed or kept) -->
+  <!-- <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
@@ -542,7 +915,7 @@ const supplyStations = [
         ))}
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Booking CTA -->
   <section class="py-20 bg-kailash-gold">
