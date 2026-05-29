@@ -1,5 +1,6 @@
 ---
 // Hero Component - Bilingual Version
+import SearchBox from './SearchBox.astro';
 ---
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -66,6 +67,11 @@
         <span data-lang-content="zh">了解文化</span>
         <span data-lang-content="en" style="display: none;">Explore Culture</span>
       </a>
+    </div>
+    
+    <!-- Search Box -->
+    <div class="mt-8">
+      <SearchBox />
     </div>
     
     <!-- Scroll Indicator -->

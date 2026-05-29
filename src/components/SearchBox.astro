@@ -1,0 +1,280 @@
+---
+// Search Component - Bilingual with Extended Keywords
+---
+
+<div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="relative">
+    <input 
+      type="text" 
+      id="searchInput"
+      placeholder="搜索冈仁波齐..."
+      class="w-full px-6 py-4 pl-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-kailash-gold focus:border-transparent transition"
+      data-lang-placeholder="zh"
+    />
+    <input 
+      type="text" 
+      id="searchInputEn"
+      placeholder="Search Kailash..."
+      class="w-full px-6 py-4 pl-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-kailash-gold focus:border-transparent transition hidden"
+      data-lang-placeholder="en"
+    />
+    <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+    </svg>
+    <button id="searchBtn" class="absolute right-2 top-1/2 -translate-y-1/2 bg-kailash-gold text-kailash-dark px-4 py-2 rounded-full font-medium hover:bg-kailash-accent transition">
+      <span data-lang-content="zh">搜索</span>
+      <span data-lang-content="en" style="display: none;">Search</span>
+    </button>
+  </div>
+  
+  <!-- Search Results Dropdown -->
+  <div id="searchResults" class="hidden mt-2 bg-white rounded-xl shadow-lg overflow-hidden max-h-96 overflow-y-auto">
+    <div class="p-4 text-gray-500 text-sm" id="searchEmpty">
+      <span data-lang-content="zh">输入关键词搜索...</span>
+      <span data-lang-content="en" style="display: none;">Type keywords to search...</span>
+    </div>
+    <div id="searchResultsList" class="hidden">
+      <!-- Results will be populated by JavaScript -->
+    </div>
+  </div>
+</div>
+
+<script>
+  // Extended search data with comprehensive keywords
+  const searchData = [
+    // 主要页面
+    { title: '转山路线', titleEn: 'Kora Route', url: '/routes', category: '主要页面', 
+      keywords: ['路线', '转山', '52公里', '三天', '两天', '行程', '徒步', '公里', '距离', '地图', 'route', 'kora', '52km', 'trail', 'trek', 'hiking', 'distance', 'map', 'path'] },
+    { title: '朝圣攻略', titleEn: 'Pilgrimage Guide', url: '/guide', category: '主要页面',
+      keywords: ['攻略', '准备', '装备', '高反', '指南', '建议', '注意事项', '怎么', '如何', '新手', '第一次', 'guide', 'preparation', 'gear', 'tips', 'advice', 'altitude', 'beginner', 'first time'] },
+    { title: '神山文化', titleEn: 'Sacred Culture', url: '/culture', category: '主要页面',
+      keywords: ['文化', '宗教', '佛教', '印度教', '苯教', '耆那教', '信仰', '神圣', '历史', '传统', 'culture', 'religion', 'buddhism', 'hinduism', 'bon', 'jainism', 'faith', 'sacred', 'history', 'tradition'] },
+    { title: '朝圣故事', titleEn: 'Pilgrim Stories', url: '/stories', category: '主要页面',
+      keywords: ['故事', '经历', '分享', '体验', '感受', '心得', '游记', '日记', 'stories', 'experience', 'sharing', 'journey', 'diary', 'testimonial'] },
+    { title: '图库', titleEn: 'Gallery', url: '/gallery', category: '主要页面',
+      keywords: ['图片', '照片', '影像', '摄影', '风景', '相册', 'gallery', 'photos', 'images', 'pictures', 'photography', 'scenery'] },
+    { title: '常见问题', titleEn: 'FAQ', url: '/faq', category: '主要页面',
+      keywords: ['问题', 'FAQ', '疑问', '问答', '咨询', '疑惑', 'questions', 'faq', 'help', 'support'] },
+    { title: '关于我们', titleEn: 'About Us', url: '/about', category: '主要页面',
+      keywords: ['关于', '团队', '介绍', '背景', '使命', '愿景', 'about', 'team', 'introduction', 'background', 'mission'] },
+    { title: '联系我们', titleEn: 'Contact', url: '/contact', category: '主要页面',
+      keywords: ['联系', '邮箱', '电话', '微信', '咨询', '反馈', 'contact', 'email', 'phone', 'wechat', 'feedback'] },
+    
+    // 路线相关
+    { title: '卓玛拉垭口', titleEn: 'Drolma La Pass', url: '/routes', category: '路线地标',
+      keywords: ['垭口', '最高点', '5648', '5648米', '山顶', '顶峰', 'pass', 'highest', 'summit', 'peak', 'top'] },
+    { title: '止热寺', titleEn: 'Drirapuk', url: '/routes', category: '路线地标',
+      keywords: ['止热寺', '住宿', '寺庙', '寺院', '营地', '过夜', 'drirapuk', 'lodging', 'temple', 'monastery', 'camp', 'stay'] },
+    { title: '塔尔钦', titleEn: 'Darchen', url: '/routes', category: '路线地标',
+      keywords: ['塔尔钦', '起点', '终点', '小镇', '城镇', '基地', 'darchen', 'start', 'finish', 'town', 'base'] },
+    { title: '曲古寺', titleEn: 'Choku Gompa', url: '/routes', category: '路线地标',
+      keywords: ['曲古寺', '寺庙', 'choku', 'gompa', 'temple'] },
+    { title: '尊最普寺', titleEn: 'Zunzhepu', url: '/routes', category: '路线地标',
+      keywords: ['尊最普寺', '祖楚寺', '仲哲普寺', '寺庙', 'zunzhepu', 'zhongzhepu', 'temple'] },
+    { title: '托吉措', titleEn: 'Tsoji Lake', url: '/routes', category: '路线地标',
+      keywords: ['托吉措', '慈悲湖', '湖', '湖泊', 'tsoji', 'lake', 'mercy'] },
+    { title: '色雄大经幡', titleEn: 'Sexung Prayer Flags', url: '/routes', category: '路线地标',
+      keywords: ['色雄', '经幡', '大经幡', 'sexung', 'prayer flags'] },
+    { title: '马头明王石', titleEn: 'Hayagriva Rock', url: '/routes', category: '路线地标',
+      keywords: ['马头明王', '石头', '岩石', 'hayagriva', 'rock'] },
+    
+    // 文化相关
+    { title: '玛旁雍错', titleEn: 'Lake Manasarovar', url: '/culture', category: '文化地标',
+      keywords: ['圣湖', '玛旁雍错', '玛法木错', '湖', '湖泊', 'manasarovar', 'lake', 'holy lake'] },
+    { title: '拉昂错', titleEn: 'Lake Rakshastal', url: '/culture', category: '文化地标',
+      keywords: ['鬼湖', '拉昂错', 'rakshastal', 'lake'] },
+    { title: '经幡', titleEn: 'Prayer Flags', url: '/culture', category: '文化元素',
+      keywords: ['经幡', '风马旗', '隆达', '五彩', 'prayer flags', 'lungta', 'wind horse'] },
+    { title: '玛尼堆', titleEn: 'Mani Stones', url: '/culture', category: '文化元素',
+      keywords: ['玛尼堆', '玛尼石', '石头', 'mani stones', 'mani pile'] },
+    { title: '磕长头', titleEn: 'Prostration', url: '/culture', category: '文化元素',
+      keywords: ['磕长头', '朝拜', '跪拜', '五体投地', 'prostration', 'prostrate', 'bow'] },
+    { title: '转经筒', titleEn: 'Prayer Wheel', url: '/culture', category: '文化元素',
+      keywords: ['转经筒', '经筒', 'prayer wheel', 'mani wheel'] },
+    { title: '酥油茶', titleEn: 'Butter Tea', url: '/culture', category: '文化元素',
+      keywords: ['酥油茶', '奶茶', '茶', 'butter tea', 'tea'] },
+    { title: '六字真言', titleEn: 'Om Mani Padme Hum', url: '/culture', category: '文化元素',
+      keywords: ['六字真言', '唵嘛呢叭咪吽', '真言', '咒语', 'om mani', 'mantra'] },
+    
+    // 攻略相关
+    { title: '高原反应', titleEn: 'Altitude Sickness', url: '/guide', category: '健康问题',
+      keywords: ['高反', '高原反应', '缺氧', '头痛', '恶心', '呕吐', '呼吸困难', 'altitude sickness', 'AMS', 'headache', 'nausea', 'oxygen'] },
+    { title: '最佳时间', titleEn: 'Best Time', url: '/guide', category: '时间规划',
+      keywords: ['时间', '季节', '最佳', '几月', '什么时候', '夏天', '冬天', '五月', '六月', '七月', '八月', '九月', 'time', 'season', 'best', 'month', 'summer', 'winter'] },
+    { title: '装备清单', titleEn: 'Packing List', url: '/guide', category: '装备准备',
+      keywords: ['装备', '清单', '带什么', '衣服', '鞋子', '背包', '睡袋', '冲锋衣', '登山鞋', 'packing', 'gear', 'clothes', 'shoes', 'backpack', 'sleeping bag', 'jacket'] },
+    { title: '许可证', titleEn: 'Permit', url: '/guide', category: '证件办理',
+      keywords: ['许可证', '边防证', '通行证', '证件', '手续', '办理', 'permit', 'border permit', 'pass', 'document'] },
+    { title: '交通', titleEn: 'Transportation', url: '/guide', category: '交通方式',
+      keywords: ['交通', '怎么去', '飞机', '火车', '汽车', '班车', '包车', '自驾', '拉萨', '阿里', 'transportation', 'flight', 'train', 'bus', 'car', 'lhasa', 'ali'] },
+    { title: '费用', titleEn: 'Cost', url: '/guide', category: '预算规划',
+      keywords: ['费用', '多少钱', '价格', '预算', '花费', 'cost', 'price', 'budget', 'money', 'expensive'] },
+    { title: '住宿', titleEn: 'Accommodation', url: '/guide', category: '住宿信息',
+      keywords: ['住宿', '酒店', '客栈', '旅馆', '宾馆', '房间', '床位', 'accommodation', 'hotel', 'guesthouse', 'room', 'bed'] },
+    { title: '食物', titleEn: 'Food', url: '/guide', category: '饮食信息',
+      keywords: ['食物', '吃', '餐厅', '饭', '干粮', '泡面', '零食', 'food', 'eat', 'restaurant', 'meal', 'snacks'] },
+    
+    // 补给相关
+    { title: '补给站', titleEn: 'Supply Stations', url: '/routes', category: '补给信息',
+      keywords: ['补给', '茶馆', '小卖部', '商店', '买', '食物', '水', '饮料', '氧气', 'supply', 'teahouse', 'shop', 'buy', 'water', 'oxygen'] },
+    { title: '氧气瓶', titleEn: 'Oxygen', url: '/guide', category: '装备',
+      keywords: ['氧气', '氧气瓶', '吸氧', '缺氧', 'oxygen', 'bottle', 'tank'] },
+    { title: '登山杖', titleEn: 'Trekking Poles', url: '/guide', category: '装备',
+      keywords: ['登山杖', '手杖', '拐杖', 'trekking poles', 'walking sticks'] },
+    
+    // 宗教相关
+    { title: '藏传佛教', titleEn: 'Tibetan Buddhism', url: '/culture', category: '宗教',
+      keywords: ['藏传佛教', '密宗', '喇嘛', '活佛', '班禅', '达赖', 'tibetan buddhism', 'lama', 'tulku'] },
+    { title: '印度教', titleEn: 'Hinduism', url: '/culture', category: '宗教',
+      keywords: ['印度教', '湿婆', '毗湿奴', 'hinduism', 'shiva', 'vishnu', 'hindu'] },
+    { title: '苯教', titleEn: 'Bon', url: '/culture', category: '宗教',
+      keywords: ['苯教', '本教', '雍仲苯教', 'bon', 'bonism'] },
+    { title: '耆那教', titleEn: 'Jainism', url: '/culture', category: '宗教',
+      keywords: ['耆那教', '大雄', 'jainism', 'jain', 'mahavira'] },
+    
+    // 人物相关
+    { title: '米拉日巴', titleEn: 'Milarepa', url: '/culture', category: '历史人物',
+      keywords: ['米拉日巴', '大师', '尊者', 'milarepa', 'master', 'saint'] },
+    { title: '莲花生大士', titleEn: 'Guru Rinpoche', url: '/culture', category: '历史人物',
+      keywords: ['莲花生', '莲师', '邬金', 'guru rinpoche', 'padmasambhava'] },
+    { title: '格萨尔王', titleEn: 'Gesar Khan', url: '/culture', category: '历史人物',
+      keywords: ['格萨尔', '格萨尔王', '英雄', '史诗', 'gesar', 'khan', 'epic', 'hero'] },
+    
+    // 经典文献
+    { title: '冈仁波齐志', titleEn: 'Kailash Records', url: '/culture', category: '经典文献',
+      keywords: ['经典', '文献', '书籍', '经书', '经文', '冈仁波齐志', 'classic', 'text', 'book', 'scripture'] },
+    { title: '米拉日巴传', titleEn: 'Milarepa Biography', url: '/culture', category: '经典文献',
+      keywords: ['米拉日巴传', '传记', '道歌', 'biography', 'songs'] },
+    { title: '格萨尔王传', titleEn: 'Gesar Epic', url: '/culture', category: '经典文献',
+      keywords: ['格萨尔王传', '史诗', 'epic', 'gesar'] }
+  ];
+
+  const searchInput = document.getElementById('searchInput');
+  const searchInputEn = document.getElementById('searchInputEn');
+  const searchBtn = document.getElementById('searchBtn');
+  const searchResults = document.getElementById('searchResults');
+  const searchResultsList = document.getElementById('searchResultsList');
+  const searchEmpty = document.getElementById('searchEmpty');
+
+  function performSearch(query) {
+    if (!query || query.length < 1) {
+      searchResults.classList.add('hidden');
+      return;
+    }
+
+    const lowerQuery = query.toLowerCase().trim();
+    
+    // Split query into individual characters for Chinese matching
+    const queryChars = lowerQuery.split('');
+    
+    const results = searchData.filter(item => {
+      // Check if any keyword contains the query
+      const keywordMatch = item.keywords.some(k => k.toLowerCase().includes(lowerQuery));
+      
+      // Check title match
+      const titleMatch = item.title.toLowerCase().includes(lowerQuery) || 
+                        item.titleEn.toLowerCase().includes(lowerQuery);
+      
+      // For Chinese, check if all query characters appear in the string (fuzzy match)
+      const fuzzyMatch = queryChars.every(char => 
+        item.title.includes(char) || 
+        item.keywords.some(k => k.includes(char))
+      );
+      
+      return keywordMatch || titleMatch || fuzzyMatch;
+    });
+
+    // Remove duplicates based on URL
+    const uniqueResults = results.filter((item, index, self) => 
+      index === self.findIndex(t => t.url === item.url)
+    );
+
+    searchResults.classList.remove('hidden');
+    
+    if (uniqueResults.length === 0) {
+      searchResultsList.classList.add('hidden');
+      searchEmpty.classList.remove('hidden');
+      searchEmpty.innerHTML = '<span>未找到 "' + query + '" 的相关结果</span>';
+    } else {
+      searchEmpty.classList.add('hidden');
+      searchResultsList.classList.remove('hidden');
+      
+      // Group results by category
+      const grouped = uniqueResults.reduce((acc, item) => {
+        if (!acc[item.category]) acc[item.category] = [];
+        acc[item.category].push(item);
+        return acc;
+      }, {});
+      
+      let html = '';
+      for (const [category, items] of Object.entries(grouped)) {
+        html += `<div class="px-4 py-2 bg-gray-50 text-xs font-semibold text-gray-500 uppercase">${category}</div>`;
+        html += items.map(item => `
+          <a href="${item.url}" class="block p-4 hover:bg-kailash-light transition border-b border-gray-100 last:border-0">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-medium text-kailash-dark">${item.title}</p>
+                <p class="text-sm text-gray-500">${item.titleEn}</p>
+              </div>
+              <svg class="w-5 h-5 text-kailash-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </a>
+        `).join('');
+      }
+      
+      searchResultsList.innerHTML = html;
+    }
+  }
+
+  // Event listeners with debounce
+  let debounceTimer;
+  [searchInput, searchInputEn].forEach(input => {
+    if (input) {
+      input.addEventListener('input', (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => performSearch(e.target.value), 200);
+      });
+      
+      input.addEventListener('focus', () => {
+        if (input.value.length >= 1) {
+          performSearch(input.value);
+        }
+      });
+    }
+  });
+
+  // Close search results when clicking outside
+  document.addEventListener('click', (e) => {
+    const resultsEl = document.getElementById('searchResults');
+    const inputEl = document.getElementById('searchInput');
+    const inputEnEl = document.getElementById('searchInputEn');
+    const btnEl = document.getElementById('searchBtn');
+    
+    // Don't close if clicking on results, input, or button
+    if (resultsEl && !resultsEl.contains(e.target) && 
+        inputEl && !inputEl.contains(e.target) && 
+        inputEnEl && !inputEnEl.contains(e.target) && 
+        btnEl && !btnEl.contains(e.target)) {
+      resultsEl.classList.add('hidden');
+    }
+  });
+
+  // Search button click
+  searchBtn.addEventListener('click', () => {
+    const activeInput = !searchInput.classList.contains('hidden') ? searchInput : searchInputEn;
+    performSearch(activeInput.value);
+  });
+
+  // Enter key
+  [searchInput, searchInputEn].forEach(input => {
+    if (input) {
+      input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          performSearch(input.value);
+        }
+      });
+    }
+  });
+</script>

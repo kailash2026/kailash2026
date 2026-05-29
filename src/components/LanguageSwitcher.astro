@@ -3,8 +3,10 @@
 const { currentLang = 'zh' } = Astro.props;
 
 const languages = [
-  { code: 'zh', label: '中文', labelEn: 'Chinese' },
-  { code: 'en', label: 'English', labelEn: 'English' }
+  { code: 'zh', label: '中文', labelEn: 'Chinese', path: '/' },
+  { code: 'en', label: 'English', labelEn: 'English', path: '/en/' },
+  { code: 'ja', label: '日本語', labelEn: 'Japanese', path: '/ja/' },
+  { code: 'ko', label: '한국어', labelEn: 'Korean', path: '/ko/' }
 ];
 ---
 
@@ -17,7 +19,7 @@ const languages = [
           : 'text-white/70 hover:text-white hover:bg-white/10'
       }`}
       data-lang={lang.code}
-      onclick={`switchLanguage('${lang.code}')`}
+      onclick={`window.location.href = '${lang.path}'`}
     >
       {lang.label}
     </button>
