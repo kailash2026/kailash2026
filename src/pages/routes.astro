@@ -1,278 +1,1105 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const title = "转山路线 | Kailash 2026";
-const description = "冈仁波齐52公里转山路线完整攻略：三天标准行程、两天挑战行程、一天极限行程。13个补给站详细信息，海拔、距离、路况全掌握。";
+const routePlans = {
+  twoDay: {
+    name: "两天转山",
+    nameEn: "2-Day Kora",
+    subtitle: "挑战极限 · 适合体能好、海拔适应快的朝圣者",
+    subtitleEn: "For experienced trekkers with good altitude adaptation",
+    totalDistance: "52公里",
+    totalDistanceEn: "52 km",
+    totalDuration: "2天1夜",
+    totalDurationEn: "2 Days 1 Night",
+    difficulty: "困难",
+    difficultyEn: "Hard",
+    difficultyColor: "red",
+    description: "第一天从塔尔钦直接走到止热寺（22km），第二天凌晨3-4点出发，翻越卓玛拉垭口后直接回到塔尔钦（30km）。全程只有一晚住宿，第二天强度极大。",
+    descriptionEn: "Day 1: Darchen to Drirapuk (22km). Day 2: Start at 3-4 AM, cross Drolma La and return to Darchen (30km). Only one night stay, extremely demanding second day.",
+    warning: "⚠️ 第二天需行走30公里且翻越5648米垭口，对体能要求极高，不建议初次转山者选择",
+    warningEn: "⚠️ Day 2 requires 30km with 5648m pass crossing. Extremely demanding. Not recommended for first-time pilgrims.",
+    days: [
+      {
+        day: "第一天",
+        dayEn: "Day 1",
+        title: "塔尔钦 → 止热寺",
+        titleEn: "Darchen → Drirapuk",
+        distance: "22公里",
+        distanceEn: "22 km",
+        altitude: "4600m → 5200m",
+        altitudeEn: "4600m → 5200m",
+        duration: "6-8小时",
+        durationEn: "6-8 hours",
+        description: "从塔尔钦出发，经曲古寺，沿拉曲河谷上行，最终抵达止热寺。这是适应海拔的第一天，路况相对平缓。建议下午3点前到达止热寺，尽早休息为第二天储备体力。",
+        descriptionEn: "Depart from Darchen, pass Choku Gompa, follow Lhaqu Valley upstream to Drirapuk. Relatively gentle terrain for altitude adaptation. Arrive before 3 PM to rest early for Day 2.",
+        highlights: ["曲古寺", "玛尼堆群", "止热寺（唯一住宿点）"],
+        highlightsEn: ["Choku Gompa", "Mani Stone Piles", "Drirapuk (only lodging)"],
+        tips: "第一天不要走太快，给身体适应海拔的时间。止热寺是唯一住宿点，旺季需提前确认床位。",
+        tipsEn: "Don't rush on Day 1. Allow time for altitude adaptation. Drirapuk is the only lodging—confirm bed availability in peak season."
+      },
+      {
+        day: "第二天",
+        dayEn: "Day 2",
+        title: "止热寺 → 卓玛拉垭口 → 塔尔钦",
+        titleEn: "Drirapuk → Drolma La → Darchen",
+        distance: "30公里",
+        distanceEn: "30 km",
+        altitude: "5200m → 5648m → 4600m",
+        altitudeEn: "5200m → 5648m → 4600m",
+        duration: "10-14小时",
+        durationEn: "10-14 hours",
+        description: "凌晨3-4点摸黑出发，借助头灯翻越5648米的卓玛拉垭口。下山经过托吉错、仲哲普寺，不停留住宿，直接走回塔尔钦。这是对身体和意志的终极考验。",
+        descriptionEn: "Depart at 3-4 AM in darkness with headlamps. Cross 5648m Drolma La. Descend past Tsoji Lake and Zhongzhepu Temple without stopping, continue directly to Darchen. Ultimate test of body and will.",
+        highlights: ["卓玛拉垭口（5648m，最高点）", "托吉错", "仲哲普寺", "塔尔钦（终点）"],
+        highlightsEn: ["Drolma La (5648m, highest point)", "Tsoji Lake", "Zhongzhepu Temple", "Darchen (finish)"],
+        tips: "必须带头灯！垭口前1公里最陡，保持节奏。下山保护膝盖，途中茶馆可快速补充热水。建议请背夫或骑马节省体力。",
+        tipsEn: "Headlamp mandatory! The 1km before the pass is steepest—pace yourself. Protect knees on descent. Quick hot water refills at teahouses. Consider porter or horse to save energy."
+      }
+    ]
+  },
+  threeDay: {
+    name: "三天转山",
+    nameEn: "3-Day Kora",
+    subtitle: "标准行程 · 适合大多数朝圣者，节奏舒适",
+    subtitleEn: "Standard itinerary · Comfortable pace for most pilgrims",
+    totalDistance: "52公里",
+    totalDistanceEn: "52 km",
+    totalDuration: "3天2夜",
+    totalDurationEn: "3 Days 2 Nights",
+    difficulty: "中等",
+    difficultyEn: "Moderate",
+    difficultyColor: "blue",
+    description: "最经典的转山行程。第一天适应海拔，第二天翻越垭口，第三天轻松返程。两晚分别在止热寺和尊最普寺住宿，节奏合理，适合大多数朝圣者。",
+    descriptionEn: "The classic Kora itinerary. Day 1 for altitude adaptation, Day 2 for pass crossing, Day 3 easy return. Two nights at Drirapuk and Zunzhepu. Reasonable pace for most pilgrims.",
+    warning: "",
+    warningEn: "",
+    days: [
+      {
+        day: "第一天",
+        dayEn: "Day 1",
+        title: "塔尔钦 → 止热寺",
+        titleEn: "Darchen → Drirapuk",
+        distance: "22公里",
+        distanceEn: "22 km",
+        altitude: "4600m → 5200m",
+        altitudeEn: "4600m → 5200m",
+        duration: "6-8小时",
+        durationEn: "6-8 hours",
+        description: "从塔尔钦出发，经曲古寺，沿拉曲河谷上行，最终抵达止热寺。这是适应海拔的第一天，路况相对平缓。止热寺正对冈仁波齐北壁，是拍摄神山倒影的绝佳位置。",
+        descriptionEn: "Depart from Darchen, pass Choku Gompa, follow Lhaqu Valley upstream to Drirapuk. Gentle terrain for altitude adaptation. Drirapuk faces Kailash's north face—perfect for photos.",
+        highlights: ["曲古寺", "玛尼堆群", "止热寺（D1住宿点，北壁景观）"],
+        highlightsEn: ["Choku Gompa", "Mani Stone Piles", "Drirapuk (D1 camp, north face view)"],
+        tips: "第一天不要走太快，给身体适应海拔的时间。止热寺住宿条件简陋，建议自备-10℃睡袋。",
+        tipsEn: "Don't rush on Day 1. Allow time for altitude adaptation. Lodging is basic—bring a -10°C sleeping bag."
+      },
+      {
+        day: "第二天",
+        dayEn: "Day 2",
+        title: "止热寺 → 尊最普寺",
+        titleEn: "Drirapuk → Zunzhepu",
+        distance: "18公里",
+        distanceEn: "18 km",
+        altitude: "5200m → 5648m → 4800m",
+        altitudeEn: "5200m → 5648m → 4800m",
+        duration: "8-10小时",
+        durationEn: "8-10 hours",
+        description: "最艰难的一天。凌晨出发翻越5648米的卓玛拉垭口，这是整个转山路线最高点。下山经过托吉错（慈悲湖），最终抵达尊最普寺。途中可在多个茶馆休息补给。",
+        descriptionEn: "The hardest day. Depart early to cross 5648m Drolma La, the highest point. Descend past Tsoji Lake (Mercy Lake) to Zunzhepu Temple. Multiple teahouses along the way for rest and resupply.",
+        highlights: ["卓玛拉垭口（5648m，最高点）", "托吉错", "尊最普寺（D2住宿点）"],
+        highlightsEn: ["Drolma La (5648m, highest point)", "Tsoji Lake", "Zunzhepu Temple (D2 camp)"],
+        tips: "垭口前1公里最陡，保持节奏；下山保护膝盖。尊最普寺住宿条件比止热寺更简陋，旺季可能满员。",
+        tipsEn: "The 1km before the pass is steepest—pace yourself. Protect knees on descent. Zunzhepu lodging is more basic than Drirapuk and may be full in peak season."
+      },
+      {
+        day: "第三天",
+        dayEn: "Day 3",
+        title: "尊最普寺 → 塔尔钦",
+        titleEn: "Zunzhepu → Darchen",
+        distance: "12公里",
+        distanceEn: "12 km",
+        altitude: "4800m → 4600m",
+        altitudeEn: "4800m → 4600m",
+        duration: "3-4小时",
+        durationEn: "3-4 hours",
+        description: "轻松的一天，沿峡谷平缓下降，回到塔尔钦，完成转山。胜利在望，可以在宗堆茶馆做最后一次休息。",
+        descriptionEn: "Easy day with gentle descent through the canyon back to Darchen. Victory is near—last rest stop at Zongdui Teahouse.",
+        highlights: ["峡谷风光", "玛旁雍错远眺", "宗堆茶馆", "塔尔钦（终点）"],
+        highlightsEn: ["Canyon scenery", "Lake Manasarovar view", "Zongdui Teahouse", "Darchen (finish)"],
+        tips: "胜利在望，但不要大意，注意脚下安全。回到塔尔钦后可以好好吃一顿，庆祝转山完成！",
+        tipsEn: "Victory is near but stay careful—watch your step. Celebrate with a good meal back in Darchen!"
+      }
+    ]
+  },
+  oneDay: {
+    name: "一天转山",
+    nameEn: "1-Day Kora",
+    subtitle: "极限挑战 · 仅限资深朝圣者或专业耐力运动员",
+    subtitleEn: "Extreme challenge · For experienced pilgrims or elite endurance athletes only",
+    totalDistance: "52-56公里",
+    totalDistanceEn: "52-56 km",
+    totalDuration: "1天（12-22小时）",
+    totalDurationEn: "1 Day (12-22 hours)",
+    difficulty: "极限",
+    difficultyEn: "Extreme",
+    difficultyColor: "purple",
+    description: "一天内完成52-56公里外转，是冈仁波齐最具挑战性的朝圣方式。全程海拔4560m→5648m→4560m，对体能、海拔适应力和意志力都是终极考验。每年都有因强行一日转山而高反、失温、迷路被救援的案例。",
+    descriptionEn: "Completing the 52-56 km outer Kora in one day is the most challenging form of pilgrimage. Elevation 4560m→5648m→4560m. Ultimate test of fitness, altitude adaptation, and willpower. Every year there are rescue cases due to altitude sickness, hypothermia, and getting lost.",
+    warning: "⚠️ 极高风险！每年均有救援案例。仅限三类人群：藏族资深朝圣者、专业耐力运动员/越野跑者、极少数体能极强的硬核驴友。普通游客绝对禁止尝试！",
+    warningEn: "⚠️ Extremely high risk! Rescue cases occur every year. Only for three groups: experienced Tibetan pilgrims, professional endurance athletes/trail runners, and rare hardcore trekkers with exceptional fitness. Ordinary tourists must NOT attempt!",
+    days: [
+      {
+        day: "全程",
+        dayEn: "Full Day",
+        title: "塔尔钦 → 止热寺 → 卓玛拉垭口 → 塔尔钦",
+        titleEn: "Darchen → Drirapuk → Drolma La → Darchen",
+        distance: "52-56公里",
+        distanceEn: "52-56 km",
+        altitude: "4560m → 5648m → 4560m",
+        altitudeEn: "4560m → 5648m → 4560m",
+        duration: "12-22小时",
+        durationEn: "12-22 hours",
+        description: "凌晨3-5点出发，借助头灯摸黑前行。经曲古寺、止热寺（不停留住宿），直接翻越5648米卓玛拉垭口，下山经过托吉错、仲哲普寺，不停留直接返回塔尔钦。全程无住宿，需携带足量补给和应急装备。",
+        descriptionEn: "Depart at 3-5 AM with headlamps. Pass Choku Gompa and Drirapuk (no overnight stay), cross 5648m Drolma La, descend past Tsoji Lake and Zhongzhepu Temple without stopping, return directly to Darchen. No lodging—carry sufficient supplies and emergency gear.",
+        highlights: ["曲古寺", "止热寺（不停留）", "卓玛拉垭口（5648m）", "托吉错", "仲哲普寺（不停留）", "塔尔钦（终点）"],
+        highlightsEn: ["Choku Gompa", "Drirapuk (no stay)", "Drolma La (5648m)", "Tsoji Lake", "Zhongzhepu Temple (no stay)", "Darchen (finish)"],
+        tips: "必须带头灯和备用电池！携带高热量食物、保温毯、卫星电话或GPS。建议请当地向导或背夫。若出现高反症状（头痛、恶心、呼吸困难），立即停止并下撤。",
+        tipsEn: "Headlamp and spare batteries mandatory! Carry high-calorie food, emergency blanket, satellite phone or GPS. Consider local guide or porter. If altitude sickness symptoms appear (headache, nausea, breathing difficulty), stop immediately and descend."
+      }
+    ]
+  }
+};
+
+const supplyStations = [
+  {
+    id: 1,
+    name: "塔尔钦",
+    nameEn: "Tarqin",
+    altitude: 4600,
+    distance: "0km（起点）",
+    distanceEn: "0km (Start)",
+    type: "start",
+    supplies: ["矿泉水", "可乐", "能量饮料", "方便面", "面包", "巧克力", "牛肉干", "压缩饼干", "氧气瓶", "冲锋衣", "帽子", "手套", "登山杖", "护膝", "防晒霜", "唇膏"],
+    suppliesEn: ["Water", "Coke", "Energy Drinks", "Instant Noodles", "Bread", "Chocolate", "Beef Jerky", "Compressed Biscuits", "Oxygen", "Jackets", "Hats", "Gloves", "Trekking Poles", "Knee Pads", "Sunscreen", "Lip Balm"],
+    lodging: "客栈、酒店（多人间/标间）",
+    lodgingEn: "Guesthouses & Hotels (dorms/private rooms)",
+    services: "餐厅、商店、加油站、邮局、网吧、医务室、租车/马/背夫",
+    servicesEn: "Restaurants, shops, gas station, post office, internet café, clinic, vehicle/horse/porter rental"
+  },
+  {
+    id: 2,
+    name: "色雄大经幡",
+    nameEn: "Sexung Prayer Flags",
+    altitude: 4700,
+    distance: "7km",
+    distanceEn: "7km",
+    type: "teahouse",
+    supplies: ["酥油茶", "奶茶", "热水", "泡面", "饼干"],
+    suppliesEn: ["Butter Tea", "Milk Tea", "Hot Water", "Instant Noodles", "Biscuits"],
+    lodging: "无住宿",
+    lodgingEn: "No lodging",
+    services: "小型茶馆，建议停留10–20分钟",
+    servicesEn: "Small teahouse, recommended stop 10–20 min"
+  },
+  {
+    id: 3,
+    name: "曲古寺小桥",
+    nameEn: "Choku Bridge",
+    altitude: 4800,
+    distance: "+2.6km",
+    distanceEn: "+2.6km",
+    type: "teahouse",
+    supplies: ["热水", "饮料", "零食"],
+    suppliesEn: ["Hot Water", "Drinks", "Snacks"],
+    lodging: "无住宿",
+    lodgingEn: "No lodging",
+    services: "路边小铺",
+    servicesEn: "Roadside stall"
+  },
+  {
+    id: 4,
+    name: "珠牡沐浴瀑布",
+    nameEn: "Jomu Waterfall",
+    altitude: 4900,
+    distance: "+4.5km",
+    distanceEn: "+4.5km",
+    type: "teahouse",
+    supplies: ["酥油茶", "热水", "泡面"],
+    suppliesEn: ["Butter Tea", "Hot Water", "Instant Noodles"],
+    lodging: "无住宿",
+    lodgingEn: "No lodging",
+    services: "临时板房",
+    servicesEn: "Temporary shelter"
+  },
+  {
+    id: 5,
+    name: "马头明王石茶馆",
+    nameEn: "Hayagriva Rock Teahouse",
+    altitude: 5000,
+    distance: "+2.3km",
+    distanceEn: "+2.3km",
+    type: "teahouse",
+    supplies: ["酥油茶", "奶茶", "热水", "泡面", "饼干", "能量棒"],
+    suppliesEn: ["Butter Tea", "Milk Tea", "Hot Water", "Instant Noodles", "Biscuits", "Energy Bars"],
+    lodging: "无住宿",
+    lodgingEn: "No lodging",
+    services: "中型茶馆",
+    servicesEn: "Medium teahouse"
+  },
+  {
+    id: 6,
+    name: "止热寺 / 哲日普寺",
+    nameEn: "Drirapuk Gompa",
+    altitude: 5200,
+    distance: "+4.2km（D1住宿点）",
+    distanceEn: "+4.2km (D1 Camp)",
+    type: "camp",
+    supplies: ["酥油茶", "奶茶", "藏面", "蛋炒饭", "泡面", "饼干", "巧克力", "牛肉干", "矿泉水", "饮料", "零食", "简单药品", "氧气瓶"],
+    suppliesEn: ["Butter Tea", "Milk Tea", "Tibetan Noodles", "Egg Fried Rice", "Instant Noodles", "Biscuits", "Chocolate", "Beef Jerky", "Water", "Drinks", "Snacks", "Basic Medicine", "Oxygen"],
+    lodging: "多人间（5–10人）、毛毯/被子，建议自备-10℃睡袋",
+    lodgingEn: "Dorm rooms (5–10 people), blankets. Bring -10°C sleeping bag",
+    services: "大型补给站：餐厅+住宿+商店",
+    servicesEn: "Major supply station: restaurant + lodging + shop"
+  },
+  {
+    id: 7,
+    name: "卓玛拉山口",
+    nameEn: "Drolma La Pass",
+    altitude: 5648,
+    distance: "+5.8km（最高点）",
+    distanceEn: "+5.8km (Highest Point)",
+    type: "peak",
+    supplies: [],
+    suppliesEn: [],
+    lodging: "无补给",
+    lodgingEn: "No supplies",
+    services: "只有经幡、玛尼堆，停留5–10分钟，快速通过，注意防风保暖",
+    servicesEn: "Prayer flags & mani stones only. Stop 5–10 min, pass quickly. Stay warm & windproof"
+  },
+  {
+    id: 8,
+    name: "托吉措 / 慈悲湖",
+    nameEn: "Tsoji Lake",
+    altitude: 5400,
+    distance: "+2.6km",
+    distanceEn: "+2.6km",
+    type: "teahouse",
+    supplies: ["酥油茶", "热水", "泡面"],
+    suppliesEn: ["Butter Tea", "Hot Water", "Instant Noodles"],
+    lodging: "无住宿",
+    lodgingEn: "No lodging",
+    services: "小茶馆",
+    servicesEn: "Small teahouse"
+  },
+  {
+    id: 9,
+    name: "第三不动地钉茶馆",
+    nameEn: "3rd Immovable Peg Teahouse",
+    altitude: 5100,
+    distance: "+2.4km",
+    distanceEn: "+2.4km",
+    type: "teahouse",
+    supplies: ["酥油茶", "奶茶", "热水", "泡面", "饼干"],
+    suppliesEn: ["Butter Tea", "Milk Tea", "Hot Water", "Instant Noodles", "Biscuits"],
+    lodging: "无住宿",
+    lodgingEn: "No lodging",
+    services: "中型茶馆",
+    servicesEn: "Medium teahouse"
+  },
+  {
+    id: 10,
+    name: "空地母密道出口对面",
+    nameEn: "Sky Dancer Exit",
+    altitude: 4900,
+    distance: "+3km",
+    distanceEn: "+3km",
+    type: "teahouse",
+    supplies: ["热水", "饮料", "零食"],
+    suppliesEn: ["Hot Water", "Drinks", "Snacks"],
+    lodging: "无住宿",
+    lodgingEn: "No lodging",
+    services: "临时板房",
+    servicesEn: "Temporary shelter"
+  },
+  {
+    id: 11,
+    name: "仲哲普寺 / 祖楚寺",
+    nameEn: "Zhongzhepu Temple",
+    altitude: 4800,
+    distance: "+4.5km",
+    distanceEn: "+4.5km",
+    type: "camp",
+    supplies: ["酥油茶", "藏面", "泡面", "零食"],
+    suppliesEn: ["Butter Tea", "Tibetan Noodles", "Instant Noodles", "Snacks"],
+    lodging: "多人间（旺季开放）",
+    lodgingEn: "Dorms (open in peak season)",
+    services: "中型补给，简易住宿",
+    servicesEn: "Medium supplies, basic lodging"
+  },
+  {
+    id: 12,
+    name: "宗堆茶馆",
+    nameEn: "Zongdui Teahouse",
+    altitude: 4700,
+    distance: "+6.2km",
+    distanceEn: "+6.2km",
+    type: "teahouse",
+    supplies: ["热水", "饮料", "零食"],
+    suppliesEn: ["Hot Water", "Drinks", "Snacks"],
+    lodging: "无住宿",
+    lodgingEn: "No lodging",
+    services: "路边小铺",
+    servicesEn: "Roadside stall"
+  },
+  {
+    id: 13,
+    name: "塔尔钦",
+    nameEn: "Tarqin",
+    altitude: 4600,
+    distance: "+4km（终点）",
+    distanceEn: "+4km (Finish)",
+    type: "end",
+    supplies: ["矿泉水", "可乐", "能量饮料", "方便面", "面包", "巧克力", "牛肉干", "压缩饼干", "氧气瓶", "冲锋衣", "帽子", "手套", "登山杖", "护膝", "防晒霜", "唇膏"],
+    suppliesEn: ["Water", "Coke", "Energy Drinks", "Instant Noodles", "Bread", "Chocolate", "Beef Jerky", "Compressed Biscuits", "Oxygen", "Jackets", "Hats", "Gloves", "Trekking Poles", "Knee Pads", "Sunscreen", "Lip Balm"],
+    lodging: "客栈、酒店（多人间/标间）",
+    lodgingEn: "Guesthouses & Hotels (dorms/private rooms)",
+    services: "餐厅、商店、加油站、邮局、网吧、医务室、租车/马/背夫",
+    servicesEn: "Restaurants, shops, gas station, post office, internet café, clinic, vehicle/horse/porter rental"
+  }
+];
+---
 ---
 
-<Layout title={title} description={description}>
-  <div class="pt-20">
-    <!-- Hero -->
-    <section class="bg-kailash-dark py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4" data-lang-content="zh">转山路线</h1>
-        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4" data-lang-content="en" style="display: none;">Kora Routes</h1>
-        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4" data-lang-content="ja" style="display: none;">コーラルート</h1>
-        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4" data-lang-content="ko" style="display: none;">코라 루트</h1>
-        <p class="text-xl text-white/80" data-lang-content="zh">52公里 sacred circuit · 13个补给站 · 3种行程方案</p>
-        <p class="text-xl text-white/80" data-lang-content="en" style="display: none;">52km sacred circuit · 13 supply stations · 3 itinerary options</p>
-        <p class="text-xl text-white/80" data-lang-content="ja" style="display: none;">52km 聖なる巡礼路 · 13の補給所 · 3つの行程プラン</p>
-        <p class="text-xl text-white/80" data-lang-content="ko" style="display: none;">52km 신성한 순례길 · 13개 보급소 · 3가지 일정</p>
+<Layout title="转山路线 - 52公里朝圣之旅 | Kailash 2026" description="冈仁波齐52公里外转路线详解：三天两夜行程、海拔变化、途经寺庙与地标。从塔尔钦出发，翻越5648米卓玛拉垭口。">
+  <!-- Hero: Photo on top, content below -->
+  <section class="relative bg-kailash-dark">
+    <!-- Full-width photo -->
+    <div class="relative w-full h-[45vh] lg:h-[55vh]">
+      <div class="absolute inset-0 bg-[url('/images/kailash-yaks.jpg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-kailash-dark"></div>
+    </div>
+    
+    <!-- Content below photo -->
+    <div class="relative -mt-20 z-10 px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="max-w-7xl mx-auto text-center">
+        <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-4">
+          <span data-lang-content="zh">转山路线</span>
+          <span data-lang-content="en" style="display: none;">Kora Route</span>
+        </h1>
+        <p class="text-xl text-white/60 max-w-3xl mx-auto">
+          <span data-lang-content="zh">52公里，三天两夜，从信仰出发，向心灵回归</span>
+          <span data-lang-content="en" style="display: none;">52 km, three days and two nights—from faith, toward the soul</span>
+        </p>
+        <div class="flex justify-center gap-8 mt-8">
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">52km</p>
+            <p class="text-white/40 text-sm" data-lang-content="zh">总距离</p>
+            <p class="text-white/40 text-sm" data-lang-content="en" style="display: none;">Total Distance</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">5648m</p>
+            <p class="text-white/40 text-sm" data-lang-content="zh">最高点</p>
+            <p class="text-white/40 text-sm" data-lang-content="en" style="display: none;">Highest Point</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">3天</p>
+            <p class="text-white/40 text-sm" data-lang-content="zh">标准行程</p>
+            <p class="text-white/40 text-sm" data-lang-content="en" style="display: none;">Standard Itinerary</p>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Route Overview with Photos -->
-    <section class="py-20 bg-kailash-light">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">路线概览</h2>
-          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Route Overview</h2>
-          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="ja" style="display: none;">ルート概要</h2>
-          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="ko" style="display: none;">루트 개요</h2>
-          <p class="text-lg text-gray-600" data-lang-content="zh">海拔变化与关键节点</p>
-          <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">Altitude changes and key waypoints</p>
-          <p class="text-lg text-gray-600" data-lang-content="ja" style="display: none;">標高変化と主要ポイント</p>
-          <p class="text-lg text-gray-600" data-lang-content="ko" style="display: none;">해발 변화와 주요 지점</p>
+  <!-- Route Overview -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
+          <span data-lang-content="zh">路线概览</span>
+          <span data-lang-content="en" style="display: none;">Route Overview</span>
+        </h2>
+        <p class="text-lg text-gray-600">
+          <span data-lang-content="zh">海拔变化与关键节点</span>
+          <span data-lang-content="en" style="display: none;">Altitude changes and key waypoints</span>
+        </p>
+      </div>
+
+      <!-- 转山路线地图 -->
+      <div class="mb-12">
+        <div class="text-center mb-8">
+          <h3 class="font-display text-2xl font-bold text-kailash-dark mb-2">
+            <span data-lang-content="zh">冈仁波齐转山路线图</span>
+            <span data-lang-content="en" style="display: none;">Mount Kailash Kora Route Map</span>
+          </h3>
+          <p class="text-gray-600 text-sm">
+            <span data-lang-content="zh">52公里朝圣之路，环绕神山一周</span>
+            <span data-lang-content="en" style="display: none;">52km pilgrimage path circling the sacred mountain</span>
+          </p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <img src="/images/kailash-trek-map.jpg" alt="冈仁波齐转山路线图" class="w-full block" style="min-height: 400px;" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div style="display: none;" class="p-8 text-center text-gray-500">
+            <svg class="w-16 h-16 mx-auto mb-4 text-kailash-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <p>图片加载中...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 沿途风光 -->
+      <div class="mt-16 mb-16">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
+            <span data-lang-content="zh">沿途风光</span>
+            <span data-lang-content="en" style="display: none;">Route Scenery</span>
+          </h2>
+          <p class="text-lg text-gray-600">
+            <span data-lang-content="zh">用脚步丈量信仰，用双眼记录神山</span>
+            <span data-lang-content="en" style="display: none;">Measure faith with your steps, record the sacred mountain with your eyes</span>
+          </p>
         </div>
 
-        <!-- 转山路线地图 -->
-        <div class="mb-12">
-          <div class="text-center mb-8">
-            <h3 class="font-display text-2xl font-bold text-kailash-dark mb-2" data-lang-content="zh">冈仁波齐转山路线图</h3>
-            <h3 class="font-display text-2xl font-bold text-kailash-dark mb-2" data-lang-content="en" style="display: none;">Mount Kailash Kora Route Map</h3>
-            <h3 class="font-display text-2xl font-bold text-kailash-dark mb-2" data-lang-content="ja" style="display: none;">カイラス転山ルート地図</h3>
-            <h3 class="font-display text-2xl font-bold text-kailash-dark mb-2" data-lang-content="ko" style="display: none;">카일라스 코라 루트 지도</h3>
-            <p class="text-gray-600 text-sm" data-lang-content="zh">52公里朝圣之路，环绕神山一周</p>
-            <p class="text-gray-600 text-sm" data-lang-content="en" style="display: none;">52km pilgrimage path circling the sacred mountain</p>
-            <p class="text-gray-600 text-sm" data-lang-content="ja" style="display: none;">52kmの巡礼路、神山を一周</p>
-            <p class="text-gray-600 text-sm" data-lang-content="ko" style="display: none;">52km 순례길, 신성한 산을 한 바퀴</p>
-          </div>
+        <!-- 风光照片 -->
+        <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <img src="/images/kailash-trek-map.jpg" alt="冈仁波齐转山路线图" class="w-full block" style="min-height: 400px;" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div style="display: none;" class="p-8 text-center text-gray-500">
-              <svg class="w-16 h-16 mx-auto mb-4 text-kailash-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <p>图片加载中...</p>
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-map-1.png" alt="卓玛拉垭口经幡与朝圣者" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>图片加载失败</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">卓玛拉垭口 · 经幡阵</p>
+                <p class="text-white/80 text-sm">Drolma La Pass · Prayer Flags</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">海拔5648米的最高点，朝圣者在此悬挂经幡祈福，五彩经幡在风中诵念真言。</p>
+              <p class="text-gray-500 text-sm mt-1" data-lang-content="en" style="display: none;">At 5,648m, pilgrims hang prayer flags for blessings. The colorful lungta chant mantras in the wind.</p>
             </div>
           </div>
-        </div>
 
-        <!-- 沿途风光 Photos -->
-        <div class="mt-16 mb-16">
-          <div class="text-center mb-12">
-            <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">沿途风光</h2>
-            <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Route Scenery</h2>
-            <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="ja" style="display: none;">道中の風景</h2>
-            <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="ko" style="display: none;">도중 풍경</h2>
-            <p class="text-lg text-gray-600" data-lang-content="zh">用脚步丈量信仰，用双眼记录神山</p>
-            <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">Measure faith with your steps, record the sacred mountain with your eyes</p>
-            <p class="text-lg text-gray-600" data-lang-content="ja" style="display: none;">足で信仰を測り、目で神山を記録する</p>
-            <p class="text-lg text-gray-600" data-lang-content="ko" style="display: none;">발로 신앙을 측정하고, 눈으로 신성한 산을 기록하다</p>
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-map-2.png" alt="冈仁波齐与马帮" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>图片加载失败</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">神山远景 · 马帮休整</p>
+                <p class="text-white/80 text-sm">Mount Kailash View · Horse Caravan Rest</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">云雾缭绕中的冈仁波齐，马帮在 valley 中休整，远处可见临时营地炊烟袅袅。</p>
+              <p class="text-gray-500 text-sm mt-1" data-lang-content="en" style="display: none;">Mount Kailash veiled in clouds, horse caravan resting in the valley, camp smoke rising in the distance.</p>
+            </div>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div class="relative aspect-[4/3] bg-gray-100">
-                <img src="/images/route-map-1.png" alt="卓玛拉垭口经幡与朝圣者" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
-                <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
-                  <span>图片加载失败</span>
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p class="text-white font-semibold" data-lang-content="zh">卓玛拉垭口 · 经幡阵</p>
-                  <p class="text-white font-semibold" data-lang-content="en" style="display: none;">Drolma La Pass · Prayer Flags</p>
-                  <p class="text-white font-semibold" data-lang-content="ja" style="display: none;">ドマラ峠 · 経幡</p>
-                  <p class="text-white font-semibold" data-lang-content="ko" style="display: none;">도마라 고개 · 기도 flags</p>
-                  <p class="text-white/80 text-sm">Drolma La Pass · Prayer Flags</p>
-                </div>
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-scenery-1.png" alt="曲古寺路标" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>图片加载失败</span>
               </div>
-              <div class="p-4">
-                <p class="text-gray-600 text-sm" data-lang-content="zh">海拔5648米的最高点，朝圣者在此悬挂经幡祈福，五彩经幡在风中诵念真言。</p>
-                <p class="text-gray-600 text-sm" data-lang-content="en" style="display: none;">At 5,648m, pilgrims hang prayer flags for blessings. The colorful lungta chant mantras in the wind.</p>
-                <p class="text-gray-600 text-sm" data-lang-content="ja" style="display: none;">標高5648mの最高点、巡礼者はここで経幡を掲げて祈り、五色の経幡は風の中で真言を唱える。</p>
-                <p class="text-gray-600 text-sm" data-lang-content="ko" style="display: none;">해발 5648m 최고점, 순례자들은 여기서 기도 flags를 걸고 축복을 빌며, 다채로운 flags는 바람 속에서 진언을 외운다.</p>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">曲古寺路标 · 三语标识</p>
+                <p class="text-white/80 text-sm">Choku Gompa Sign · Trilingual Marker</p>
               </div>
             </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">藏汉英三语路标指向曲古寺，红色山体与蓝天形成强烈对比，典型的阿里地貌。</p>
+              <p class="text-gray-500 text-sm mt-1" data-lang-content="en" style="display: none;">Trilingual sign (Tibetan/Chinese/English) pointing to Choku Gompa. Red rock formations against deep blue sky—typical Ali landscape.</p>
+            </div>
+          </div>
 
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div class="relative aspect-[4/3] bg-gray-100">
-                <img src="/images/route-map-2.png" alt="冈仁波齐与马帮" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
-                <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
-                  <span>图片加载失败</span>
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p class="text-white font-semibold" data-lang-content="zh">神山远景 · 马帮休整</p>
-                  <p class="text-white font-semibold" data-lang-content="en" style="display: none;">Mount Kailash View · Horse Caravan Rest</p>
-                  <p class="text-white font-semibold" data-lang-content="ja" style="display: none;">神山遠景 · 馬隊休息</p>
-                  <p class="text-white font-semibold" data-lang-content="ko" style="display: none;">신성한 산 원경 · 말 대 휴식</p>
-                  <p class="text-white/80 text-sm">Mount Kailash View · Horse Caravan Rest</p>
-                </div>
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-scenery-2.png" alt="冈仁波齐近景" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>图片加载失败</span>
               </div>
-              <div class="p-4">
-                <p class="text-gray-600 text-sm" data-lang-content="zh">云雾缭绕中的冈仁波齐，马帮在 valley 中休整，远处可见临时营地炊烟袅袅。</p>
-                <p class="text-gray-600 text-sm" data-lang-content="en" style="display: none;">Mount Kailash veiled in clouds, horse caravan resting in the valley, camp smoke rising in the distance.</p>
-                <p class="text-gray-600 text-sm" data-lang-content="ja" style="display: none;">雲霧に包まれたカイラス、馬隊は谷で休息し、遠くに臨時キャンプの炊煙が立ち上る。</p>
-                <p class="text-gray-600 text-sm" data-lang-content="ko" style="display: none;">구름에 싸인 카일라스, 말 대는 계곡에서 휴식하고, 멀리 임시 캠프의 연기가 피어오른다.</p>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">冈仁波齐 · 经幡前景</p>
+                <p class="text-white/80 text-sm">Mount Kailash · Prayer Flags Foreground</p>
               </div>
             </div>
-
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div class="relative aspect-[4/3] bg-gray-100">
-                <img src="/images/route-scenery-1.png" alt="曲古寺路标" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
-                <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
-                  <span>图片加载失败</span>
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p class="text-white font-semibold" data-lang-content="zh">曲古寺路标 · 三语标识</p>
-                  <p class="text-white font-semibold" data-lang-content="en" style="display: none;">Choku Gompa Sign · Trilingual Marker</p>
-                  <p class="text-white font-semibold" data-lang-content="ja" style="display: none;">曲古寺標識 · 三言語表示</p>
-                  <p class="text-white font-semibold" data-lang-content="ko" style="display: none;">쿠쿠 사원 표지 · 3개 언어 표시</p>
-                  <p class="text-white/80 text-sm">Choku Gompa Sign · Trilingual Marker</p>
-                </div>
-              </div>
-              <div class="p-4">
-                <p class="text-gray-600 text-sm" data-lang-content="zh">藏汉英三语路标指向曲古寺，红色山体与蓝天形成强烈对比，典型的阿里地貌。</p>
-                <p class="text-gray-600 text-sm" data-lang-content="en" style="display: none;">Trilingual sign (Tibetan/Chinese/English) pointing to Choku Gompa. Red rock formations against deep blue sky—typical Ali landscape.</p>
-                <p class="text-gray-600 text-sm" data-lang-content="ja" style="display: none;">蔵漢英三語の標識が曲古寺を指し、赤い山体と青い空が強い対比をなす、典型的なアリの地貌。</p>
-                <p class="text-gray-600 text-sm" data-lang-content="ko" style="display: none;">티베트·한·영 3개 언어 표지가 쿠쿠 사원을 가리키고, 붉은 산체와 푸른 하늘이 강한 대비를 이루는 전형적인 아리 지형.</p>
-              </div>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div class="relative aspect-[4/3] bg-gray-100">
-                <img src="/images/route-scenery-2.png" alt="冈仁波齐近景" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
-                <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
-                  <span>图片加载失败</span>
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p class="text-white font-semibold" data-lang-content="zh">冈仁波齐 · 经幡前景</p>
-                  <p class="text-white font-semibold" data-lang-content="en" style="display: none;">Mount Kailash · Prayer Flags Foreground</p>
-                  <p class="text-white font-semibold" data-lang-content="ja" style="display: none;">カイラス · 経幡前景</p>
-                  <p class="text-white font-semibold" data-lang-content="ko" style="display: none;">카일라스 · 기도 flags 전경</p>
-                  <p class="text-white/80 text-sm">Mount Kailash · Prayer Flags Foreground</p>
-                </div>
-              </div>
-              <div class="p-4">
-                <p class="text-gray-600 text-sm" data-lang-content="zh">近观神山金字塔形峰顶，经幡在前景中飘扬，岩石层理清晰可见，海拔6638米的永恒庄严。</p>
-                <p class="text-gray-600 text-sm" data-lang-content="en" style="display: none;">Close view of the pyramid-shaped summit. Prayer flags flutter in the foreground, rock strata clearly visible—the eternal majesty of 6,638m.</p>
-                <p class="text-gray-600 text-sm" data-lang-content="ja" style="display: none;">ピラミッド型の峰頂を間近で見る。経幡が前景にはためき、岩の層理がはっきりと見える、標高6638mの永遠の荘厳。</p>
-                <p class="text-gray-600 text-sm" data-lang-content="ko" style="display: none;">피라미드 형의 정상을 가까이서 보다. 기도 flags가 전경에서 펄럭이고, 암석 층리가 선명하게 보이는 해발 6638m의 영원한 장엄함.</p>
-              </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">近观神山金字塔形峰顶，经幡在前景中飘扬，岩石层理清晰可见，海拔6638米的永恒庄严。</p>
+              <p class="text-gray-500 text-sm mt-1" data-lang-content="en" style="display: none;">Close view of the pyramid-shaped summit. Prayer flags flutter in the foreground, rock strata clearly visible—the eternal majesty of 6,638m.</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- 3-Day Standard Itinerary -->
-    <section class="py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center" data-lang-content="zh">三天标准行程</h2>
-        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center" data-lang-content="en" style="display: none;">3-Day Standard Itinerary</h2>
-        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center" data-lang-content="ja" style="display: none;">三日間標準行程</h2>
-        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center" data-lang-content="ko" style="display: none;">삼일 표준 일정</h2>
+      <!-- 分段补给明细 -->
+      <div class="mt-16">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
+            <span data-lang-content="zh">分段补给明细</span>
+            <span data-lang-content="en" style="display: none;">Supply Stations</span>
+          </h2>
+          <p class="text-lg text-gray-600">
+            <span data-lang-content="zh">13个补给点，从起点到终点全程覆盖</span>
+            <span data-lang-content="en" style="display: none;">13 supply stations covering the entire route</span>
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          {supplyStations.map((station, index) => (
+            <div class={`rounded-xl overflow-hidden ${
+              station.type === 'start' || station.type === 'end' ? 'bg-green-50 border-2 border-green-200' :
+              station.type === 'peak' ? 'bg-red-50 border-2 border-red-200' :
+              station.type === 'camp' ? 'bg-blue-50 border-2 border-blue-200' :
+              'bg-white shadow-md border border-gray-100'
+            }`}>
+              <div class={`p-5 ${
+                station.type === 'start' || station.type === 'end' ? 'bg-green-100/50' :
+                station.type === 'peak' ? 'bg-red-100/50' :
+                station.type === 'camp' ? 'bg-blue-100/50' :
+                'bg-gray-50/50'
+              }`}>
+                <div class="flex items-start gap-4">
+                  <div class={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg shrink-0 ${
+                    station.type === 'start' || station.type === 'end' ? 'bg-green-500 text-white' :
+                    station.type === 'peak' ? 'bg-red-500 text-white' :
+                    station.type === 'camp' ? 'bg-blue-500 text-white' :
+                    'bg-kailash-gold text-kailash-dark'
+                  }`}>
+                    {station.altitude}m
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-3 mb-1 flex-wrap">
+                      <h3 class="font-display text-xl font-bold text-kailash-dark">{station.name}</h3>
+                      <span class="text-sm text-gray-500">{station.nameEn}</span>
+                      {station.type === 'camp' && <span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-semibold" data-lang-content="zh">🏠 住宿点</span>}
+                      {station.type === 'peak' && <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-semibold" data-lang-content="zh">⚠️ 最高点</span>}
+                      {station.type === 'start' && <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-semibold" data-lang-content="zh">🚀 起点</span>}
+                      {station.type === 'end' && <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-semibold" data-lang-content="zh">🏁 终点</span>}
+                      {station.type === 'teahouse' && <span class="bg-kailash-gold/20 text-kailash-dark px-2 py-0.5 rounded text-xs font-semibold" data-lang-content="zh">🍵 茶馆</span>}
+                    </div>
+                    <p class="text-sm text-gray-500 font-medium">
+                      <span data-lang-content="zh">{station.distance}</span>
+                      <span data-lang-content="en" style="display: none;">{station.distanceEn}</span>
+                    </p>
+                  </div>
+                  <div class="text-2xl text-gray-300 font-bold shrink-0">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                </div>
+              </div>
+              
+              <div class="px-5 pb-5">
+                {station.supplies.length > 0 && (
+                  <div class="mb-3">
+                    <h4 class="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
+                      <span class="text-kailash-gold">●</span>
+                      <span data-lang-content="zh">可购买</span>
+                      <span data-lang-content="en" style="display: none;">Available</span>
+                    </h4>
+                    <div class="flex flex-wrap gap-2" data-lang-content="zh">
+                      {station.supplies.map(item => (
+                        <span class="bg-white border border-gray-200 px-2 py-1 rounded text-sm text-gray-600">{item}</span>
+                      ))}
+                    </div>
+                    <div class="flex flex-wrap gap-2" data-lang-content="en" style="display: none;">
+                      {station.suppliesEn.map(item => (
+                        <span class="bg-white border border-gray-200 px-2 py-1 rounded text-sm text-gray-600">{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                <div class="grid md:grid-cols-2 gap-3">
+                  <div>
+                    <h4 class="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1">
+                      <span class="text-kailash-gold">●</span>
+                      <span data-lang-content="zh">住宿</span>
+                      <span data-lang-content="en" style="display: none;">Lodging</span>
+                    </h4>
+                    <p class="text-sm text-gray-600" data-lang-content="zh">{station.lodging}</p>
+                    <p class="text-sm text-gray-600" data-lang-content="en" style="display: none;">{station.lodgingEn}</p>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1">
+                      <span class="text-kailash-gold">●</span>
+                      <span data-lang-content="zh">服务</span>
+                      <span data-lang-content="en" style="display: none;">Services</span>
+                    </h4>
+                    <p class="text-sm text-gray-600" data-lang-content="zh">{station.services}</p>
+                    <p class="text-sm text-gray-600" data-lang-content="en" style="display: none;">{station.servicesEn}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Plans Comparison -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
+          <span data-lang-content="zh">选择您的转山行程</span>
+          <span data-lang-content="en" style="display: none;">Choose Your Kora Itinerary</span>
+        </h2>
+        <p class="text-lg text-gray-600">
+          <span data-lang-content="zh">两天挑战极限，三天经典舒适</span>
+          <span data-lang-content="en" style="display: none;">2-day challenge or 3-day classic comfort</span>
+        </p>
+      </div>
+
+      <!-- Plan Cards -->
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <!-- 1-Day Plan -->
+        <div class="bg-kailash-light rounded-2xl overflow-hidden border-2 border-purple-200">
+          <div class="bg-purple-50 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">
+                <span data-lang-content="zh">{routePlans.oneDay.name}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.oneDay.nameEn}</span>
+              </h3>
+              <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <span data-lang-content="zh">{routePlans.oneDay.difficulty}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.oneDay.difficultyEn}</span>
+              </span>
+            </div>
+            <p class="text-gray-600 text-sm">
+              <span data-lang-content="zh">{routePlans.oneDay.subtitle}</span>
+              <span data-lang-content="en" style="display: none;">{routePlans.oneDay.subtitleEn}</span>
+            </p>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.oneDay.totalDistance}</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">总距离</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Distance</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.oneDay.totalDuration}</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">总时长</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Duration</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">0</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">住宿夜</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Nights</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">
+              <span data-lang-content="zh">{routePlans.oneDay.description}</span>
+              <span data-lang-content="en" style="display: none;">{routePlans.oneDay.descriptionEn}</span>
+            </p>
+            <div class="bg-purple-50 border border-purple-200 rounded-lg p-3">
+              <p class="text-purple-700 text-sm">
+                <span data-lang-content="zh">{routePlans.oneDay.warning}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.oneDay.warningEn}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Day Plan -->
+        <div class="bg-kailash-light rounded-2xl overflow-hidden border-2 border-red-200">
+          <div class="bg-red-50 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">
+                <span data-lang-content="zh">{routePlans.twoDay.name}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.twoDay.nameEn}</span>
+              </h3>
+              <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <span data-lang-content="zh">{routePlans.twoDay.difficulty}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.twoDay.difficultyEn}</span>
+              </span>
+            </div>
+            <p class="text-gray-600 text-sm">
+              <span data-lang-content="zh">{routePlans.twoDay.subtitle}</span>
+              <span data-lang-content="en" style="display: none;">{routePlans.twoDay.subtitleEn}</span>
+            </p>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.twoDay.totalDistance}</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">总距离</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Distance</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.twoDay.totalDuration}</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">总时长</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Duration</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">1</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">住宿夜</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Nights</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">
+              <span data-lang-content="zh">{routePlans.twoDay.description}</span>
+              <span data-lang-content="en" style="display: none;">{routePlans.twoDay.descriptionEn}</span>
+            </p>
+            <div class="bg-red-50 border border-red-200 rounded-lg p-3">
+              <p class="text-red-700 text-sm">
+                <span data-lang-content="zh">{routePlans.twoDay.warning}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.twoDay.warningEn}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3-Day Plan -->
+        <div class="bg-kailash-light rounded-2xl overflow-hidden border-2 border-blue-200">
+          <div class="bg-blue-50 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">
+                <span data-lang-content="zh">{routePlans.threeDay.name}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.threeDay.nameEn}</span>
+              </h3>
+              <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <span data-lang-content="zh">{routePlans.threeDay.difficulty}</span>
+                <span data-lang-content="en" style="display: none;">{routePlans.threeDay.difficultyEn}</span>
+              </span>
+            </div>
+            <p class="text-gray-600 text-sm">
+              <span data-lang-content="zh">{routePlans.threeDay.subtitle}</span>
+              <span data-lang-content="en" style="display: none;">{routePlans.threeDay.subtitleEn}</span>
+            </p>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.threeDay.totalDistance}</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">总距离</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Distance</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.threeDay.totalDuration}</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">总时长</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Duration</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">2</p>
+                <p class="text-xs text-gray-500" data-lang-content="zh">住宿夜</p>
+                <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">Nights</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">
+              <span data-lang-content="zh">{routePlans.threeDay.description}</span>
+              <span data-lang-content="en" style="display: none;">{routePlans.threeDay.descriptionEn}</span>
+            </p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+              <p class="text-blue-700 text-sm">
+                <span data-lang-content="zh">✅ 推荐大多数朝圣者选择，节奏合理，有充足休息时间</span>
+                <span data-lang-content="en" style="display: none;">✅ Recommended for most pilgrims. Reasonable pace with adequate rest.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1-Day Detail -->
+      <div class="mb-16">
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-2">
+            <span data-lang-content="zh">一天转山详细行程</span>
+            <span data-lang-content="en" style="display: none;">1-Day Kora Detailed Itinerary</span>
+          </h3>
+          <div class="w-20 h-1 bg-purple-400 mx-auto rounded"></div>
+        </div>
         
+        <!-- 三类人群 -->
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-purple-50 rounded-xl p-6 border border-purple-200">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+              <span class="text-2xl">🙏</span>
+            </div>
+            <h4 class="font-bold text-kailash-dark mb-2">藏族资深朝圣者</h4>
+            <p class="text-gray-600 text-sm">本地藏民、常年转山者，从小适应高海拔。体能强、节奏稳、熟悉每一段路。通常12-18小时走完，凌晨3-5点出发，天黑前返回。对他们来说，一天转山是信仰+日常修行。</p>
+          </div>
+          <div class="bg-purple-50 rounded-xl p-6 border border-purple-200">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+              <span class="text-2xl">🏃</span>
+            </div>
+            <h4 class="font-bold text-kailash-dark mb-2">专业耐力运动员</h4>
+            <p class="text-gray-600 text-sm">有高海拔徒步、马拉松/越野跑经验。装备轻量、体能极好、能扛高反与低温。最快可10-12小时完成（极限速度）。多为"自虐式"挑战，追求速度与身心极限。</p>
+          </div>
+          <div class="bg-purple-50 rounded-xl p-6 border border-purple-200">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+              <span class="text-2xl">💪</span>
+            </div>
+            <h4 class="font-bold text-kailash-dark mb-2">极少数硬核驴友</h4>
+            <p class="text-gray-600 text-sm">无专业背景，但体能极强、高反轻、意志力强。需严格早出发（≤5点）、少休息、轻装。全程18-22小时，常走夜路，风险高。属于极少数个案，不适合普通游客模仿。</p>
+          </div>
+        </div>
+
         <div class="space-y-8">
-          <!-- Day 1 -->
-          <div class="bg-kailash-light rounded-2xl p-8">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 bg-kailash-gold rounded-full flex items-center justify-center text-kailash-dark font-bold text-xl">1</div>
-              <div>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="zh">塔尔钦 → 止热寺</h3>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="en" style="display: none;">Darchen → Drirapuk</h3>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="ja" style="display: none;">タルチェン → ディラプク寺</h3>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="ko" style="display: none;">타르첸 → 디라푹 사원</h3>
-                <p class="text-sm text-gray-500">22km · 4600m→5200m · 6-8h</p>
+          {routePlans.oneDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl overflow-hidden border-l-4 border-purple-400">
+              <div class="bg-kailash-dark text-white p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-kailash-gold font-semibold">
+                      <span data-lang-content="zh">{day.day}</span>
+                      <span data-lang-content="en" style="display: none;">{day.dayEn}</span>
+                    </span>
+                    <h4 class="font-display text-xl font-bold mt-1">
+                      <span data-lang-content="zh">{day.title}</span>
+                      <span data-lang-content="en" style="display: none;">{day.titleEn}</span>
+                    </h4>
+                  </div>
+                  <div class="text-right text-sm text-gray-400">
+                    <p>
+                      <span data-lang-content="zh">{day.distance}</span>
+                      <span data-lang-content="en" style="display: none;">{day.distanceEn}</span>
+                    </p>
+                    <p>
+                      <span data-lang-content="zh">{day.altitude}</span>
+                      <span data-lang-content="en" style="display: none;">{day.altitudeEn}</span>
+                    </p>
+                    <p>
+                      <span data-lang-content="zh">{day.duration}</span>
+                      <span data-lang-content="en" style="display: none;">{day.durationEn}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                  <span data-lang-content="zh">{day.description}</span>
+                  <span data-lang-content="en" style="display: none;">{day.descriptionEn}</span>
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+                      <span class="text-kailash-gold">★</span>
+                      <span data-lang-content="zh">途经亮点</span>
+                      <span data-lang-content="en" style="display: none;">Highlights</span>
+                    </h5>
+                    <ul class="space-y-1">
+                      {day.highlights.map((h, i) => (
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                          <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                          <span data-lang-content="zh">{h}</span>
+                          <span data-lang-content="en" style="display: none;">{day.highlightsEn[i]}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="bg-amber-50 rounded-xl p-4">
+                    <h5 class="font-semibold mb-2 text-amber-800 text-sm">
+                      <span data-lang-content="zh">💡 温馨提示</span>
+                      <span data-lang-content="en" style="display: none;">💡 Tips</span>
+                    </h5>
+                    <p class="text-amber-700 text-sm">
+                      <span data-lang-content="zh">{day.tips}</span>
+                      <span data-lang-content="en" style="display: none;">{day.tipsEn}</span>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-            <p class="text-gray-600 mb-4" data-lang-content="zh">从塔尔钦出发，经曲古寺，沿拉曲河谷上行，最终抵达止热寺。这是适应海拔的第一天，路况相对平缓。</p>
-            <p class="text-gray-600 mb-4" data-lang-content="en" style="display: none;">Depart from Darchen, pass Choku Gompa, follow Lhaqu Valley upstream to Drirapuk. Relatively gentle terrain for altitude adaptation.</p>
-            <p class="text-gray-600 mb-4" data-lang-content="ja" style="display: none;">タルチェンを出発、曲古寺を経て、ラ曲河谷を遡上し、最終的にディラプク寺に到着。標高順化の初日、比較的平坦な道。</p>
-            <p class="text-gray-600 mb-4" data-lang-content="ko" style="display: none;">타르첸 출발, 쿠쿠 사원을 지나, 라취 계곡을 따라 올라가 디라푹 사원에 도착. 해발 적응의 첫날, 비교적 평탄한 길.</p>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="bg-kailash-gold/20 text-kailash-dark px-3 py-1 rounded-full text-sm">曲古寺 / Choku Gompa</span>
-              <span class="bg-kailash-gold/20 text-kailash-dark px-3 py-1 rounded-full text-sm">玛尼堆 / Mani Stones</span>
-              <span class="bg-kailash-gold/20 text-kailash-dark px-3 py-1 rounded-full text-sm">止热寺 / Drirapuk</span>
-            </div>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="zh">💡 第一天不要走太快，给身体适应海拔的时间。止热寺是唯一住宿点，旺季需提前确认床位。</p>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="en" style="display: none;">💡 Don't rush on Day 1. Allow time for altitude adaptation. Drirapuk is the only lodging—confirm availability.</p>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="ja" style="display: none;">💡 初日は急がないで、標高順化の時間を与える。ディラプク寺は唯一の宿泊所、繁忙期は事前確認を。</p>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="ko" style="display: none;">💡 첫날 서두르지 마세요. 해발 적응 시간을 허용하세요. 디라푹 사원은 유일한 숙소, 성수기는 사전 확인.</p>
-          </div>
+          ))}
+        </div>
 
-          <!-- Day 2 -->
-          <div class="bg-kailash-light rounded-2xl p-8">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 bg-kailash-gold rounded-full flex items-center justify-center text-kailash-dark font-bold text-xl">2</div>
-              <div>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="zh">止热寺 → 尊最普寺</h3>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="en" style="display: none;">Drirapuk → Zunzhepu</h3>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="ja" style="display: none;">ディラプク寺 → ゾンチュプ寺</h3>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="ko" style="display: none;">디라푹 사원 → 존츄푸 사원</h3>
-                <p class="text-sm text-gray-500">18km · 5200m→5648m→4800m · 8-10h</p>
-              </div>
+        <!-- 关键数据 -->
+        <div class="mt-8 bg-purple-50 rounded-xl p-6 border border-purple-200">
+          <h4 class="font-bold text-kailash-dark mb-4">关键数据</h4>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p class="text-gray-700"><span class="font-semibold">全程：</span>52-56 km</p>
+              <p class="text-gray-700"><span class="font-semibold">海拔：</span>4560m → 5648m（卓玛拉山口）→ 4560m</p>
+              <p class="text-gray-700"><span class="font-semibold">普通人：</span>2-3天</p>
             </div>
-            <p class="text-gray-600 mb-4" data-lang-content="zh">最艰难的一天。凌晨出发翻越5648米的卓玛拉垭口，这是整个转山路线最高点。下山经过托吉错（慈悲湖），最终抵达尊最普寺。</p>
-            <p class="text-gray-600 mb-4" data-lang-content="en" style="display: none;">The hardest day. Depart early to cross 5648m Drolma La, the highest point. Descend past Tsoji Lake (Mercy Lake) to Zunzhepu Temple.</p>
-            <p class="text-gray-600 mb-4" data-lang-content="ja" style="display: none;">最も厳しい一日。早朝出発で5648mのドマラ峠を越える、これが最高点。下山してトジ錯（慈悲湖）を経てゾンチュプ寺に到着。</p>
-            <p class="text-gray-600 mb-4" data-lang-content="ko" style="display: none;">가장 힘든 하루. 새벽 출발해 5648m 도마라 고개를 넘는, 이것이 최고점. 하산하여 토지 호 (자비 호)를 지나 존츄푸 사원에 도착.</p>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="bg-kailash-gold/20 text-kailash-dark px-3 py-1 rounded-full text-sm">卓玛拉垭口 / Drolma La (5648m)</span>
-              <span class="bg-kailash-gold/20 text-kailash-dark px-3 py-1 rounded-full text-sm">托吉错 / Tsoji Lake</span>
-              <span class="bg-kailash-gold/20 text-kailash-dark px-3 py-1 rounded-full text-sm">尊最普寺 / Zunzhepu</span>
+            <div>
+              <p class="text-gray-700"><span class="font-semibold">一日转山：</span>高难度极限挑战</p>
+              <p class="text-gray-700"><span class="font-semibold">风险：</span>每年都有因强行走一日而高反、失温、迷路被救援的案例</p>
+              <p class="text-gray-700"><span class="font-semibold">总结：</span>一天转山者，要么是虔诚的藏地朝圣者，要么是体能顶尖的耐力高手。</p>
             </div>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="zh">💡 垭口前1公里最陡，保持节奏；下山保护膝盖。尊最普寺住宿条件比止热寺更简陋。</p>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="en" style="display: none;">💡 The 1km before the pass is steepest—pace yourself. Protect knees on descent. Zunzhepu lodging is more basic.</p>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="ja" style="display: none;">💡 峠前1kmが最も急、ペースを保つ。下山時は膝を保護。ゾンチュプ寺の宿泊設備はより簡素。</p>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="ko" style="display: none;">💡 고개 전 1km가 가장 가파름, 페이스 유지. 하산 시 무릎 보호. 존츄푸 사원 숙소는 더 간소함.</p>
-          </div>
-
-          <!-- Day 3 -->
-          <div class="bg-kailash-light rounded-2xl p-8">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 bg-kailash-gold rounded-full flex items-center justify-center text-kailash-dark font-bold text-xl">3</div>
-              <div>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="zh">尊最普寺 → 塔尔钦</h3>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="en" style="display: none;">Zunzhepu → Darchen</h3>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="ja" style="display: none;">ゾンチュプ寺 → タルチェン</h3>
-                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="ko" style="display: none;">존츄푸 사원 → 타르첸</h3>
-                <p class="text-sm text-gray-500">14km · 4800m→4600m · 3-4h</p>
-              </div>
-            </div>
-            <p class="text-gray-600 mb-4" data-lang-content="zh">轻松的一天，沿峡谷平缓下降，回到塔尔钦，完成转山。胜利在望！</p>
-            <p class="text-gray-600 mb-4" data-lang-content="en" style="display: none;">Easy day with gentle descent through the canyon back to Darchen. Victory is near!</p>
-            <p class="text-gray-600 mb-4" data-lang-content="ja" style="display: none;">楽な一日、峡谷を緩やかに下ってタルチェンに戻る。勝利が目前！</p>
-            <p class="text-gray-600 mb-4" data-lang-content="ko" style="display: none;">편안한 하루, 협곡을 따라 천천히 내려가 타르첸으로 돌아간다. 승리가 코앞!</p>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="bg-kailash-gold/20 text-kailash-dark px-3 py-1 rounded-full text-sm">峡谷风光 / Canyon Scenery</span>
-              <span class="bg-kailash-gold/20 text-kailash-dark px-3 py-1 rounded-full text-sm">玛旁雍错 / Lake Manasarovar</span>
-              <span class="bg-kailash-gold/20 text-kailash-dark px-3 py-1 rounded-full text-sm">塔尔钦 / Darchen (Finish)</span>
-            </div>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="zh">💡 胜利在望，但不要大意，注意脚下安全。回到塔尔钦后可以好好吃一顿，庆祝转山完成！</p>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="en" style="display: none;">💡 Victory is near but stay careful—watch your step. Celebrate with a good meal back in Darchen!</p>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="ja" style="display: none;">💡 勝利が目前だが油断せず、足元に注意。タルチェンに戻って美味しい食事で祝おう！</p>
-            <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg" data-lang-content="ko" style="display: none;">💡 승리가 코앞이지만 방심하지 말고, 발밑에 주의. 타르첸에 돌아가 맛있는 식사로 축하하자!</p>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- CTA -->
-    <section class="py-16 bg-kailash-gold">
-      <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4" data-lang-content="zh">准备好开始您的转山之旅了吗？</h2>
-        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Ready for Your Kailash Journey?</h2>
-        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4" data-lang-content="ja" style="display: none;">カイラスの巡礼の旅を始める準備はできましたか？</h2>
-        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4" data-lang-content="ko" style="display: none;">카일라스 순례 여정을 시작할 준비가 되셨나요?</h2>
-        <p class="text-kailash-dark/80 mb-8" data-lang-content="zh">选择您的行程，开始准备这场改变人生的朝圣之旅。</p>
-        <p class="text-kailash-dark/80 mb-8" data-lang-content="en" style="display: none;">Choose your route and start preparing for this life-changing pilgrimage.</p>
-        <p class="text-kailash-dark/80 mb-8" data-lang-content="ja" style="display: none;">行程を選んで、人生を変える巡礼の旅の準備を始めましょう。</p>
-        <p class="text-kailash-dark/80 mb-8" data-lang-content="ko" style="display: none;">일정을 선택하고, 인생을 바꾸는 순례 여정의 준비를 시작하세요.</p>
-        <a href="/guide" class="bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/90 transition" data-lang-content="zh">查看完整攻略</a>
-        <a href="/guide" class="bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/90 transition" data-lang-content="en" style="display: none;">View Complete Guide</a>
-        <a href="/guide" class="bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/90 transition" data-lang-content="ja" style="display: none;">完全ガイドを見る</a>
-        <a href="/guide" class="bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/90 transition" data-lang-content="ko" style="display: none;">완전 가이드 보기</a>
+      <!-- 2-Day Detail -->
+      <div class="mb-16">
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-2">
+            <span data-lang-content="zh">两天转山详细行程</span>
+            <span data-lang-content="en" style="display: none;">2-Day Kora Detailed Itinerary</span>
+          </h3>
+          <div class="w-20 h-1 bg-red-400 mx-auto rounded"></div>
+        </div>
+        <div class="space-y-8">
+          {routePlans.twoDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl overflow-hidden border-l-4 border-red-400">
+              <div class="bg-kailash-dark text-white p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-kailash-gold font-semibold">
+                      <span data-lang-content="zh">{day.day}</span>
+                      <span data-lang-content="en" style="display: none;">{day.dayEn}</span>
+                    </span>
+                    <h4 class="font-display text-xl font-bold mt-1">
+                      <span data-lang-content="zh">{day.title}</span>
+                      <span data-lang-content="en" style="display: none;">{day.titleEn}</span>
+                    </h4>
+                  </div>
+                  <div class="text-right text-sm text-gray-400">
+                    <p>
+                      <span data-lang-content="zh">{day.distance}</span>
+                      <span data-lang-content="en" style="display: none;">{day.distanceEn}</span>
+                    </p>
+                    <p>
+                      <span data-lang-content="zh">{day.altitude}</span>
+                      <span data-lang-content="en" style="display: none;">{day.altitudeEn}</span>
+                    </p>
+                    <p>
+                      <span data-lang-content="zh">{day.duration}</span>
+                      <span data-lang-content="en" style="display: none;">{day.durationEn}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                  <span data-lang-content="zh">{day.description}</span>
+                  <span data-lang-content="en" style="display: none;">{day.descriptionEn}</span>
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+                      <span class="text-kailash-gold">★</span>
+                      <span data-lang-content="zh">途经亮点</span>
+                      <span data-lang-content="en" style="display: none;">Highlights</span>
+                    </h5>
+                    <ul class="space-y-1">
+                      {day.highlights.map((h, i) => (
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                          <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                          <span data-lang-content="zh">{h}</span>
+                          <span data-lang-content="en" style="display: none;">{day.highlightsEn[i]}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="bg-amber-50 rounded-xl p-4">
+                    <h5 class="font-semibold mb-2 text-amber-800 text-sm">
+                      <span data-lang-content="zh">💡 温馨提示</span>
+                      <span data-lang-content="en" style="display: none;">💡 Tips</span>
+                    </h5>
+                    <p class="text-amber-700 text-sm">
+                      <span data-lang-content="zh">{day.tips}</span>
+                      <span data-lang-content="en" style="display: none;">{day.tipsEn}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </section>
-  </div>
+
+      <!-- 3-Day Detail -->
+      <div>
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-2">
+            <span data-lang-content="zh">三天转山详细行程</span>
+            <span data-lang-content="en" style="display: none;">3-Day Kora Detailed Itinerary</span>
+          </h3>
+          <div class="w-20 h-1 bg-blue-400 mx-auto rounded"></div>
+        </div>
+        <div class="space-y-8">
+          {routePlans.threeDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl overflow-hidden border-l-4 border-blue-400">
+              <div class="bg-kailash-dark text-white p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-kailash-gold font-semibold">
+                      <span data-lang-content="zh">{day.day}</span>
+                      <span data-lang-content="en" style="display: none;">{day.dayEn}</span>
+                    </span>
+                    <h4 class="font-display text-xl font-bold mt-1">
+                      <span data-lang-content="zh">{day.title}</span>
+                      <span data-lang-content="en" style="display: none;">{day.titleEn}</span>
+                    </h4>
+                  </div>
+                  <div class="text-right text-sm text-gray-400">
+                    <p>
+                      <span data-lang-content="zh">{day.distance}</span>
+                      <span data-lang-content="en" style="display: none;">{day.distanceEn}</span>
+                    </p>
+                    <p>
+                      <span data-lang-content="zh">{day.altitude}</span>
+                      <span data-lang-content="en" style="display: none;">{day.altitudeEn}</span>
+                    </p>
+                    <p>
+                      <span data-lang-content="zh">{day.duration}</span>
+                      <span data-lang-content="en" style="display: none;">{day.durationEn}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                  <span data-lang-content="zh">{day.description}</span>
+                  <span data-lang-content="en" style="display: none;">{day.descriptionEn}</span>
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+                      <span class="text-kailash-gold">★</span>
+                      <span data-lang-content="zh">途经亮点</span>
+                      <span data-lang-content="en" style="display: none;">Highlights</span>
+                    </h5>
+                    <ul class="space-y-1">
+                      {day.highlights.map((h, i) => (
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                          <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                          <span data-lang-content="zh">{h}</span>
+                          <span data-lang-content="en" style="display: none;">{day.highlightsEn[i]}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="bg-amber-50 rounded-xl p-4">
+                    <h5 class="font-semibold mb-2 text-amber-800 text-sm">
+                      <span data-lang-content="zh">💡 温馨提示</span>
+                      <span data-lang-content="en" style="display: none;">💡 Tips</span>
+                    </h5>
+                    <p class="text-amber-700 text-sm">
+                      <span data-lang-content="zh">{day.tips}</span>
+                      <span data-lang-content="en" style="display: none;">{day.tipsEn}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking CTA -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
+        <span data-lang-content="zh">准备好踏上朝圣之路了吗？</span>
+        <span data-lang-content="en" style="display: none;">Ready to embark on the pilgrimage?</span>
+      </h2>
+      <p class="text-kailash-dark/80 mb-8">
+        <span data-lang-content="zh">了解更多转山路线详情，规划您的冈仁波齐朝圣之旅</span>
+        <span data-lang-content="en" style="display: none;">Learn more about the Kora route and plan your Mount Kailash pilgrimage</span>
+      </p>
+      <a href="/guide" class="inline-flex items-center bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-kailash-dark/90 transition">
+        <span data-lang-content="zh">探索朝圣指南</span>
+        <span data-lang-content="en" style="display: none;">Explore Pilgrimage Guide</span>
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+      </a>
+    </div>
+  </section>
 </Layout>
