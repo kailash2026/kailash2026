@@ -1,114 +1,346 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Features from '../components/Features.astro';
-import RoutePreview from '../components/RoutePreview.astro';
 import SearchBox from '../components/SearchBox.astro';
 ---
 
-<Layout title="Kailash 2026 - Global Pilgrimage Platform | Mount Kailash Sacred Mountain for All Pilgrims" description="Kailash 2026: The global pilgrimage platform connecting pilgrims worldwide. Mount Kailash - sacred to Hinduism, Tibetan Buddhism, Bön, and Jainism. Join pilgrims from India, Nepal, China, and around the world on this transformative journey.">
-  <Hero />
-  <!-- Stats Bar -->
-  <section class="bg-kailash-dark py-8 border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-lang-content="zh">
-        <div>
-          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">6656m</p>
-          <p class="text-white/60 text-sm mt-1">冈仁波齐海拔</p>
-        </div>
-        <div>
-          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">52km</p>
-          <p class="text-white/60 text-sm mt-1">转山全程</p>
-        </div>
-        <div>
-          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">5630m</p>
-          <p class="text-white/60 text-sm mt-1">最高垭口</p>
-        </div>
-        <div>
-          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p>
-          <p class="text-white/60 text-sm mt-1">宗教圣地</p>
+<Layout title="Kailash 2026 - Global Pilgrimage Platform | Mount Kailash Sacred Mountain" description="Kailash 2026: The global pilgrimage platform connecting pilgrims worldwide. Sacred to Hinduism, Tibetan Buddhism, Bön, and Jainism.">
+  
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/40 to-kailash-dark"></div>
+    
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <!-- 中文 -->
+      <div data-lang-content="zh">
+        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">世界中心 · 神圣朝圣之旅</p>
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">冈仁波齐<span class="block text-kailash-gold mt-2">2026</span></h1>
+        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">四大宗教共同的圣地，连接印度、西藏与世界的精神桥梁</p>
+        <p class="text-lg text-white/60 mb-8">藏传佛教 · 印度教 · 苯教 · 耆那教</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/guide" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition">开始探索</a>
+          <a href="/culture" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">了解文化</a>
         </div>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-lang-content="en" style="display: none;">
-        <div>
-          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">6,656m</p>
-          <p class="text-white/60 text-sm mt-1">Peak Elevation</p>
+      
+      <!-- English -->
+      <div data-lang-content="en" style="display: none;">
+        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">Center of the World · Sacred Pilgrimage</p>
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">Mount Kailash<span class="block text-kailash-gold mt-2">2026</span></h1>
+        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">Sacred to Four Religions, Connecting India, Tibet & the World</p>
+        <p class="text-lg text-white/60 mb-8">Tibetan Buddhism · Hinduism · Bön · Jainism</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/guide" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition">Start Exploring</a>
+          <a href="/culture" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">Explore Culture</a>
         </div>
-        <div>
-          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">52km</p>
-          <p class="text-white/60 text-sm mt-1">Kora Distance</p>
+      </div>
+      
+      <!-- 日本語 -->
+      <div data-lang-content="ja" style="display: none;">
+        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">世界の中心 · 神聖なる巡礼の旅</p>
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">カイラス山<span class="block text-kailash-gold mt-2">2026</span></h1>
+        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">四大宗教が共に崇める聖地、インド・チベット・世界をつなぐ精神の橋</p>
+        <p class="text-lg text-white/60 mb-8">チベット仏教 · ヒンドゥー教 · ボン教 · ジャイナ教</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/guide" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition">探索を始める</a>
+          <a href="/culture" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">文化を知る</a>
         </div>
-        <div>
-          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">5,630m</p>
-          <p class="text-white/60 text-sm mt-1">Highest Pass</p>
-        </div>
-        <div>
-          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p>
-          <p class="text-white/60 text-sm mt-1">Sacred Traditions</p>
+      </div>
+      
+      <!-- 한국어 -->
+      <div data-lang-content="ko" style="display: none;">
+        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">세계의 중심 · 신성한 순례의 여정</p>
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">카일라스 산<span class="block text-kailash-gold mt-2">2026</span></h1>
+        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">사대 종교가 함께 숭배하는 성지, 인도·티베트·세계를 잇는 정신의 다리</p>
+        <p class="text-lg text-white/60 mb-8">티베트 불교 · 힌두교 · 본교 · 자이나교</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/guide" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition">탐색 시작하기</a>
+          <a href="/culture" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">문화 알아보기</a>
         </div>
       </div>
     </div>
   </section>
-  
-  <Features />
-  <RoutePreview />
-  <!-- Testimonials Section -->
+
+  <!-- Stats Bar -->
+  <section class="bg-kailash-dark py-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 中文 -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-lang-content="zh">
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">6656m</p><p class="text-white/60 text-sm mt-1">冈仁波齐海拔</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">52km</p><p class="text-white/60 text-sm mt-1">转山全程</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">5630m</p><p class="text-white/60 text-sm mt-1">最高垭口</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p><p class="text-white/60 text-sm mt-1">宗教圣地</p></div>
+      </div>
+      <!-- English -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-lang-content="en" style="display: none;">
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">6,656m</p><p class="text-white/60 text-sm mt-1">Peak Elevation</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">52km</p><p class="text-white/60 text-sm mt-1">Kora Distance</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">5,630m</p><p class="text-white/60 text-sm mt-1">Highest Pass</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p><p class="text-white/60 text-sm mt-1">Sacred Traditions</p></div>
+      </div>
+      <!-- 日本語 -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-lang-content="ja" style="display: none;">
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">6656m</p><p class="text-white/60 text-sm mt-1">カイラス山の標高</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">52km</p><p class="text-white/60 text-sm mt-1">コーラ全長</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">5630m</p><p class="text-white/60 text-sm mt-1">最高地点ドマラ峠</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p><p class="text-white/60 text-sm mt-1">宗教の聖地</p></div>
+      </div>
+      <!-- 한국어 -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-lang-content="ko" style="display: none;">
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">6656m</p><p class="text-white/60 text-sm mt-1">카일라스 산 해발</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">52km</p><p class="text-white/60 text-sm mt-1">코라 전체</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">5630m</p><p class="text-white/60 text-sm mt-1">최고 지점 도마라 고개</p></div>
+        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p><p class="text-white/60 text-sm mt-1">종교의 성지</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 中文 -->
+      <div class="text-center mb-16" data-lang-content="zh">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">为什么选择冈仁波齐</h2>
+        <p class="text-lg text-gray-600">世界中心，信仰之巅</p>
+      </div>
+      <!-- English -->
+      <div class="text-center mb-16" data-lang-content="en" style="display: none;">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">Why Kailash?</h2>
+        <p class="text-lg text-gray-600">Center of the World, Pinnacle of Faith</p>
+      </div>
+      <!-- 日本語 -->
+      <div class="text-center mb-16" data-lang-content="ja" style="display: none;">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">なぜカイラスなのか</h2>
+        <p class="text-lg text-gray-600">世界の中心、信仰の頂点</p>
+      </div>
+      <!-- 한국어 -->
+      <div class="text-center mb-16" data-lang-content="ko" style="display: none;">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">왜 카일라스인가</h2>
+        <p class="text-lg text-gray-600">세계의 중심, 신앙의 정점</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1: Four Religions -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🕉️</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">四大宗教圣地</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Four Sacred Traditions</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">四大宗教の聖地</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">사대 종교 성지</h3>
+          <p class="text-gray-600" data-lang-content="zh">藏传佛教、印度教、苯教、耆那教共同尊奉的世界中心，全球唯一被四大宗教同时视为圣地的山峰</p>
+          <p class="text-gray-600" data-lang-content="en" style="display: none;">Tibetan Buddhism, Hinduism, Bön, and Jainism all revere this as the center of the world. The only mountain sacred to all four religions simultaneously.</p>
+          <p class="text-gray-600" data-lang-content="ja" style="display: none;">チベット仏教、ヒンドゥー教、ボン教、ジャイナ教が共に崇める世界の中心。全球で唯一、四大宗教が同時に聖地とする山。</p>
+          <p class="text-gray-600" data-lang-content="ko" style="display: none;">티베트 불교, 힌두교, 본교, 자이나교가 함께 숭배하는 세계의 중심. 전 세계에서 유일하게 사대 종교가 동시에 성지로 여기는 산.</p>
+        </div>
+        
+        <!-- Feature 2: 6656m -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🏔️</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">6656米神山</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">6,656m Sacred Peak</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">6656メートルの聖山</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">6656미터 성산</h3>
+          <p class="text-gray-600" data-lang-content="zh">从未被攀登的圣洁之峰，金字塔形山体独一无二，南坡万字符印记神秘庄严</p>
+          <p class="text-gray-600" data-lang-content="en" style="display: none;">An unclimbed sacred summit with a unique pyramid shape. The mysterious swastika mark on its southern face radiates solemn divinity.</p>
+          <p class="text-gray-600" data-lang-content="ja" style="display: none;">未踏の聖なる峰、ピラミッド型の山体は独一无二。南斜面の万字印は神秘に満ちた荘厳さを放つ。</p>
+          <p class="text-gray-600" data-lang-content="ko" style="display: none;">미답의 신성한 봉우리, 피라미드 형태의 산체는 유일무이. 남사면의 만자印은 신비로운 장엄함을 발한다.</p>
+        </div>
+        
+        <!-- Feature 3: 52km -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🚶</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">52公里转山</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">52km Kora Circuit</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">52キロのコーラ</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">52km 코라</h3>
+          <p class="text-gray-600" data-lang-content="zh">三天两夜高原徒步，翻越5630米卓玛拉垭口，每转一圈相当于念诵六字真言六亿遍</p>
+          <p class="text-gray-600" data-lang-content="en" style="display: none;">A three-day high-altitude trek crossing the 5,630m Drolma La pass. One circuit equals 600 million recitations of the six-syllable mantra.</p>
+          <p class="text-gray-600" data-lang-content="ja" style="display: none;">三日二夜の高原ハイキング、5630メートルのドマラ峠を越えて。一周することで六字真言を六億遍唱えたのと同等の功徳。</p>
+          <p class="text-gray-600" data-lang-content="ko" style="display: none;">삼일 이야의 고원 하이킹, 5630미터 도마라 고개를 넘어서. 일주하면 육자진언을 육억 번 외운 것과 동등한 공덕.</p>
+        </div>
+        
+        <!-- Feature 4: Lake -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">💧</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">圣湖玛旁雍错</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Lake Manasarovar</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">聖湖マナサロワール</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">성호 마나사로와르</h3>
+          <p class="text-gray-600" data-lang-content="zh">世界上海拔最高的淡水湖之一，四大河流的发源地，被称为「西天瑶池」</p>
+          <p class="text-gray-600" data-lang-content="en" style="display: none;">One of the world's highest freshwater lakes, source of four great rivers. Known as the "Western Heaven Jade Pool."</p>
+          <p class="text-gray-600" data-lang-content="ja" style="display: none;">世界で最も高い淡水湖の一つ、四大河の発源地。「西天瑶池」と称される。</p>
+          <p class="text-gray-600" data-lang-content="ko" style="display: none;">세계에서 가장 높은 담수호 중 하나, 사대 강의 발원지. '서천요지'라 불린다.</p>
+        </div>
+        
+        <!-- Feature 5: Global -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🌏</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">全球朝圣者</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Global Pilgrims</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">世界の巡礼者</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">세계의 순례자</h3>
+          <p class="text-gray-600" data-lang-content="zh">每年数十万朝圣者来自印度、尼泊尔、中国及世界各地，不同信仰者在此平等朝拜</p>
+          <p class="text-gray-600" data-lang-content="en" style="display: none;">Hundreds of thousands of pilgrims gather annually from India, Nepal, China, and across the globe. Different faiths worship here as equals.</p>
+          <p class="text-gray-600" data-lang-content="ja" style="display: none;">年間数十万の巡礼者がインド、ネパール、中国、世界各地から集まる。異なる信仰者がここで平等に礼拝する。</p>
+          <p class="text-gray-600" data-lang-content="ko" style="display: none;">연간 수십만의 순례자가 인도, 네팔, 중국, 전 세계에서 모인다. 다른 신앙자가 여기서 평등하게 예배한다.</p>
+        </div>
+        
+        <!-- Feature 6: 2026 -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">📅</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">2026朝圣之旅</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">2026 Pilgrimage</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">2026年巡礼の旅</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">2026년 순례 여정</h3>
+          <p class="text-gray-600" data-lang-content="zh">精心策划的行程，专业团队全程保障您的安全，早鸟预订享受专属优惠</p>
+          <p class="text-gray-600" data-lang-content="en" style="display: none;">Carefully planned itineraries with professional teams ensuring your safety. Early bird bookings enjoy exclusive discounts.</p>
+          <p class="text-gray-600" data-lang-content="ja" style="display: none;">丁寧に計画された行程、プロチームが安全をフルサポート。早期予約で特別割引を享受。</p>
+          <p class="text-gray-600" data-lang-content="ko" style="display: none;">정성껏 계획된 여정, 프로팀이 안전을 풀서포트. 조기 예약으로 특별 할인을 누리다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Preview -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 中文 -->
+      <div class="text-center mb-16" data-lang-content="zh">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">52公里转山路线</h2>
+        <p class="text-lg text-gray-600">三天两夜的高原徒步，从塔尔钦出发，翻越5630米的卓玛拉垭口，最终回到起点</p>
+      </div>
+      <!-- English -->
+      <div class="text-center mb-16" data-lang-content="en" style="display: none;">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">52km Kora Route</h2>
+        <p class="text-lg text-gray-600">A three-day high-altitude trek starting from Darchen, crossing the 5,630m Drolma La pass</p>
+      </div>
+      <!-- 日本語 -->
+      <div class="text-center mb-16" data-lang-content="ja" style="display: none;">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">52キロのコーラルート</h2>
+        <p class="text-lg text-gray-600">三日二夜の高原ハイキング、タルチェンを出発して5630メートルのドマラ峠を越える</p>
+      </div>
+      <!-- 한국어 -->
+      <div class="text-center mb-16" data-lang-content="ko" style="display: none;">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">52km 코라 루트</h2>
+        <p class="text-lg text-gray-600">삼일 이야의 고원 하이킹, 타르첸을 출발해 5630미터 도마라 고개를 넘는다</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Day 1 -->
+        <div class="bg-kailash-light rounded-2xl p-8">
+          <div class="text-kailash-gold text-4xl font-bold mb-4">1</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">第一天：塔尔钦 → 止热寺（20km）</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Day 1: Darchen → Drirapuk (20km)</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">初日：タルチェン → ディラプク寺（20km）</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">첫째 날: 타르첸 → 디라푹 사원 (20km)</h3>
+          <p class="text-gray-600" data-lang-content="zh">平缓起步，适应海拔，沿途可见神山北壁</p>
+          <p class="text-gray-600" data-lang-content="en" style="display: none;">Gentle start, acclimatizing to altitude, viewing the north face</p>
+          <p class="text-gray-600" data-lang-content="ja" style="display: none;">緩やかなスタート、標高に慣れながら、道中神山北壁を眺める</p>
+          <p class="text-gray-600" data-lang-content="ko" style="display: none;">완만한 출발, 해발에 적응하며, 도중 신산 북벽을 바라본다</p>
+        </div>
+        
+        <!-- Day 2 -->
+        <div class="bg-kailash-light rounded-2xl p-8">
+          <div class="text-kailash-gold text-4xl font-bold mb-4">2</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">第二天：止热寺 → 尊珠寺（18km）</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Day 2: Drirapuk → Zongchu (18km)</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">二日目：ディラプク寺 → ゾンチュ寺（18km）</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">둘째 날: 디라푹 사원 → 종추 사원 (18km)</h3>
+          <p class="text-gray-600" data-lang-content="zh">翻越卓玛拉垭口，最具挑战的一天</p>
+          <p class="text-gray-600" data-lang-content="en" style="display: none;">Crossing Drolma La pass, the most challenging day</p>
+          <p class="text-gray-600" data-lang-content="ja" style="display: none;">ドマラ峠を越えて、最も挑戦的な一日</p>
+          <p class="text-gray-600" data-lang-content="ko" style="display: none;">도마라 고개를 넘어, 가장 도전적인 하루</p>
+        </div>
+        
+        <!-- Day 3 -->
+        <div class="bg-kailash-light rounded-2xl p-8">
+          <div class="text-kailash-gold text-4xl font-bold mb-4">3</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">第三天：尊珠寺 → 塔尔钦（14km）</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Day 3: Zongchu → Darchen (14km)</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">三日目：ゾンチュ寺 → タルチェン（14km）</h3>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">셋째 날: 종추 사원 → 타르첸 (14km)</h3>
+          <p class="text-gray-600" data-lang-content="zh">轻松返程，完成神圣的转山之旅</p>
+          <p class="text-gray-600" data-lang-content="en" style="display: none;">Easy return, completing the sacred kora</p>
+          <p class="text-gray-600" data-lang-content="ja" style="display: none;">軽やかな帰路、神聖なコーラを完走する</p>
+          <p class="text-gray-600" data-lang-content="ko" style="display: none;">가벼운 귀로, 신성한 코라를 완주한다</p>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="/routes" class="inline-flex items-center bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+          <span data-lang-content="zh">查看详细路线</span>
+          <span data-lang-content="en" style="display: none;">View Detailed Route</span>
+          <span data-lang-content="ja" style="display: none;">詳細ルートを見る</span>
+          <span data-lang-content="ko" style="display: none;">상세 루트 보기</span>
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
   <section class="py-20 bg-kailash-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="zh">朝圣者心声</h2>
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="en" style="display: none;">Pilgrim Voices</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="ja" style="display: none;">巡礼者の声</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="ko" style="display: none;">순례자의 목소리</h2>
         <p class="text-lg text-gray-600" data-lang-content="zh">来自世界各地的转山者分享他们的真实体验</p>
         <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">Real experiences from pilgrims around the world</p>
+        <p class="text-lg text-gray-600" data-lang-content="ja" style="display: none;">世界各地からの巡礼者が語る真実の体験</p>
+        <p class="text-lg text-gray-600" data-lang-content="ko" style="display: none;">전 세계에서 온 순례자들이 전하는 진실한 체험</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Testimonial 1 -->
-        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow">
-          <div class="flex items-center gap-1 mb-4">
-            <span class="text-kailash-gold">★★★★★</span>
-          </div>
-          <p class="text-gray-700 mb-6 leading-relaxed italic">
-            "当翻越卓玛拉垭口的那一刻，我终于明白什么是信仰的力量。5630米，这是我人生到达的最高点，也是心灵的最高点。"
-          </p>
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-kailash-gold mb-4">★★★★★</div>
+          <p class="text-gray-700 mb-6 italic" data-lang-content="zh">"当翻越卓玛拉垭口的那一刻，我终于明白什么是信仰的力量。5630米，这是我人生到达的最高点，也是心灵的最高点。"</p>
+          <p class="text-gray-700 mb-6 italic" data-lang-content="en" style="display: none;">"The moment I crossed Drolma La pass, I finally understood the power of faith. At 5,630 meters, this is the highest point of my life, and also the highest point of my soul."</p>
+          <p class="text-gray-700 mb-6 italic" data-lang-content="ja" style="display: none;">"ドマラ峠を越えた瞬間、信仰の力とは何かを初めて理解しました。標高5630メートル、これは私の人生で最も高い地点であり、同時に心の最も高い地点でもあります。"</p>
+          <p class="text-gray-700 mb-6 italic" data-lang-content="ko" style="display: none;">"도마라 고개를 넘는 순간, 신앙의 힘이 무엇인지 처음으로 이해했습니다. 해발 5630미터, 이것은 제 인생에서 가장 높은 곳이자 동시에 마음의 가장 높은 곳입니다."</p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center text-kailash-dark font-bold">张</div>
+            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">张</div>
             <div>
-              <p class="font-medium text-kailash-dark">张先生</p>
+              <p class="font-medium" data-lang-content="zh">张先生</p>
+              <p class="font-medium" data-lang-content="en" style="display: none;">Mr. Zhang</p>
+              <p class="font-medium" data-lang-content="ja" style="display: none;">張さん</p>
+              <p class="font-medium" data-lang-content="ko" style="display: none;">장 씨</p>
               <p class="text-sm text-gray-500">北京 · 2025年9月</p>
             </div>
           </div>
         </div>
 
         <!-- Testimonial 2 -->
-        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow">
-          <div class="flex items-center gap-1 mb-4">
-            <span class="text-kailash-gold">★★★★★</span>
-          </div>
-          <p class="text-gray-700 mb-6 leading-relaxed italic">
-            "带着70岁的母亲完成转山，她在止热寺前双手合十的样子，是我这辈子见过最美的画面。朝圣无关年龄，只关乎心愿。"
-          </p>
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-kailash-gold mb-4">★★★★★</div>
+          <p class="text-gray-700 mb-6 italic" data-lang-content="zh">"带着70岁的母亲完成转山，她在止热寺前双手合十的样子，是我这辈子见过最美的画面。朝圣无关年龄，只关乎心愿。"</p>
+          <p class="text-gray-700 mb-6 italic" data-lang-content="en" style="display: none;">"I completed the kora with my 70-year-old mother. Watching her pray at Drirapuk Monastery was the most beautiful sight I've ever seen. Pilgrimage knows no age—it only requires a sincere heart."</p>
+          <p class="text-gray-700 mb-6 italic" data-lang-content="ja" style="display: none;">"70歳の母と共にコーラを完成させました。ディラプク寺で母が手を合わせる姿は、私が今まで見た中で最も美しい光景でした。巡礼は年齢に関係なく、心の願いに関わるものです。"</p>
+          <p class="text-gray-700 mb-6 italic" data-lang-content="ko" style="display: none;">"70세 어머니와 함께 코라를 완주했습니다. 디라푹 사원에서 어머니가 손을 모으는 모습은 제가 지금까지 본 것 중 가장 아름다운 광경이었습니다. 순례는 나이와 상관없이 마음의 소원과 관련된 것입니다."</p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center text-kailash-dark font-bold">李</div>
+            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">李</div>
             <div>
-              <p class="font-medium text-kailash-dark">李女士</p>
+              <p class="font-medium" data-lang-content="zh">李女士</p>
+              <p class="font-medium" data-lang-content="en" style="display: none;">Ms. Li</p>
+              <p class="font-medium" data-lang-content="ja" style="display: none;">李さん</p>
+              <p class="font-medium" data-lang-content="ko" style="display: none;">이 씨</p>
               <p class="text-sm text-gray-500">成都 · 2025年6月</p>
             </div>
           </div>
         </div>
 
         <!-- Testimonial 3 -->
-        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow">
-          <div class="flex items-center gap-1 mb-4">
-            <span class="text-kailash-gold">★★★★★</span>
-          </div>
-          <p class="text-gray-700 mb-6 leading-relaxed italic">
-            "Kailash is the abode of Lord Shiva. I waited 3 years for the permit. The 52km kora changed my perspective on life forever."
-          </p>
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-kailash-gold mb-4">★★★★★</div>
+          <p class="text-gray-700 mb-6 italic">"Kailash is the abode of Lord Shiva. I waited 3 years for the permit. The 52km kora changed my perspective on life forever."</p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center text-kailash-dark font-bold">R</div>
+            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">R</div>
             <div>
-              <p class="font-medium text-kailash-dark">Rajesh Kumar</p>
+              <p class="font-medium">Rajesh Kumar</p>
               <p class="text-sm text-gray-500">Delhi, India · 2024</p>
             </div>
           </div>
@@ -119,117 +351,12 @@ import SearchBox from '../components/SearchBox.astro';
         <a href="/stories" class="inline-flex items-center text-kailash-gold font-semibold hover:text-kailash-dark transition">
           <span data-lang-content="zh">查看更多朝圣故事</span>
           <span data-lang-content="en" style="display: none;">Read More Stories</span>
+          <span data-lang-content="ja" style="display: none;">巡礼者のストーリーをもっと見る</span>
+          <span data-lang-content="ko" style="display: none;">순례자 이야기 더 보기</span>
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Preview -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="zh">冈仁波齐影像</h2>
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="en" style="display: none;">Sacred Mountain Gallery</h2>
-        <p class="text-lg text-gray-600" data-lang-content="zh">用影像记录神圣的土地</p>
-        <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">Capturing the sacred land through images</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="relative aspect-[4/3] rounded-xl overflow-hidden group">
-          <img src="/images/kailash-golden.jpg" alt="日照金山" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="absolute bottom-4 left-4 text-white font-medium">日照金山</p>
-          </div>
-        </div>
-        <div class="relative aspect-[4/3] rounded-xl overflow-hidden group md:row-span-2">
-          <img src="/images/kailash-aerial.jpg" alt="航拍冈仁波齐" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="absolute bottom-4 left-4 text-white font-medium">航拍冈仁波齐</p>
-          </div>
-        </div>
-        <div class="relative aspect-[4/3] rounded-xl overflow-hidden group">
-          <img src="/images/kailash-lake.jpg" alt="玛旁雍错" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="absolute bottom-4 left-4 text-white font-medium">圣湖玛旁雍错</p>
-          </div>
-        </div>
-        <div class="relative aspect-[4/3] rounded-xl overflow-hidden group">
-          <img src="/images/kailash-sunrise.jpg" alt="日出金顶" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="absolute bottom-4 left-4 text-white font-medium">日出金顶</p>
-          </div>
-        </div>
-        <div class="relative aspect-[4/3] rounded-xl overflow-hidden group">
-          <img src="/images/kailash-yaks.jpg" alt="草原牦牛" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="absolute bottom-4 left-4 text-white font-medium">草原牦牛</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-12">
-        <a href="/gallery" class="inline-flex items-center bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
-          <span data-lang-content="zh">浏览完整图库</span>
-          <span data-lang-content="en" style="display: none;">View Full Gallery</span>
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quick Links / Trust Badges -->
-  <section class="py-16 bg-kailash-light border-t border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-kailash-gold/20 rounded-full flex items-center justify-center mb-3">
-            <svg class="w-6 h-6 text-kailash-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </div>
-          <p class="font-medium text-kailash-dark" data-lang-content="zh">专业向导团队</p>
-          <p class="font-medium text-kailash-dark" data-lang-content="en" style="display: none;">Professional Guides</p>
-          <p class="text-sm text-gray-500" data-lang-content="zh">10年+高原经验</p>
-          <p class="text-sm text-gray-500" data-lang-content="en" style="display: none;">10+ years high-altitude experience</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-kailash-gold/20 rounded-full flex items-center justify-center mb-3">
-            <svg class="w-6 h-6 text-kailash-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-            </svg>
-          </div>
-          <p class="font-medium text-kailash-dark" data-lang-content="zh">医疗保障完善</p>
-          <p class="font-medium text-kailash-dark" data-lang-content="en" style="display: none;">Medical Support</p>
-          <p class="text-sm text-gray-500" data-lang-content="zh">氧气+药品+救援</p>
-          <p class="text-sm text-gray-500" data-lang-content="en" style="display: none;">Oxygen + Meds + Rescue</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-kailash-gold/20 rounded-full flex items-center justify-center mb-3">
-            <svg class="w-6 h-6 text-kailash-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <p class="font-medium text-kailash-dark" data-lang-content="zh">跨宗教中立</p>
-          <p class="font-medium text-kailash-dark" data-lang-content="en" style="display: none;">Interfaith Neutral</p>
-          <p class="text-sm text-gray-500" data-lang-content="zh">尊重所有信仰传统</p>
-          <p class="text-sm text-gray-500" data-lang-content="en" style="display: none;">Respecting all traditions</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-kailash-gold/20 rounded-full flex items-center justify-center mb-3">
-            <svg class="w-6 h-6 text-kailash-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <p class="font-medium text-kailash-dark" data-lang-content="zh">24小时响应</p>
-          <p class="font-medium text-kailash-dark" data-lang-content="en" style="display: none;">24/7 Support</p>
-          <p class="text-sm text-gray-500" data-lang-content="zh">全程客服在线</p>
-          <p class="text-sm text-gray-500" data-lang-content="en" style="display: none;">Always here to help</p>
-        </div>
       </div>
     </div>
   </section>
@@ -240,10 +367,14 @@ import SearchBox from '../components/SearchBox.astro';
       <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
         <span data-lang-content="zh">搜索冈仁波齐</span>
         <span data-lang-content="en" style="display: none;">Search Kailash</span>
+        <span data-lang-content="ja" style="display: none;">カイラスを検索</span>
+        <span data-lang-content="ko" style="display: none;">카일라스 검색</span>
       </h2>
       <p class="text-kailash-dark/80 mb-8">
         <span data-lang-content="zh">输入关键词，快速找到您需要的信息</span>
         <span data-lang-content="en" style="display: none;">Type keywords to quickly find what you need</span>
+        <span data-lang-content="ja" style="display: none;">キーワードを入力して、必要な情報を素早く見つける</span>
+        <span data-lang-content="ko" style="display: none;">키워드를 입력하여 필요한 정보를 빠르게 찾기</span>
       </p>
       <SearchBox />
     </div>

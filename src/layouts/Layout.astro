@@ -54,13 +54,37 @@ const navItems = [
           
           {/* Language Switcher */}
           <div class="flex items-center gap-1 ml-4 border-l border-white/20 pl-4">
-            <a href="/" class="lang-btn px-2 py-1 rounded text-sm text-kailash-gold font-medium">中文</a>
+            <button 
+              class="lang-btn px-2 py-1 rounded text-sm text-kailash-gold font-medium" 
+              data-lang="zh"
+              onclick="switchLanguage('zh')"
+            >
+              中文
+            </button>
             <span class="text-white/30">|</span>
-            <a href="/en/" class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition">EN</a>
+            <button 
+              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition" 
+              data-lang="en"
+              onclick="switchLanguage('en')"
+            >
+              EN
+            </button>
             <span class="text-white/30">|</span>
-            <a href="/ja/" class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition">日本語</a>
+            <button 
+              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition" 
+              data-lang="ja"
+              onclick="switchLanguage('ja')"
+            >
+              日本語
+            </button>
             <span class="text-white/30">|</span>
-            <a href="/ko/" class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition">한국어</a>
+            <button 
+              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition" 
+              data-lang="ko"
+              onclick="switchLanguage('ko')"
+            >
+              한국어
+            </button>
           </div>
           
         {/* Search Box */}
