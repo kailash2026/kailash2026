@@ -1,262 +1,196 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const stories = [
-  {
-    title: "我的第一次转山：在5630米流泪",
-    excerpt: "当翻越卓玛拉垭口的那一刻，我终于明白什么是信仰的力量。高原的稀薄空气让每一步都变得艰难，但内心却前所未有地平静...",
-    content: "那是2025年9月的一个清晨，我从塔尔钦出发，踏上了人生第一次冈仁波齐转山之旅。第一天到止热寺的路程相对平缓，但海拔从4560米上升到5080米，仍然让我气喘吁吁。\n\n第二天凌晨4点，我们摸黑出发。手电筒的光束在黑暗中划出微弱的弧线，只能看到前面人的背影。随着海拔不断升高，每一步都像踩在棉花上。氧气稀薄到连说话都成了奢侈。\n\n到达卓玛拉垭口的那一刻，我跪在了经幡阵前。不是为了宗教，而是被那种人类在极限环境下的虔诚所震撼。5630米，这是我人生到达的最高点。泪水不受控制地流下来，分不清是高原反应还是心灵的震动。\n\n下山的路比上山更难，膝盖承受着巨大的压力。但心情却异常轻松，仿佛卸下了什么重担。第三天回到塔尔钦时，我知道这趟旅程改变了我。",
-    author: "张先生",
-    date: "2025年9月",
-    category: "个人经历",
-    readTime: "5分钟"
-  },
-  {
-    title: "带着母亲去朝圣：70岁的冈仁波齐之旅",
-    excerpt: "母亲念叨了十年的冈仁波齐，终于在70岁生日这天成行。看着她在止热寺前双手合十的样子，我知道这趟旅程值了...",
-    content: "母亲从60岁就开始念叨冈仁波齐。十年间，我们一次次计划，一次次因为各种原因推迟。直到她70岁生日前夕，我终于下定决心：不管多难，这次一定要成行。\n\n考虑到母亲的年龄，我们选择了最慢的节奏，全程雇了马匹。即使如此，第一天到止热寺时，母亲的脸色还是发白。我一度后悔带她来，但她坚持要继续。\n\n第二天翻越卓玛拉垭口，母亲选择了骑马。在垭口最高点，她坚持下马步行了最后100米。看着她颤颤巍巍却坚定的背影，我的眼眶湿润了。\n\n母亲在止热寺前双手合十，嘴唇微动。我不知道她在祈祷什么，但我知道，十年的心愿终于实现。回程的路上，她握着我的手说：\"这辈子值了。\"\n\n这趟旅程让我明白，朝圣无关年龄，只关乎心愿。",
-    author: "李女士",
-    date: "2025年6月",
-    category: "家庭故事",
-    readTime: "8分钟"
-  },
-  {
-    title: "一个摄影师眼中的冈仁波齐：光影之间",
-    excerpt: "为了拍摄冈仁波齐的星空，我在塔尔钦等了七天。第七天的凌晨，银河终于横跨冈仁波齐顶峰，那一刻的震撼无法用语言描述...",
-    content: "作为一名风光摄影师，冈仁波齐一直是我镜头清单上的终极目标。但星空摄影需要完美的天气条件，而高原的天气说变就变。\n\n我在塔尔钦住了七天。前六天，不是云层太厚就是月亮太亮。每天晚上12点出门架好设备，凌晨5点失望而归。同行的摄友陆续离开，只剩下我一个人坚持。\n\n第七天，天气预报终于显示晴朗无云。凌晨2点，我来到预先踩好的机位。当眼睛适应黑暗后，我看到了——银河像一条璀璨的河流，从东北方向升起，横跨冈仁波齐的峰顶。\n\n我按下了快门。30秒的长曝光，ISO 3200，光圈最大。当相机屏幕上显示出那张照片时，我知道，七天的等待值了。\n\n那张照片后来获得了国家地理摄影大赛的提名，但对我来说，它最大的意义是记录了冈仁波齐与银河相遇的刹那——那种美，只有亲身经历才能体会。",
-    author: "王摄影师",
-    date: "2025年5月",
-    category: "摄影故事",
-    readTime: "6分钟"
-  },
-  {
-    title: "与藏族同胞同行：三日转山记",
-    excerpt: "选择跟随藏族同胞一起转山，用他们的节奏走完52公里。他们教我念诵六字真言，告诉我转山不是征服，而是臣服...",
-    content: "这是我第三次来冈仁波齐，但第一次选择和藏族同胞一起转山。他们三步一磕的节奏，和我们这些\"游客\"完全不同。\n\n第一天，我就被落下了。他们磕长头的速度看似缓慢，但几乎没有休息。我试图跟上，半小时后心率飙升到160，不得不放慢速度。\n\n第二天，一位叫扎西的大哥主动陪我走。他教我念诵六字真言：\"唵嘛呢叭咪吽\"，说每念一遍，就相当于转了一圈经筒。他还告诉我，藏族人转山不是征服冈仁波齐，而是向冈仁波齐臣服。\n\n第三天，我终于学会了他们的节奏——不是用速度，而是用心。当我们一起回到塔尔钦，扎西邀请我去他家喝酥油茶。他母亲说，能一起转山的人，前世都有缘分。\n\n这趟旅程让我对\"朝圣\"有了新的理解。它不是一项运动，也不是一个景点，而是一种生活态度。",
-    author: "陈同学",
-    date: "2024年10月",
-    category: "文化体验",
-    readTime: "7分钟"
-  },
-  {
-    title: "创业失败后，我在冈仁波齐找到了答案",
-    excerpt: "公司倒闭的那一年，我独自一人来到冈仁波齐。三天两夜的转山，没有手机信号，只有脚步声和呼吸声。当我回到塔尔钦时，我知道该怎么做了...",
-    content: "2024年是我人生最低谷。创业三年的公司因为现金流断裂倒闭，欠了一屁股债，女朋友也离开了。朋友建议我去西藏\"散散心\"，我就买了张机票飞到拉萨。\n\n说实话，一开始我对转山没什么兴趣。只是觉得既然来了，就走走吧。第一天从塔尔钦到止热寺，我还在想着公司的事，想着怎么还债，想着怎么跟父母交代。\n\n第二天翻越卓玛拉垭口，手机全程没信号。没有微信，没有邮件，没有催债电话。只有脚步声和呼吸声。我被迫停止了思考，只是专注于下一步踩在哪里。\n\n那种\"被迫放空\"的感觉很奇怪。平时大脑像一台高速运转的机器，突然断电了。但在那个没有信号的56公里，我反而感到了久违的平静。\n\n第三天回到塔尔钦，手机信号恢复，几百条消息涌进来。但我没有像以前一样焦虑。我突然明白，公司倒闭不是世界末日，只是人生的一段弯路。\n\n半年后，我重新创业。这次做的是一个与心理健康相关的产品，灵感就来自那次转山。现在公司已经盈利，而我还是每年都去冈仁波齐转一次山。不是为了宗教，而是为了找回那个平静的自己。",
-    author: "刘先生",
-    date: "2024年8月",
-    category: "心灵之旅",
-    readTime: "10分钟"
-  },
-  {
-    title: "一个印度教徒的凯拉萨之旅",
-    excerpt: "作为虔诚的湿婆信徒，凯拉萨（Kailasa）是我一生的向往。2025年，我终于踏上了这片神圣的土地...",
-    content: "我是孟买的一名软件工程师，从小在祖母的故事中长大——湿婆神在凯拉萨山顶冥想，雪山神女帕尔瓦蒂陪伴左右。凯拉萨不只是一座山，它是我的精神故乡。\n\n申请印度政府组织的Kailash Mansarovar Yatra花了两年时间。名额有限，每年只有800-1000人能获得资格。2025年夏天，我终于收到了批准通知。\n\n从德里出发，经过北阿坎德邦的里普列克山口进入西藏。当冈仁波齐第一次出现在视野中时，我跪了下来。不是因为高原反应，而是因为那种跨越千年的信仰连接。\n\n在玛旁雍错沐浴的那一刻，我念诵着湿婆真言。湖水冰冷刺骨，但内心却无比温暖。完成了108圈转山中的第一圈，我知道余生还会再来。\n\n冈仁波齐对印度教徒来说，是湿婆的居所，是灵魂净化的最高形式。但当我看到藏族同胞、汉族朋友、来自世界各地的朝圣者一起转山时，我意识到这座山属于所有信仰者。",
-    author: "Ravi Sharma",
-    date: "2025年7月",
-    category: "印度教朝圣",
-    readTime: "8分钟"
-  },
-  {
-    title: "苯教信徒的冈仁波齐朝圣",
-    excerpt: "作为苯教修行者，我逆时针转山。在冈仁波齐，我找到了与祖先信仰的连接...",
-    content: "我来自四川阿坝的藏族家庭，世代信奉苯教。从小听爷爷讲述敦巴辛饶从天而降的故事，冈仁波齐在我心中一直是宇宙的中心。\n\n与藏传佛教和印度教不同，苯教徒转山走的是逆时针方向。这不是为了标新立异，而是我们古老传统的延续。在止热寺附近，我遇到了几位藏传佛教的 pilgrims，我们互相点头致意，各自沿着自己的方向前行。\n\n在卓玛拉垭口，我挂起了五彩经幡，念诵着苯教的祈祷文。风很大，经幡猎猎作响。那一刻，我感受到了祖先的灵魂与我同在。\n\n苯教在西藏的历史比佛教更悠久，但我们的声音往往被忽视。我希望通过分享我的故事，让更多人了解苯教——西藏最古老的宗教，以及我们对冈仁波齐的独特理解。",
-    author: "索朗旺姆",
-    date: "2025年8月",
-    category: "苯教朝圣",
-    readTime: "6分钟"
-  }
-];
+const title = "朝圣故事 | Kailash 2026";
+const description = "来自世界各地朝圣者的真实故事。冈仁波齐转山之旅如何改变他们的人生，带来心灵的觉醒与转变。";
 ---
 
-<Layout title="朝圣故事 - 他们的冈仁波齐之旅">
-  <!-- Hero: Photo on top, content below -->
-  <section class="relative bg-kailash-dark">
-    <!-- Full-width photo -->
-    <div class="relative w-full h-[45vh] lg:h-[55vh]">
-      <div class="absolute inset-0 bg-[url('/images/kailash-sunrise.jpg')] bg-cover bg-center"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-kailash-dark"></div>
-    </div>
-    
-    <!-- Content below photo -->
-    <div class="relative -mt-20 z-10 px-4 sm:px-6 lg:px-8 pb-16">
-      <div class="max-w-7xl mx-auto text-center">
-        <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-4">
-          <span data-lang-content="zh">朝圣故事</span>
-          <span data-lang-content="en" style="display: none;">Pilgrim Stories</span>
-        </h1>
-        <p class="text-xl text-white/60 max-w-3xl mx-auto">
-          <span data-lang-content="zh">每一个转山的人，都有一段独特的故事</span>
-          <span data-lang-content="en" style="display: none;">Every pilgrim has a unique story to tell</span>
-        </p>
+<Layout title={title} description={description}>
+  <div class="pt-20">
+    <!-- Hero -->
+    <section class="bg-kailash-dark py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4" data-lang-content="zh">朝圣故事</h1>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4" data-lang-content="en" style="display: none;">Pilgrim Stories</h1>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4" data-lang-content="ja" style="display: none;">巡礼者の物語</h1>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4" data-lang-content="ko" style="display: none;">순례자 이야기</h1>
+        <p class="text-xl text-white/80" data-lang-content="zh">真实旅程 · 心灵转变 · 神圣回忆</p>
+        <p class="text-xl text-white/80" data-lang-content="en" style="display: none;">Real Journeys · Transformative Experiences · Sacred Memories</p>
+        <p class="text-xl text-white/80" data-lang-content="ja" style="display: none;">真実の旅 · 心の変容 · 神聖な思い出</p>
+        <p class="text-xl text-white/80" data-lang-content="ko" style="display: none;">진실한 여정 · 마음의 변화 · 신성한 추억</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Category Filter -->
-  <section class="py-8 bg-kailash-light">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap justify-center gap-3">
-        <span class="bg-kailash-gold text-kailash-dark px-4 py-2 rounded-full text-sm font-medium cursor-pointer" data-lang-content="zh">全部</span>
-        <span class="bg-kailash-gold text-kailash-dark px-4 py-2 rounded-full text-sm font-medium cursor-pointer" data-lang-content="en" style="display: none;">All</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="zh">个人经历</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="en" style="display: none;">Personal</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="zh">家庭故事</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="en" style="display: none;">Family</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="zh">心灵之旅</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="en" style="display: none;">Spiritual</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="zh">文化体验</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="en" style="display: none;">Cultural</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="zh">印度教朝圣</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="en" style="display: none;">Hindu</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="zh">苯教朝圣</span>
-        <span class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 cursor-pointer transition" data-lang-content="en" style="display: none;">Bön</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stories List -->
-  <section class="py-20 bg-kailash-light">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-8">
-        {stories.map((story, index) => (
-          <details class="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-            <summary class="list-none cursor-pointer p-8">
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="bg-kailash-gold/10 text-kailash-dark text-xs px-3 py-1 rounded-full font-medium" data-lang-content="zh">{story.category}</span>
-                <span class="bg-kailash-gold/10 text-kailash-dark text-xs px-3 py-1 rounded-full font-medium" data-lang-content="en" style="display: none;">{story.categoryEn || story.category}</span>
-                <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full" data-lang-content="zh">{story.readTime}阅读</span>
-                <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full" data-lang-content="en" style="display: none;">{story.readTime} read</span>
+    <!-- Stories Grid -->
+    <section class="py-16 bg-kailash-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Story 1 -->
+          <div class="bg-white rounded-2xl p-8 shadow-md">
+            <div class="text-kailash-gold mb-4">★★★★★</div>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="zh">"当翻越卓玛拉垭口的那一刻，我终于明白什么是信仰的力量。5630米，这是我人生到达的最高点，也是心灵的最高点。"</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="en" style="display: none;">"The moment I crossed Drolma La pass, I finally understood the power of faith. At 5,630 meters, this is the highest point of my life, and also the highest point of my soul."</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="ja" style="display: none;">"ドマラ峠を越えた瞬間、信仰の力とは何かを初めて理解しました。標高5630メートル、これは私の人生で最も高い地点であり、同時に心の最も高い地点でもあります。"</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="ko" style="display: none;">"도마라 고개를 넘는 순간, 신앙의 힘이 무엇인지 처음으로 이해했습니다. 해발 5630미터, 이것은 제 인생에서 가장 높은 곳이자 동시에 마음의 가장 높은 곳입니다."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">张</div>
+              <div>
+                <p class="font-medium" data-lang-content="zh">张先生</p>
+                <p class="font-medium" data-lang-content="en" style="display: none;">Mr. Zhang</p>
+                <p class="font-medium" data-lang-content="ja" style="display: none;">張さん</p>
+                <p class="font-medium" data-lang-content="ko" style="display: none;">장 씨</p>
+                <p class="text-sm text-gray-500">北京 · 2025年9月</p>
               </div>
-              <h2 class="font-display text-2xl font-bold text-kailash-dark mb-3 group-hover:text-kailash-gold transition-colors">
-                {story.title}
-              </h2>
-              <p class="text-gray-600 mb-4 leading-relaxed">
-                {story.excerpt}
-              </p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center text-kailash-dark font-bold">
-                    {story.author[0]}
-                  </div>
-                  <div>
-                    <p class="font-medium text-kailash-dark">{story.author}</p>
-                    <p class="text-sm text-gray-500">{story.date}</p>
-                  </div>
-                </div>
-                <span class="text-kailash-gold font-medium flex items-center gap-1 group-open:hidden" data-lang-content="zh">
-                  阅读全文
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </span>
-                <span class="text-kailash-gold font-medium flex items-center gap-1 group-open:hidden" data-lang-content="en" style="display: none;">
-                  Read More
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </span>
-                <span class="text-gray-400 font-medium items-center gap-1 hidden group-open:flex" data-lang-content="zh">
-                  收起
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </span>
-                <span class="text-gray-400 font-medium items-center gap-1 hidden group-open:flex" data-lang-content="en" style="display: none;">
-                  Collapse
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </span>
-              </div>
-            </summary>
-            <div class="px-8 pb-8 pt-0">
-              <div class="border-t border-gray-100 pt-6">
-                <div class="prose prose-gray max-w-none">
-                  {story.content.split('\n\n').map((paragraph, pIdx) => (
-                    <p class="text-gray-700 leading-relaxed mb-4">{paragraph}</p>
-                  ))}
-                </div>
-                <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
-                  <span class="text-sm text-gray-500" data-lang-content="zh">— {story.author}，{story.date}</span>
-                  <span class="text-sm text-gray-500" data-lang-content="en" style="display: none;">— {story.authorEn || story.author}, {story.dateEn || story.date}</span>
-                  <a href="mailto:kailash2026Lucas@outlook.com?subject=故事反馈" class="text-sm text-kailash-gold hover:text-kailash-dark transition" data-lang-content="zh">
-                    联系作者
-                  </a>
-                  <a href="mailto:kailash2026Lucas@outlook.com?subject=Story Feedback" class="text-sm text-kailash-gold hover:text-kailash-dark transition" data-lang-content="en" style="display: none;">
-                    Contact Author
-                  </a>
-                </div>
-              </div>
-            </div>
-          </details>
-        ))}
-      </div>
-
-      <!-- Pagination -->
-      <div class="flex justify-center gap-2 mt-12">
-        <button class="w-10 h-10 rounded-lg bg-kailash-gold text-kailash-dark font-medium">1</button>
-        <button class="w-10 h-10 rounded-lg bg-white text-gray-600 hover:bg-gray-100">2</button>
-        <button class="w-10 h-10 rounded-lg bg-white text-gray-600 hover:bg-gray-100">3</button>
-        <span class="w-10 h-10 flex items-center justify-center text-gray-400">...</span>
-        <button class="w-10 h-10 rounded-lg bg-white text-gray-600 hover:bg-gray-100">
-          <svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Submit Story CTA -->
-  <section class="py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4" data-lang-content="zh">分享您的故事</h2>
-      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Share Your Story</h2>
-      <p class="text-gray-600 mb-8" data-lang-content="zh">您的冈仁波齐经历可能会激励更多人踏上朝圣之路</p>
-      <p class="text-gray-600 mb-8" data-lang-content="en" style="display: none;">Your Kailash experience may inspire more people to embark on their pilgrimage</p>
-      <div class="bg-kailash-light rounded-2xl p-8">
-        <div class="grid md:grid-cols-3 gap-6 text-left mb-8">
-          <div class="flex items-start gap-3">
-            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</span>
-            <div>
-              <h3 class="font-semibold text-kailash-dark" data-lang-content="zh">撰写故事</h3>
-              <h3 class="font-semibold text-kailash-dark" data-lang-content="en" style="display: none;">Write Your Story</h3>
-              <p class="text-sm text-gray-600" data-lang-content="zh">记录您的转山经历，不少于500字</p>
-              <p class="text-sm text-gray-600" data-lang-content="en" style="display: none;">Record your Kora experience, at least 500 words</p>
             </div>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</span>
-            <div>
-              <h3 class="font-semibold text-kailash-dark" data-lang-content="zh">附上照片</h3>
-              <h3 class="font-semibold text-kailash-dark" data-lang-content="en" style="display: none;">Attach Photos</h3>
-              <p class="text-sm text-gray-600" data-lang-content="zh">精选3-5张旅途中的精彩照片</p>
-              <p class="text-sm text-gray-600" data-lang-content="en" style="display: none;">Select 3-5 highlight photos from your journey</p>
+
+          <!-- Story 2 -->
+          <div class="bg-white rounded-2xl p-8 shadow-md">
+            <div class="text-kailash-gold mb-4">★★★★★</div>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="zh">"带着70岁的母亲完成转山，她在止热寺前双手合十的样子，是我这辈子见过最美的画面。朝圣无关年龄，只关乎心愿。"</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="en" style="display: none;">"I completed the kora with my 70-year-old mother. Watching her pray at Drirapuk Monastery was the most beautiful sight I've ever seen. Pilgrimage knows no age—it only requires a sincere heart."</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="ja" style="display: none;">"70歳の母と共にコーラを完成させました。ディラプク寺で母が手を合わせる姿は、私が今まで見た中で最も美しい光景でした。巡礼は年齢に関係なく、心の願いに関わるものです。"</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="ko" style="display: none;">"70세 어머니와 함께 코라를 완주했습니다. 디라푹 사원에서 어머니가 손을 모으는 모습은 제가 지금까지 본 것 중 가장 아름다운 광경이었습니다. 순례는 나이와 상관없이 마음의 소원과 관련된 것입니다."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">李</div>
+              <div>
+                <p class="font-medium" data-lang-content="zh">李女士</p>
+                <p class="font-medium" data-lang-content="en" style="display: none;">Ms. Li</p>
+                <p class="font-medium" data-lang-content="ja" style="display: none;">李さん</p>
+                <p class="font-medium" data-lang-content="ko" style="display: none;">이 씨</p>
+                <p class="text-sm text-gray-500">成都 · 2025年6月</p>
+              </div>
             </div>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</span>
-            <div>
-              <h3 class="font-semibold text-kailash-dark" data-lang-content="zh">发送给我们</h3>
-              <h3 class="font-semibold text-kailash-dark" data-lang-content="en" style="display: none;">Send to Us</h3>
-              <p class="text-sm text-gray-600" data-lang-content="zh">邮件投稿，审核后发布</p>
-              <p class="text-sm text-gray-600" data-lang-content="en" style="display: none;">Submit via email, published after review</p>
+
+          <!-- Story 3 -->
+          <div class="bg-white rounded-2xl p-8 shadow-md">
+            <div class="text-kailash-gold mb-4">★★★★★</div>
+            <p class="text-gray-700 mb-6 italic">"Kailash is the abode of Lord Shiva. I waited 3 years for the permit. The 52km kora changed my perspective on life forever."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">R</div>
+              <div>
+                <p class="font-medium">Rajesh Kumar</p>
+                <p class="text-sm text-gray-500">Delhi, India · 2024</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story 4 -->
+          <div class="bg-white rounded-2xl p-8 shadow-md">
+            <div class="text-kailash-gold mb-4">★★★★★</div>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="zh">"作为一名基督徒，我不确定会发生什么。但冈仁波齐超越了任何单一宗教。站在那座神圣的山峰前，我感受到了无法言喻的存在。"</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="en" style="display: none;">"As a Christian, I wasn't sure what to expect. But Kailash transcends any single religion. Standing before that sacred peak, I felt a presence that words cannot describe."</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="ja" style="display: none;">"クリスチャンとして、何が待っているか分かりませんでした。しかしカイラスはあらゆる宗教を超越しています。あの神聖な峰の前に立つと、言葉では表現できない存在感を感じました。"</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="ko" style="display: none;">"기독교인으로서 무엇이 기다리고 있을지 확신하지 못했습니다. 하지만 카일라스는 어떤 단일 종교도 뛰어넘습니다. 그 신성한 봉우리 앞에 서자, 말로 표현할 수 없는 존재감을 느꼈습니다."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">S</div>
+              <div>
+                <p class="font-medium">Sarah Johnson</p>
+                <p class="text-sm text-gray-500">London, UK · 2024</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story 5 -->
+          <div class="bg-white rounded-2xl p-8 shadow-md">
+            <div class="text-kailash-gold mb-4">★★★★★</div>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="zh">"这是我的第七次转山。每次我都能发现新的东西。山没有变，但我变了。每一圈都剥离了另一层自我，揭示出更真实的本我。"</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="en" style="display: none;">"This was my seventh kora. Each time I discover something new. The mountain doesn't change, but I do. Every circuit peels away another layer of ego, revealing a more authentic self."</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="ja" style="display: none;">"これは7回目のコーラでした。毎回新しい発見があります。山は変わらないが、私は変わる。一周ごとに自我の層が剥がれ、より真実の自分が現れる。"</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="ko" style="display: none;">"이것은 제 7번째 코라였습니다. 매번 새로운 것을 발견합니다. 산은 변하지 않지만, 저는 변합니다. 매 바퀴가 자아의 또 다른 층을 벗겨내어 더 진실한 자신을 드러냅니다."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">丁</div>
+              <div>
+                <p class="font-medium">Tenzin Dorje</p>
+                <p class="text-sm text-gray-500">Lhasa, Tibet · 2024</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story 6 -->
+          <div class="bg-white rounded-2xl p-8 shadow-md">
+            <div class="text-kailash-gold mb-4">★★★★★</div>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="zh">"我为了冒险而来，却带着转变的心离开。韩国朝圣团成为了我的家人。我们一起受苦，一起欢笑，一起成长。"</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="en" style="display: none;">"I came for the adventure, I left with a transformed heart. The Korean pilgrimage group became my family. We suffered together, laughed together, and grew together."</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="ja" style="display: none;">"冒険のために来て、変容した心を持って去りました。韓国の巡礼団が私の家族になりました。共に苦しみ、共に笑い、共に成長しました。"</p>
+            <p class="text-gray-700 mb-6 italic" data-lang-content="ko" style="display: none;">"모험을 위해 왔지만, 변화된 마음을 가지고 떠났습니다. 한국 순례단이 제 가족이 되었습니다. 함께 고생하고, 함께 웃고, 함께 성장했습니다."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">朴</div>
+              <div>
+                <p class="font-medium">Park Min-ji</p>
+                <p class="text-sm text-gray-500">Seoul, Korea · 2023</p>
+              </div>
             </div>
           </div>
         </div>
-        <a href="mailto:kailash2026Lucas@outlook.com?subject=故事投稿" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition" data-lang-content="zh">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-          </svg>
-          投稿故事
-        </a>
-        <a href="mailto:kailash2026Lucas@outlook.com?subject=Story Submission" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition" data-lang-content="en" style="display: none;">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-          </svg>
-          Submit Story
-        </a>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Legends -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center" data-lang-content="zh">神圣传说</h2>
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center" data-lang-content="en" style="display: none;">Sacred Legends</h2>
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center" data-lang-content="ja" style="display: none;">神聖な伝説</h2>
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center" data-lang-content="ko" style="display: none;">신성한 전설</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-kailash-light rounded-2xl p-8">
+            <div class="text-4xl mb-4">🧘</div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">米拉日巴的胜利</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Milarepa's Victory</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">ミラレパの勝利</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">밀라레파의 승리</h3>
+            <p class="text-gray-600" data-lang-content="zh">11世纪的藏传佛教瑜伽士米拉日巴在冈仁波齐附近的洞穴中修行。当苯教祭司挑战他比赛登上山顶时，米拉日巴在日出时飞到了山顶，证明了佛教修行的力量。</p>
+            <p class="text-gray-600" data-lang-content="en" style="display: none;">The 11th-century Tibetan yogi Milarepa meditated in a cave near Kailash. When challenged by a Bon priest to race to the summit, Milarepa flew there at sunrise, proving the power of Buddhist practice.</p>
+            <p class="text-gray-600" data-lang-content="ja" style="display: none;">11世紀のチベットのヨギ・ミラレパはカイラス近くの洞窟で修行しました。ボン教の祭司が頂上への競争を挑んだ時、ミラレパは日の出と共に飛んで頂上に着き、仏教修行の力を証明しました。</p>
+            <p class="text-gray-600" data-lang-content="ko" style="display: none;">11세기 티베트 요기 밀라레파는 카일라스 근처 동굴에서 수행했습니다. 본교 사제가 정상까지의 경쟁을 제안했을 때, 밀라레파는 일출과 함께 날아가 정상에 도착하여 불교 수행의 힘을 증명했습니다.</p>
+          </div>
+
+          <div class="bg-kailash-light rounded-2xl p-8">
+            <div class="text-4xl mb-4">🐴</div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">格萨尔王的马蹄印</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Gesar King's Horse Tracks</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">ゲサル王の馬の蹄跡</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">게살 왕의 말발굽 자국</h3>
+            <p class="text-gray-600" data-lang-content="zh">传说中的藏族英雄格萨尔王在他的史诗征战中在冈仁波齐的悬崖上留下了马蹄印。这些印记至今可见，提醒朝圣者纯洁心灵的人会得到神圣保护。</p>
+            <p class="text-gray-600" data-lang-content="en" style="display: none;">The legendary Tibetan hero Gesar King left hoof prints on Kailash's cliffs during his epic campaigns. These marks are still visible, reminding pilgrims that those with pure hearts receive divine protection.</p>
+            <p class="text-gray-600" data-lang-content="ja" style="display: none;">伝説のチベットの英雄ゲサル王は、彼の叙事詩的な戦役の途中でカイラスの崖に馬の蹄跡を残しました。これらの跡は今も見ることができ、純粋な心を持つ者が神聖な保護を受けることを巡礼者に思い出させます。</p>
+            <p class="text-gray-600" data-lang-content="ko" style="display: none;">전설의 티베트 영웅 게살 왕은 그의 서사적 전투 중 카일라스 절벽에 말발굽 자국을 남겼습니다. 이 흔적들은 아직도 보이며, 순수한 마음을 가진 사람들이 신성한 보호를 받는다는 것을 순례자들에게 상기시킵니다.</p>
+          </div>
+
+          <div class="bg-kailash-light rounded-2xl p-8">
+            <div class="text-4xl mb-4">🙏</div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">108种慈悲</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">108 Forms of Compassion</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">108の慈悲</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ko" style="display: none;">108가지 자비</h3>
+            <p class="text-gray-600" data-lang-content="zh">在卓玛拉垭口，朝圣者留下衣物和个人物品作为供品。这象征着放下执着和负面业力。这个传统代表着菩萨修行的108种慈悲形式。</p>
+            <p class="text-gray-600" data-lang-content="en" style="display: none;">At Drolma La pass, pilgrims leave clothing and personal items as offerings. This symbolizes leaving behind attachments and negative karma. The tradition represents the 108 forms of compassion practiced by bodhisattvas.</p>
+            <p class="text-gray-600" data-lang-content="ja" style="display: none;">ドマラ峠で、巡礼者は衣服や個人物品を供え物として残します。これは執着と悪いカルマを置いていくことを象徴しています。この伝統は菩薩が修行する108の慈悲の形を表しています。</p>
+            <p class="text-gray-600" data-lang-content="ko" style="display: none;">도마라 고개에서 순례자들은 옷과 개인 물품을 제물로 남깁니다. 이것은 집착과 부정적인 업을 남겨두는 것을 상징합니다. 이 전통은 보살이 수행하는 108가지 자비의 형태를 나타냅니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-kailash-gold">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4" data-lang-content="zh">您完成了转山吗？</h2>
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Have You Completed the Kora?</h2>
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4" data-lang-content="ja" style="display: none;">コーラを完走しましたか？</h2>
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4" data-lang-content="ko" style="display: none;">코라를 완주하셨나요?</h2>
+        <p class="text-kailash-dark/80 mb-8" data-lang-content="zh">分享您的故事，激励未来的朝圣者。您的经历可能成为某人开始神圣之旅的鼓励。</p>
+        <p class="text-kailash-dark/80 mb-8" data-lang-content="en" style="display: none;">Share your story and inspire future pilgrims. Your experience could be the encouragement someone needs to begin their sacred journey.</p>
+        <p class="text-kailash-dark/80 mb-8" data-lang-content="ja" style="display: none;">あなたの物語を共有して、未来の巡礼者を励ましてください。あなたの経験が、誰かが神聖な旅を始めるために必要な励ましになるかもしれません。</p>
+        <p class="text-kailash-dark/80 mb-8" data-lang-content="ko" style="display: none;">당신의 이야기를 공유하고 미래의 순례자들에게 영감을 주세요. 당신의 경험이 누군가가 신성한 여정을 시작하는 데 필요한 격려가 될 수 있습니다.</p>
+        <a href="/contact" class="bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/90 transition" data-lang-content="zh">分享您的故事</a>
+        <a href="/contact" class="bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/90 transition" data-lang-content="en" style="display: none;">Share Your Story</a>
+        <a href="/contact" class="bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/90 transition" data-lang-content="ja" style="display: none;">あなたの物語を共有</a>
+        <a href="/contact" class="bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/90 transition" data-lang-content="ko" style="display: none;">당신의 이야기 공유</a>
+      </div>
+    </section>
+  </div>
 </Layout>
