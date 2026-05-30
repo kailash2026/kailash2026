@@ -1,13 +1,46 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Hero from '../../components/Hero.astro';
-import Features from '../../components/Features.astro';
-import RoutePreview from '../../components/RoutePreview.astro';
 import SearchBox from '../../components/SearchBox.astro';
 ---
 
 <Layout title="カイラス2026 - 世界の巡礼プラットフォーム | チベットの聖山カイラスへの巡礼" description="カイラス2026：世界の巡礼者をつなぐグローバルプラットフォーム。ヒンドゥー教、チベット仏教、ボン教、ジャイナ教の聖地カイラス山。インド、ネパール、中国、世界中の巡礼者と共に変容の旅へ。">
-  <Hero />
+  
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/40 to-kailash-dark"></div>
+    
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">
+        世界の中心 · 神聖なる巡礼の旅
+      </p>
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+        カイラス山
+        <span class="block text-kailash-gold mt-2">2026</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">
+        四大宗教が共に崇める聖地、インド・チベット・世界をつなぐ精神の橋
+      </p>
+      <p class="text-lg text-white/60 mb-8 max-w-2xl mx-auto">
+        チベット仏教 · ヒンドゥー教 · ボン教 · ジャイナ教
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mb-12 text-sm text-white/50">
+        <span class="flex items-center gap-1">🏔️ 6,656m 聖山</span>
+        <span class="flex items-center gap-1">🚶 52km コーラ</span>
+        <span class="flex items-center gap-1">🙏 四大宗教の聖地</span>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/guide" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition">
+          探索を始める
+        </a>
+        <a href="/culture" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">
+          文化を知る
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Stats Bar -->
   <section class="bg-kailash-dark py-8 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,78 +64,138 @@ import SearchBox from '../../components/SearchBox.astro';
       </div>
     </div>
   </section>
-  
-  <Features />
-  <RoutePreview />
-  
-  <!-- Testimonials Section -->
+
+  <!-- Features Section -->
   <section class="py-20 bg-kailash-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2">巡礼者の声</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">なぜカイラスなのか</h2>
+        <p class="text-lg text-gray-600">世界の中心、信仰の頂点</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🕉️</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">四大宗教の聖地</h3>
+          <p class="text-gray-600">チベット仏教、ヒンドゥー教、ボン教、ジャイナ教が共に崇める世界の中心。全球で唯一、四大宗教が同時に聖地とする山。</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🏔️</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">6656メートルの聖山</h3>
+          <p class="text-gray-600">未踏の聖なる峰、ピラミッド型の山体は独一无二。南斜面の万字印は神秘に満ちた荘厳さを放つ。</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🚶</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">52キロのコーラ</h3>
+          <p class="text-gray-600">三日二夜の高原ハイキング、5630メートルのドマラ峠を越えて。一周することで六字真言を六億遍唱えたのと同等の功徳。</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">💧</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">聖湖マナサロワール</h3>
+          <p class="text-gray-600">世界で最も高い淡水湖の一つ、四大河の発源地。「西天瑶池」と称される。</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🌏</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">世界の巡礼者</h3>
+          <p class="text-gray-600">年間数十万の巡礼者がインド、ネパール、中国、世界各地から集まる。異なる信仰者がここで平等に礼拝する。</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">📅</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">2026年巡礼の旅</h3>
+          <p class="text-gray-600">丁寧に計画された行程、プロチームが安全をフルサポート。早期予約で特別割引を享受。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Preview -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">52キロのコーラルート</h2>
+        <p class="text-lg text-gray-600">三日二夜の高原ハイキング、タルチェンを出発して5630メートルのドマラ峠を越え、最終的に起点に戻る。これは身体と心の両方の旅。</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-kailash-light rounded-2xl p-8">
+          <div class="text-kailash-gold text-4xl font-bold mb-4">1</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">初日：タルチェン → ディラプク寺（20km）</h3>
+          <p class="text-gray-600">緩やかなスタート、標高に慣れながら、道中神山北壁を眺める。</p>
+        </div>
+        
+        <div class="bg-kailash-light rounded-2xl p-8">
+          <div class="text-kailash-gold text-4xl font-bold mb-4">2</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">二日目：ディラプク寺 → ゾンチュ寺（18km）</h3>
+          <p class="text-gray-600">ドマラ峠を越えて、最も挑戦的な一日。</p>
+        </div>
+        
+        <div class="bg-kailash-light rounded-2xl p-8">
+          <div class="text-kailash-gold text-4xl font-bold mb-4">3</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">三日目：ゾンチュ寺 → タルチェン（14km）</h3>
+          <p class="text-gray-600">軽やかな帰路、神聖なコーラを完走する。</p>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="/routes" class="inline-flex items-center bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+          詳細ルートを見る
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">巡礼者の声</h2>
         <p class="text-lg text-gray-600">世界各地からの巡礼者が語る真実の体験</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Testimonial 1 -->
-        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow">
-          <div class="flex items-center gap-1 mb-4">
-            <span class="text-kailash-gold">★★★★★</span>
-          </div>
-          <p class="text-gray-700 mb-6 leading-relaxed italic">
-            "ドマラ峠を越えた瞬間、信仰の力とは何かを初めて理解しました。標高5630メートル、これは私の人生で最も高い地点であり、同時に心の最も高い地点でもあります。"
-          </p>
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-kailash-gold mb-4">★★★★★</div>
+          <p class="text-gray-700 mb-6 italic">"ドマラ峠を越えた瞬間、信仰の力とは何かを初めて理解しました。標高5630メートル、これは私の人生で最も高い地点であり、同時に心の最も高い地点でもあります。"</p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center text-kailash-dark font-bold">佐</div>
+            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">佐</div>
             <div>
-              <p class="font-medium text-kailash-dark">佐藤さん</p>
+              <p class="font-medium">佐藤さん</p>
               <p class="text-sm text-gray-500">東京 · 2025年9月</p>
             </div>
           </div>
         </div>
 
-        <!-- Testimonial 2 -->
-        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow">
-          <div class="flex items-center gap-1 mb-4">
-            <span class="text-kailash-gold">★★★★★</span>
-          </div>
-          <p class="text-gray-700 mb-6 leading-relaxed italic">
-            "70歳の母と共にコーラを完成させました。ディラプク寺で母が手を合わせる姿は、私が今まで見た中で最も美しい光景でした。巡礼は年齢に関係なく、心の願いに関わるものです。"
-          </p>
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-kailash-gold mb-4">★★★★★</div>
+          <p class="text-gray-700 mb-6 italic">"70歳の母と共にコーラを完成させました。ディラプク寺で母が手を合わせる姿は、私が今まで見た中で最も美しい光景でした。"</p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center text-kailash-dark font-bold">田</div>
+            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">田</div>
             <div>
-              <p class="font-medium text-kailash-dark">田中さん</p>
+              <p class="font-medium">田中さん</p>
               <p class="text-sm text-gray-500">大阪 · 2025年6月</p>
             </div>
           </div>
         </div>
 
-        <!-- Testimonial 3 -->
-        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow">
-          <div class="flex items-center gap-1 mb-4">
-            <span class="text-kailash-gold">★★★★★</span>
-          </div>
-          <p class="text-gray-700 mb-6 leading-relaxed italic">
-            "カイラスはシヴァ神の住まい。許可証を得るのに3年待ちました。52kmのコーラが私の人生観を永遠に変えました。"
-          </p>
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-kailash-gold mb-4">★★★★★</div>
+          <p class="text-gray-700 mb-6 italic">"カイラスはシヴァ神の住まい。許可証を得るのに3年待ちました。52kmのコーラが私の人生観を永遠に変えました。"</p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center text-kailash-dark font-bold">R</div>
+            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">R</div>
             <div>
-              <p class="font-medium text-kailash-dark">Rajesh Kumar</p>
+              <p class="font-medium">Rajesh Kumar</p>
               <p class="text-sm text-gray-500">デリー、インド · 2024</p>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="text-center mt-12">
-        <a href="/stories" class="inline-flex items-center text-kailash-gold font-semibold hover:text-kailash-dark transition">
-          <span>巡礼者のストーリーをもっと見る</span>
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
       </div>
     </div>
   </section>
@@ -111,92 +204,58 @@ import SearchBox from '../../components/SearchBox.astro';
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2">カイラスの影像</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">カイラスの影像</h2>
         <p class="text-lg text-gray-600">映像で記録する聖なる土地</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-4">
-        <div class="relative aspect-[4/3] rounded-xl overflow-hidden group">
-          <img src="/images/kailash-golden.jpg" alt="黄金の山" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="absolute bottom-4 left-4 text-white font-medium">黄金の山</p>
-          </div>
+        <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
+          <img src="/images/kailash-golden.jpg" alt="黄金の山" class="w-full h-full object-cover" loading="lazy" />
         </div>
-        <div class="relative aspect-[4/3] rounded-xl overflow-hidden group md:row-span-2">
-          <img src="/images/kailash-aerial.jpg" alt="空中からのカイラス" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="absolute bottom-4 left-4 text-white font-medium">空中からのカイラス</p>
-          </div>
+        <div class="relative aspect-[4/3] rounded-xl overflow-hidden md:row-span-2">
+          <img src="/images/kailash-aerial.jpg" alt="空中からのカイラス" class="w-full h-full object-cover" loading="lazy" />
         </div>
-        <div class="relative aspect-[4/3] rounded-xl overflow-hidden group">
-          <img src="/images/kailash-lake.jpg" alt="マナサロワール湖" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="absolute bottom-4 left-4 text-white font-medium">聖湖マナサロワール</p>
-          </div>
+        <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
+          <img src="/images/kailash-lake.jpg" alt="マナサロワール湖" class="w-full h-full object-cover" loading="lazy" />
         </div>
-        <div class="relative aspect-[4/3] rounded-xl overflow-hidden group">
-          <img src="/images/kailash-sunrise.jpg" alt="日の出の山頂" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="absolute bottom-4 left-4 text-white font-medium">日の出の山頂</p>
-          </div>
+        <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
+          <img src="/images/kailash-sunrise.jpg" alt="日の出の山頂" class="w-full h-full object-cover" loading="lazy" />
         </div>
-        <div class="relative aspect-[4/3] rounded-xl overflow-hidden group">
-          <img src="/images/kailash-yaks.jpg" alt="草原のヤク" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="absolute bottom-4 left-4 text-white font-medium">草原のヤク</p>
-          </div>
+        <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
+          <img src="/images/kailash-yaks.jpg" alt="草原のヤク" class="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
 
       <div class="text-center mt-12">
         <a href="/gallery" class="inline-flex items-center bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
-          <span>ギャラリーを見る</span>
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
+          ギャラリーを見る
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Quick Links / Trust Badges -->
+  <!-- Trust Badges -->
   <section class="py-16 bg-kailash-light border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-kailash-gold/20 rounded-full flex items-center justify-center mb-3">
-            <svg class="w-6 h-6 text-kailash-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </div>
-          <p class="font-medium text-kailash-dark">プロガイドチーム</p>
+        <div>
+          <div class="text-3xl mb-3">🛡️</div>
+          <p class="font-medium">プロガイドチーム</p>
           <p class="text-sm text-gray-500">10年以上の高原経験</p>
         </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-kailash-gold/20 rounded-full flex items-center justify-center mb-3">
-            <svg class="w-6 h-6 text-kailash-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-            </svg>
-          </div>
-          <p class="font-medium text-kailash-dark">医療サポート完備</p>
+        <div>
+          <div class="text-3xl mb-3">❤️</div>
+          <p class="font-medium">医療サポート完備</p>
           <p class="text-sm text-gray-500">酸素+医薬品+救援</p>
         </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-kailash-gold/20 rounded-full flex items-center justify-center mb-3">
-            <svg class="w-6 h-6 text-kailash-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <p class="font-medium text-kailash-dark">宗教間中立</p>
+        <div>
+          <div class="text-3xl mb-3">🤝</div>
+          <p class="font-medium">宗教間中立</p>
           <p class="text-sm text-gray-500">すべての信仰伝統を尊重</p>
         </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-kailash-gold/20 rounded-full flex items-center justify-center mb-3">
-            <svg class="w-6 h-6 text-kailash-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <p class="font-medium text-kailash-dark">24時間対応</p>
+        <div>
+          <div class="text-3xl mb-3">⏰</div>
+          <p class="font-medium">24時間対応</p>
           <p class="text-sm text-gray-500">常時サポート</p>
         </div>
       </div>
@@ -206,12 +265,8 @@ import SearchBox from '../../components/SearchBox.astro';
   <!-- Search Section -->
   <section class="py-20 bg-kailash-gold">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
-        カイラスを検索
-      </h2>
-      <p class="text-kailash-dark/80 mb-8">
-        キーワードを入力して、必要な情報を素早く見つける
-      </p>
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">カイラスを検索</h2>
+      <p class="text-kailash-dark/80 mb-8">キーワードを入力して、必要な情報を素早く見つける</p>
       <SearchBox />
     </div>
   </section>
