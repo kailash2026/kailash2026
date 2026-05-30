@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Pilgrim Stories | Sacred Journeys to Mount Kailash";
+const description = "Real stories from pilgrims who completed the Mount Kailash Kora. Transformative experiences, spiritual insights, and personal accounts from around the world.";
+
+const stories = [
+  {
+    name: "Mr. Zhang",
+    location: "Beijing, China",
+    date: "September 2025",
+    rating: 5,
+    text: "The moment I crossed Drolma La pass, I finally understood the power of faith. At 5,630 meters, this is the highest point of my life, and also the highest point of my soul. The three-day kora changed my perspective on what's truly important.",
+    avatar: "张"
+  },
+  {
+    name: "Ms. Li",
+    location: "Chengdu, China",
+    date: "June 2025",
+    rating: 5,
+    text: "I completed the kora with my 70-year-old mother. Watching her pray at Drirapuk Monastery was the most beautiful sight I've ever seen. Pilgrimage knows no age—it only requires a sincere heart. The journey brought us closer than ever.",
+    avatar: "李"
+  },
+  {
+    name: "Rajesh Kumar",
+    location: "Delhi, India",
+    date: "July 2024",
+    rating: 5,
+    text: "Kailash is the abode of Lord Shiva. I waited 3 years for the permit. The 52km kora changed my perspective on life forever. Every step felt like a prayer, every breath a blessing. This is not just a trek—it's a spiritual rebirth.",
+    avatar: "R"
+  },
+  {
+    name: "Sarah Johnson",
+    location: "London, UK",
+    date: "August 2024",
+    rating: 5,
+    text: "As a Christian, I wasn't sure what to expect. But Kailash transcends any single religion. Standing before that sacred peak, I felt a presence that words cannot describe. The physical challenge was nothing compared to the spiritual awakening.",
+    avatar: "S"
+  },
+  {
+    name: "Tenzin Dorje",
+    location: "Lhasa, Tibet",
+    date: "May 2024",
+    rating: 5,
+    text: "This was my seventh kora. Each time I discover something new. The mountain doesn't change, but I do. Every circuit peels away another layer of ego, revealing a more authentic self. Kailash is the ultimate mirror for the soul.",
+    avatar: "丁"
+  },
+  {
+    name: "Park Min-ji",
+    location: "Seoul, Korea",
+    date: "October 2023",
+    rating: 5,
+    text: "I came for the adventure, I left with a transformed heart. The Korean pilgrimage group became my family. We suffered together, laughed together, and grew together. The bonds formed on the kora are unbreakable.",
+    avatar: "朴"
+  }
+];
+
+const legends = [
+  {
+    title: "Milarepa's Victory",
+    summary: "The 11th-century Tibetan yogi Milarepa meditated in a cave near Kailash. When challenged by a Bon priest to race to the summit, Milarepa flew there at sunrise, proving the power of Buddhist practice. His cave remains a sacred site today.",
+    icon: "🧘"
+  },
+  {
+    title: "Gesar King's Horse Tracks",
+    summary: "The legendary Tibetan hero Gesar King left hoof prints on Kailash's cliffs during his epic campaigns. These marks are still visible, reminding pilgrims of the divine protection granted to those with pure hearts.",
+    icon: "🐴"
+  },
+  {
+    title: "The 108 Bodies of Compassion",
+    summary: "At Drolma La pass, pilgrims leave clothing and personal items as offerings. This symbolizes leaving behind attachments and negative karma. The tradition represents the 108 forms of compassion practiced by bodhisattvas.",
+    icon: "🙏"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <div class="pt-20">
+    <!-- Hero -->
+    <section class="bg-kailash-dark py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">Pilgrim Stories</h1>
+        <p class="text-xl text-white/80">Real Journeys · Transformative Experiences · Sacred Memories</p>
+      </div>
+    </section>
+
+    <!-- Stories Grid -->
+    <section class="py-16 bg-kailash-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {stories.map((story, index) => (
+            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+              <div class="flex items-center gap-1 mb-4">
+                {Array.from({ length: story.rating }).map(() => (
+                  <span class="text-kailash-gold">★</span>
+                ))}
+              </div>
+              <p class="text-gray-700 mb-6 leading-relaxed italic">"{story.text}"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center text-kailash-dark font-bold">{story.avatar}</div>
+                <div>
+                  <p class="font-medium text-kailash-dark">{story.name}</p>
+                  <p class="text-sm text-gray-500">{story.location} · {story.date}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Legends -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center">Sacred Legends</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          {legends.map(legend => (
+            <div class="bg-kailash-light rounded-2xl p-8">
+              <div class="text-4xl mb-4">{legend.icon}</div>
+              <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">{legend.title}</h3>
+              <p class="text-gray-600">{legend.summary}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Share Your Story CTA -->
+    <section class="py-16 bg-kailash-gold">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">Have You Completed the Kora?</h2>
+        <p class="text-kailash-dark/80 mb-8">Share your story and inspire future pilgrims. Your experience could be the encouragement someone needs to begin their own sacred journey.</p>
+        <a href="/contact" class="bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/90 transition">
+          Share Your Story
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,235 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Kora Routes | Mount Kailash 52km Pilgrimage Circuit";
+const description = "Complete guide to Mount Kailash Kora routes: 1-day extreme, 2-day challenging, and 3-day standard itineraries. 52km sacred circuit with 13 supply stations.";
+
+const routePlans = {
+  twoDay: {
+    name: "2-Day Kora",
+    subtitle: "For experienced trekkers with good altitude adaptation",
+    totalDistance: "52 km",
+    totalDuration: "2 Days 1 Night",
+    difficulty: "Hard",
+    difficultyColor: "red",
+    description: "Day 1: Darchen to Drirapuk (22km). Day 2: Start at 3-4 AM, cross Drolma La and return to Darchen (30km). Only one night stay, extremely demanding second day.",
+    warning: "⚠️ Day 2 requires 30km with 5648m pass crossing. Extremely demanding. Not recommended for first-time pilgrims.",
+    days: [
+      {
+        day: "Day 1",
+        title: "Darchen → Drirapuk",
+        distance: "22 km",
+        altitude: "4600m → 5200m",
+        duration: "6-8 hours",
+        description: "Depart from Darchen, pass Choku Gompa, follow Lhaqu Valley upstream to Drirapuk. Relatively gentle terrain for altitude adaptation. Arrive before 3 PM to rest early for Day 2.",
+        highlights: ["Choku Gompa", "Mani Stone Piles", "Drirapuk (only lodging)"],
+        tips: "Don't rush on Day 1. Allow time for altitude adaptation. Drirapuk is the only lodging—confirm bed availability in peak season."
+      },
+      {
+        day: "Day 2",
+        title: "Drirapuk → Drolma La → Darchen",
+        distance: "30 km",
+        altitude: "5200m → 5648m → 4600m",
+        duration: "10-14 hours",
+        description: "Depart at 3-4 AM in darkness with headlamps. Cross 5648m Drolma La. Descend past Tsoji Lake and Zhongzhepu Temple without stopping, continue directly to Darchen. Ultimate test of body and will.",
+        highlights: ["Drolma La (5648m, highest point)", "Tsoji Lake", "Zhongzhepu Temple", "Darchen (finish)"],
+        tips: "Headlamp mandatory! The 1km before the pass is steepest—pace yourself. Protect knees on descent. Quick hot water refills at teahouses. Consider porter or horse to save energy."
+      }
+    ]
+  },
+  threeDay: {
+    name: "3-Day Kora",
+    subtitle: "Standard itinerary · Comfortable pace for most pilgrims",
+    totalDistance: "52 km",
+    totalDuration: "3 Days 2 Nights",
+    difficulty: "Moderate",
+    difficultyColor: "blue",
+    description: "The classic Kora itinerary. Day 1 for altitude adaptation, Day 2 for pass crossing, Day 3 easy return. Two nights at Drirapuk and Zunzhepu. Reasonable pace for most pilgrims.",
+    warning: "",
+    days: [
+      {
+        day: "Day 1",
+        title: "Darchen → Drirapuk",
+        distance: "22 km",
+        altitude: "4600m → 5200m",
+        duration: "6-8 hours",
+        description: "Depart from Darchen, pass Choku Gompa, follow Lhaqu Valley upstream to Drirapuk. Gentle terrain for altitude adaptation. Drirapuk faces Kailash's north face—perfect for photos.",
+        highlights: ["Choku Gompa", "Mani Stone Piles", "Drirapuk (D1 camp, north face view)"],
+        tips: "Don't rush on Day 1. Allow time for altitude adaptation. Lodging is basic—bring a -10°C sleeping bag."
+      },
+      {
+        day: "Day 2",
+        title: "Drirapuk → Zunzhepu",
+        distance: "18 km",
+        altitude: "5200m → 5648m → 4800m",
+        duration: "8-10 hours",
+        description: "The hardest day. Depart early to cross 5648m Drolma La, the highest point. Descend past Tsoji Lake (Mercy Lake) to Zunzhepu Temple. Multiple teahouses along the way for rest and resupply.",
+        highlights: ["Drolma La (5648m, highest point)", "Tsoji Lake", "Zunzhepu Temple (D2 camp)"],
+        tips: "The 1km before the pass is steepest—pace yourself. Protect knees on descent. Zunzhepu lodging is more basic than Drirapuk and may be full in peak season."
+      },
+      {
+        day: "Day 3",
+        title: "Zunzhepu → Darchen",
+        distance: "12 km",
+        altitude: "4800m → 4600m",
+        duration: "3-4 hours",
+        description: "Easy day with gentle descent through the canyon back to Darchen. Victory is near—last rest stop at Zongdui Teahouse.",
+        highlights: ["Canyon scenery", "Lake Manasarovar view", "Zongdui Teahouse", "Darchen (finish)"],
+        tips: "Victory is near but stay careful—watch your step. Celebrate with a good meal back in Darchen!"
+      }
+    ]
+  },
+  oneDay: {
+    name: "1-Day Kora",
+    subtitle: "Extreme challenge · For experienced pilgrims or elite endurance athletes only",
+    totalDistance: "52-56 km",
+    totalDuration: "1 Day (12-22 hours)",
+    difficulty: "Extreme",
+    difficultyColor: "purple",
+    description: "Completing the 52-56 km outer Kora in one day is the most challenging form of pilgrimage. Elevation 4560m→5648m→4560m. Ultimate test of fitness, altitude adaptation, and willpower. Every year there are rescue cases due to altitude sickness, hypothermia, and getting lost.",
+    warning: "⚠️ Extremely high risk! Rescue cases occur every year. Only for three groups: experienced Tibetan pilgrims, professional endurance athletes/trail runners, and rare hardcore trekkers with exceptional fitness. Ordinary tourists must NOT attempt!",
+    days: [
+      {
+        day: "Day 1",
+        title: "Darchen → Drolma La → Darchen",
+        distance: "52-56 km",
+        altitude: "4560m → 5648m → 4560m",
+        duration: "12-22 hours",
+        description: "Start before midnight (23:00-24:00), reach Drolma La at dawn, descend and return to Darchen by evening. No lodging, minimal rest. Requires exceptional fitness and altitude adaptation.",
+        highlights: ["Drolma La (5648m, highest point)", "Tsoji Lake", "Zhongzhepu Temple", "Darchen (finish)"],
+        tips: "Mandatory: headlamp, GPS, emergency whistle, -20°C sleeping bag (emergency), 3L water, high-calorie food. Inform someone of your plan. Turn back if you feel unwell."
+      }
+    ]
+  }
+};
+
+const supplyStations = [
+  { id: 1, name: "Darchen (Start)", altitude: 4560, distance: "0km", type: "camp", supplies: ["Full supplies", "Hotels", "Restaurants", "Shops", "Medical clinic"], services: "Major town: lodging, dining, shopping, medical services" },
+  { id: 2, name: "Choku Gompa", altitude: 4750, distance: "+3.8km", type: "teahouse", supplies: ["Butter Tea", "Hot Water", "Instant Noodles", "Snacks"], services: "Small teahouse, recommended stop 10–20 min" },
+  { id: 3, name: "Choku Bridge", altitude: 4800, distance: "+2.6km", type: "teahouse", supplies: ["Hot Water", "Drinks", "Snacks"], services: "Roadside stall" },
+  { id: 4, name: "Jomu Waterfall", altitude: 4900, distance: "+4.5km", type: "teahouse", supplies: ["Butter Tea", "Hot Water", "Instant Noodles"], services: "Temporary shelter" },
+  { id: 5, name: "Hayagriva Rock Teahouse", altitude: 5000, distance: "+2.3km", type: "teahouse", supplies: ["Butter Tea", "Milk Tea", "Hot Water", "Instant Noodles", "Biscuits", "Energy Bars"], services: "Medium teahouse" },
+  { id: 6, name: "Drirapuk Gompa", altitude: 5200, distance: "+4.2km (D1 Camp)", type: "camp", supplies: ["Full meals", "Snacks", "Basic Medicine", "Oxygen"], services: "Major supply station: restaurant + lodging + shop" },
+  { id: 7, name: "Drolma La Pass", altitude: 5648, distance: "+5.8km (Highest Point)", type: "peak", supplies: [], services: "Prayer flags & mani stones only. Stop 5–10 min, pass quickly. Stay warm & windproof" },
+  { id: 8, name: "Tsoji Lake", altitude: 5400, distance: "+2.6km", type: "teahouse", supplies: ["Butter Tea", "Hot Water", "Instant Noodles"], services: "Small teahouse" },
+  { id: 9, name: "3rd Immovable Peg Teahouse", altitude: 5100, distance: "+2.4km", type: "teahouse", supplies: ["Butter Tea", "Hot Water", "Instant Noodles", "Snacks"], services: "Small teahouse" },
+  { id: 10, name: "Zunzhepu Temple", altitude: 4800, distance: "+3.2km (D2 Camp)", type: "camp", supplies: ["Basic meals", "Hot Water", "Instant Noodles", "Snacks"], services: "Medium supply station: restaurant + lodging" },
+  { id: 11, name: "Zongdui Teahouse", altitude: 4700, distance: "+4.5km", type: "teahouse", supplies: ["Butter Tea", "Hot Water", "Instant Noodles", "Snacks"], services: "Small teahouse" },
+  { id: 12, name: "4th Immovable Peg", altitude: 4650, distance: "+3.8km", type: "teahouse", supplies: ["Hot Water", "Drinks", "Snacks"], services: "Roadside stall" },
+  { id: 13, name: "Darchen (Finish)", altitude: 4560, distance: "+2.5km", type: "camp", supplies: ["Full supplies", "Hotels", "Restaurants", "Shops", "Medical clinic"], services: "Major town: celebrate your completion!" }
+];
+---
+
+<Layout title={title} description={description}>
+  <div class="pt-20">
+    <!-- Hero -->
+    <section class="bg-kailash-dark py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">Kora Routes</h1>
+        <p class="text-xl text-white/80">52km Sacred Circuit · 13 Supply Stations · 3 Itinerary Options</p>
+      </div>
+    </section>
+
+    <!-- Route Plans -->
+    <section class="py-16 bg-kailash-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-3 gap-8">
+          {Object.entries(routePlans).map(([key, plan]) => (
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div class={`p-6 bg-${plan.difficultyColor}-100 border-b`}>
+                <h2 class="font-display text-2xl font-bold text-kailash-dark">{plan.name}</h2>
+                <p class="text-sm text-gray-600 mt-1">{plan.subtitle}</p>
+              </div>
+              <div class="p-6">
+                <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+                  <div>
+                    <p class="text-lg font-bold text-kailash-gold">{plan.totalDistance}</p>
+                    <p class="text-xs text-gray-500">Distance</p>
+                  </div>
+                  <div>
+                    <p class="text-lg font-bold text-kailash-gold">{plan.totalDuration}</p>
+                    <p class="text-xs text-gray-500">Duration</p>
+                  </div>
+                  <div>
+                    <p class="text-lg font-bold text-red-600">{plan.difficulty}</p>
+                    <p class="text-xs text-gray-500">Difficulty</p>
+                  </div>
+                </div>
+                <p class="text-gray-600 text-sm mb-4">{plan.description}</p>
+                {plan.warning && (
+                  <p class="text-red-600 text-sm bg-red-50 p-3 rounded-lg">{plan.warning}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Day-by-Day Details -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center">Day-by-Day Details (3-Day Standard)</h2>
+        
+        <div class="space-y-8">
+          {routePlans.threeDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-kailash-gold rounded-full flex items-center justify-center text-kailash-dark font-bold text-xl">{index + 1}</div>
+                <div>
+                  <h3 class="font-display text-xl font-bold text-kailash-dark">{day.title}</h3>
+                  <p class="text-sm text-gray-500">{day.distance} · {day.altitude} · {day.duration}</p>
+                </div>
+              </div>
+              <p class="text-gray-600 mb-4">{day.description}</p>
+              <div class="flex flex-wrap gap-2 mb-3">
+                {day.highlights.map(h => (
+                  <span class="bg-kailash-gold/20 text-kailash-dark px-3 py-1 rounded-full text-sm">{h}</span>
+                ))}
+              </div>
+              <p class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg">💡 {day.tips}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Supply Stations -->
+    <section class="py-16 bg-kailash-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-8 text-center">13 Supply Stations</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {supplyStations.map(station => (
+            <div class={`bg-white rounded-xl p-6 shadow-md ${station.type === 'camp' ? 'border-2 border-kailash-gold' : ''}`}>
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-kailash-dark">#{station.id} {station.name}</h3>
+                <span class="text-xs bg-gray-100 px-2 py-1 rounded">{station.altitude}m</span>
+              </div>
+              <p class="text-sm text-gray-500 mb-2">{station.distance}</p>
+              {station.supplies.length > 0 && (
+                <div class="flex flex-wrap gap-1 mb-2">
+                  {station.supplies.map(s => (
+                    <span class="text-xs bg-kailash-gold/10 text-kailash-dark px-2 py-1 rounded">{s}</span>
+                  ))}
+                </div>
+              )}
+              <p class="text-sm text-gray-600">{station.services}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-kailash-gold">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">Ready for Your Kailash Journey?</h2>
+        <p class="text-kailash-dark/80 mb-8">Choose your route and start preparing for this transformative pilgrimage.</p>
+        <a href="/guide" class="bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/90 transition">
+          View Complete Guide
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
