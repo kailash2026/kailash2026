@@ -1,0 +1,273 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SearchBox from '../../components/SearchBox.astro';
+---
+
+<Layout title="कैलाश 2026 - वैश्विक तीर्थयात्रा मंच | पवित्र कैलाश पर्वत, तिब्बत" description="कैलाश 2026: दुनिया भर के तीर्थयात्रियों को जोड़ने वाला वैश्विक मंच। हिंदू धर्म, तिब्बती बौद्ध धर्म, बॉन और जैन धर्म के लिए पवित्र। भारत, नेपाल, चीन और दुनिया भर के तीर्थयात्रियों के साथ इस परिवर्तनकारी यात्रा पर जुड़ें।">
+  
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/40 to-kailash-dark"></div>
+    
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">
+        विश्व का केंद्र · पवित्र तीर्थयात्रा
+      </p>
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+        कैलाश पर्वत
+        <span class="block text-kailash-gold mt-2">2026</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">
+        चार धर्मों का पवित्र स्थल, भारत, तिब्बत और विश्व को जोड़ने वाला आध्यात्मिक पुल
+      </p>
+      <p class="text-lg text-white/60 mb-8 max-w-2xl mx-auto">
+        तिब्बती बौद्ध धर्म · हिंदू धर्म · बॉन धर्म · जैन धर्म
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mb-12 text-sm text-white/50">
+        <span class="flex items-center gap-1">🏔️ 6,656मी पवित्र शिखर</span>
+        <span class="flex items-center gap-1">🚶 52किमी परिक्रमा</span>
+        <span class="flex items-center gap-1">🙏 चार पवित्र परंपराएँ</span>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/guide" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition">
+          खोज शुरू करें
+        </a>
+        <a href="/culture" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">
+          संस्कृति जानें
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-kailash-dark py-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">6,656m</p>
+          <p class="text-white/60 text-sm mt-1">कैलाश की ऊँचाई</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">52km</p>
+          <p class="text-white/60 text-sm mt-1">परिक्रमा दूरी</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">5,630m</p>
+          <p class="text-white/60 text-sm mt-1">सबसे ऊँचा दर्रा</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p>
+          <p class="text-white/60 text-sm mt-1">धार्मिक परंपराएँ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">क्यों कैलाश?</h2>
+        <p class="text-lg text-gray-600">विश्व का केंद्र, आस्था का शिखर</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🕉️</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">चार पवित्र परंपराएँ</h3>
+          <p class="text-gray-600">तिब्बती बौद्ध धर्म, हिंदू धर्म, बॉन और जैन धर्म इसे विश्व का केंद्र मानते हैं। एकमात्र पर्वत जो चारों धर्मों को एक साथ पवित्र है।</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🏔️</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">6,656मी पवित्र शिखर</h3>
+          <p class="text-gray-600">एक अविजित पवित्र शिखर जिसका पिरामिड आकार अद्वितीय है। दक्षिणी ढलान पर स्वस्तिक चिह्न रहस्यमय और गंभीर दिव्यता बिखेरता है।</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🚶</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">52किमी परिक्रमा मार्ग</h3>
+          <p class="text-gray-600">तीन दिनों की उच्च ऊँचाई वाली यात्रा, 5630मी के दोलमा ला दर्रे को पार करना। एक परिक्रमा छह अरब मंत्रों के जाप के बराबर पुण्य देती है।</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">💧</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">मानसरोवर झील</h3>
+          <p class="text-gray-600">दुनिया की सबसे ऊँची मीठे पानी की झीलों में से एक, चार महान नदियों का उद्गम स्थल। इसे 'स्वर्ग का जेड तालाब' कहा जाता है।</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🌏</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">वैश्विक तीर्थयात्री</h3>
+          <p class="text-gray-600">हर साल लाखों तीर्थयात्री भारत, नेपाल, चीन और दुनिया भर से आते हैं। विभिन्न धर्मों के लोग यहाँ समान रूप से पूजा करते हैं।</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">📅</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">2026 तीर्थयात्रा</h3>
+          <p class="text-gray-600">सावधानीपूर्वक योजनाबद्ध यात्राएँ, पेशेवर टीमें आपकी सुरक्षा सुनिश्चित करती हैं। जल्दी बुकिंग पर विशेष छूट।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Preview -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">52किमी परिक्रमा मार्ग</h2>
+        <p class="text-lg text-gray-600">तीन दिनों की उच्च ऊँचाई वाली यात्रा, दार्चेन से शुरू होकर 5630मी के दोलमा ला दर्रे को पार करना। शरीर और आत्मा की यात्रा।</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-kailash-light rounded-2xl p-8">
+          <div class="text-kailash-gold text-4xl font-bold mb-4">1</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">दिन 1: दार्चेन → दिरापुक (20किमी)</h3>
+          <p class="text-gray-600">हल्की शुरुआत, ऊँचाई के अनुकूल होना, रास्ते में पर्वत का उत्तरी भाग दिखाई देता है।</p>
+        </div>
+        
+        <div class="bg-kailash-light rounded-2xl p-8">
+          <div class="text-kailash-gold text-4xl font-bold mb-4">2</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">दिन 2: दिरापुक → ज़ोंगचु (18किमी)</h3>
+          <p class="text-gray-600">दोलमा ला दर्रे को पार करना — सबसे चुनौतीपूर्ण दिन।</p>
+        </div>
+        
+        <div class="bg-kailash-light rounded-2xl p-8">
+          <div class="text-kailash-gold text-4xl font-bold mb-4">3</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">दिन 3: ज़ोंगचु → दार्चेन (14किमी)</h3>
+          <p class="text-gray-600">आसान वापसी, पवित्र परिक्रमा पूरी करना।</p>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="/routes" class="inline-flex items-center bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+          विस्तृत मार्ग देखें
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">तीर्थयात्रियों की आवाज़</h2>
+        <p class="text-lg text-gray-600">दुनिया भर के तीर्थयात्रियों के वास्तविक अनुभव</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-kailash-gold mb-4">★★★★★</div>
+          <p class="text-gray-700 mb-6 italic">"जिस पल मैंने दोलमा ला दर्रा पार किया, मैंने समझ लिया कि आस्था की शक्ति क्या होती है। 5630 मीटर, यह मेरे जीवन की सबसे ऊँचाई है, और मेरी आत्मा की भी।"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">Z</div>
+            <div>
+              <p class="font-medium">श्री झांग</p>
+              <p class="text-sm text-gray-500">बीजिंग · सितंबर 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-kailash-gold mb-4">★★★★★</div>
+          <p class="text-gray-700 mb-6 italic">"मैंने अपनी 70 वर्षीय माँ के साथ परिक्रमा पूरी की। दिरापुक मठ में हाथ जोड़कर प्रार्थना करते हुए उन्हें देखना मेरे जीवन का सबसे सुंदर दृश्य था।"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">L</div>
+            <div>
+              <p class="font-medium">सुश्री ली</p>
+              <p class="text-sm text-gray-500">चेंगदू · जून 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-kailash-gold mb-4">★★★★★</div>
+          <p class="text-gray-700 mb-6 italic">"कैलाश भगवान शिव का निवास है। मैंने परमिट के लिए 3 साल इंतज़ार किया। 52किमी की परिक्रमा ने जीवन पर मेरा दृष्टिकोण हमेशा के लिए बदल दिया।"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">R</div>
+            <div>
+              <p class="font-medium">राजेश कुमार</p>
+              <p class="text-sm text-gray-500">दिल्ली, भारत · 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Preview -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">पवित्र पर्वत गैलरी</h2>
+        <p class="text-lg text-gray-600">तस्वीरों में कैद पवित्र भूमि</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
+          <img src="/images/kailash-golden.jpg" alt="कैलाश पर्वत" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="relative aspect-[4/3] rounded-xl overflow-hidden md:row-span-2">
+          <img src="/images/kailash-aerial.jpg" alt="कैलाश का हवाई दृश्य" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
+          <img src="/images/kailash-lake.jpg" alt="मानसरोवर झील" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
+          <img src="/images/kailash-sunrise.jpg" alt="सूर्योदय का शिखर" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
+          <img src="/images/kailash-yaks.jpg" alt="याक चरागाह" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/gallery" class="inline-flex items-center bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+          पूरी गैलरी देखें
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <section class="py-16 bg-kailash-light border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl mb-3">🛡️</div>
+          <p class="font-medium">पेशेवर गाइड</p>
+          <p class="text-sm text-gray-500">10+ वर्ष उच्च ऊँचाई का अनुभव</p>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">❤️</div>
+          <p class="font-medium">चिकित्सा सहायता</p>
+          <p class="text-sm text-gray-500">ऑक्सीजन + दवा + बचाव</p>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">🤝</div>
+          <p class="font-medium">धार्मिक तटस्थ</p>
+          <p class="text-sm text-gray-500">सभी परंपराओं का सम्मान</p>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">⏰</div>
+          <p class="font-medium">24/7 सहायता</p>
+          <p class="text-sm text-gray-500">हमेशा मदद के लिए तैयार</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Section -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">कैलाश खोजें</h2>
+      <p class="text-kailash-dark/80 mb-8">कीवर्ड टाइप करें, अपनी ज़रूरत की जानकारी जल्दी पाएँ</p>
+      <SearchBox />
+    </div>
+  </section>
+</Layout>
