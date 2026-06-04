@@ -1,0 +1,538 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="カイラスの聖なる文化 — 四宗教の聖地 | Kailash 2026" description="カイラス山の聖なる文化を深く探る。ヒンドゥー教、チベット仏教、ボン教、ジャイナ教という四つの宗教が崇める世界の中心。四大河川の源流、未踏峰の謎、2026年馬年の特別な意味、巡礼の伝統を解説します。">
+
+  <!-- 1. Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/40 to-kailash-dark"></div>
+
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">
+        四宗教 · 一つの聖山 · 永遠の文化
+      </p>
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+        カイラスの
+        <span class="block text-kailash-gold mt-2">聖なる文化</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">
+        数千年にわたり、カイラス山は四つの偉大な宗教の精神的中心として世界の屋根に立ち続けてきました。ヒンドゥー教、チベット仏教、ボン教、ジャイナ教——数十億の信仰者を結ぶ、地球上で最も神聖な場所です。
+      </p>
+      <p class="text-lg text-white/60 mb-8 max-w-2xl mx-auto">
+        ヒンドゥー教 · チベット仏教 · ボン教 · ジャイナ教
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mb-12 text-sm text-white/50">
+        <span class="flex items-center gap-1">🕉️ シヴァ神の住まい</span>
+        <span class="flex items-center gap-1">☸️ デムチョクの曼荼羅宮殿</span>
+        <span class="flex items-center gap-1">࿊ 九重卍山</span>
+        <span class="flex items-center gap-1">🕉️ アシュタパダ山</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#religions" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition">
+          四宗教を探る
+        </a>
+        <a href="#geography" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">
+          聖なる地理
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-kailash-dark py-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p>
+          <p class="text-white/60 text-sm mt-1">聖なる宗教</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p>
+          <p class="text-white/60 text-sm mt-1">聖なる大河</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">6,656m</p>
+          <p class="text-white/60 text-sm mt-1">未踏の頂</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">2026</p>
+          <p class="text-white/60 text-sm mt-1">馬年 · 特別な功徳</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Four Religions Section -->
+  <section id="religions" class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">四つの信仰 · 一つの聖山</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">四宗教の聖なる中心</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">カイラス山は、地球上で唯一、四つの主要な宗教的伝統によって同時に最高の聖地として崇められている場所です。それぞれの信仰が独自の物語と献身を持ち、その中心には常に同じ聖山がそびえています。</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- ヒンドゥー教 Card -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border-t-4 border-orange-500">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center text-3xl">🕉️</div>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">ヒンドゥー教</h3>
+              <p class="text-orange-600 text-sm font-medium">サナータナ・ダルマ</p>
+            </div>
+          </div>
+          <div class="space-y-3 text-gray-700">
+            <p>ヒンドゥー教において、カイラス山は<span class="font-semibold text-kailash-dark">シヴァ神の住まい</span>として崇められています。大神はここで妃パールヴァティーと共に永遠の瞑想に没しているとされています。</p>
+            <p>プラーナ文献によれば、カイラスは<span class="font-semibold text-kailash-dark">メール山（須弥山）</span>の物理的顕現——宇宙の中心軸、すべての世界がその周りを回る宇宙の柱です。</p>
+            <p>南面に見られる<span class="font-semibold text-kailash-dark">卍の印</span>は、シヴァ神の存在を示す神聖な署名とされています。信者たちは解脱を求めてパリクラマ（巡礼行）を行います。</p>
+            <p>一周の巡礼で<span class="font-semibold text-kailash-dark">六億回のマントラ</span>を唱えた功徳に等しく、108周で輪廻からの完全な解脱が得られると言われています。</p>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="bg-orange-50 text-orange-700 px-3 py-1 rounded-full text-sm">シヴァ・パールヴァティーの住処</span>
+            <span class="bg-orange-50 text-orange-700 px-3 py-1 rounded-full text-sm">メール山</span>
+            <span class="bg-orange-50 text-orange-700 px-3 py-1 rounded-full text-sm">卍の印</span>
+            <span class="bg-orange-50 text-orange-700 px-3 py-1 rounded-full text-sm">コーラによる解脱</span>
+          </div>
+        </div>
+
+        <!-- チベット仏教 Card -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border-t-4 border-red-500">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center text-3xl">☸️</div>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">チベット仏教</h3>
+              <p class="text-red-600 text-sm font-medium">金剛乗の伝統</p>
+            </div>
+          </div>
+          <div class="space-y-3 text-gray-700">
+            <p>チベット仏教では、カイラスは<span class="font-semibold text-kailash-dark">カン・リンポチェ</span>（貴い雪の宝石）と呼ばれ、<span class="font-semibold text-kailash-dark">チャクラサンヴァラ（デムチョク）</span>の宮殿にして聖なる曼荼羅とされています。</p>
+            <p>仏教の伝承によれば、<span class="font-semibold text-kailash-dark">グル・パドマサンバヴァ（グル・リンポチェ）</span>が8世紀にここで瞑想し、ボン教の僧ナロ・ボンチュンを打ち負かして、カイラスを仏教の聖地として確立しました。</p>
+            <p>毎年<span class="font-semibold text-kailash-dark">サガ・ダワ祭</span>（5月〜6月）には、何千人もの巡礼者が山を巡ります。この日に積まれた功徳は何百万倍にもなるとされています。</p>
+            <p>コーラの道沿いにある<span class="font-semibold text-kailash-dark">四つの主要僧院</span>——チョク寺、ディラプク寺、ゾンチュ寺、ギャンドラク寺——は、世界中からの巡礼者のための聖なる瞑想と祈りの中心です。</p>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="bg-red-50 text-red-700 px-3 py-1 rounded-full text-sm">カン・リンポチェ</span>
+            <span class="bg-red-50 text-red-700 px-3 py-1 rounded-full text-sm">デムチョク曼荼羅</span>
+            <span class="bg-red-50 text-red-700 px-3 py-1 rounded-full text-sm">サガ・ダワ</span>
+            <span class="bg-red-50 text-red-700 px-3 py-1 rounded-full text-sm">グル・リンポチェ</span>
+          </div>
+        </div>
+
+        <!-- ボン教 Card -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border-t-4 border-blue-500">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-3xl">࿊</div>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">ボン教</h3>
+              <p class="text-blue-600 text-sm font-medium">ユンドゥルン・ボン</p>
+            </div>
+          </div>
+          <div class="space-y-3 text-gray-700">
+            <p>ボン教は<span class="font-semibold text-kailash-dark">チベット最古の宗教</span>であり、仏教よりも数千年も前に存在していました。ボン教徒はカイラスを<span class="font-semibold text-kailash-dark">ユンドゥルン・グツェク</span>（九重卍山）と呼びます。</p>
+            <p>ボン教の開祖<span class="font-semibold text-kailash-dark">トンパ・シェンラプ</span>はカイラスと深く結びついています。この山はチベット最古の王国<span class="font-semibold text-kailash-dark">シャンシュン</span>文明の精神的中心でした。</p>
+            <p>ボン教の伝統では、巡礼は<span class="font-semibold text-kailash-dark">反時計回り</span>に行われます——他のすべての宗教とは逆です。この方向は宇宙の原初的エネルギーの流れを表しています。</p>
+            <p>ボン教の経典はカイラスを<span class="font-semibold text-kailash-dark">360の神々の住まい</span>と記しています。今日もボン教の行者たちは、数千年の歴史を持つ古代の祈りと儀式とともにコーラを行っています。</p>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">ユンドゥルン・グツェク</span>
+            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">反時計回りのコーラ</span>
+            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">シャンシュン</span>
+            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">トンパ・シェンラプ</span>
+          </div>
+        </div>
+
+        <!-- ジャイナ教 Card -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border-t-4 border-green-500">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-3xl">🕉️</div>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">ジャイナ教</h3>
+              <p class="text-green-600 text-sm font-medium">アヒンサー・パラモー・ダルマ</p>
+            </div>
+          </div>
+          <div class="space-y-3 text-gray-700">
+            <p>ジャイナ教では、カイラスは<span class="font-semibold text-kailash-dark">アシュタパダ山</span>（八段山）として知られ、初代ティールタンカラ（祖師）<span class="font-semibold text-kailash-dark">リシャバナータ（アーディナータ）</span>が涅槃（モークシャ）に達した聖地です。</p>
+            <p>ジャイナ教の経典によれば、リシャバナータの息子<span class="font-semibold text-kailash-dark">バラタ皇帝</span>が父の涅槃の地に宝石と黄金で飾られた壮大な寺院を建立しました。</p>
+            <p>「アシュタパダ」という名は<span class="font-semibold text-kailash-dark">「八つの階段」</span>を意味し、ジャイナ教の修行における八つの精神的進歩の段階を象徴しています。</p>
+            <p>ジャイナ教徒にとって、カイラスの巡礼は<span class="font-semibold text-kailash-dark">精神的解脱</span>への旅です。アーディナータの涅槃の地は、世界中の何百万人ものジャイナ教徒にとって信仰の中心であり続けています。</p>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm">アシュタパダ山</span>
+            <span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm">リシャバナータの涅槃</span>
+            <span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm">八つの階段</span>
+            <span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm">バラタ皇帝</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unity Statement -->
+      <div class="mt-12 bg-kailash-dark rounded-2xl p-8 md:p-12 text-center">
+        <p class="text-kailash-gold text-lg mb-4 font-medium">四宗教、一つの山、一つの信仰</p>
+        <p class="text-white/80 text-2xl md:text-3xl font-display font-bold leading-relaxed">
+          山はあなたの宗教を問わない——<br/>ただあなたの献身だけを見つめている。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Sacred Geography Section -->
+  <section id="geography" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">聖なる地理</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">四大河川の源流</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">カイラス・マナサロワール地域は、アジアの四大河川を生み出し、数十億の人々の生命を支えています。ここは単なる精神的中心ではなく、大陸の地理的心臓部でもあるのです。</p>
+      </div>
+
+      <!-- Four Rivers -->
+      <div class="grid md:grid-cols-4 gap-6 mb-16">
+        <div class="bg-kailash-light rounded-2xl p-6 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">🦁</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">インダス川</h3>
+          <p class="text-kailash-gold text-sm mb-3 font-medium">獅子の口より</p>
+          <p class="text-gray-600 text-sm">カイラスの北面から流れ出す。パキスタンとインドの生命線。古代インダス文明——世界最古の都市文明の一つ——を育んだ母なる川。</p>
+        </div>
+
+        <div class="bg-kailash-light rounded-2xl p-6 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">🐴</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">サトレジ川</h3>
+          <p class="text-kailash-gold text-sm mb-3 font-medium">馬の口より</p>
+          <p class="text-gray-600 text-sm">カイラスの西面から流れ出す。パンジャーブ地方の五河川の一つ。数千年にわたりインドの穀倉地帯を潤してきました。</p>
+        </div>
+
+        <div class="bg-kailash-light rounded-2xl p-6 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">🐘</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">ブラマプトラ川</h3>
+          <p class="text-kailash-gold text-sm mb-3 font-medium">象の口より</p>
+          <p class="text-gray-600 text-sm">カイラスの東面から流れ出す。チベット、インド、バングラデシュを流れる世界で最も標高の高い大河。数億人の生命線。</p>
+        </div>
+
+        <div class="bg-kailash-light rounded-2xl p-6 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">🦚</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">カルナリ川</h3>
+          <p class="text-kailash-gold text-sm mb-3 font-medium">孔雀の口より</p>
+          <p class="text-gray-600 text-sm">カイラスの南面から流れ出す。聖なるガンジス川の主要支流。ネパールとインドの平原を潤し、その流れのすべての場所で生命を支えています。</p>
+        </div>
+      </div>
+
+      <!-- Lake Manasarovar -->
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+          <img src="/images/kailash-lake.jpg" alt="マナサロワール湖" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div>
+          <div class="inline-block bg-kailash-gold/20 text-kailash-dark px-4 py-1 rounded-full text-sm font-medium mb-4">西天の玉池</div>
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-6">マナサロワール湖 — 聖なる水の源</h3>
+          <div class="space-y-4 text-gray-700">
+            <p>カイラス山のわずか20キロ南に位置する<span class="font-semibold text-kailash-dark">マナサロワール湖</span>（標高4,556m）は、世界で最も高い淡水湖の一つです。その透き通った水は天国の鏡のように聖なる山の姿を映し出します。</p>
+            <p>ヒンドゥーの信仰では、この湖は<span class="font-semibold text-kailash-dark">ブラフマー神の心</span>から生まれたとされています——そのため「マナサロワール」（心の湖）という名がつきました。この水で沐浴すれば、百回の生涯で積んだ罪が洗い流されるとされています。</p>
+            <p>仏教では、<span class="font-semibold text-kailash-dark">マパム・ユムツォ</span>（不敗のトルコ石の湖）と呼ばれ、伝説の<span class="font-semibold text-kailash-dark">アナヴァタプタ湖</span>——神々や仏たちが沐浴に訪れる聖なる湖——と同一視されています。</p>
+            <p>ヒンドゥー教徒の巡礼者は<span class="font-semibold text-kailash-dark">聖なる沐浴の儀式</span>を行い、その水が身体と魂を浄化すると信じています。湖の周囲を一周する巡礼（約90km）もまた、非常に大きな功徳をもたらすとされています。</p>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <div class="bg-blue-50 rounded-lg px-4 py-3 flex-1 min-w-[120px] text-center">
+              <p class="text-2xl font-bold text-kailash-dark">4,556m</p>
+              <p class="text-xs text-gray-500">標高</p>
+            </div>
+            <div class="bg-blue-50 rounded-lg px-4 py-3 flex-1 min-w-[120px] text-center">
+              <p class="text-2xl font-bold text-kailash-dark">90km</p>
+              <p class="text-xs text-gray-500">コーラの距離</p>
+            </div>
+            <div class="bg-blue-50 rounded-lg px-4 py-3 flex-1 min-w-[120px] text-center">
+              <p class="text-2xl font-bold text-kailash-dark">320km²</p>
+              <p class="text-xs text-gray-500">湖面積</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Why Never Climbed Section -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">征服されざる頂</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">なぜ誰もカイラス山に登頂できなかったのか？</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">世界最高峰エベレストには何千人もの登山者が登頂を果たしてきました。しかし標高6,656mのカイラス山は、いまだに誰も登頂したことがありません。その理由は宗教だけにとどまらず、地理的な特徴、神秘、そして深遠な精神的畏敬の念にあります。</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Pyramid Shape -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition text-center">
+          <div class="w-20 h-20 bg-kailash-gold/20 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">🔺</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-4">完璧なピラミッド形状</h3>
+          <p class="text-gray-600">カイラスはほぼ完璧なピラミッド型をしています——四つの面が対称的で、鋭く正確な角度を持っています。一部の研究者は、この幾何学形状が自然に形成されたとは考えられないと主張しています。四つの面はほぼ正確に四方位を向いており、まるで人間の理解を超えた知性によって設計されたかのようです。</p>
+        </div>
+
+        <!-- Swastika Mark -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition text-center">
+          <div class="w-20 h-20 bg-kailash-gold/20 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">࿊</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-4">神秘の卍の印</h3>
+          <p class="text-gray-600">山の南面には、自然に形成された巨大な卍のシンボルがはっきりと見えます——四宗教すべてにおいて神聖な印です。日の出と日没の黄金の光の中で、それはこの世のものとは思えない輝きを放ち、まるで宇宙そのものがこの山を聖地として署名したかのようです。</p>
+        </div>
+
+        <!-- Religious Respect -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition text-center">
+          <div class="w-20 h-20 bg-kailash-gold/20 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">🙏</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-4">数十億の信者への敬意</h3>
+          <p class="text-gray-600">四宗教にわたる数十億の信者の信仰がカイラスと結びついています。山頂に足を踏み入れることは、彼らの最も深い信念に対する計り知れない冒涜となるでしょう。中国政府はこの山の世界的聖地としての特異な地位を認め、登頂を公式に禁止しています。</p>
+        </div>
+      </div>
+
+      <!-- The Attempts -->
+      <div class="mt-12 bg-kailash-dark rounded-2xl p-8 md:p-12">
+        <div class="flex flex-col md:flex-row gap-8 items-center">
+          <div class="flex-1">
+            <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">挑戦した者たち</p>
+            <h3 class="font-display text-3xl font-bold text-white mb-6">不成功に終わった試みの歴史</h3>
+            <p class="text-white/70 leading-relaxed mb-4"><span class="text-kailash-gold font-semibold">1985年</span>、伝説的登山家<span class="text-kailash-gold font-semibold">ラインホルト・メスナー</span>——世界で初めて8000メートル峰14座すべてを登頂した人物——はカイラス登山の許可を得ました。しかし山に到着し、その深遠な神聖さを理解した後、彼は<span class="text-kailash-gold font-semibold">自らの意思で登山を辞退</span>しました。</p>
+            <p class="text-white/70 leading-relaxed mb-4"><span class="text-kailash-gold font-semibold">2001年</span>、スペインの登山隊が中国当局から許可を得ました。しかし、ヒンドゥー教、仏教、ジャイナ教のコミュニティを含む国際的な宗教団体からの抗議を受けて、許可は<span class="text-kailash-gold font-semibold">即座に取り消され</span>ました。</p>
+            <p class="text-white/70 leading-relaxed">山の特異な<span class="text-kailash-gold font-semibold">ほぼ垂直な壁面</span>と常に氷に覆われた状態も、極めて高度な技術的課題を提示しています。しかし究極的には、登山者を遠ざけているのは物理的な困難さではなく、ある場所が人間の野心を超えて神聖であるという普遍的な認識なのです。</p>
+          </div>
+          <div class="flex-1">
+            <div class="bg-kailash-light rounded-xl p-6">
+              <p class="text-kailash-dark font-display text-xl font-bold mb-4 text-center">カイラスの神秘</p>
+              <div class="space-y-3 text-gray-700 text-sm">
+                <div class="flex items-start gap-3">
+                  <span class="text-kailash-gold text-lg mt-0.5">&bull;</span>
+                  <p><span class="font-semibold">世界の軸</span> —— カイラスは北極点、ストーンヘンジ、イースター島から等距離にあります。一部の研究者は、この山が地球の磁気的中心に位置し、惑星のエネルギーグリッドを形成していると考えています。</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-kailash-gold text-lg mt-0.5">&bull;</span>
+                  <p><span class="font-semibold">ピラミッド仮説</span> —— ロシアの研究者たちは、カイラスは自然の山ではなく、古代の超文明の遺物——巨大で精密に配置されたピラミッド状構造物——であると提唱しています。</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-kailash-gold text-lg mt-0.5">&bull;</span>
+                  <p><span class="font-semibold">時間の歪み</span> —— 巡礼者や研究者たちはコーラの最中に異常な体験を報告しています。時間が加速するように感じられ、髪や爪が通常のほぼ二倍の速さで伸び、時計が時折誤作動を起こすといいます。</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-kailash-gold text-lg mt-0.5">&bull;</span>
+                  <p><span class="font-semibold">神聖なエネルギー場</span> —— 数多くのヨギや瞑想者がカイラスで深遠な意識状態を体験したと報告しています。目に見えないエネルギー場が山を取り囲み、精神的修行を増幅させるとされています。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 2026 Horse Year Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">2026年 · 特別な年</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">馬年 2026 の意義</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">チベット暦において、12年ごとに訪れる馬年はカイラス巡礼にとって最も神聖な時期です。2026年はこの特別な年であり、一周のコーラが通常の十三周分の功徳をもたらします。</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <!-- What is the Horse Year -->
+        <div class="bg-kailash-light rounded-2xl p-8 md:p-10 shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-5xl">🐎</span>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">馬年とは？</h3>
+            </div>
+          </div>
+          <div class="space-y-4 text-gray-700">
+            <p>チベット占星術によれば、12年の周期で一度<span class="font-semibold text-kailash-dark">馬年</span>が訪れます——カイラス山そのものの起源と深く結びついた年です。</p>
+            <p><span class="font-semibold text-kailash-dark">カイラス山が形成された</span>のは馬年であり、シヴァ神がこの山を永遠の住まいとして選んだのも同じ年だったと信じられています。この期間、山の精神的エネルギーは最高潮に達するとされています。</p>
+            <p>馬年の間、<span class="font-semibold text-kailash-dark">カイラスを一周するコーラは、通常の年の13周分の功徳</span>をもたらします。このため、馬年の巡礼者の数は通常の数倍に膨れ上がります。</p>
+          </div>
+        </div>
+
+        <!-- Why Visit in 2026 -->
+        <div class="bg-kailash-light rounded-2xl p-8 md:p-10 shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-5xl">✨</span>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">2026年に訪れる理由</h3>
+            </div>
+          </div>
+          <div class="space-y-4 text-gray-700">
+            <p>2026年の馬年は<span class="font-semibold text-kailash-dark">特別な天文学的配置</span>とともに訪れ、この既に神聖な年の精神的意義をさらに増幅させます。</p>
+            <p><span class="font-semibold text-kailash-dark">サガ・ダワ祭</span>（ブッダ・プルニマ）がこの期間に重なり、チベット仏教で最も神聖な日——功徳ある行いが通常の何百万倍にも増幅される日——を迎えます。</p>
+            <p>前回の馬年（2014年）から<span class="font-semibold text-kailash-dark">12年間の待機</span>を経ての到来です。次の馬年は2038年まで訪れません。2026年は一生に一度の機会——この神聖な窓を逃してはなりません。</p>
+            <p>最適な訪問時期は<span class="font-semibold text-kailash-dark">5月から10月</span>で、高所トレッキングに最も適した気候条件が整います。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Significance Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div class="bg-kailash-gold/10 rounded-2xl p-6">
+          <p class="text-4xl font-bold text-kailash-gold mb-2">13x</p>
+          <p class="text-sm text-gray-600">一周が十三周分の<br/>功徳に相当</p>
+        </div>
+        <div class="bg-kailash-gold/10 rounded-2xl p-6">
+          <p class="text-4xl font-bold text-kailash-gold mb-2">12年</p>
+          <p class="text-sm text-gray-600">周期<br/>次回の馬年は2038年</p>
+        </div>
+        <div class="bg-kailash-gold/10 rounded-2xl p-6">
+          <p class="text-4xl font-bold text-kailash-gold mb-2">5月〜10月</p>
+          <p class="text-sm text-gray-600">最適シーズン<br/>理想的なトレッキング気候</p>
+        </div>
+        <div class="bg-kailash-gold/10 rounded-2xl p-6">
+          <p class="text-4xl font-bold text-kailash-gold mb-2">🐎</p>
+          <p class="text-sm text-gray-600">馬年の力<br/>変容の時</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Cultural Traditions Section -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">文化的伝統</p>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">コーラの伝統と聖なる慣習</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">カイラスのコーラは単なるトレッキングではありません——何世紀も続く精神的伝統であり、一歩一歩に意味があり、一つ一つの行為に意義があり、旅そのものが動く瞑想となるものです。</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Kora -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🚶</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">コーラ（巡礼行）</h3>
+          <p class="text-gray-600">最も重要な儀式は聖山の周りを歩くことです。仏教徒とヒンドゥー教徒は<span class="font-semibold">時計回り（右繞）</span>に、ボン教徒は<span class="font-semibold">反時計回り（左繞）</span>に歩きます。標準的な三日間のコーラは標高の高い場所で52キロメートルを巡り、献身の行為として山を一周します。</p>
+        </div>
+
+        <!-- Full Prostration Kora -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🙇</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">五体投地のコーラ</h3>
+          <p class="text-gray-600">最も過酷な巡礼の形——信者は二、三歩ごとに<span class="font-semibold">全身を地面に投げ出す五体投地</span>を52キロメートル全体にわたって行います。これには2〜3週間を要し、究極のエゴの放棄と聖山への完全な帰依を表しています。</p>
+        </div>
+
+        <!-- Prayer Flags -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🚩</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">祈祷旗（ルンタ）</h3>
+          <p class="text-gray-600">ドルマ・ラ峠やコーラの道沿いの聖地で、巡礼者は<span class="font-semibold">色とりどりの祈祷旗</span>（風の馬）を掲げます。風が旗に刷られた祝福を運ぶとき、それらはすべての衆生の利益のためにマントラと祈りを世界中に広めるとされています。</p>
+        </div>
+
+        <!-- Mani Stones -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🪨</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">マニ石</h3>
+          <p class="text-gray-600">コーラの道の至る所で、巡礼者は<span class="font-semibold">「オーム・マニ・パドメー・フーム」</span>のマントラが刻まれた石の山に出会い、また自らも積み上げます。巡礼者は家族のために石を置き、未来の旅人のために祝福を残し、自らの祈りを道の集合的な精神的エネルギーに加えます。</p>
+        </div>
+
+        <!-- Old Garment Offering -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">💀</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">古い衣の奉納</h3>
+          <p class="text-gray-600">ドルマ・ラ峠で、巡礼者は<span class="font-semibold">古い衣服、一房の髪、あるいは一滴の血</span>を象徴的な捧げ物として残します。この儀式は象徴的な死と再生——古い自己を脱ぎ捨て、コーラの最高地点という霊的な閾を越えて新たに生まれ変わることを表しています。</p>
+        </div>
+
+        <!-- Sacred Bathing -->
+        <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+          <div class="text-4xl mb-4">🌊</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">聖なる沐浴</h3>
+          <p class="text-gray-600">マナサロワール湖での沐浴は<span class="font-semibold">すべての罪を清め</span>、魂を浄化すると信じられています。高所の湖の凍るような水温にもかかわらず、巡礼者は献身とともに身を浸し、多くの者が聖水を瓶に詰めて家に持ち帰り、愛する人々への祝福としています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Quotes Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">叡智の声</p>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">カイラスに寄せられた偉大な言葉</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">何世紀にもわたり、精神的指導者、哲学者、巡礼者たちが、カイラス山の深遠な神秘と変容の力について語ってきました。</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Dalai Lama Quote -->
+        <div class="bg-kailash-light rounded-2xl p-8 shadow-md relative">
+          <div class="text-kailash-gold text-6xl font-display absolute top-4 left-4 opacity-30">"</div>
+          <p class="text-gray-700 relative z-10 italic leading-relaxed">「カイラス山は、この惑星で最も神聖な場所の一つであり、天と地が出会う場所です。その神聖さは言葉で捉えることはできません——開かれた心と謙虚な精神で直接体験されなければならないのです。」</p>
+          <div class="mt-6 pt-4 border-t border-gray-200">
+            <p class="font-semibold text-kailash-dark">ダライ・ラマ14世</p>
+            <p class="text-sm text-gray-500">チベット仏教の精神的指導者</p>
+          </div>
+        </div>
+
+        <!-- Sadhguru Quote -->
+        <div class="bg-kailash-light rounded-2xl p-8 shadow-md relative">
+          <div class="text-kailash-gold text-6xl font-display absolute top-4 left-4 opacity-30">"</div>
+          <p class="text-gray-700 relative z-10 italic leading-relaxed">「カイラスは単なる山ではありません。それはこの惑星の魂の物理的な形です。その周りを歩くとき、あなたは自分自身の周りを歩いているのです。カイラスの巡礼は、あなた自身の最も内なる本質への旅なのです。」</p>
+          <div class="mt-6 pt-4 border-t border-gray-200">
+            <p class="font-semibold text-kailash-dark">サドグル</p>
+            <p class="text-sm text-gray-500">インドのヨギ、精神的指導者</p>
+          </div>
+        </div>
+
+        <!-- Japanese Buddhist Perspective -->
+        <div class="bg-kailash-light rounded-2xl p-8 shadow-md relative">
+          <div class="text-kailash-gold text-6xl font-display absolute top-4 left-4 opacity-30">"</div>
+          <p class="text-gray-700 relative z-10 italic leading-relaxed">「須弥山は仏教宇宙論の中心であり、カイラス山はその地上における顕現です。須弥山を巡ることは、宇宙の真理を体感すること——それは日本の仏教徒にとっても、最も深い巡礼の意味を持つのです。」</p>
+          <div class="mt-6 pt-4 border-t border-gray-200">
+            <p class="font-semibold text-kailash-dark">空海（弘法大師）の教えに基づく</p>
+            <p class="text-sm text-gray-500">日本の真言宗の観点より</p>
+          </div>
+        </div>
+
+        <!-- Swami Vivekananda Quote -->
+        <div class="bg-kailash-light rounded-2xl p-8 shadow-md relative">
+          <div class="text-kailash-gold text-6xl font-display absolute top-4 left-4 opacity-30">"</div>
+          <p class="text-gray-700 relative z-10 italic leading-relaxed">「科学を超えたところで、カイラスは宇宙の中心です——精神的な意味だけでなく、物理的な意味においても。それは人類が到達しうる偉大さの証として立っています。」</p>
+          <div class="mt-6 pt-4 border-t border-gray-200">
+            <p class="font-semibold text-kailash-dark">スワーミー・ヴィヴェーカーナンダ</p>
+            <p class="text-sm text-gray-500">インドの哲学者、精神的指導者</p>
+          </div>
+        </div>
+
+        <!-- Ancient Tibetan Saying -->
+        <div class="bg-kailash-light rounded-2xl p-8 shadow-md relative">
+          <div class="text-kailash-gold text-6xl font-display absolute top-4 left-4 opacity-30">"</div>
+          <p class="text-gray-700 relative z-10 italic leading-relaxed">「カイラスに登ろうとしてはならない。この山は征服されるべきものではなく、崇拝されるべきものである。」</p>
+          <div class="mt-6 pt-4 border-t border-gray-200">
+            <p class="font-semibold text-kailash-dark">チベットの古いことわざ</p>
+            <p class="text-sm text-gray-500">チベット高原に伝わる教え</p>
+          </div>
+        </div>
+
+        <!-- Sven Hedin Quote -->
+        <div class="bg-kailash-light rounded-2xl p-8 shadow-md relative">
+          <div class="text-kailash-gold text-6xl font-display absolute top-4 left-4 opacity-30">"</div>
+          <p class="text-gray-700 relative z-10 italic leading-relaxed">「目の前にそびえるカイラスは、この世のものとは思えぬ光景だった。すべての宗教の巡礼者が、この一つの山の周りを巡る——これこそが、人間の信仰の最も純粋な形である。」</p>
+          <div class="mt-6 pt-4 border-t border-gray-200">
+            <p class="font-semibold text-kailash-dark">スヴェン・ヘディン</p>
+            <p class="text-sm text-gray-500">スウェーデンの探検家</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CTA Section -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-4">カイラスの聖なる文化を体験する</h2>
+      <p class="text-kailash-dark/80 text-lg mb-8 max-w-2xl mx-auto">聖なる2026年馬年の巡礼に参加しませんか。コーラのルートを学び、一生に一度の旅の準備を整え、数千年続く精神的伝統の一部となってください。</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/ja/routes" class="inline-flex items-center justify-center bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-kailash-dark/90 transition">
+          コーラルートを探る
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href="/ja/guide" class="inline-flex items-center justify-center border-2 border-kailash-dark text-kailash-dark px-8 py-4 rounded-lg font-semibold text-lg hover:bg-kailash-dark/10 transition">
+          巡礼ガイドを見る
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

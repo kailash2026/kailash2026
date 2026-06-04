@@ -1,0 +1,225 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="गैलरी - कैलाश पर्वत | पवित्र छवियाँ" description="कैलाश पर्वत, मानसरोवर झील और तिब्बती पठार की अद्भुत तस्वीरें। स्वर्णिम शिखर, हवाई दृश्य, सूर्योदय और याक चरागाह — पवित्र भूमि की झलक।">
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/70 via-kailash-dark/50 to-kailash-dark"></div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">
+        दृश्य यात्रा
+      </p>
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+        गैलरी
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
+        पवित्र पर्वत की तस्वीरें
+      </p>
+      <p class="text-base text-white/50 mt-4 max-w-xl mx-auto">
+        कैलाश पर्वत, मानसरोवर झील और तिब्बती पठार की अद्भुत छवियाँ — जहाँ पृथ्वी आकाश से मिलती है
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Grid Section -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">छवि संग्रह</p>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">पवित्र भूमि की झलकियाँ</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          प्रत्येक तस्वीर एक कहानी कहती है — कैलाश की भव्यता, मानसरोवर की शांति, और तिब्बती पठार का विस्तार
+        </p>
+      </div>
+
+      <!-- Masonry-style 2x3 Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1: Kailash Golden Peak -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-golden.jpg"
+              alt="कैलाश पर्वत का स्वर्णिम शिखर"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">स्वर्णिम शिखर</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              सूर्यास्त की स्वर्णिम किरणों में नहाया कैलाश पर्वत — एक ऐसा दृश्य जो आत्मा को छू लेता है और मन को शांति से भर देता है।
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Aerial View -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-aerial.jpg"
+              alt="कैलाश पर्वत का हवाई दृश्य"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">हवाई दृश्य</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              आकाश से देखने पर कैलाश का पिरामिड आकार और भी स्पष्ट होता है — चारों ओर फैली पर्वत श्रृंखलाओं के बीच एकाकी और भव्य।
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Manasarovar Lake -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-lake.jpg"
+              alt="मानसरोवर झील"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">मानसरोवर झील</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              दुनिया की सबसे ऊँची मीठे पानी की झील — इसका नीला जल आकाश को प्रतिबिंबित करता है और इसे 'स्वर्ग का जेड तालाब' कहा जाता है।
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4: Sunrise -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-sunrise.jpg"
+              alt="कैलाश पर्वत पर सूर्योदय"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">प्रातः कालीन आभा</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              सूर्य की पहली किरणें जब कैलाश के शिखर को स्पर्श करती हैं — वह क्षण मानो समय थम जाता है और सृष्टि मौन प्रार्थना में लीन हो जाती है।
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5: Yak Pasture -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-yaks.jpg"
+              alt="कैलाश क्षेत्र में याक चरागाह"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">याक चरागाह</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              तिब्बती पठार के विशाल घास के मैदानों में विचरण करते याक — हिमालयी जीवन की सादगी और प्रकृति के साथ सह-अस्तित्व का प्रतीक।
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 6: Hero View -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/hero.jpg"
+              alt="कैलाश पर्वत का भव्य दृश्य"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">भव्य विहंगम दृश्य</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              कैलाश पर्वत का संपूर्ण वैभव — बर्फ से ढका शिखर, नीला आकाश, और सामने फैला विशाल तिब्बती पठार। प्रकृति का एक अद्वितीय चमत्कार।
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats / Trivia Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">6</p>
+          <p class="text-gray-600">चुनिंदा छवियाँ</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">6,656<span class="text-lg">मी</span></p>
+          <p class="text-gray-600">पवित्र ऊँचाई</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">4</p>
+          <p class="text-gray-600">पवित्र परंपराएँ</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">&infin;</p>
+          <p class="text-gray-600">अनंत आस्था</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Submission CTA Section -->
+  <section class="py-20 bg-kailash-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="mb-8">
+        <span class="inline-block text-5xl mb-6">📸</span>
+      </div>
+      <h2 class="font-display text-4xl font-bold text-white mb-4">
+        अपनी कैलाश यात्रा साझा करें
+      </h2>
+      <p class="text-lg text-white/70 mb-4 max-w-2xl mx-auto leading-relaxed">
+        क्या आपने कैलाश पर्वत की यात्रा की है? अपनी तस्वीरें और कहानियाँ हमारे साथ साझा करें।
+      </p>
+      <p class="text-base text-white/50 mb-10 max-w-xl mx-auto">
+        आपकी तस्वीरें अन्य तीर्थयात्रियों को प्रेरित कर सकती हैं। हर छवि के पीछे एक अनोखी आध्यात्मिक यात्रा छिपी होती है — उसे दुनिया के सामने लाएँ।
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition inline-flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          तस्वीरें जमा करें
+        </a>
+        <a
+          href="/contact"
+          class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition inline-flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          हमसे संपर्क करें
+        </a>
+      </div>
+
+      <p class="text-white/30 text-sm mt-8">
+        अपनी तस्वीरें kailash2026Lucas@outlook.com पर भेजें या WeChat: Kailash2026 पर संपर्क करें
+      </p>
+    </div>
+  </section>
+
+</Layout>

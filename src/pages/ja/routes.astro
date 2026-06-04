@@ -1,0 +1,984 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const routePlans = {
+  oneDay: {
+    name: "1日巡礼",
+    subtitle: "極限挑戦 · 経験豊富な巡礼者とプロ持久力アスリートのみ対象",
+    totalDistance: "52-56 km",
+    totalDuration: "1日（12-22時間）",
+    difficulty: "極限",
+    difficultyColor: "purple",
+    description: "一日で52-56kmの外側コーラを完遂することは、カイラス巡礼の中で最も過酷な形式です。標高4560m→5648m→4560m。体力、高度順応、意志力の究極の試練。毎年、急速な高山病、低体温症、道迷いによる救助事例が発生しています。",
+    warning: "⚠️ 極めて危険！毎年救助事例が発生しています。以下の三つのグループのみ対象：経験豊富なチベット人巡礼者、プロ持久力アスリート／トレイルランナー、並外れた体力を持つ稀な屈強トレッカー。一般観光客は絶対に試みないでください！",
+    days: [
+      {
+        day: "全日",
+        title: "タルチェン → ディラプク寺 → ドルマラ峠 → タルチェン",
+        distance: "52-56 km",
+        altitude: "4560m → 5648m → 4560m",
+        duration: "12-22時間",
+        description: "午前3〜5時にヘッドランプを装着し暗闇の中を出発。チョク寺とディラプク寺を通過し（宿泊なし）、5648mのドルマラ峠を越え、ツォジ湖とゾンチュ寺付近を経由しノンストップで直接タルチェンへ戻ります。宿泊なし — 十分な補給と緊急装備を携行してください。",
+        highlights: ["チョク寺", "ディラプク寺（通過）", "ドルマラ峠（5648m）", "ツォジ湖", "ゾンチュ寺（通過）", "タルチェン（完走）"],
+        tips: "ヘッドランプと予備バッテリーは必須！高カロリー食品、緊急用ブランケット、衛星電話またはGPSを携行してください。現地ガイドまたはポーターのサポートを受けてください。高山病の症状（頭痛、吐き気、呼吸困難）が現れた場合は直ちに停止し下山してください。"
+      }
+    ]
+  },
+  twoDay: {
+    name: "2日間巡礼",
+    subtitle: "困難な挑戦 · 良好な高度順応を持つ経験豊富なトレッカー向け",
+    totalDistance: "52 km",
+    totalDuration: "2日1泊",
+    difficulty: "困難",
+    difficultyColor: "red",
+    description: "1日目：タルチェンからディラプク寺（22km）、4600m→5200m、6-8時間。2日目：午前3-4時に出発、ドルマラ峠を越えて直接タルチェンへ戻る（30km）、5200m→5648m→4600m、10-14時間。わずか1泊のみ、2日目は極めて過酷です。",
+    warning: "⚠️ 2日目に30kmの歩行と5648mの峠越え — 極めて困難。初めての巡礼者には推奨しません。",
+    days: [
+      {
+        day: "1日目",
+        title: "タルチェン → ディラプク寺",
+        distance: "22 km",
+        altitude: "4600m → 5200m",
+        duration: "6-8時間",
+        description: "タルチェンを出発し、チョク寺を通過し、ラク渓谷に沿って上りディラプク寺に到着。高度順応のための比較的緩やかな地形。午後3時までにディラプク寺に到着し、2日目のために早めに休息してください。",
+        highlights: ["チョク寺", "マニ石の山", "ディラプク寺（唯一の宿泊地）"],
+        tips: "初日は急がないでください。体が高度に順応する時間を与えましょう。ディラプク寺は唯一の宿泊地です — 繁忙期は事前にベッドの確保を確認してください。"
+      },
+      {
+        day: "2日目",
+        title: "ディラプク寺 → ドルマラ峠 → タルチェン",
+        distance: "30 km",
+        altitude: "5200m → 5648m → 4600m",
+        duration: "10-14時間",
+        description: "午前3-4時にヘッドランプを装着し暗闇の中を出発。5648mのドルマラ峠を越えます。ツォジ湖とゾンチュ寺から下り、ノンストップで直接タルチェンへ戻ります。体力と意志力の究極の試練。",
+        highlights: ["ドルマラ峠（5648m、最高地点）", "ツォジ湖", "ゾンチュ寺", "タルチェン（完走）"],
+        tips: "ヘッドランプは必須！峠の1km手前が最も急な登り — ペースを維持してください。下りでは膝を保護してください。茶屋で温かいお湯をすぐに補給。体力温存のためポーターまたは馬の利用を検討してください。"
+      }
+    ]
+  },
+  threeDay: {
+    name: "3日間巡礼",
+    subtitle: "標準的な旅 · 大多数の巡礼者に快適なペース ★推奨",
+    totalDistance: "52 km",
+    totalDuration: "3日2泊",
+    difficulty: "中程度",
+    difficultyColor: "blue",
+    description: "最もクラシックなコーラの旅程。1日目は高度順応、2日目は峠越え、3日目は楽な帰路。2泊はそれぞれディラプク寺とゾンチュ寺。大多数の巡礼者に適したペースです。",
+    warning: "",
+    days: [
+      {
+        day: "1日目",
+        title: "タルチェン → ディラプク寺",
+        distance: "22 km",
+        altitude: "4600m → 5200m",
+        duration: "6-8時間",
+        description: "タルチェンを出発し、チョク寺を通過し、ラク渓谷に沿って上りディラプク寺に到着。高度順応のための緩やかな地形。ディラプク寺はカイラス山の北壁に向かい合って位置 — 写真撮影の絶好のスポット。",
+        highlights: ["チョク寺", "マニ石の山", "ディラプク寺（D1キャンプ、北壁ビュー）"],
+        tips: "初日は急がないでください。体が高度に順応する時間を与えましょう。宿泊施設は簡素です — -10°C対応の寝袋を持参してください。"
+      },
+      {
+        day: "2日目",
+        title: "ディラプク寺 → ゾンチュ寺",
+        distance: "18 km",
+        altitude: "5200m → 5648m → 4800m",
+        duration: "8-10時間",
+        description: "最も困難な日。早朝に出発し5648mのドルマラ峠を越えます — 全コーラの最高地点。ツォジ湖（慈悲の湖）から下りゾンチュ寺に到着。途中複数の茶屋で休憩と補給が可能です。",
+        highlights: ["ドルマラ峠（5648m、最高地点）", "ツォジ湖", "ゾンチュ寺（D2キャンプ）"],
+        tips: "峠の1km手前が最も急な登り — ペースを維持してください。下りでは膝を保護してください。ゾンチュ寺の宿泊はディラプク寺よりさらに簡素で、繁忙期は満員になる可能性があります。"
+      },
+      {
+        day: "3日目",
+        title: "ゾンチュ寺 → タルチェン",
+        distance: "12 km",
+        altitude: "4800m → 4600m",
+        duration: "3-4時間",
+        description: "楽な一日 — 渓谷に沿って緩やかな下り坂をタルチェンへ戻ります。コーラ完走！ゾンドゥイ茶屋で最後の休憩。",
+        highlights: ["渓谷の景色", "マナサロワール湖の遠景", "ゾンドゥイ茶屋", "タルチェン（完走）"],
+        tips: "勝利は目前ですが油断せず — 足元に注意して歩いてください。タルチェンに戻ったら美味しい食事でコーラ完走を祝いましょう！"
+      }
+    ]
+  }
+};
+
+const supplyStations = [
+  {
+    id: 1,
+    name: "タルチェン",
+    nameEn: "Tarqin",
+    altitude: 4600,
+    distance: "0 km（起点）",
+    type: "start",
+    supplies: ["水", "清涼飲料", "エナジードリンク", "インスタント麺", "パン", "チョコレート", "ビーフジャーキー", "ビスケット", "酸素ボンベ", "ジャケット", "帽子", "手袋", "トレッキングポール", "膝サポーター", "日焼け止め", "リップクリーム"],
+    lodging: "ゲストハウスとホテル（ドミトリー／個室）",
+    services: "レストラン、商店、ガソリンスタンド、郵便局、インターネットカフェ、診療所、車両・馬・ポーターのレンタル"
+  },
+  {
+    id: 2,
+    name: "セクション・タルチョ",
+    nameEn: "Sexung Prayer Flags",
+    altitude: 4700,
+    distance: "7 km",
+    type: "teahouse",
+    supplies: ["バター茶", "ミルクティー", "お湯", "インスタント麺", "ビスケット"],
+    lodging: "宿泊施設なし",
+    services: "小規模茶屋、10-20分の休憩推奨"
+  },
+  {
+    id: 3,
+    name: "チョク寺橋",
+    nameEn: "Choku Bridge",
+    altitude: 4800,
+    distance: "+2.6 km",
+    type: "teahouse",
+    supplies: ["お湯", "飲料", "軽食"],
+    lodging: "宿泊施設なし",
+    services: "路傍の売店"
+  },
+  {
+    id: 4,
+    name: "ジョム滝",
+    nameEn: "Jomu Waterfall",
+    altitude: 4900,
+    distance: "+4.5 km",
+    type: "teahouse",
+    supplies: ["バター茶", "お湯", "インスタント麺"],
+    lodging: "宿泊施設なし",
+    services: "簡易避難所"
+  },
+  {
+    id: 5,
+    name: "ハヤグリーヴァ岩茶屋",
+    nameEn: "Hayagriva Rock Teahouse",
+    altitude: 5000,
+    distance: "+2.3 km",
+    type: "teahouse",
+    supplies: ["バター茶", "ミルクティー", "お湯", "インスタント麺", "ビスケット", "エナジーバー"],
+    lodging: "宿泊施設なし",
+    services: "中規模茶屋"
+  },
+  {
+    id: 6,
+    name: "ディラプク寺",
+    nameEn: "Drirapuk Gompa",
+    altitude: 5200,
+    distance: "+4.2 km（D1キャンプ）",
+    type: "camp",
+    supplies: ["バター茶", "ミルクティー", "チベット麺", "卵チャーハン", "インスタント麺", "ビスケット", "チョコレート", "ビーフジャーキー", "水", "飲料", "軽食", "基本医薬品", "酸素ボンベ"],
+    lodging: "ドミトリールーム（5-10名）、毛布利用可。-10°C対応寝袋を持参してください",
+    services: "主要補給拠点：食堂 + 宿泊 + 売店"
+  },
+  {
+    id: 7,
+    name: "ドルマラ峠",
+    nameEn: "Drolma La Pass",
+    altitude: 5648,
+    distance: "+5.8 km（最高地点）",
+    type: "peak",
+    supplies: [],
+    lodging: "補給なし",
+    services: "祈福の旗とマニ石のみ。5-10分滞在、速やかに前進。防寒・防風対策を"
+  },
+  {
+    id: 8,
+    name: "ツォジ湖",
+    nameEn: "Tsoji Lake",
+    altitude: 5400,
+    distance: "+2.6 km",
+    type: "teahouse",
+    supplies: ["バター茶", "お湯", "インスタント麺"],
+    lodging: "宿泊施設なし",
+    services: "小規模茶屋"
+  },
+  {
+    id: 9,
+    name: "第三不動の釘茶屋",
+    nameEn: "3rd Immovable Peg Teahouse",
+    altitude: 5100,
+    distance: "+2.4 km",
+    type: "teahouse",
+    supplies: ["バター茶", "ミルクティー", "お湯", "インスタント麺", "ビスケット"],
+    lodging: "宿泊施設なし",
+    services: "中規模茶屋"
+  },
+  {
+    id: 10,
+    name: "空行母出口",
+    nameEn: "Sky Dancer Exit",
+    altitude: 4900,
+    distance: "+3 km",
+    type: "teahouse",
+    supplies: ["お湯", "飲料", "軽食"],
+    lodging: "宿泊施設なし",
+    services: "簡易避難所"
+  },
+  {
+    id: 11,
+    name: "ゾンチュ寺",
+    nameEn: "Zhongzhepu Temple",
+    altitude: 4800,
+    distance: "+4.5 km（D2キャンプ）",
+    type: "camp",
+    supplies: ["バター茶", "チベット麺", "インスタント麺", "軽食"],
+    lodging: "ドミトリールーム（繁忙期限定営業）",
+    services: "中程度の補給、簡素な宿泊"
+  },
+  {
+    id: 12,
+    name: "ゾンドゥイ茶屋",
+    nameEn: "Zongdui Teahouse",
+    altitude: 4700,
+    distance: "+6.2 km",
+    type: "teahouse",
+    supplies: ["お湯", "飲料", "軽食"],
+    lodging: "宿泊施設なし",
+    services: "路傍の売店"
+  },
+  {
+    id: 13,
+    name: "タルチェン",
+    nameEn: "Tarqin",
+    altitude: 4600,
+    distance: "+4 km（終点）",
+    type: "end",
+    supplies: ["水", "清涼飲料", "エナジードリンク", "インスタント麺", "パン", "チョコレート", "ビーフジャーキー", "ビスケット", "酸素ボンベ", "ジャケット", "帽子", "手袋", "トレッキングポール", "膝サポーター", "日焼け止め", "リップクリーム"],
+    lodging: "ゲストハウスとホテル（ドミトリー／個室）",
+    services: "レストラン、商店、ガソリンスタンド、郵便局、インターネットカフェ、診療所、車両・馬・ポーターのレンタル"
+  }
+];
+---
+
+<Layout title="巡礼ルート - 52kmの聖なる巡礼 | カイラス2026" description="カイラス山の52km外側コーラ完全ガイド：1日、2日間、3日間の巡礼プラン。13ヶ所の補給拠点、標高変化、重要アドバイス付き。タルチェン出発、5648mドルマラ峠越え。">
+
+  <!-- Hero Section with full-width photo overlay -->
+  <section class="relative bg-kailash-dark">
+    <!-- Full-width photo -->
+    <div class="relative w-full h-[45vh] lg:h-[55vh]">
+      <div class="absolute inset-0 bg-[url('/images/kailash-yaks.jpg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-kailash-dark"></div>
+    </div>
+
+    <!-- Content below photo -->
+    <div class="relative -mt-20 z-10 px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="max-w-7xl mx-auto text-center">
+        <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-4">
+          巡礼ルート
+        </h1>
+        <p class="text-xl text-white/60 max-w-3xl mx-auto">
+          52km、3日間、信仰から出発し、魂へと帰る
+        </p>
+        <div class="flex justify-center gap-8 mt-8">
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">52 km</p>
+            <p class="text-white/40 text-sm">総距離</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">5,648 m</p>
+            <p class="text-white/40 text-sm">最高地点</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">3日間</p>
+            <p class="text-white/40 text-sm">標準日程</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-kailash-dark py-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">52 km</p>
+          <p class="text-white/60 text-sm mt-1">総距離</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">5,648 m</p>
+          <p class="text-white/60 text-sm mt-1">最高地点</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">4,600 m</p>
+          <p class="text-white/60 text-sm mt-1">基準標高</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">13</p>
+          <p class="text-white/60 text-sm mt-1">補給拠点</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Overview -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">ルート概要</h2>
+        <p class="text-lg text-gray-600">標高変化と主要中継地点</p>
+      </div>
+
+      <!-- Route Map -->
+      <div class="mb-12">
+        <div class="text-center mb-8">
+          <h3 class="font-display text-2xl font-bold text-kailash-dark mb-2">カイラス巡礼ルートマップ</h3>
+          <p class="text-gray-600 text-sm">52kmの聖なる道 — 聖山を一周する巡礼</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <img src="/images/kailash-trek-map.jpg" alt="カイラス巡礼ルートマップ" class="w-full block" style="min-height: 400px;" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div style="display: none;" class="p-8 text-center text-gray-500">
+            <svg class="w-16 h-16 mx-auto mb-4 text-kailash-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <p>マップを読み込み中...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Route Scenery -->
+      <div class="mt-16 mb-16">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">ルートの風景</h2>
+          <p class="text-lg text-gray-600">歩みで信仰を測り、目で聖なる山を仰ぐ</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-map-1.png" alt="ドルマラ峠の祈福の旗" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>画像読み込み失敗</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">ドルマラ峠 · 祈福の旗</p>
+                <p class="text-white/80 text-sm">Drolma La Pass · Prayer Flags</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">標高5648メートルの最高地点、巡礼者たちが祝福を祈りここに経旗を掲げます。色とりどりのルンタが風の中でマントラを唱えます。</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-map-2.png" alt="カイラス山と馬隊の休息" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>画像読み込み失敗</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">聖山の眺望 · 馬隊の休息</p>
+                <p class="text-white/80 text-sm">Mount Kailash View · Horse Caravan Rest</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">雲に包まれたカイラス山、渓谷で休息する馬のキャラバン、遠くに仮設キャンプの煙が立ち上る。</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-scenery-1.png" alt="ルート案内標識" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>画像読み込み失敗</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">チョク寺への道 · 三ヶ国語標識</p>
+                <p class="text-white/80 text-sm">Choku Gompa Path · Trilingual Sign</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">三ヶ国語（チベット語／中国語／英語）の標識がチョク寺への方向を示す。赤い岩壁が濃紺の空に映える — 特徴的なアリ地方的景観。</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-scenery-2.png" alt="カイラス山間近の眺め" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>画像読み込み失敗</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">カイラス山 · 経旗の前景</p>
+                <p class="text-white/80 text-sm">Mount Kailash · Prayer Flags Foreground</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">ピラミッド型の山頂を間近に捉えた眺め。前景に経旗がたなびき、岩の層理がはっきりと見える — 6656メートルの永遠の荘厳さ。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Supply Stations -->
+      <div class="mt-16">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">13ヶ所の補給拠点</h2>
+          <p class="text-lg text-gray-600">起点から終点まで、ルート全体にわたる詳細な補給情報</p>
+        </div>
+
+        <div class="space-y-4">
+          {supplyStations.map((station, index) => (
+            <div class={`rounded-xl overflow-hidden ${
+              station.type === 'start' || station.type === 'end' ? 'bg-green-50 border-2 border-green-200' :
+              station.type === 'peak' ? 'bg-red-50 border-2 border-red-200' :
+              station.type === 'camp' ? 'bg-blue-50 border-2 border-blue-200' :
+              'bg-white shadow-md border border-gray-100'
+            }`}>
+              <div class={`p-5 ${
+                station.type === 'start' || station.type === 'end' ? 'bg-green-100/50' :
+                station.type === 'peak' ? 'bg-red-100/50' :
+                station.type === 'camp' ? 'bg-blue-100/50' :
+                'bg-gray-50/50'
+              }`}>
+                <div class="flex items-start gap-4">
+                  <div class={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg shrink-0 ${
+                    station.type === 'start' || station.type === 'end' ? 'bg-green-500 text-white' :
+                    station.type === 'peak' ? 'bg-red-500 text-white' :
+                    station.type === 'camp' ? 'bg-blue-500 text-white' :
+                    'bg-kailash-gold text-kailash-dark'
+                  }`}>
+                    {station.altitude}m
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-3 mb-1 flex-wrap">
+                      <h3 class="font-display text-xl font-bold text-kailash-dark">{station.name}</h3>
+                      <span class="text-sm text-gray-500">{station.nameEn}</span>
+                      {station.type === 'camp' && <span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-semibold">🏠 宿泊</span>}
+                      {station.type === 'peak' && <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-semibold">⚠️ 最高地点</span>}
+                      {station.type === 'start' && <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-semibold">🚀 起点</span>}
+                      {station.type === 'end' && <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-semibold">🏁 終点</span>}
+                      {station.type === 'teahouse' && <span class="bg-kailash-gold/20 text-kailash-dark px-2 py-0.5 rounded text-xs font-semibold">🍵 茶屋</span>}
+                    </div>
+                    <p class="text-sm text-gray-500 font-medium">{station.distance}</p>
+                  </div>
+                  <div class="text-2xl text-gray-300 font-bold shrink-0">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                </div>
+              </div>
+
+              <div class="px-5 pb-5">
+                {station.supplies.length > 0 && (
+                  <div class="mb-3">
+                    <h4 class="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
+                      <span class="text-kailash-gold">●</span>
+                      購入可能な物品
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                      {station.supplies.map(item => (
+                        <span class="bg-white border border-gray-200 px-2 py-1 rounded text-sm text-gray-600">{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div class="grid md:grid-cols-2 gap-3">
+                  <div>
+                    <h4 class="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1">
+                      <span class="text-kailash-gold">●</span>
+                      宿泊
+                    </h4>
+                    <p class="text-sm text-gray-600">{station.lodging}</p>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1">
+                      <span class="text-kailash-gold">●</span>
+                      サービス
+                    </h4>
+                    <p class="text-sm text-gray-600">{station.services}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Plans Comparison -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">あなたの巡礼プランを選ぶ</h2>
+        <p class="text-lg text-gray-600">1日の極限挑戦、2日間の困難な冒険、または3日間の古典的な旅</p>
+      </div>
+
+      <!-- Plan Cards -->
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <!-- 1-Day Plan (Purple / Extreme) -->
+        <div class="bg-kailash-light rounded-2xl overflow-hidden border-2 border-purple-200">
+          <div class="bg-purple-50 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">{routePlans.oneDay.name}</h3>
+              <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">{routePlans.oneDay.difficulty}</span>
+            </div>
+            <p class="text-gray-600 text-sm">{routePlans.oneDay.subtitle}</p>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.oneDay.totalDistance}</p>
+                <p class="text-xs text-gray-500">総距離</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.oneDay.totalDuration}</p>
+                <p class="text-xs text-gray-500">所要時間</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">0</p>
+                <p class="text-xs text-gray-500">宿泊</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">{routePlans.oneDay.description}</p>
+            <div class="bg-purple-50 border border-purple-200 rounded-lg p-3">
+              <p class="text-purple-700 text-sm">{routePlans.oneDay.warning}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Day Plan (Red / Hard) -->
+        <div class="bg-kailash-light rounded-2xl overflow-hidden border-2 border-red-200">
+          <div class="bg-red-50 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">{routePlans.twoDay.name}</h3>
+              <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">{routePlans.twoDay.difficulty}</span>
+            </div>
+            <p class="text-gray-600 text-sm">{routePlans.twoDay.subtitle}</p>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.twoDay.totalDistance}</p>
+                <p class="text-xs text-gray-500">総距離</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.twoDay.totalDuration}</p>
+                <p class="text-xs text-gray-500">所要時間</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">1</p>
+                <p class="text-xs text-gray-500">宿泊</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">{routePlans.twoDay.description}</p>
+            <div class="bg-red-50 border border-red-200 rounded-lg p-3">
+              <p class="text-red-700 text-sm">{routePlans.twoDay.warning}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3-Day Plan (Blue / Moderate) -->
+        <div class="bg-kailash-light rounded-2xl overflow-hidden border-2 border-blue-200">
+          <div class="bg-blue-50 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">{routePlans.threeDay.name}</h3>
+              <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">{routePlans.threeDay.difficulty}</span>
+            </div>
+            <p class="text-gray-600 text-sm">{routePlans.threeDay.subtitle}</p>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.threeDay.totalDistance}</p>
+                <p class="text-xs text-gray-500">総距離</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.threeDay.totalDuration}</p>
+                <p class="text-xs text-gray-500">所要時間</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">2</p>
+                <p class="text-xs text-gray-500">宿泊</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">{routePlans.threeDay.description}</p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+              <p class="text-blue-700 text-sm">✅ 大多数の巡礼者に推奨。適切なペースと十分な休息。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1-Day Detailed Itinerary -->
+      <div class="mb-16">
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-2">1日巡礼 詳細プラン</h3>
+          <div class="w-20 h-1 bg-purple-400 mx-auto rounded"></div>
+        </div>
+
+        <!-- Three categories of people who can do 1-day -->
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-purple-50 rounded-xl p-6 border border-purple-200">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+              <span class="text-2xl">🙏</span>
+            </div>
+            <h4 class="font-bold text-kailash-dark mb-2">チベット人熟練巡礼者</h4>
+            <p class="text-gray-600 text-sm">地元チベット人、長年巡礼を続けてきた者、幼少期から高所に適応。強靭な体力、安定したペース、すべての曲がり角を知り尽くしている。通常12-18時間で完走、午前3-5時に出発、日没前に帰還。彼らにとって1日巡礼は信仰と日常の修行です。</p>
+          </div>
+          <div class="bg-purple-50 rounded-xl p-6 border border-purple-200">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+              <span class="text-2xl">🏃</span>
+            </div>
+            <h4 class="font-bold text-kailash-dark mb-2">プロ持久力アスリート</h4>
+            <p class="text-gray-600 text-sm">高所トレッキング、マラソン／トレイルランニングの経験者。軽量装備、卓越した身体能力、高山病と低温への耐性。最速10-12時間で完走可能（極限ペース）。多くは「自己挑戦」スタイルで、スピードと心身の限界を追求します。</p>
+          </div>
+          <div class="bg-purple-50 rounded-xl p-6 border border-purple-200">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+              <span class="text-2xl">💪</span>
+            </div>
+            <h4 class="font-bold text-kailash-dark mb-2">並外れた屈強トレッカー</h4>
+            <p class="text-gray-600 text-sm">プロのバックグラウンドはないが、卓越した身体能力、軽度の高山反応、強い意志力を持つ者。厳格に早朝出発（午前5時前）、最小限の休憩、軽量装備。全行程18-22時間、しばしば夜間歩行、高リスク。稀な個人事例 — 一般観光客の模倣には適しません。</p>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          {routePlans.oneDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl overflow-hidden border-l-4 border-purple-400">
+              <div class="bg-kailash-dark text-white p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-kailash-gold font-semibold">{day.day}</span>
+                    <h4 class="font-display text-xl font-bold mt-1">{day.title}</h4>
+                  </div>
+                  <div class="text-right text-sm text-gray-400">
+                    <p>{day.distance}</p>
+                    <p>{day.altitude}</p>
+                    <p>{day.duration}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700 mb-4 leading-relaxed">{day.description}</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+                      <span class="text-kailash-gold">★</span>
+                      ルートの主要地点
+                    </h5>
+                    <ul class="space-y-1">
+                      {day.highlights.map((h, i) => (
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                          <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="bg-amber-50 rounded-xl p-4">
+                    <h5 class="font-semibold mb-2 text-amber-800 text-sm">💡 重要アドバイス</h5>
+                    <p class="text-amber-700 text-sm">{day.tips}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Key Data -->
+        <div class="mt-8 bg-purple-50 rounded-xl p-6 border border-purple-200">
+          <h4 class="font-bold text-kailash-dark mb-4">重要データ</h4>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p class="text-gray-700"><span class="font-semibold">総距離:</span> 52-56 km</p>
+              <p class="text-gray-700"><span class="font-semibold">標高:</span> 4560m → 5648m（ドルマラ峠） → 4560m</p>
+              <p class="text-gray-700"><span class="font-semibold">一般人:</span> 2-3日間</p>
+            </div>
+            <div>
+              <p class="text-gray-700"><span class="font-semibold">1日巡礼:</span> 極めて困難な極限挑戦</p>
+              <p class="text-gray-700"><span class="font-semibold">リスク:</span> 毎年、無理な1日完走による高山病、低体温症、道迷いの救助事例が発生</p>
+              <p class="text-gray-700"><span class="font-semibold">総括:</span> 1日で巡礼する者は、敬虔なチベット人巡礼者か、最高の身体能力を持つ持久力の達人のいずれかです。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-Day Detailed Itinerary -->
+      <div class="mb-16">
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-2">2日間巡礼 詳細プラン</h3>
+          <div class="w-20 h-1 bg-red-400 mx-auto rounded"></div>
+        </div>
+        <div class="space-y-8">
+          {routePlans.twoDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl overflow-hidden border-l-4 border-red-400">
+              <div class="bg-kailash-dark text-white p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-kailash-gold font-semibold">{day.day}</span>
+                    <h4 class="font-display text-xl font-bold mt-1">{day.title}</h4>
+                  </div>
+                  <div class="text-right text-sm text-gray-400">
+                    <p>{day.distance}</p>
+                    <p>{day.altitude}</p>
+                    <p>{day.duration}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700 mb-4 leading-relaxed">{day.description}</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+                      <span class="text-kailash-gold">★</span>
+                      ルートの主要地点
+                    </h5>
+                    <ul class="space-y-1">
+                      {day.highlights.map((h, i) => (
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                          <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="bg-amber-50 rounded-xl p-4">
+                    <h5 class="font-semibold mb-2 text-amber-800 text-sm">💡 重要アドバイス</h5>
+                    <p class="text-amber-700 text-sm">{day.tips}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- 3-Day Detailed Itinerary -->
+      <div>
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-2">3日間巡礼 詳細プラン ★推奨</h3>
+          <div class="w-20 h-1 bg-blue-400 mx-auto rounded"></div>
+        </div>
+        <div class="space-y-8">
+          {routePlans.threeDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl overflow-hidden border-l-4 border-blue-400">
+              <div class="bg-kailash-dark text-white p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-kailash-gold font-semibold">{day.day}</span>
+                    <h4 class="font-display text-xl font-bold mt-1">{day.title}</h4>
+                  </div>
+                  <div class="text-right text-sm text-gray-400">
+                    <p>{day.distance}</p>
+                    <p>{day.altitude}</p>
+                    <p>{day.duration}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700 mb-4 leading-relaxed">{day.description}</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+                      <span class="text-kailash-gold">★</span>
+                      ルートの主要地点
+                    </h5>
+                    <ul class="space-y-1">
+                      {day.highlights.map((h, i) => (
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                          <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="bg-amber-50 rounded-xl p-4">
+                    <h5 class="font-semibold mb-2 text-amber-800 text-sm">💡 重要アドバイス</h5>
+                    <p class="text-amber-700 text-sm">{day.tips}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Important Tips Section -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">巡礼前に知っておくべきこと</h2>
+        <p class="text-lg text-gray-600">安全で成功する巡礼のために必要な情報</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Altitude Sickness Warning -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-4xl mb-4">🏔️</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">高山病の警告</h3>
+          <p class="text-gray-600 mb-4">巡礼は4600mから5648mの標高で行われます。高山病（AMS）は深刻な脅威です。症状：頭痛、吐き気、めまい、疲労、呼吸困難。</p>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              チベット到着後、最低2-3日間の高度順応期間を設けてください
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              十分な水分補給を（1日3-4リットル）
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              アルコールと喫煙は完全に避けてください
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              症状が重い場合は直ちに下山してください — これが唯一の効果的な治療法です
+            </li>
+          </ul>
+        </div>
+
+        <!-- What to Bring -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-4xl mb-4">🎒</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">持ち物リスト</h3>
+          <p class="text-gray-600 mb-4">高所巡礼には適切な準備が不可欠です。このリストがあなたの安全を確保します：</p>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              防寒着（重ね着） — サーマル、フリース、ダウンジャケット
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              防水ジャケットとパンツ — 天候は急変します
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              トレッキングブーツ（履き慣らしたもの、新品不可）
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              ヘッドランプと予備バッテリー
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              日焼け止め（SPF 50+）、サングラス、リップクリーム
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              -10°C対応寝袋（宿泊地点用）
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              個人用医薬品と基本救急キット
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              高カロリー軽食（チョコレート、ナッツ、エナジーバー）
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              水筒／魔法瓶（最低2リットル）
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              トレッキングポール（膝の保護に非常に有効）
+            </li>
+          </ul>
+        </div>
+
+        <!-- Best Season -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-4xl mb-4">📅</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">最適な時期</h3>
+          <p class="text-gray-600 mb-4">カイラス巡礼に最適な時期：</p>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              <span class="font-semibold">5月〜10月：</span> 最適な気候、峠は開放、気温は許容範囲
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              <span class="font-semibold">6月〜9月：</span> ベストシーズン、温暖な気温、ただし降雨の可能性あり
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              <span class="font-semibold">11月〜4月：</span> 峠は雪で閉鎖、巡礼は不可能
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              <span class="font-semibold">サガダワ（5月/6月）：</span> チベット仏教で最も神聖な月、特別な宗教的意義
+            </li>
+          </ul>
+        </div>
+
+        <!-- Important Reminders -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-4xl mb-4">⚠️</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">重要注意事項</h3>
+          <p class="text-gray-600 mb-4">巡礼を始める前に以下の点に注意してください：</p>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              許可証は必須です — 旅行代理店を通じた事前手配が必要
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              チベットは団体旅行のみ許可 — 個人旅行は不可能
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              自分の身体の限界を知ってください — 巡礼は競争ではありません
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              聖地を尊重してください — 経旗、マニ石、寺院
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              環境を守ってください — ゴミはすべて持ち帰り
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              高所トレッキングとヘリコプター救助をカバーする保険に加入してください
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <section class="py-16 bg-white border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl mb-3">🛡️</div>
+          <p class="font-medium">プロガイド</p>
+          <p class="text-sm text-gray-500">10年以上の高所経験</p>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">❤️</div>
+          <p class="font-medium">医療サポート</p>
+          <p class="text-sm text-gray-500">酸素 + 医薬品 + 救助</p>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">🤝</div>
+          <p class="font-medium">宗教的中立</p>
+          <p class="text-sm text-gray-500">すべての信仰伝統を尊重</p>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">⏰</div>
+          <p class="font-medium">24時間サポート</p>
+          <p class="text-sm text-gray-500">いつでも対応</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">巡礼の準備はできましたか？</h2>
+      <p class="text-kailash-dark/80 mb-8">旅の計画を立て、この人生を変える巡礼の準備を始めましょう</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/guide" class="inline-flex items-center bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-kailash-dark/90 transition">
+          巡礼ガイドを見る
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+        <a href="/contact" class="inline-flex items-center border-2 border-kailash-dark text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/10 transition">
+          お問い合わせ
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

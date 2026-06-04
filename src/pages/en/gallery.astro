@@ -1,0 +1,300 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Gallery - Mount Kailash | Sacred Images" description="Stunning photography of Mount Kailash, Lake Manasarovar, and the Tibetan Plateau. Golden peak, aerial views, sunrise moments, and yak pastures — glimpses of the sacred land.">
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/70 via-kailash-dark/50 to-kailash-dark"></div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">
+        Visual Journey
+      </p>
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+        Gallery
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
+        Photography of the Sacred Mountain
+      </p>
+      <p class="text-base text-white/50 mt-4 max-w-xl mx-auto">
+        Breathtaking images of Mount Kailash, Lake Manasarovar, and the Tibetan Plateau — where earth meets sky
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Grid Section -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">Image Collection</p>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">Glimpses of the Sacred Land</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Each photograph tells a story — the majesty of Kailash, the tranquility of Manasarovar, and the vastness of the Tibetan Plateau
+        </p>
+      </div>
+
+      <!-- Filter Tags -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12" id="filter-bar">
+        <button
+          class="filter-btn bg-kailash-gold text-kailash-dark px-5 py-2 rounded-full text-sm font-semibold transition"
+          data-filter="all"
+        >
+          All
+        </button>
+        <button
+          class="filter-btn bg-white text-gray-600 px-5 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 transition"
+          data-filter="landscape"
+        >
+          Landscape
+        </button>
+        <button
+          class="filter-btn bg-white text-gray-600 px-5 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 transition"
+          data-filter="aerial"
+        >
+          Aerial
+        </button>
+        <button
+          class="filter-btn bg-white text-gray-600 px-5 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 transition"
+          data-filter="culture"
+        >
+          Culture
+        </button>
+        <button
+          class="filter-btn bg-white text-gray-600 px-5 py-2 rounded-full text-sm font-medium hover:bg-kailash-gold/20 transition"
+          data-filter="pilgrimage"
+        >
+          Pilgrimage
+        </button>
+      </div>
+
+      <!-- 2x3 Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+        <!-- Card 1: Golden Kailash Peak -->
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group" data-category="landscape pilgrimage">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-golden.jpg"
+              alt="Golden Kailash Peak"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">Golden Kailash Peak</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Mount Kailash bathed in golden sunset light — a view that touches the soul and fills the mind with peace.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Aerial View of Mount Kailash -->
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group" data-category="aerial landscape">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-aerial.jpg"
+              alt="Aerial View of Mount Kailash"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">Aerial View of Mount Kailash</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              From above, the pyramid shape of Kailash becomes even more striking — standing solitary and majestic amid the surrounding mountain ranges.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Sacred Lake Manasarovar -->
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group" data-category="landscape pilgrimage">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-lake.jpg"
+              alt="Sacred Lake Manasarovar"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">Sacred Lake Manasarovar</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              One of the world's highest freshwater lakes — its deep blue waters mirror the sky. Known as the "Jade Pool of Heaven," it is the source of four great rivers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4: Dawn at Mount Kailash -->
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group" data-category="landscape pilgrimage">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-sunrise.jpg"
+              alt="Dawn at Mount Kailash"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">Dawn at Mount Kailash</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              The first rays of sunlight touch the summit of Kailash — in that moment, time seems to stand still, and all creation bows in silent reverence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5: Yak Pasture Below the Sacred Mountain -->
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group" data-category="culture landscape">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-yaks.jpg"
+              alt="Yak Pasture Below the Sacred Mountain"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">Yak Pasture Below the Sacred Mountain</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Yaks grazing on the vast Tibetan Plateau grasslands at the foot of Kailash — a symbol of Himalayan simplicity and harmonious coexistence with nature.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 6: The Pilgrimage Path -->
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group" data-category="pilgrimage culture">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/hero.jpg"
+              alt="The Pilgrimage Path"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">The Pilgrimage Path</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              The sacred kora route winding around Mount Kailash — a 52-kilometer journey of body and spirit, where every step is a prayer and every breath a meditation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats / Trivia Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">6</p>
+          <p class="text-gray-600">Curated Images</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">6,656<span class="text-lg">m</span></p>
+          <p class="text-gray-600">Sacred Elevation</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">4</p>
+          <p class="text-gray-600">Sacred Traditions</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">&infin;</p>
+          <p class="text-gray-600">Endless Faith</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Submission CTA Section -->
+  <section class="py-20 bg-kailash-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="mb-8">
+        <span class="inline-block text-5xl mb-6">&#x1F4F8;</span>
+      </div>
+      <h2 class="font-display text-4xl font-bold text-white mb-4">
+        Share Your Kailash Journey
+      </h2>
+      <p class="text-lg text-white/70 mb-4 max-w-2xl mx-auto leading-relaxed">
+        Have you traveled to Mount Kailash? Share your photographs and stories with us.
+      </p>
+      <p class="text-base text-white/50 mb-10 max-w-xl mx-auto">
+        Your photos can inspire fellow pilgrims around the world. Behind every image lies a unique spiritual journey — bring it to light.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition inline-flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          Submit Photos
+        </a>
+        <a
+          href="/contact"
+          class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition inline-flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          Contact Us
+        </a>
+      </div>
+
+      <p class="text-white/30 text-sm mt-8">
+        Send your photos to kailash2026Lucas@outlook.com or reach us on WeChat: Kailash2026
+      </p>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Gallery filter functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryCards = document.querySelectorAll('.gallery-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      // Update active button styles
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-kailash-gold', 'text-kailash-dark', 'font-semibold');
+        b.classList.add('bg-white', 'text-gray-600', 'font-medium');
+      });
+      btn.classList.add('bg-kailash-gold', 'text-kailash-dark', 'font-semibold');
+      btn.classList.remove('bg-white', 'text-gray-600', 'font-medium');
+
+      // Show/hide cards with animation
+      galleryCards.forEach(card => {
+        const categories = card.getAttribute('data-category');
+
+        if (filter === 'all' || (categories && categories.includes(filter))) {
+          card.style.display = '';
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+          card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          setTimeout(() => {
+            if (card.style.opacity === '0') {
+              card.style.display = 'none';
+            }
+          }, 300);
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,225 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="ギャラリー - カイラス山 | 聖なる映像" description="カイラス山、マナサロワール湖、チベット高原の美しい写真。黄金の山頂、空撮、夜明け、ヤクの放牧地 — 聖地の姿を映像で巡る。">
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/70 via-kailash-dark/50 to-kailash-dark"></div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">
+        映像の旅
+      </p>
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+        ギャラリー
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
+        聖なる山の写真
+      </p>
+      <p class="text-base text-white/50 mt-4 max-w-xl mx-auto">
+        カイラス山、マナサロワール湖、チベット高原の美しい映像 — 大地が天空と出会う場所
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Grid Section -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">写真コレクション</p>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">聖地の姿</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          一枚一枚が物語を語ります — カイラスの荘厳さ、マナサロワールの静寂、そしてチベット高原の広がり
+        </p>
+      </div>
+
+      <!-- 2x3 Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1: Kailash Golden Peak -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-golden.jpg"
+              alt="カイラス山の黄金の山頂"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">黄金の山頂</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              夕日に染まる黄金のカイラス山 — 魂を揺さぶり、心を静寂で満たす光景です。
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Aerial View -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-aerial.jpg"
+              alt="カイラス山の空撮"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">空からの眺め</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              上空から見ると、カイラスのピラミッド型の山容がより一層際立ちます — 周囲の山々に囲まれながらも孤高にそびえる壮大な姿。
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Manasarovar Lake -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-lake.jpg"
+              alt="マナサロワール湖"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">マナサロワール湖</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              世界で最も高い場所にある淡水湖 — その青い水面は天空を映し、「天国の翡翠の池」と称えられています。
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4: Sunrise -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-sunrise.jpg"
+              alt="カイラス山の夜明け"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">夜明けの輝き</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              太陽の最初の光がカイラスの山頂に触れる瞬間 — 時が止まり、万物が静かな祈りに包まれるかのようです。
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5: Yak Pasture -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/kailash-yaks.jpg"
+              alt="カイラス地域のヤクの放牧地"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">ヤクの放牧地</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              チベット高原の広大な草原を歩むヤクの群れ — ヒマラヤの素朴な暮らしと自然との共生の象徴です。
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 6: Hero View -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
+          <div class="relative overflow-hidden">
+            <img
+              src="/images/hero.jpg"
+              alt="カイラス山の壮大な全景"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-kailash-dark mb-2">壮大な全景</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              雪を頂いた山頂、青い空、そして眼前に広がる広大なチベット高原 — カイラス山の完全なる荘厳さ。自然が生み出した唯一無二の奇跡。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats / Trivia Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">6</p>
+          <p class="text-gray-600">選りすぐりの写真</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">6,656<span class="text-lg">m</span></p>
+          <p class="text-gray-600">聖なる標高</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">4</p>
+          <p class="text-gray-600">聖なる伝統</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-kailash-gold mb-2">&infin;</p>
+          <p class="text-gray-600">無限の信仰</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Submission CTA Section -->
+  <section class="py-20 bg-kailash-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="mb-8">
+        <span class="inline-block text-5xl mb-6">📸</span>
+      </div>
+      <h2 class="font-display text-4xl font-bold text-white mb-4">
+        あなたのカイラス巡礼を共有してください
+      </h2>
+      <p class="text-lg text-white/70 mb-4 max-w-2xl mx-auto leading-relaxed">
+        カイラス山を訪れたことがありますか？あなたの写真と物語を私たちと共有してください。
+      </p>
+      <p class="text-base text-white/50 mb-10 max-w-xl mx-auto">
+        あなたの写真は他の巡礼者に感動を与えることができます。一枚一枚の背後には、かけがえのない spiritual journey が隠れています — それを世界に届けましょう。
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/ja/contact"
+          class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition inline-flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          写真を投稿する
+        </a>
+        <a
+          href="/ja/contact"
+          class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition inline-flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          お問い合わせ
+        </a>
+      </div>
+
+      <p class="text-white/30 text-sm mt-8">
+        写真を kailash2026Lucas@outlook.com までお送りいただくか、WeChat: Kailash2026 までご連絡ください
+      </p>
+    </div>
+  </section>
+
+</Layout>

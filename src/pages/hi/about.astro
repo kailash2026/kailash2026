@@ -1,0 +1,257 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const values = [
+  {
+    title: 'सभी धर्मों का सम्मान',
+    desc: 'हम तिब्बती बौद्ध धर्म, हिंदू धर्म, बॉन धर्म और जैन धर्म — चारों परंपराओं को समान रूप से प्रस्तुत करते हैं। हर आस्था का अपना स्थान है, और हम किसी एक पक्ष को नहीं चुनते। हर सच्ची श्रद्धा सम्मान के योग्य है।',
+    icon: '🕉️'
+  },
+  {
+    title: 'सटीकता और ईमानदारी',
+    desc: 'हम धार्मिक कथाओं और ऐतिहासिक तथ्यों के बीच अंतर स्पष्ट करते हैं। अनिश्चितता को स्वीकार करते हैं, विवादों को प्रस्तुत करते हैं, और कभी भी तारीखों या विवरणों को गढ़ते नहीं हैं। हर जानकारी शोध और सत्यापन पर आधारित है।',
+    icon: '📚'
+  },
+  {
+    title: 'सुरक्षा सर्वप्रथम',
+    desc: 'कैलाश यात्रा एक उच्च-ऊंचाई वाली चुनौती है। हम सुरक्षा को सबसे ऊपर रखते हैं — ऊंचाई के अनुकूलन, चिकित्सा तैयारी, मौसम की जानकारी और आपातकालीन योजना पर विस्तृत मार्गदर्शन प्रदान करते हैं। आपकी सुरक्षित यात्रा ही हमारी प्राथमिकता है।',
+    icon: '🛡️'
+  },
+  {
+    title: 'सांस्कृतिक संरक्षण',
+    desc: 'कैलाश क्षेत्र की समृद्ध सांस्कृतिक विरासत — प्राचीन मठ, तिब्बती परंपराएं, स्थानीय रीति-रिवाज और मौखिक इतिहास — को दस्तावेज करना और संरक्षित करना हमारा कर्तव्य है। हम आने वाली पीढ़ियों के लिए इस ज्ञान को जीवित रखना चाहते हैं।',
+    icon: '🏛️'
+  }
+];
+
+const teamValues = [
+  {
+    title: 'जुनून और समर्पण',
+    desc: 'हमारी टीम का हर सदस्य कैलाश पर्वत और उसकी सांस्कृतिक गहराई के प्रति गहरा सम्मान रखता है। यह सिर्फ एक परियोजना नहीं — यह एक आह्वान है।',
+    icon: '🔥'
+  },
+  {
+    title: 'वैश्विक दृष्टिकोण',
+    desc: 'हम विभिन्न महाद्वीपों, भाषाओं और सांस्कृतिक पृष्ठभूमियों से आते हैं। यह विविधता हमें हर तीर्थयात्री के दृष्टिकोण को समझने और उसका सम्मान करने में सक्षम बनाती है।',
+    icon: '🌍'
+  },
+  {
+    title: 'निरंतर सीखना',
+    desc: 'कैलाश के बारे में हर दिन कुछ नया सीखने को मिलता है। हम लगातार शोध करते हैं, विशेषज्ञों से परामर्श लेते हैं, और अपनी सामग्री को अद्यतन करते रहते हैं। सीखने की यह प्रक्रिया कभी समाप्त नहीं होती।',
+    icon: '📖'
+  },
+  {
+    title: 'पारदर्शिता',
+    desc: 'हम अपनी कार्यप्रणाली, स्रोतों और सीमाओं के बारे में खुले हैं। हम मानते हैं कि विश्वास पारदर्शिता से बनता है, और हम अपने पाठकों के साथ कभी कोई बात नहीं छिपाते।',
+    icon: '🔍'
+  }
+];
+---
+
+<Layout title="हमारे बारे में - कैलाश 2026 | वैश्विक तीर्थयात्रा मंच" description="कैलाश 2026 के बारे में जानें — दुनिया भर के तीर्थयात्रियों को जोड़ने वाला पहला अंतर-धार्मिक मंच। हमारी कहानी, मिशन, मूल्य और दृष्टिकोण।">
+
+  <!-- Hero Section -->
+  <section class="relative bg-kailash-dark">
+    <div class="relative w-full h-[45vh] lg:h-[55vh]">
+      <div class="absolute inset-0 bg-[url('/images/kailash-sunrise.jpg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/30 via-transparent to-kailash-dark"></div>
+    </div>
+
+    <div class="relative -mt-20 z-10 px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="max-w-5xl mx-auto text-center">
+        <p class="text-kailash-gold text-sm tracking-widest uppercase mb-4">हमारे बारे में</p>
+        <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+          कैलाश 2026 को जानें
+        </h1>
+        <p class="text-xl text-white/70 max-w-3xl mx-auto mb-4 leading-relaxed">
+          विश्व का पहला अंतर-धार्मिक कैलाश पर्वत सांस्कृतिक मंच — जहां चार धर्मों की आस्थाएं एक साथ मिलती हैं
+        </p>
+        <p class="text-lg text-white/40 italic">
+          दुनिया भर के तीर्थयात्रियों को सटीक, निष्पक्ष और गहन जानकारी से जोड़ना
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-4">हमारी कहानी</h2>
+        <div class="w-24 h-1 bg-kailash-gold mx-auto"></div>
+      </div>
+      <div class="prose prose-lg mx-auto text-gray-700 space-y-6">
+        <p class="text-lg leading-relaxed">
+          कैलाश 2026 का जन्म एक साधारण अनुभव से हुआ। जब हमने कैलाश पर्वत के बारे में जानकारी खोजनी शुरू की, तो हमने पाया कि दुनिया में एक भी ऐसा मंच नहीं है जो चारों धर्मों — तिब्बती बौद्ध धर्म, हिंदू धर्म, बॉन धर्म और जैन धर्म — के अनुयायियों के प्रश्नों का एक साथ उत्तर दे सके।
+        </p>
+        <p class="text-lg leading-relaxed">
+          हिंदू वेबसाइटें बॉन परंपरा का उल्लेख नहीं करतीं, बौद्ध स्रोत भगवान शिव की चर्चा नहीं करते, यात्रा गाइडों में धार्मिक गहराई नहीं होती, और अकादमिक लेख आम पाठक के लिए बहुत जटिल होते हैं। हर कोई अपने-अपने दायरे में बंटा हुआ था।
+        </p>
+        <p class="text-lg leading-relaxed">
+          हमने सोचा — क्यों न एक ऐसा स्थान बनाया जाए जहां एक तिब्बती बौद्ध भिक्षु, एक भारतीय हिंदू तीर्थयात्री, एक बॉन अनुयायी, एक जैन साधु, और यहां तक कि वे लोग भी जो किसी धर्म को नहीं मानते लेकिन बस उत्सुक हैं — सभी को अपनी ज़रूरत की जानकारी मिल सके।
+        </p>
+        <p class="text-lg leading-relaxed">
+          यह कोई ट्रैवल एजेंसी की वेबसाइट नहीं है। हम यात्रा पैकेज नहीं बेचते, न ही बुकिंग के लिए दबाव डालते हैं। हम कैलाश संस्कृति का प्रसार करते हैं, विश्वास बनाते हैं, और फिर तीर्थयात्रियों को स्वयं निर्णय लेने देते हैं कि उन्हें कब और कैसे जाना है।
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-4">हमारा मिशन</h2>
+        <div class="w-24 h-1 bg-kailash-gold mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          दुनिया भर के तीर्थयात्रियों को कैलाश पर्वत की सटीक, निष्पक्ष और गहन जानकारी से जोड़ना
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-kailash-light rounded-2xl p-8 text-center hover:shadow-lg transition">
+          <div class="text-5xl mb-4">🌏</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">वैश्विक जुड़ाव</h3>
+          <p class="text-gray-600 leading-relaxed">
+            भारत, नेपाल, चीन, जापान, अमेरिका, यूरोप और दुनिया के हर कोने से तीर्थयात्रियों को एक मंच पर लाना। भाषा और संस्कृति की बाधाओं को तोड़कर सभी को कैलाश से जोड़ना।
+          </p>
+        </div>
+
+        <div class="bg-kailash-light rounded-2xl p-8 text-center hover:shadow-lg transition">
+          <div class="text-5xl mb-4">📖</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">प्रामाणिक ज्ञान</h3>
+          <p class="text-gray-600 leading-relaxed">
+            क्षेत्रीय अनुसंधान, विशेषज्ञ सलाह और प्रत्यक्ष अनुभव पर आधारित सामग्री। न कोई अफवाह, न कोई कल्पना — केवल सत्यापित और विश्वसनीय जानकारी।
+          </p>
+        </div>
+
+        <div class="bg-kailash-light rounded-2xl p-8 text-center hover:shadow-lg transition">
+          <div class="text-5xl mb-4">🤝</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">अंतर-धार्मिक संवाद</h3>
+          <p class="text-gray-600 leading-relaxed">
+            चारों धार्मिक परंपराओं के बीच सम्मानजनक संवाद को बढ़ावा देना। यह दिखाना कि कैलाश विभाजन का नहीं, बल्कि एकता का प्रतीक है — एक ऐसा पर्वत जो सबको जोड़ता है।
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-4">हमारे मूल मूल्य</h2>
+        <div class="w-24 h-1 bg-kailash-gold mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          ये वे सिद्धांत हैं जो हमारे हर निर्णय, हर लेख और हर बातचीत का मार्गदर्शन करते हैं
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {values.map((value) => (
+          <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+            <div class="flex items-start gap-4">
+              <div class="text-4xl flex-shrink-0">{value.icon}</div>
+              <div>
+                <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">{value.title}</h3>
+                <p class="text-gray-600 leading-relaxed">{value.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Values -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-4">हमारी टीम के मूल्य</h2>
+        <div class="w-24 h-1 bg-kailash-gold mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          हम एक छोटी लेकिन समर्पित टीम हैं जो कैलाश के प्रति अपने जुनून से एकजुट हैं
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {teamValues.map((item) => (
+          <div class="bg-kailash-light rounded-2xl p-8 hover:shadow-md transition">
+            <div class="text-4xl mb-4">{item.icon}</div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">{item.title}</h3>
+            <p class="text-gray-600 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">संख्या में कैलाश 2026</h2>
+        <div class="w-24 h-1 bg-kailash-gold mx-auto mb-6"></div>
+        <p class="text-lg text-white/60 max-w-2xl mx-auto">
+          हर संख्या के पीछे समर्पण, शोध और कैलाश के प्रति प्रेम की कहानी है
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="group">
+          <p class="text-5xl md:text-6xl font-bold text-kailash-gold mb-3">120+</p>
+          <p class="text-white/70 text-lg">विस्तृत पृष्ठ</p>
+          <p class="text-white/40 text-sm mt-2">संस्कृति, मार्ग, इतिहास,<br/>गाइड और कहानियां</p>
+        </div>
+
+        <div class="group">
+          <p class="text-5xl md:text-6xl font-bold text-kailash-gold mb-3">4</p>
+          <p class="text-white/70 text-lg">भाषाएं</p>
+          <p class="text-white/40 text-sm mt-2">हिंदी · English · 中文 · 日本語<br/>और भी जुड़ने वाली हैं</p>
+        </div>
+
+        <div class="group">
+          <p class="text-5xl md:text-6xl font-bold text-kailash-gold mb-3">5+</p>
+          <p class="text-white/70 text-lg">वर्षों का शोध</p>
+          <p class="text-white/40 text-sm mt-2">क्षेत्रीय यात्राएं, विशेषज्ञ<br/>साक्षात्कार और गहन अध्ययन</p>
+        </div>
+
+        <div class="group">
+          <p class="text-5xl md:text-6xl font-bold text-kailash-gold mb-3">10,000+</p>
+          <p class="text-white/70 text-lg">पाठक</p>
+          <p class="text-white/40 text-sm mt-2">दुनिया भर से मासिक<br/>आगंतुक और बढ़ रहे हैं</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-4">
+        हमसे जुड़ें
+      </h2>
+      <p class="text-kailash-dark/80 text-lg mb-3 leading-relaxed max-w-2xl mx-auto">
+        चाहे आप कैलाश यात्रा की योजना बना रहे हों, संस्कृति पर शोध कर रहे हों, या बस उत्सुक हों — हमारे साथ जुड़ें।
+      </p>
+      <p class="text-kailash-dark/60 text-base mb-8 max-w-xl mx-auto">
+        आपके प्रश्न, सुझाव और कहानियां हमें बेहतर बनाती हैं। हमें लिखें, हम हर संदेश का उत्तर देते हैं।
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/hi/contact" class="bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/90 transition inline-flex items-center justify-center">
+          संपर्क करें
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </a>
+        <a href="/hi/culture" class="bg-white text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition inline-flex items-center justify-center">
+          संस्कृति खोजें
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

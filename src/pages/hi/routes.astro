@@ -1,0 +1,984 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const routePlans = {
+  oneDay: {
+    name: "एक दिवसीय परिक्रमा",
+    subtitle: "चरम चुनौती · केवल अनुभवी तीर्थयात्रियों और पेशेवर सहनशक्ति एथलीटों के लिए",
+    totalDistance: "52-56 किमी",
+    totalDuration: "1 दिन (12-22 घंटे)",
+    difficulty: "चरम",
+    difficultyColor: "purple",
+    description: "एक ही दिन में 52-56 किमी की बाहरी परिक्रमा पूरी करना कैलाश तीर्थयात्रा का सबसे चुनौतीपूर्ण रूप है। ऊँचाई 4560मी→5648मी→4560मी। शारीरिक क्षमता, ऊँचाई अनुकूलन और इच्छाशक्ति की चरम परीक्षा। हर साल तेज़ ऊँचाई बीमारी, हाइपोथर्मिया और रास्ता भटकने के कारण बचाव के मामले सामने आते हैं।",
+    warning: "⚠️ अत्यधिक जोखिम! हर साल बचाव के मामले होते हैं। केवल तीन समूहों के लिए: अनुभवी तिब्बती तीर्थयात्री, पेशेवर सहनशक्ति एथलीट/ट्रेल रनर, और असाधारण शारीरिक क्षमता वाले दुर्लभ कठोर ट्रेकर। सामान्य पर्यटकों को बिल्कुल प्रयास नहीं करना चाहिए!",
+    days: [
+      {
+        day: "पूरा दिन",
+        title: "तारचेन → दिरापुक → दोलमा ला → तारचेन",
+        distance: "52-56 किमी",
+        altitude: "4560मी → 5648मी → 4560मी",
+        duration: "12-22 घंटे",
+        description: "सुबह 3-5 बजे हेडलैम्प के साथ अंधेरे में प्रस्थान करें। चोकु गोम्पा और दिरापुक से गुज़रते हुए (रात्रि विश्राम नहीं), 5648मी दोलमा ला दर्रे को पार करें, त्सोजी झील और ज़ोंगचु मंदिर के पास से बिना रुके सीधे तारचेन लौटें। कोई आवास नहीं — पर्याप्त आपूर्ति और आपातकालीन उपकरण साथ रखें।",
+        highlights: ["चोकु गोम्पा", "दिरापुक (बिना रुके)", "दोलमा ला दर्रा (5648मी)", "त्सोजी झील", "ज़ोंगचु मंदिर (बिना रुके)", "तारचेन (समापन)"],
+        tips: "हेडलैम्प और अतिरिक्त बैटरी अनिवार्य! उच्च-कैलोरी भोजन, आपातकालीन कंबल, सैटेलाइट फ़ोन या GPS साथ रखें। स्थानीय गाइड या कुली की सहायता लें। यदि ऊँचाई बीमारी के लक्षण (सिरदर्द, मतली, सांस लेने में कठिनाई) दिखें, तुरंत रुकें और नीचे उतरें।"
+      }
+    ]
+  },
+  twoDay: {
+    name: "दो दिवसीय परिक्रमा",
+    subtitle: "कठिन चुनौती · अच्छे ऊँचाई अनुकूलन वाले अनुभवी ट्रेकरों के लिए",
+    totalDistance: "52 किमी",
+    totalDuration: "2 दिन 1 रात",
+    difficulty: "कठिन",
+    difficultyColor: "red",
+    description: "दिन 1: तारचेन से दिरापुक (22किमी), 4600मी→5200मी, 6-8 घंटे। दिन 2: सुबह 3-4 बजे प्रस्थान, दोलमा ला दर्रा पार कर सीधे तारचेन लौटें (30किमी), 5200मी→5648मी→4600मी, 10-14 घंटे। केवल एक रात का विश्राम, दूसरा दिन अत्यधिक कठिन।",
+    warning: "⚠️ दूसरे दिन 30किमी चलना और 5648मी दर्रा पार करना — अत्यधिक कठिन। पहली बार परिक्रमा करने वालों के लिए अनुशंसित नहीं।",
+    days: [
+      {
+        day: "दिन 1",
+        title: "तारचेन → दिरापुक",
+        distance: "22 किमी",
+        altitude: "4600मी → 5200मी",
+        duration: "6-8 घंटे",
+        description: "तारचेन से प्रस्थान करें, चोकु गोम्पा से गुज़रते हुए, ल्हाकू घाटी के साथ ऊपर की ओर दिरापुक पहुँचें। ऊँचाई अनुकूलन के लिए अपेक्षाकृत कोमल भूभाग। शाम 3 बजे से पहले दिरापुक पहुँचें और दूसरे दिन के लिए जल्दी आराम करें।",
+        highlights: ["चोकु गोम्पा", "मणि पत्थरों का ढेर", "दिरापुक (एकमात्र आवास)"],
+        tips: "पहले दिन जल्दबाज़ी न करें। शरीर को ऊँचाई के अनुकूल होने का समय दें। दिरापुक एकमात्र आवास स्थल है — व्यस्त मौसम में बिस्तर की उपलब्धता पहले से सुनिश्चित करें।"
+      },
+      {
+        day: "दिन 2",
+        title: "दिरापुक → दोलमा ला → तारचेन",
+        distance: "30 किमी",
+        altitude: "5200मी → 5648मी → 4600मी",
+        duration: "10-14 घंटे",
+        description: "सुबह 3-4 बजे हेडलैम्प के साथ अंधेरे में प्रस्थान करें। 5648मी दोलमा ला दर्रा पार करें। त्सोजी झील और ज़ोंगचु मंदिर से उतरते हुए बिना रुके सीधे तारचेन लौटें। शरीर और इच्छाशक्ति की चरम परीक्षा।",
+        highlights: ["दोलमा ला दर्रा (5648मी, सर्वोच्च बिंदु)", "त्सोजी झील", "ज़ोंगचु मंदिर", "तारचेन (समापन)"],
+        tips: "हेडलैम्प अनिवार्य! दर्रे से 1किमी पहले सबसे खड़ी चढ़ाई — लय बनाए रखें। उतरते समय घुटनों की रक्षा करें। चायघरों में गर्म पानी की तुरंत पूर्ति। ऊर्जा बचाने के लिए कुली या घोड़े पर विचार करें।"
+      }
+    ]
+  },
+  threeDay: {
+    name: "तीन दिवसीय परिक्रमा",
+    subtitle: "मानक यात्रा · अधिकांश तीर्थयात्रियों के लिए आरामदायक गति ★ अनुशंसित",
+    totalDistance: "52 किमी",
+    totalDuration: "3 दिन 2 रात",
+    difficulty: "मध्यम",
+    difficultyColor: "blue",
+    description: "सबसे क्लासिक परिक्रमा यात्रा। पहला दिन ऊँचाई अनुकूलन के लिए, दूसरा दिन दर्रा पार करने के लिए, तीसरा दिन आसान वापसी। दो रातें क्रमशः दिरापुक और ज़ोंगचु में। अधिकांश तीर्थयात्रियों के लिए उचित गति।",
+    warning: "",
+    days: [
+      {
+        day: "दिन 1",
+        title: "तारचेन → दिरापुक",
+        distance: "22 किमी",
+        altitude: "4600मी → 5200मी",
+        duration: "6-8 घंटे",
+        description: "तारचेन से प्रस्थान करें, चोकु गोम्पा से गुज़रते हुए, ल्हाकू घाटी के साथ ऊपर की ओर दिरापुक पहुँचें। ऊँचाई अनुकूलन के लिए कोमल भूभाग। दिरापुक कैलाश के उत्तरी मुख के सामने स्थित है — फ़ोटो के लिए उत्तम स्थान।",
+        highlights: ["चोकु गोम्पा", "मणि पत्थरों का ढेर", "दिरापुक (D1 शिविर, उत्तरी मुख दृश्य)"],
+        tips: "पहले दिन जल्दबाज़ी न करें। शरीर को ऊँचाई के अनुकूल होने का समय दें। आवास साधारण है — -10°C स्लीपिंग बैग साथ लाएँ।"
+      },
+      {
+        day: "दिन 2",
+        title: "दिरापुक → ज़ोंगचु",
+        distance: "18 किमी",
+        altitude: "5200मी → 5648मी → 4800मी",
+        duration: "8-10 घंटे",
+        description: "सबसे कठिन दिन। सुबह जल्दी प्रस्थान कर 5648मी दोलमा ला दर्रा पार करें — पूरी परिक्रमा का सर्वोच्च बिंदु। त्सोजी झील (करुणा झील) से उतरते हुए ज़ोंगचु मंदिर पहुँचें। रास्ते में कई चायघरों पर विश्राम और पुनः आपूर्ति।",
+        highlights: ["दोलमा ला दर्रा (5648मी, सर्वोच्च बिंदु)", "त्सोजी झील", "ज़ोंगचु मंदिर (D2 शिविर)"],
+        tips: "दर्रे से 1किमी पहले सबसे खड़ी चढ़ाई — लय बनाए रखें। उतरते समय घुटनों की रक्षा करें। ज़ोंगचु का आवास दिरापुक से अधिक साधारण है और व्यस्त मौसम में भर सकता है।"
+      },
+      {
+        day: "दिन 3",
+        title: "ज़ोंगचु → तारचेन",
+        distance: "12 किमी",
+        altitude: "4800मी → 4600मी",
+        duration: "3-4 घंटे",
+        description: "आसान दिन — घाटी के साथ कोमल ढलान से तारचेन वापस। परिक्रमा पूर्ण! ज़ोंगदुई चायघर पर अंतिम विश्राम।",
+        highlights: ["घाटी दृश्य", "मानसरोवर झील का दूरस्थ दृश्य", "ज़ोंगदुई चायघर", "तारचेन (समापन)"],
+        tips: "जीत नज़दीक है लेकिन सावधान रहें — कदम देखकर चलें। तारचेन लौटकर अच्छे भोजन के साथ परिक्रमा पूर्णता का जश्न मनाएँ!"
+      }
+    ]
+  }
+};
+
+const supplyStations = [
+  {
+    id: 1,
+    name: "तारचेन",
+    nameEn: "Tarqin",
+    altitude: 4600,
+    distance: "0 किमी (प्रारंभ)",
+    type: "start",
+    supplies: ["पानी", "कोल्ड ड्रिंक", "एनर्जी ड्रिंक", "इंस्टेंट नूडल्स", "ब्रेड", "चॉकलेट", "बीफ़ जर्की", "बिस्कुट", "ऑक्सीजन", "जैकेट", "टोपी", "दस्ताने", "ट्रेकिंग पोल", "घुटने की पट्टी", "सनस्क्रीन", "लिप बाम"],
+    lodging: "गेस्टहाउस और होटल (डॉर्म/निजी कमरे)",
+    services: "रेस्तरां, दुकानें, पेट्रोल पंप, डाकघर, इंटरनेट कैफ़े, चिकित्सालय, वाहन/घोड़ा/कुली किराया"
+  },
+  {
+    id: 2,
+    name: "सेक्सुंग प्रार्थना ध्वज",
+    nameEn: "Sexung Prayer Flags",
+    altitude: 4700,
+    distance: "7 किमी",
+    type: "teahouse",
+    supplies: ["मक्खन चाय", "दूध चाय", "गर्म पानी", "इंस्टेंट नूडल्स", "बिस्कुट"],
+    lodging: "कोई आवास नहीं",
+    services: "छोटा चायघर, 10-20 मिनट ठहराव अनुशंसित"
+  },
+  {
+    id: 3,
+    name: "चोकु पुल",
+    nameEn: "Choku Bridge",
+    altitude: 4800,
+    distance: "+2.6 किमी",
+    type: "teahouse",
+    supplies: ["गर्म पानी", "पेय", "स्नैक्स"],
+    lodging: "कोई आवास नहीं",
+    services: "सड़क किनारे की दुकान"
+  },
+  {
+    id: 4,
+    name: "जोमू जलप्रपात",
+    nameEn: "Jomu Waterfall",
+    altitude: 4900,
+    distance: "+4.5 किमी",
+    type: "teahouse",
+    supplies: ["मक्खन चाय", "गर्म पानी", "इंस्टेंट नूडल्स"],
+    lodging: "कोई आवास नहीं",
+    services: "अस्थायी आश्रय"
+  },
+  {
+    id: 5,
+    name: "हयग्रीव चट्टान चायघर",
+    nameEn: "Hayagriva Rock Teahouse",
+    altitude: 5000,
+    distance: "+2.3 किमी",
+    type: "teahouse",
+    supplies: ["मक्खन चाय", "दूध चाय", "गर्म पानी", "इंस्टेंट नूडल्स", "बिस्कुट", "एनर्जी बार"],
+    lodging: "कोई आवास नहीं",
+    services: "मध्यम चायघर"
+  },
+  {
+    id: 6,
+    name: "दिरापुक गोम्पा",
+    nameEn: "Drirapuk Gompa",
+    altitude: 5200,
+    distance: "+4.2 किमी (D1 शिविर)",
+    type: "camp",
+    supplies: ["मक्खन चाय", "दूध चाय", "तिब्बती नूडल्स", "अंडा फ्राइड राइस", "इंस्टेंट नूडल्स", "बिस्कुट", "चॉकलेट", "बीफ़ जर्की", "पानी", "पेय", "स्नैक्स", "बुनियादी दवा", "ऑक्सीजन"],
+    lodging: "डॉर्म रूम (5-10 व्यक्ति), कंबल उपलब्ध। -10°C स्लीपिंग बैग साथ लाएँ",
+    services: "प्रमुख आपूर्ति केंद्र: भोजनालय + आवास + दुकान"
+  },
+  {
+    id: 7,
+    name: "दोलमा ला दर्रा",
+    nameEn: "Drolma La Pass",
+    altitude: 5648,
+    distance: "+5.8 किमी (सर्वोच्च बिंदु)",
+    type: "peak",
+    supplies: [],
+    lodging: "कोई आपूर्ति नहीं",
+    services: "केवल प्रार्थना ध्वज और मणि पत्थर। 5-10 मिनट रुकें, जल्दी आगे बढ़ें। गर्म और हवा-रोधी रहें"
+  },
+  {
+    id: 8,
+    name: "त्सोजी झील",
+    nameEn: "Tsoji Lake",
+    altitude: 5400,
+    distance: "+2.6 किमी",
+    type: "teahouse",
+    supplies: ["मक्खन चाय", "गर्म पानी", "इंस्टेंट नूडल्स"],
+    lodging: "कोई आवास नहीं",
+    services: "छोटा चायघर"
+  },
+  {
+    id: 9,
+    name: "तीसरा अचल खूँटी चायघर",
+    nameEn: "3rd Immovable Peg Teahouse",
+    altitude: 5100,
+    distance: "+2.4 किमी",
+    type: "teahouse",
+    supplies: ["मक्खन चाय", "दूध चाय", "गर्म पानी", "इंस्टेंट नूडल्स", "बिस्कुट"],
+    lodging: "कोई आवास नहीं",
+    services: "मध्यम चायघर"
+  },
+  {
+    id: 10,
+    name: "आकाश नर्तकी निकास",
+    nameEn: "Sky Dancer Exit",
+    altitude: 4900,
+    distance: "+3 किमी",
+    type: "teahouse",
+    supplies: ["गर्म पानी", "पेय", "स्नैक्स"],
+    lodging: "कोई आवास नहीं",
+    services: "अस्थायी आश्रय"
+  },
+  {
+    id: 11,
+    name: "ज़ोंगचु मंदिर",
+    nameEn: "Zhongzhepu Temple",
+    altitude: 4800,
+    distance: "+4.5 किमी (D2 शिविर)",
+    type: "camp",
+    supplies: ["मक्खन चाय", "तिब्बती नूडल्स", "इंस्टेंट नूडल्स", "स्नैक्स"],
+    lodging: "डॉर्म रूम (व्यस्त मौसम में खुला)",
+    services: "मध्यम आपूर्ति, साधारण आवास"
+  },
+  {
+    id: 12,
+    name: "ज़ोंगदुई चायघर",
+    nameEn: "Zongdui Teahouse",
+    altitude: 4700,
+    distance: "+6.2 किमी",
+    type: "teahouse",
+    supplies: ["गर्म पानी", "पेय", "स्नैक्स"],
+    lodging: "कोई आवास नहीं",
+    services: "सड़क किनारे की दुकान"
+  },
+  {
+    id: 13,
+    name: "तारचेन",
+    nameEn: "Tarqin",
+    altitude: 4600,
+    distance: "+4 किमी (समापन)",
+    type: "end",
+    supplies: ["पानी", "कोल्ड ड्रिंक", "एनर्जी ड्रिंक", "इंस्टेंट नूडल्स", "ब्रेड", "चॉकलेट", "बीफ़ जर्की", "बिस्कुट", "ऑक्सीजन", "जैकेट", "टोपी", "दस्ताने", "ट्रेकिंग पोल", "घुटने की पट्टी", "सनस्क्रीन", "लिप बाम"],
+    lodging: "गेस्टहाउस और होटल (डॉर्म/निजी कमरे)",
+    services: "रेस्तरां, दुकानें, पेट्रोल पंप, डाकघर, इंटरनेट कैफ़े, चिकित्सालय, वाहन/घोड़ा/कुली किराया"
+  }
+];
+---
+
+<Layout title="परिक्रमा मार्ग - 52 किमी पवित्र यात्रा | कैलाश 2026" description="कैलाश पर्वत की 52 किमी बाहरी परिक्रमा का पूर्ण मार्गदर्शन: एक दिवसीय, दो दिवसीय और तीन दिवसीय यात्रा योजनाएँ। 13 आपूर्ति केंद्रों, ऊँचाई परिवर्तन और महत्वपूर्ण सुझावों के साथ। तारचेन से प्रारंभ, 5648मी दोलमा ला दर्रा पार।">
+
+  <!-- Hero Section with full-width photo overlay -->
+  <section class="relative bg-kailash-dark">
+    <!-- Full-width photo -->
+    <div class="relative w-full h-[45vh] lg:h-[55vh]">
+      <div class="absolute inset-0 bg-[url('/images/kailash-yaks.jpg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-kailash-dark"></div>
+    </div>
+
+    <!-- Content below photo -->
+    <div class="relative -mt-20 z-10 px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="max-w-7xl mx-auto text-center">
+        <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-4">
+          परिक्रमा मार्ग
+        </h1>
+        <p class="text-xl text-white/60 max-w-3xl mx-auto">
+          52 किमी, तीन दिन — आस्था से प्रारंभ, आत्मा की ओर वापसी
+        </p>
+        <div class="flex justify-center gap-8 mt-8">
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">52 किमी</p>
+            <p class="text-white/40 text-sm">कुल दूरी</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">5648 मी</p>
+            <p class="text-white/40 text-sm">सर्वोच्च बिंदु</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-kailash-gold">3 दिन</p>
+            <p class="text-white/40 text-sm">मानक यात्रा</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-kailash-dark py-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">52 किमी</p>
+          <p class="text-white/60 text-sm mt-1">कुल परिक्रमा दूरी</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">5648 मी</p>
+          <p class="text-white/60 text-sm mt-1">दोलमा ला दर्रा</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">4600 मी</p>
+          <p class="text-white/60 text-sm mt-1">आधार ऊँचाई</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-kailash-gold">13</p>
+          <p class="text-white/60 text-sm mt-1">आपूर्ति केंद्र</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Overview -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">मार्ग अवलोकन</h2>
+        <p class="text-lg text-gray-600">ऊँचाई परिवर्तन और प्रमुख पड़ाव</p>
+      </div>
+
+      <!-- Route Map -->
+      <div class="mb-12">
+        <div class="text-center mb-8">
+          <h3 class="font-display text-2xl font-bold text-kailash-dark mb-2">कैलाश परिक्रमा मार्ग मानचित्र</h3>
+          <p class="text-gray-600 text-sm">52 किमी पवित्र पथ — पवित्र पर्वत की एक परिक्रमा</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <img src="/images/kailash-trek-map.jpg" alt="कैलाश परिक्रमा मार्ग मानचित्र" class="w-full block" style="min-height: 400px;" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div style="display: none;" class="p-8 text-center text-gray-500">
+            <svg class="w-16 h-16 mx-auto mb-4 text-kailash-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <p>मानचित्र लोड हो रहा है...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Route Scenery -->
+      <div class="mt-16 mb-16">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">मार्ग दृश्य</h2>
+          <p class="text-lg text-gray-600">कदमों से आस्था नापें, आँखों से पवित्र पर्वत देखें</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-map-1.png" alt="दोलमा ला दर्रा प्रार्थना ध्वज" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>चित्र लोड विफल</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">दोलमा ला दर्रा · प्रार्थना ध्वज</p>
+                <p class="text-white/80 text-sm">Drolma La Pass · Prayer Flags</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">5648 मीटर की ऊँचाई पर सर्वोच्च बिंदु, तीर्थयात्री आशीर्वाद के लिए यहाँ प्रार्थना ध्वज लटकाते हैं। रंग-बिरंगे लुंगता हवा में मंत्रों का जाप करते हैं।</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-map-2.png" alt="कैलाश पर्वत और घोड़ा कारवां" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>चित्र लोड विफल</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">पवित्र पर्वत दृश्य · घोड़ा कारवां विश्राम</p>
+                <p class="text-white/80 text-sm">Mount Kailash View · Horse Caravan Rest</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">बादलों से घिरा कैलाश पर्वत, घाटी में विश्राम करता घोड़ा कारवां, दूर अस्थायी शिविरों का धुआँ उठता हुआ।</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-scenery-1.png" alt="मार्ग संकेत पट्टिका" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>चित्र लोड विफल</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">चोकु गोम्पा पथ · त्रिभाषी संकेत</p>
+                <p class="text-white/80 text-sm">Choku Gompa Path · Trilingual Sign</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">त्रिभाषी (तिब्बती/चीनी/अंग्रेज़ी) संकेत पट्टिका चोकु गोम्पा की ओर इशारा करती है। लाल चट्टानें गहरे नीले आकाश के विरुद्ध — विशिष्ट आली भूदृश्य।</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative aspect-[4/3] bg-gray-100">
+              <img src="/images/route-scenery-2.png" alt="कैलाश नज़दीकी दृश्य" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
+                <span>चित्र लोड विफल</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p class="text-white font-semibold">कैलाश पर्वत · प्रार्थना ध्वज अग्रभूमि</p>
+                <p class="text-white/80 text-sm">Mount Kailash · Prayer Flags Foreground</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-600 text-sm">पिरामिड आकार के शिखर का नज़दीकी दृश्य। अग्रभूमि में प्रार्थना ध्वज लहरा रहे हैं, चट्टान की परतें स्पष्ट दिखाई देती हैं — 6656 मीटर की शाश्वत गरिमा।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Supply Stations -->
+      <div class="mt-16">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">13 आपूर्ति केंद्र</h2>
+          <p class="text-lg text-gray-600">प्रारंभ से समापन तक पूरे मार्ग पर विस्तृत आपूर्ति</p>
+        </div>
+
+        <div class="space-y-4">
+          {supplyStations.map((station, index) => (
+            <div class={`rounded-xl overflow-hidden ${
+              station.type === 'start' || station.type === 'end' ? 'bg-green-50 border-2 border-green-200' :
+              station.type === 'peak' ? 'bg-red-50 border-2 border-red-200' :
+              station.type === 'camp' ? 'bg-blue-50 border-2 border-blue-200' :
+              'bg-white shadow-md border border-gray-100'
+            }`}>
+              <div class={`p-5 ${
+                station.type === 'start' || station.type === 'end' ? 'bg-green-100/50' :
+                station.type === 'peak' ? 'bg-red-100/50' :
+                station.type === 'camp' ? 'bg-blue-100/50' :
+                'bg-gray-50/50'
+              }`}>
+                <div class="flex items-start gap-4">
+                  <div class={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg shrink-0 ${
+                    station.type === 'start' || station.type === 'end' ? 'bg-green-500 text-white' :
+                    station.type === 'peak' ? 'bg-red-500 text-white' :
+                    station.type === 'camp' ? 'bg-blue-500 text-white' :
+                    'bg-kailash-gold text-kailash-dark'
+                  }`}>
+                    {station.altitude}मी
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-3 mb-1 flex-wrap">
+                      <h3 class="font-display text-xl font-bold text-kailash-dark">{station.name}</h3>
+                      <span class="text-sm text-gray-500">{station.nameEn}</span>
+                      {station.type === 'camp' && <span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-semibold">🏠 आवास</span>}
+                      {station.type === 'peak' && <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-semibold">⚠️ सर्वोच्च बिंदु</span>}
+                      {station.type === 'start' && <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-semibold">🚀 प्रारंभ</span>}
+                      {station.type === 'end' && <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-semibold">🏁 समापन</span>}
+                      {station.type === 'teahouse' && <span class="bg-kailash-gold/20 text-kailash-dark px-2 py-0.5 rounded text-xs font-semibold">🍵 चायघर</span>}
+                    </div>
+                    <p class="text-sm text-gray-500 font-medium">{station.distance}</p>
+                  </div>
+                  <div class="text-2xl text-gray-300 font-bold shrink-0">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                </div>
+              </div>
+
+              <div class="px-5 pb-5">
+                {station.supplies.length > 0 && (
+                  <div class="mb-3">
+                    <h4 class="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
+                      <span class="text-kailash-gold">●</span>
+                      उपलब्ध वस्तुएँ
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                      {station.supplies.map(item => (
+                        <span class="bg-white border border-gray-200 px-2 py-1 rounded text-sm text-gray-600">{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div class="grid md:grid-cols-2 gap-3">
+                  <div>
+                    <h4 class="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1">
+                      <span class="text-kailash-gold">●</span>
+                      आवास
+                    </h4>
+                    <p class="text-sm text-gray-600">{station.lodging}</p>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1">
+                      <span class="text-kailash-gold">●</span>
+                      सेवाएँ
+                    </h4>
+                    <p class="text-sm text-gray-600">{station.services}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Plans Comparison -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">अपनी परिक्रमा योजना चुनें</h2>
+        <p class="text-lg text-gray-600">एक दिन की चरम चुनौती, दो दिन का कठिन अभियान, या तीन दिन की शास्त्रीय यात्रा</p>
+      </div>
+
+      <!-- Plan Cards -->
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <!-- 1-Day Plan (Purple / Extreme) -->
+        <div class="bg-kailash-light rounded-2xl overflow-hidden border-2 border-purple-200">
+          <div class="bg-purple-50 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">{routePlans.oneDay.name}</h3>
+              <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">{routePlans.oneDay.difficulty}</span>
+            </div>
+            <p class="text-gray-600 text-sm">{routePlans.oneDay.subtitle}</p>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.oneDay.totalDistance}</p>
+                <p class="text-xs text-gray-500">कुल दूरी</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.oneDay.totalDuration}</p>
+                <p class="text-xs text-gray-500">कुल समय</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">0</p>
+                <p class="text-xs text-gray-500">रात्रि विश्राम</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">{routePlans.oneDay.description}</p>
+            <div class="bg-purple-50 border border-purple-200 rounded-lg p-3">
+              <p class="text-purple-700 text-sm">{routePlans.oneDay.warning}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Day Plan (Red / Hard) -->
+        <div class="bg-kailash-light rounded-2xl overflow-hidden border-2 border-red-200">
+          <div class="bg-red-50 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">{routePlans.twoDay.name}</h3>
+              <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">{routePlans.twoDay.difficulty}</span>
+            </div>
+            <p class="text-gray-600 text-sm">{routePlans.twoDay.subtitle}</p>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.twoDay.totalDistance}</p>
+                <p class="text-xs text-gray-500">कुल दूरी</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.twoDay.totalDuration}</p>
+                <p class="text-xs text-gray-500">कुल समय</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">1</p>
+                <p class="text-xs text-gray-500">रात्रि विश्राम</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">{routePlans.twoDay.description}</p>
+            <div class="bg-red-50 border border-red-200 rounded-lg p-3">
+              <p class="text-red-700 text-sm">{routePlans.twoDay.warning}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3-Day Plan (Blue / Moderate) -->
+        <div class="bg-kailash-light rounded-2xl overflow-hidden border-2 border-blue-200">
+          <div class="bg-blue-50 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl font-bold text-kailash-dark">{routePlans.threeDay.name}</h3>
+              <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">{routePlans.threeDay.difficulty}</span>
+            </div>
+            <p class="text-gray-600 text-sm">{routePlans.threeDay.subtitle}</p>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.threeDay.totalDistance}</p>
+                <p class="text-xs text-gray-500">कुल दूरी</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">{routePlans.threeDay.totalDuration}</p>
+                <p class="text-xs text-gray-500">कुल समय</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-kailash-gold">2</p>
+                <p class="text-xs text-gray-500">रात्रि विश्राम</p>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">{routePlans.threeDay.description}</p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+              <p class="text-blue-700 text-sm">✅ अधिकांश तीर्थयात्रियों के लिए अनुशंसित। उचित गति और पर्याप्त आराम।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1-Day Detailed Itinerary -->
+      <div class="mb-16">
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-2">एक दिवसीय परिक्रमा विस्तृत योजना</h3>
+          <div class="w-20 h-1 bg-purple-400 mx-auto rounded"></div>
+        </div>
+
+        <!-- तीन श्रेणियाँ (Three categories of people) -->
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-purple-50 rounded-xl p-6 border border-purple-200">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+              <span class="text-2xl">🙏</span>
+            </div>
+            <h4 class="font-bold text-kailash-dark mb-2">तिब्बती अनुभवी तीर्थयात्री</h4>
+            <p class="text-gray-600 text-sm">स्थानीय तिब्बती, वर्षों से परिक्रमा करने वाले, बचपन से उच्च ऊँचाई के अभ्यस्त। मज़बूत शरीर, स्थिर लय, हर मोड़ से परिचित। सामान्यतः 12-18 घंटे में पूरी करते हैं, सुबह 3-5 बजे प्रस्थान, अंधेरा होने से पहले लौटना। उनके लिए एक दिन की परिक्रमा आस्था और दैनिक साधना है।</p>
+          </div>
+          <div class="bg-purple-50 rounded-xl p-6 border border-purple-200">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+              <span class="text-2xl">🏃</span>
+            </div>
+            <h4 class="font-bold text-kailash-dark mb-2">पेशेवर सहनशक्ति एथलीट</h4>
+            <p class="text-gray-600 text-sm">उच्च ऊँचाई ट्रेकिंग, मैराथन/ट्रेल रनिंग का अनुभव। हल्के उपकरण, उत्कृष्ट शारीरिक क्षमता, ऊँचाई बीमारी और कम तापमान सहने में सक्षम। सबसे तेज़ 10-12 घंटे में पूरा कर सकते हैं (चरम गति)। अधिकतर 'स्व-चुनौती' शैली, गति और शारीरिक-मानसिक सीमा की खोज।</p>
+          </div>
+          <div class="bg-purple-50 rounded-xl p-6 border border-purple-200">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+              <span class="text-2xl">💪</span>
+            </div>
+            <h4 class="font-bold text-kailash-dark mb-2">असाधारण कठोर ट्रेकर</h4>
+            <p class="text-gray-600 text-sm">कोई पेशेवर पृष्ठभूमि नहीं, लेकिन असाधारण शारीरिक क्षमता, हल्की ऊँचाई प्रतिक्रिया, दृढ़ इच्छाशक्ति। सख्ती से जल्दी प्रस्थान (सुबह 5 बजे से पहले), कम विश्राम, हल्का सामान। पूरी यात्रा 18-22 घंटे, अक्सर रात में चलना, उच्च जोखिम। दुर्लभ व्यक्तिगत मामले — सामान्य पर्यटकों के लिए अनुकरण उपयुक्त नहीं।</p>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          {routePlans.oneDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl overflow-hidden border-l-4 border-purple-400">
+              <div class="bg-kailash-dark text-white p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-kailash-gold font-semibold">{day.day}</span>
+                    <h4 class="font-display text-xl font-bold mt-1">{day.title}</h4>
+                  </div>
+                  <div class="text-right text-sm text-gray-400">
+                    <p>{day.distance}</p>
+                    <p>{day.altitude}</p>
+                    <p>{day.duration}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700 mb-4 leading-relaxed">{day.description}</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+                      <span class="text-kailash-gold">★</span>
+                      मार्ग के मुख्य बिंदु
+                    </h5>
+                    <ul class="space-y-1">
+                      {day.highlights.map((h, i) => (
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                          <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="bg-amber-50 rounded-xl p-4">
+                    <h5 class="font-semibold mb-2 text-amber-800 text-sm">💡 महत्वपूर्ण सुझाव</h5>
+                    <p class="text-amber-700 text-sm">{day.tips}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Key Data -->
+        <div class="mt-8 bg-purple-50 rounded-xl p-6 border border-purple-200">
+          <h4 class="font-bold text-kailash-dark mb-4">महत्वपूर्ण आँकड़े</h4>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p class="text-gray-700"><span class="font-semibold">पूरी दूरी:</span> 52-56 किमी</p>
+              <p class="text-gray-700"><span class="font-semibold">ऊँचाई:</span> 4560मी → 5648मी (दोलमा ला दर्रा) → 4560मी</p>
+              <p class="text-gray-700"><span class="font-semibold">सामान्य व्यक्ति:</span> 2-3 दिन</p>
+            </div>
+            <div>
+              <p class="text-gray-700"><span class="font-semibold">एक दिन की परिक्रमा:</span> अत्यधिक कठिन चरम चुनौती</p>
+              <p class="text-gray-700"><span class="font-semibold">जोखिम:</span> हर साल जबरन एक दिन में चलने से ऊँचाई बीमारी, हाइपोथर्मिया और रास्ता भटकने के बचाव मामले</p>
+              <p class="text-gray-700"><span class="font-semibold">सारांश:</span> एक दिन में परिक्रमा करने वाले या तो श्रद्धालु तिब्बती तीर्थयात्री होते हैं, या शीर्ष शारीरिक क्षमता वाले सहनशक्ति विशेषज्ञ।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-Day Detailed Itinerary -->
+      <div class="mb-16">
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-2">दो दिवसीय परिक्रमा विस्तृत योजना</h3>
+          <div class="w-20 h-1 bg-red-400 mx-auto rounded"></div>
+        </div>
+        <div class="space-y-8">
+          {routePlans.twoDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl overflow-hidden border-l-4 border-red-400">
+              <div class="bg-kailash-dark text-white p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-kailash-gold font-semibold">{day.day}</span>
+                    <h4 class="font-display text-xl font-bold mt-1">{day.title}</h4>
+                  </div>
+                  <div class="text-right text-sm text-gray-400">
+                    <p>{day.distance}</p>
+                    <p>{day.altitude}</p>
+                    <p>{day.duration}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700 mb-4 leading-relaxed">{day.description}</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+                      <span class="text-kailash-gold">★</span>
+                      मार्ग के मुख्य बिंदु
+                    </h5>
+                    <ul class="space-y-1">
+                      {day.highlights.map((h, i) => (
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                          <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="bg-amber-50 rounded-xl p-4">
+                    <h5 class="font-semibold mb-2 text-amber-800 text-sm">💡 महत्वपूर्ण सुझाव</h5>
+                    <p class="text-amber-700 text-sm">{day.tips}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- 3-Day Detailed Itinerary -->
+      <div>
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl font-bold text-kailash-dark mb-2">तीन दिवसीय परिक्रमा विस्तृत योजना ★ अनुशंसित</h3>
+          <div class="w-20 h-1 bg-blue-400 mx-auto rounded"></div>
+        </div>
+        <div class="space-y-8">
+          {routePlans.threeDay.days.map((day, index) => (
+            <div class="bg-kailash-light rounded-2xl overflow-hidden border-l-4 border-blue-400">
+              <div class="bg-kailash-dark text-white p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-kailash-gold font-semibold">{day.day}</span>
+                    <h4 class="font-display text-xl font-bold mt-1">{day.title}</h4>
+                  </div>
+                  <div class="text-right text-sm text-gray-400">
+                    <p>{day.distance}</p>
+                    <p>{day.altitude}</p>
+                    <p>{day.duration}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700 mb-4 leading-relaxed">{day.description}</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+                      <span class="text-kailash-gold">★</span>
+                      मार्ग के मुख्य बिंदु
+                    </h5>
+                    <ul class="space-y-1">
+                      {day.highlights.map((h, i) => (
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                          <span class="w-1.5 h-1.5 bg-kailash-gold rounded-full"></span>
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="bg-amber-50 rounded-xl p-4">
+                    <h5 class="font-semibold mb-2 text-amber-800 text-sm">💡 महत्वपूर्ण सुझाव</h5>
+                    <p class="text-amber-700 text-sm">{day.tips}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Important Tips Section -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">परिक्रमा से पहले जानने योग्य बातें</h2>
+        <p class="text-lg text-gray-600">सुरक्षित और सफल परिक्रमा के लिए आवश्यक जानकारी</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Altitude Sickness Warning -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-4xl mb-4">🏔️</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">ऊँचाई बीमारी की चेतावनी</h3>
+          <p class="text-gray-600 mb-4">परिक्रमा 4600मी से 5648मी की ऊँचाई पर होती है। ऊँचाई बीमारी (AMS) एक गंभीर खतरा है। लक्षण: सिरदर्द, मतली, चक्कर, थकान, सांस लेने में कठिनाई।</p>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              तिब्बत पहुँचने के बाद कम से कम 2-3 दिन ऊँचाई अनुकूलन के लिए रखें
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              खूब पानी पिएँ (प्रतिदिन 3-4 लीटर)
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              शराब और धूम्रपान से पूरी तरह बचें
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              लक्षण गंभीर होने पर तुरंत नीचे उतरें — यही एकमात्र प्रभावी उपचार है
+            </li>
+          </ul>
+        </div>
+
+        <!-- What to Bring -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-4xl mb-4">🎒</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">क्या साथ लाएँ</h3>
+          <p class="text-gray-600 mb-4">उच्च ऊँचाई की परिक्रमा के लिए उचित तैयारी आवश्यक है। यह सूची आपकी सुरक्षा सुनिश्चित करेगी:</p>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              गर्म कपड़े (परतों में) — थर्मल, ऊन, डाउन जैकेट
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              जलरोधक जैकेट और पैंट — मौसम तेज़ी से बदलता है
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              ट्रेकिंग बूट (घिसे हुए, नए नहीं)
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              हेडलैम्प और अतिरिक्त बैटरी
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              सनस्क्रीन (SPF 50+), धूप का चश्मा, लिप बाम
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              -10°C स्लीपिंग बैग (आवास स्थलों के लिए)
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              व्यक्तिगत दवाइयाँ और बुनियादी प्राथमिक चिकित्सा किट
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              उच्च-कैलोरी स्नैक्स (चॉकलेट, नट्स, एनर्जी बार)
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              पानी की बोतल / थर्मस (कम से कम 2 लीटर)
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              ट्रेकिंग पोल (घुटनों के लिए अत्यंत सहायक)
+            </li>
+          </ul>
+        </div>
+
+        <!-- Best Season -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-4xl mb-4">📅</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">सर्वोत्तम समय</h3>
+          <p class="text-gray-600 mb-4">कैलाश परिक्रमा के लिए वर्ष का सबसे अच्छा समय:</p>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              <span class="font-semibold">मई – अक्टूबर:</span> सर्वोत्तम मौसम, दर्रा खुला, तापमान सहनीय
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              <span class="font-semibold">जून – सितंबर:</span> सबसे अच्छा समय, गर्म तापमान, लेकिन वर्षा संभव
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              <span class="font-semibold">नवंबर – अप्रैल:</span> दर्रा बर्फ़ से बंद, परिक्रमा संभव नहीं
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              <span class="font-semibold">सागा दावा (मई/जून):</span> तिब्बती बौद्ध धर्म का सबसे पवित्र महीना, विशेष धार्मिक महत्व
+            </li>
+          </ul>
+        </div>
+
+        <!-- Important Reminders -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="text-4xl mb-4">⚠️</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">महत्वपूर्ण अनुस्मारक</h3>
+          <p class="text-gray-600 mb-4">परिक्रमा शुरू करने से पहले इन बातों का ध्यान रखें:</p>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              परमिट अनिवार्य हैं — ट्रैवल एजेंसी द्वारा पूर्व-व्यवस्था आवश्यक
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              तिब्बत केवल समूह यात्रा की अनुमति देता है — अकेले यात्रा संभव नहीं
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              अपनी शारीरिक सीमा जानें — परिक्रमा कोई प्रतियोगिता नहीं है
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              पवित्र स्थलों का सम्मान करें — प्रार्थना ध्वज, मणि पत्थर, मंदिर
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              पर्यावरण की रक्षा करें — कचरा साथ ले जाएँ
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-kailash-gold mt-1">•</span>
+              बीमा कराएँ जो उच्च-ऊँचाई ट्रेकिंग और हेलीकॉप्टर बचाव को कवर करे
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <section class="py-16 bg-white border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl mb-3">🛡️</div>
+          <p class="font-medium">पेशेवर गाइड</p>
+          <p class="text-sm text-gray-500">10+ वर्ष उच्च ऊँचाई अनुभव</p>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">❤️</div>
+          <p class="font-medium">चिकित्सा सहायता</p>
+          <p class="text-sm text-gray-500">ऑक्सीजन + दवा + बचाव</p>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">🤝</div>
+          <p class="font-medium">धार्मिक सम्मान</p>
+          <p class="text-sm text-gray-500">सभी परंपराओं का सम्मान</p>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">⏰</div>
+          <p class="font-medium">24/7 सहायता</p>
+          <p class="text-sm text-gray-500">हमेशा मदद के लिए तैयार</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">परिक्रमा के लिए तैयार हैं?</h2>
+      <p class="text-kailash-dark/80 mb-8">अपनी यात्रा की योजना बनाएँ और इस परिवर्तनकारी तीर्थयात्रा की तैयारी शुरू करें</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/guide" class="inline-flex items-center bg-kailash-dark text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-kailash-dark/90 transition">
+          तीर्थयात्रा मार्गदर्शिका देखें
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+        <a href="/contact" class="inline-flex items-center border-2 border-kailash-dark text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-dark/10 transition">
+          संपर्क करें
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

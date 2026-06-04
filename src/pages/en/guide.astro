@@ -1,0 +1,777 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const monthlyBreakdown = [
+  {
+    month: 'May',
+    icon: '🌸',
+    title: 'Season Opening',
+    temp: '28°F ~ 54°F (-2°C ~ 12°C)',
+    rating: '★★★★☆',
+    highlight: true,
+    desc: 'The kora route opens as snow melts. Crystal-clear air offers stunning views of distant snow peaks. Cold mornings and evenings, but comfortable daytime temperatures. Fewer pilgrims mean quieter trails and a more solitary experience.',
+    tips: 'Bring warm layers for cold nights. Trail conditions can be muddy. Early May may still see snow at Dolma La Pass.',
+  },
+  {
+    month: 'June',
+    icon: '☀️',
+    title: 'Saga Dawa Festival Month',
+    temp: '32°F ~ 59°F (0°C ~ 15°C)',
+    rating: '★★★★★',
+    highlight: true,
+    desc: 'The holiest month in the Tibetan calendar. Saga Dawa (full moon day) draws thousands of pilgrims to commemorate Buddha\'s birth, enlightenment, and parinirvana. Daytime temperatures are pleasant, and skies are generally clear.',
+    tips: 'Book accommodation months in advance. Darchen and nearby guesthouses fill completely. The full moon kora is a profoundly moving experience.',
+  },
+  {
+    month: 'July',
+    icon: '🌧️',
+    title: 'Monsoon Greens',
+    temp: '41°F ~ 64°F (5°C ~ 18°C)',
+    rating: '★★★☆☆',
+    highlight: false,
+    desc: 'Monsoon influence brings increased rainfall, but the grasslands turn lush green and wildlife becomes more active. Brief showers alternate with brilliant sunshine. The cloud breaks reveal Kailash in dramatic, fleeting glimpses.',
+    tips: 'Waterproof gear is essential — jacket, pants, and backpack cover. Trails can be slippery. Rivers and streams run higher.',
+  },
+  {
+    month: 'August',
+    icon: '⛅',
+    title: 'Peak Summer',
+    temp: '43°F ~ 66°F (6°C ~ 19°C)',
+    rating: '★★★★☆',
+    highlight: false,
+    desc: 'The warmest month with the most reliable daytime conditions. Peak pilgrimage season with vibrant atmosphere. Longer daylight hours allow for a more leisurely kora pace. Wildflowers bloom across the high-altitude meadows.',
+    tips: 'Expect more crowds on the trail. Afternoon clouds can build quickly. UV exposure is intense — high-SPF sunscreen mandatory.',
+  },
+  {
+    month: 'September',
+    icon: '🍂',
+    title: 'Golden Autumn',
+    temp: '36°F ~ 59°F (2°C ~ 15°C)',
+    rating: '★★★★★',
+    highlight: true,
+    desc: 'Arguably the best month for the kora. Crystal-clear skies, stable weather, and golden autumn hues transform the landscape. The monsoon retreats, leaving pristine visibility. Cool but comfortable walking temperatures.',
+    tips: 'Ideal for photography. Book in advance as this is the second peak season. Nights grow noticeably colder by late September.',
+  },
+  {
+    month: 'October',
+    icon: '❄️',
+    title: 'Season Closing',
+    temp: '23°F ~ 46°F (-5°C ~ 8°C)',
+    rating: '★★★☆☆',
+    highlight: false,
+    desc: 'The final month of the kora season. Early October can still offer excellent conditions with dramatic snow-dusted peaks. By late October, winter sets in and the route may close. The landscape takes on a stark, austere beauty.',
+    tips: 'Heavy winter gear required. Trail closures possible after mid-October. Confirm conditions before departing. The solitude is unmatched.',
+  },
+];
+
+const packingList = {
+  clothing: [
+    { item: 'Insulated down jacket (rated to -20°C / -4°F)', essential: true },
+    { item: 'Waterproof and windproof hard shell jacket', essential: true },
+    { item: 'Waterproof hiking pants', essential: true },
+    { item: 'Thermal base layers (merino wool, 2-3 sets)', essential: true },
+    { item: 'Fleece mid-layer or soft shell jacket', essential: true },
+    { item: 'Warm hiking socks (4-5 pairs, wool blend)', essential: true },
+    { item: 'Waterproof hiking boots (well broken-in)', essential: true },
+    { item: 'Warm hat / beanie (covers ears)', essential: true },
+    { item: 'Sun hat with wide brim', essential: false },
+    { item: 'Gloves (lightweight + insulated pair)', essential: true },
+    { item: 'Neck gaiter or buff (for wind and dust)', essential: true },
+    { item: 'Thermal underwear / long johns', essential: true },
+  ],
+  gear: [
+    { item: 'Trekking poles (highly recommended for Dolma La)', essential: true },
+    { item: 'Sleeping bag (rated to -10°C / 14°F or lower)', essential: true },
+    { item: 'Headlamp with extra batteries', essential: true },
+    { item: 'Sunglasses (polarized, high UV protection)', essential: true },
+    { item: 'Water bottles or hydration bladder (2-3L capacity)', essential: true },
+    { item: 'Water purification tablets or filter', essential: true },
+    { item: 'Power bank (20,000+ mAh, solar preferred)', essential: true },
+    { item: 'Daypack (30-40L, with rain cover)', essential: true },
+    { item: 'Dry bags or stuff sacks (for organization)', essential: false },
+    { item: 'Camera with spare batteries', essential: false },
+    { item: 'Trekking towel (quick-dry microfiber)', essential: false },
+  ],
+  medicine: [
+    { item: 'Acetazolamide (Diamox) for altitude sickness', essential: true },
+    { item: 'Ibuprofen or paracetamol for headaches and pain', essential: true },
+    { item: 'Anti-diarrheal medication (Loperamide)', essential: true },
+    { item: 'Personal prescription medications', essential: true },
+    { item: 'Blister treatment (moleskin, Compeed patches)', essential: true },
+    { item: 'Sunscreen (SPF 50+, high altitude formula)', essential: true },
+    { item: 'Lip balm with SPF protection', essential: true },
+    { item: 'Antibiotic ointment and bandages', essential: true },
+    { item: 'Oral rehydration salts', essential: false },
+    { item: 'Anti-nausea medication', essential: false },
+  ],
+};
+
+const altitudeInfo = {
+  symptoms: [
+    { symptom: 'Headache', severity: 'Common', note: 'Often the first sign. Usually frontal and throbbing.' },
+    { symptom: 'Nausea & loss of appetite', severity: 'Common', note: 'Can lead to dehydration if not managed.' },
+    { symptom: 'Fatigue & weakness', severity: 'Common', note: 'Normal at altitude; rest is essential.' },
+    { symptom: 'Dizziness & lightheadedness', severity: 'Common', note: 'Move slowly; avoid sudden movements.' },
+    { symptom: 'Shortness of breath', severity: 'Common', note: 'Normal during exertion at altitude.' },
+    { symptom: 'Insomnia & disturbed sleep', severity: 'Common', note: 'Periodic breathing is normal.' },
+    { symptom: 'Loss of coordination (ataxia)', severity: 'Severe', note: 'Serious warning sign — descend immediately.' },
+    { symptom: 'Confusion or irrational behavior', severity: 'Severe', note: 'Medical emergency — descend with escort.' },
+    { symptom: 'Persistent dry cough, chest tightness', severity: 'Severe', note: 'Possible HAPE — emergency descent required.' },
+  ],
+  prevention: [
+    'Ascend gradually — no more than 300-500m (1,000-1,600ft) gain in sleeping elevation per day above 3,000m.',
+    'Spend at least 2-3 days acclimatizing in Lhasa (3,650m) before proceeding to higher elevations.',
+    'Follow the "climb high, sleep low" principle — exert during the day but sleep at a lower elevation.',
+    'Stay exceptionally well-hydrated — drink 3-4 liters of water daily.',
+    'Avoid alcohol, tobacco, and sedatives entirely during acclimatization.',
+    'Eat a high-carbohydrate diet — carbs require less oxygen to metabolize than fats or proteins.',
+    'Consider prophylactic Acetazolamide (Diamox) starting 24-48 hours before ascent.',
+    'Listen to your body — never push through severe symptoms. Descent is the only definitive treatment.',
+  ],
+  emergency: [
+    'Descend immediately — even 300-500m can be life-saving. Do not wait until morning.',
+    'Administer oxygen if available. Portable oxygen canisters are carried by many tour operators.',
+    'Use Gamow bag (portable hyperbaric chamber) if available — simulates descent of 1,500-2,000m.',
+    'Dexamethasone (steroid) can be used in emergencies for HACE, but does not replace descent.',
+    'Nifedipine can help with HAPE symptoms, but again — descent is the priority.',
+    'Never leave a person with severe AMS alone. They may wander off or make irrational decisions.',
+    'Evacuation from the kora route typically means descent to Darchen, then to a lower elevation.',
+  ],
+};
+
+const accommodationTypes = [
+  {
+    type: 'Guesthouses (Tea Houses)',
+    icon: '🏠',
+    rating: '★★☆☆☆',
+    desc: 'Basic dormitory-style rooms along the kora route and in Darchen. Shared bathrooms (often squat toilets), limited running water, and no heating in most. Mattresses and thick blankets provided. The only option inside the kora route. Expect to pay 50-100 RMB per night.',
+    locations: 'Darchen, Dira-puk, Zutrul-puk monasteries, and small settlements along the route.',
+  },
+  {
+    type: 'Monastery Guesthouses',
+    icon: '🏛️',
+    rating: '★★★☆☆',
+    desc: 'Rooms within or adjacent to monasteries. Slightly more comfortable than tea houses, with a spiritual atmosphere. Some offer simple meals prepared by monks. The experience of staying at a monastery at the foot of Kailash is unique and deeply memorable.',
+    locations: 'Dira-puk Monastery (north face), Zutrul-puk Monastery (east side).',
+  },
+  {
+    type: 'Hotels in Darchen',
+    icon: '🏨',
+    rating: '★★★☆☆',
+    desc: 'The most comfortable lodging in the Kailash area. Private rooms with en-suite bathrooms, intermittent hot water, and heating (usually electric blankets or space heaters). Some have restaurants and WiFi. Best option before and after the kora. 200-500 RMB per night.',
+    locations: 'Darchen town (the base camp for Kailash kora).',
+  },
+  {
+    type: 'Camping / Tents',
+    icon: '⛺',
+    rating: '★☆☆☆☆',
+    desc: 'Organized groups may camp at designated sites. Your tour operator provides tents, cooking, and all equipment. Most comfortable in terms of privacy and food quality, but exposed to the elements. Temperatures inside tents can drop well below freezing at night.',
+    locations: 'Designated campsites along the kora route, typically near water sources.',
+  },
+];
+
+const transportOptions = [
+  {
+    mode: 'Flight to Lhasa',
+    details: 'Most international pilgrims fly into Lhasa Gonggar Airport (LXA). Direct flights from major Chinese cities (Beijing, Chengdu, Chongqing, Kunming, Xi\'an). International connections via Chengdu or Kathmandu. The train from mainland China to Lhasa is a scenic alternative (Qinghai-Tibet Railway).',
+    duration: 'Varies by origin; train from Beijing ~40 hours.',
+  },
+  {
+    mode: 'Lhasa to Darchen',
+    details: 'Overland journey of approximately 1,200 km (745 miles) across the Tibetan Plateau. Takes 3-4 days via the Friendship Highway and Northern Route. Stops include Gyantse, Shigatse, and Saga. The drive itself is a breathtaking acclimatization journey through some of Earth\'s most remote landscapes.',
+    duration: '3-4 days driving (6-8 hours per day).',
+  },
+  {
+    mode: 'Alternative: Kathmandu Route',
+    details: 'Fly from Kathmandu to Lhasa, or take the overland route via the Kerung / Rasuwagadhi border crossing. The overland route from Kathmandu crosses the Himalayas and offers spectacular views. Requires Chinese visa and Tibet permits arranged in advance from Kathmandu.',
+    duration: 'Flight ~1.5 hours; overland ~7-10 days including permits.',
+  },
+  {
+    mode: 'Local Transport around Kailash',
+    details: '4WD vehicles and minibuses transport pilgrims between Darchen, Lake Manasarovar, and trailheads. Some pilgrims hire yaks or porters for the kora itself. Motorcycles are not permitted on the kora route. Eco-buses operate seasonally around Lake Manasarovar.',
+    duration: 'Darchen to trailhead: ~10-15 minutes; Lake Manasarovar circuit: ~3-4 hours.',
+  },
+];
+
+const costBreakdown = [
+  { category: 'Chinese Tourist Visa (L visa)', range: '$140-$180', note: 'Varies by nationality and processing speed. Apply at your nearest Chinese embassy or consulate.' },
+  { category: 'Tibet Travel Permit + other permits', range: '$50-$100', note: 'Arranged by your registered Tibetan tour operator. Included in most tour packages. Cannot be obtained independently.' },
+  { category: 'International Flights (round-trip)', range: '$800-$2,500', note: 'Depends on origin country and season. Book 3-6 months ahead for best rates.' },
+  { category: 'Lhasa to Darchen Transport', range: '$400-$800', note: 'Part of most organized tour packages. 4WD vehicle with driver. 3-4 day overland journey.' },
+  { category: 'Organized Tour Package (10-15 days)', range: '$2,000-$4,500', note: 'Includes guide, transport, permits, accommodation, and meals. Price varies by group size and comfort level.' },
+  { category: 'Accommodation (Darchen, per night)', range: '$30-$80', note: 'Hotels cost more; guesthouses cost less. Monastery stays are often donation-based.' },
+  { category: 'Kora Guesthouses (per night)', range: '$8-$15', note: 'Very basic dormitory accommodation inside the kora route at Dira-puk and Zutrul-puk.' },
+  { category: 'Meals (per day)', range: '$15-$35', note: 'Simple Tibetan, Nepali, and Chinese food. Prices increase with remoteness of location.' },
+  { category: 'Porter / Yak Hire (for kora)', range: '$80-$150', note: 'Per porter/yak for the full 3-day kora. Price negotiable in Darchen. Book through your operator.' },
+  { category: 'Travel Insurance', range: '$100-$300', note: 'Must include high-altitude trekking coverage (up to 6,000m) and emergency evacuation. Essential — do not skip.' },
+  { category: 'Miscellaneous & Buffer', range: '$200-$500', note: 'Tips, souvenirs, extra snacks, unforeseen expenses. Carry cash; ATMs are unreliable in western Tibet.' },
+];
+
+const preparationSteps = [
+  {
+    phase: '6 Months Before',
+    steps: [
+      'Begin a consistent cardiovascular training program — running, cycling, swimming, or stair climbing 3-4 times per week.',
+      'Start hiking with a loaded daypack (5-10 kg) on hilly terrain. Build up to 6-8 hour hikes.',
+      'Consult your doctor for a full medical checkup. Discuss high-altitude contraindications (heart conditions, severe asthma, etc.).',
+      'Apply for your passport if you don\'t already have one with at least 6 months validity beyond your travel dates.',
+      'Research and select a registered Tibetan tour operator. Read reviews thoroughly.',
+    ],
+  },
+  {
+    phase: '3 Months Before',
+    steps: [
+      'Increase training intensity. Do back-to-back long hikes on weekends to simulate consecutive kora days.',
+      'Practice walking at altitude if possible — hikes above 3,000m are ideal preparation.',
+      'Begin the Chinese visa application process through your tour operator.',
+      'Book international flights. Consider arriving a few days early to explore Lhasa and acclimatize.',
+      'Purchase travel insurance with high-altitude trekking and emergency evacuation coverage.',
+      'Break in your hiking boots — wear them on every training hike.',
+    ],
+  },
+  {
+    phase: '1 Month Before',
+    steps: [
+      'Finalize all permits through your tour operator. Confirm receipt of the Tibet Travel Permit.',
+      'Complete your packing list. Test all gear, especially new items. Replace anything that doesn\'t work.',
+      'Get a prescription for Acetazolamide (Diamox) from your doctor. Fill all personal prescriptions.',
+      'Reduce training intensity to avoid injury. Focus on maintaining fitness without overexertion.',
+      'Make photocopies of passport, visa, permits, and insurance documents. Store digital copies online.',
+      'Notify your bank of travel plans to avoid card blocks. Carry sufficient cash (Chinese Yuan).',
+    ],
+  },
+  {
+    phase: '1 Week Before',
+    steps: [
+      'Pack everything and weigh your bags. Aim for a daypack under 8 kg for the kora itself.',
+      'Check weather forecasts for Lhasa, Darchen, and the Kailash region. Adjust gear accordingly.',
+      'Begin taking Diamox prophylactically if prescribed (typically 125mg twice daily, starting 24-48h before ascent).',
+      'Get plenty of rest. Hydrate well. Avoid alcohol. Arrive at your departure point well-rested.',
+      'Confirm all bookings — flights, tour operator pickup, Lhasa accommodation.',
+    ],
+  },
+];
+
+const permits = [
+  {
+    name: 'Chinese Tourist Visa (L Visa)',
+    icon: '🇨🇳',
+    description: 'Required for all foreign nationals entering China. Apply at your nearest Chinese embassy or consulate. Your tour operator will provide the invitation letter needed for the application. Processing typically takes 4-7 business days, though it varies by country.',
+    keyPoints: [
+      'Valid for 30-90 days depending on nationality and visa type',
+      'Single, double, or multiple entry options available',
+      'Apply 1-2 months before your planned departure',
+      'Your tour operator provides the required invitation letter',
+    ],
+  },
+  {
+    name: 'Tibet Travel Permit (TTP)',
+    icon: '📜',
+    description: 'The essential permit for entering Tibet Autonomous Region. Also called the "Tibet Entry Permit." Can only be obtained by a registered Tibetan tour operator on your behalf — individual application is not possible. You must be part of an organized tour group to receive this permit.',
+    keyPoints: [
+      'Must be arranged through a registered Tibetan tour operator',
+      'Requires scanned copy of passport and Chinese visa',
+      'Original permit is checked at airports and train stations before boarding',
+      'Processing takes 7-10 days; your operator handles everything',
+      'Keep the original with you at all times in Tibet',
+    ],
+  },
+  {
+    name: 'Aliens\' Travel Permit (ATP)',
+    icon: '🗺️',
+    description: 'Required for travel to "restricted areas" within Tibet, including the entire Ngari Prefecture where Mount Kailash is located. This permit is arranged by your tour operator in Lhasa after your arrival. It allows travel beyond Lhasa into remote regions.',
+    keyPoints: [
+      'Arranged by your operator upon arrival in Lhasa',
+      'Required for all areas outside Lhasa city limits',
+      'Covers Ngari Prefecture (Mount Kailash, Lake Manasarovar)',
+      'Police checkpoints along the route will check this permit',
+    ],
+  },
+  {
+    name: 'Military Permit (Border Defense)',
+    icon: '🛡️',
+    description: 'Additional permit required for border areas. The Kailash region is close to the India-China border, making this permit necessary for some sections of the journey. Your tour operator evaluates whether this specific permit is needed for your itinerary.',
+    keyPoints: [
+      'Required for certain border-adjacent areas',
+      'Your tour operator determines if this is needed',
+      'Cannot be obtained independently',
+      'Checked at military checkpoints along the route',
+    ],
+  },
+];
+---
+
+<Layout title="Mount Kailash Pilgrimage Guide 2026 — Complete Planning Resource | Kailash 2026" description="Comprehensive Mount Kailash pilgrimage guide: best time to visit, permits, physical preparation, packing list, altitude sickness prevention, accommodation, transport, and cost breakdown for the 2026 Horse Year kora.">
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-kailash-dark via-kailash-dark/95 to-kailash-dark/80"></div>
+    <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.3) 0%, transparent 60%);"></div>
+
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">
+        Everything You Need to Know · 2026 Horse Year Edition
+      </p>
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+        Pilgrimage
+        <span class="block text-kailash-gold mt-2">Guide</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">
+        A complete planning resource for the Mount Kailash kora. From permits and packing to altitude preparation and cost breakdown — everything you need to prepare for the journey of a lifetime in the 2026 Horse Year.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mb-12 text-sm text-white/50">
+        <span class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-white/10">📅 Best Time: May-October</span>
+        <span class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-white/10">📜 Permits Required</span>
+        <span class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-white/10">🏔️ Altitude: 4,600-5,630m</span>
+        <span class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-white/10">🚶 Distance: 52km (32 miles)</span>
+      </div>
+      <div class="animate-bounce mt-16">
+        <svg class="w-8 h-8 mx-auto text-kailash-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Facts Bar -->
+  <section class="py-8 px-4 bg-kailash-gold">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div>
+          <p class="text-3xl font-bold text-kailash-dark">5,630m</p>
+          <p class="text-kailash-dark/70 text-sm font-medium">Max Elevation (Dolma La)</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-kailash-dark">52km</p>
+          <p class="text-kailash-dark/70 text-sm font-medium">Kora Distance (Circuit)</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-kailash-dark">3 Days</p>
+          <p class="text-kailash-dark/70 text-sm font-medium">Typical Kora Duration</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-kailash-dark">4,600m</p>
+          <p class="text-kailash-dark/70 text-sm font-medium">Base Elevation (Darchen)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Time to Visit Section -->
+  <section class="py-20 px-4 bg-kailash-light">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-4">
+          Best Time to Visit
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          The Kailash kora season runs from May through October. Each month offers a distinct experience — from the sacred Saga Dawa festival in June to the golden solitude of October.
+        </p>
+        <div class="w-24 h-0.5 bg-kailash-gold mx-auto mt-6"></div>
+      </div>
+
+      <div class="space-y-6">
+        {monthlyBreakdown.map(month => (
+          <div class={`bg-white rounded-2xl p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 ${month.highlight ? 'border-l-kailash-gold' : 'border-l-gray-200'}`}>
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <div class="flex items-start gap-4">
+                <span class="text-4xl">{month.icon}</span>
+                <div>
+                  <div class="flex items-center gap-3 mb-2">
+                    <h3 class="font-display text-2xl font-bold text-kailash-dark">{month.month}</h3>
+                    {month.highlight && (
+                      <span class="bg-kailash-gold/20 text-kailash-dark text-xs font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Top Pick</span>
+                    )}
+                  </div>
+                  <p class="text-kailash-gold font-medium text-sm">{month.title}</p>
+                  <div class="flex items-center gap-3 mt-1 text-sm text-gray-500">
+                    <span>{month.temp}</span>
+                    <span class="text-kailash-gold">{month.rating}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="mt-4 text-gray-700 leading-relaxed">{month.desc}</p>
+            <div class="mt-3 flex items-start gap-2">
+              <span class="text-kailash-gold font-bold text-sm shrink-0 mt-0.5">Tip:</span>
+              <p class="text-gray-500 text-sm leading-relaxed">{month.tips}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Permits Section -->
+  <section class="py-20 px-4 bg-kailash-dark">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+          Permits & Documentation
+        </h2>
+        <p class="text-lg text-white/60 max-w-3xl mx-auto">
+          Traveling to Mount Kailash requires several permits. All Tibet-specific permits must be arranged through a registered Tibetan tour operator — independent travel to the Kailash region is not permitted for foreign nationals.
+        </p>
+        <div class="w-24 h-0.5 bg-kailash-gold mx-auto mt-6"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {permits.map(permit => (
+          <div class="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-kailash-gold/30 transition-all duration-300">
+            <div class="flex items-center gap-4 mb-4">
+              <span class="text-4xl">{permit.icon}</span>
+              <h3 class="font-display text-xl font-bold text-white">{permit.name}</h3>
+            </div>
+            <p class="text-white/70 text-sm leading-relaxed mb-4">{permit.description}</p>
+            <ul class="space-y-2">
+              {permit.keyPoints.map(point => (
+                <li class="flex items-start gap-2 text-sm text-white/50">
+                  <span class="text-kailash-gold mt-0.5 shrink-0">&#10003;</span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 p-6 bg-kailash-gold/10 rounded-2xl border border-kailash-gold/30 text-center">
+        <p class="text-white text-sm leading-relaxed">
+          <span class="text-kailash-gold font-bold">Important:</span> Your tour operator handles all Tibet-specific permits. You only need to obtain your Chinese visa (with an invitation letter from your operator) and provide passport scans. Start this process at least 6-8 weeks before your planned departure.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physical Preparation Section -->
+  <section class="py-20 px-4 bg-kailash-light">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-4">
+          Physical Preparation
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          The Kailash kora is a high-altitude trek reaching 5,630m. While you don't need to be an elite athlete, good cardiovascular fitness and preparation significantly improve your experience and safety.
+        </p>
+        <div class="w-24 h-0.5 bg-kailash-gold mx-auto mt-6"></div>
+      </div>
+
+      <div class="space-y-8">
+        {preparationSteps.map(phase => (
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-md">
+            <h3 class="font-display text-xl font-bold text-kailash-gold mb-4">{phase.phase}</h3>
+            <ul class="space-y-3">
+              {phase.steps.map(step => (
+                <li class="flex items-start gap-3 text-gray-700">
+                  <span class="w-6 h-6 bg-kailash-gold/20 rounded-full flex items-center justify-center text-xs text-kailash-dark font-bold shrink-0 mt-0.5">&#10003;</span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 p-6 bg-white rounded-2xl shadow-md border border-kailash-gold/30">
+        <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">Additional Fitness Benchmarks</h3>
+        <div class="grid md:grid-cols-3 gap-4 text-sm text-gray-700">
+          <div class="p-3 bg-kailash-light rounded-xl">
+            <p class="font-bold text-kailash-dark mb-1">Cardio</p>
+            <p>Be able to walk 15-20 km (9-12 miles) in a day with elevation gain, carrying a 5-8 kg daypack, without exhaustion.</p>
+          </div>
+          <div class="p-3 bg-kailash-light rounded-xl">
+            <p class="font-bold text-kailash-dark mb-1">Strength</p>
+            <p>Build leg strength for steep ascents and descents. Squats, lunges, and stair climbing are excellent preparation.</p>
+          </div>
+          <div class="p-3 bg-kailash-light rounded-xl">
+            <p class="font-bold text-kailash-dark mb-1">Mental</p>
+            <p>Prepare for challenging conditions — cold, wind, altitude, and basic facilities. A positive mindset is your greatest asset.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packing List Section -->
+  <section class="py-20 px-4 bg-kailash-dark">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+          Complete Packing List
+        </h2>
+        <p class="text-lg text-white/60 max-w-3xl mx-auto">
+          What to bring for the Mount Kailash kora. Items marked as "Essential" should not be omitted. The packing list assumes a 3-day kora with porter/yak support for your main luggage — you carry only a daypack.
+        </p>
+        <div class="w-24 h-0.5 bg-kailash-gold mx-auto mt-6"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Clothing -->
+        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+          <h3 class="font-display text-xl font-bold text-kailash-gold mb-4 flex items-center gap-2">
+            <span>👕</span> Clothing
+          </h3>
+          <ul class="space-y-2">
+            {packingList.clothing.map(item => (
+              <li class="flex items-start gap-2 text-sm text-white/70">
+                <span class={`shrink-0 mt-0.5 ${item.essential ? 'text-red-400' : 'text-white/40'}`}>
+                  {item.essential ? '&#9679;' : '&#9675;'}
+                </span>
+                <span>{item.item}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-4 text-xs text-white/40">
+            <span class="text-red-400">&#9679;</span> Essential &nbsp;
+            <span class="text-white/40">&#9675;</span> Recommended
+          </p>
+        </div>
+
+        <!-- Gear -->
+        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+          <h3 class="font-display text-xl font-bold text-kailash-gold mb-4 flex items-center gap-2">
+            <span>🎒</span> Gear & Equipment
+          </h3>
+          <ul class="space-y-2">
+            {packingList.gear.map(item => (
+              <li class="flex items-start gap-2 text-sm text-white/70">
+                <span class={`shrink-0 mt-0.5 ${item.essential ? 'text-red-400' : 'text-white/40'}`}>
+                  {item.essential ? '&#9679;' : '&#9675;'}
+                </span>
+                <span>{item.item}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-4 text-xs text-white/40">
+            <span class="text-red-400">&#9679;</span> Essential &nbsp;
+            <span class="text-white/40">&#9675;</span> Recommended
+          </p>
+        </div>
+
+        <!-- Medicine -->
+        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+          <h3 class="font-display text-xl font-bold text-kailash-gold mb-4 flex items-center gap-2">
+            <span>💊</span> Medicine & First Aid
+          </h3>
+          <ul class="space-y-2">
+            {packingList.medicine.map(item => (
+              <li class="flex items-start gap-2 text-sm text-white/70">
+                <span class={`shrink-0 mt-0.5 ${item.essential ? 'text-red-400' : 'text-white/40'}`}>
+                  {item.essential ? '&#9679;' : '&#9675;'}
+                </span>
+                <span>{item.item}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-4 text-xs text-white/40">
+            <span class="text-red-400">&#9679;</span> Essential &nbsp;
+            <span class="text-white/40">&#9675;</span> Recommended
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Altitude Sickness Section -->
+  <section class="py-20 px-4 bg-kailash-light">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-4">
+          Altitude Sickness — Know Before You Go
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Acute Mountain Sickness (AMS) is the single most important health consideration for the Kailash kora. Understanding symptoms, prevention, and emergency response can save your life.
+        </p>
+        <div class="w-24 h-0.5 bg-kailash-gold mx-auto mt-6"></div>
+      </div>
+
+      <!-- Symptoms -->
+      <div class="mb-12">
+        <h3 class="font-display text-2xl font-bold text-kailash-dark mb-6 text-center">Recognizing Symptoms</h3>
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+          <div class="grid grid-cols-1 divide-y divide-gray-100">
+            {altitudeInfo.symptoms.map(s => (
+              <div class={`p-4 md:p-5 flex items-center justify-between gap-4 ${s.severity === 'Severe' ? 'bg-red-50' : ''}`}>
+                <div class="flex items-center gap-4">
+                  <span class={`w-3 h-3 rounded-full shrink-0 ${s.severity === 'Severe' ? 'bg-red-500' : 'bg-yellow-500'}`}></span>
+                  <div>
+                    <p class="font-bold text-kailash-dark">{s.symptom}</p>
+                    <p class="text-sm text-gray-500">{s.note}</p>
+                  </div>
+                </div>
+                <span class={`text-xs font-bold px-3 py-1 rounded-full shrink-0 ${s.severity === 'Severe' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'}`}>
+                  {s.severity}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Prevention & Emergency -->
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-4 flex items-center gap-2">
+            <span class="text-2xl">🛡️</span> Prevention Strategies
+          </h3>
+          <ul class="space-y-3">
+            {altitudeInfo.prevention.map(item => (
+              <li class="flex items-start gap-3 text-sm text-gray-700">
+                <span class="text-green-500 font-bold shrink-0 mt-0.5">&#10003;</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-red-50 rounded-2xl p-8 shadow-md border border-red-200">
+          <h3 class="font-display text-xl font-bold text-red-700 mb-4 flex items-center gap-2">
+            <span class="text-2xl">🚨</span> Emergency Response
+          </h3>
+          <ul class="space-y-3">
+            {altitudeInfo.emergency.map(item => (
+              <li class="flex items-start gap-3 text-sm text-gray-700">
+                <span class="text-red-500 font-bold shrink-0 mt-0.5">!</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 p-6 bg-kailash-dark rounded-2xl text-center">
+        <p class="text-white text-sm leading-relaxed">
+          <span class="text-kailash-gold font-bold text-lg">Golden Rule of Altitude:</span><br/>
+          <span class="text-white/70">Never ascend with symptoms of AMS. Never leave a person with AMS alone. Descent is always the correct response to severe symptoms.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accommodation Section -->
+  <section class="py-20 px-4 bg-kailash-dark">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+          Accommodation
+        </h2>
+        <p class="text-lg text-white/60 max-w-3xl mx-auto">
+          Accommodation around Mount Kailash ranges from basic guesthouses on the kora route to comfortable hotels in Darchen. Set your expectations appropriately — this is a remote, high-altitude region.
+        </p>
+        <div class="w-24 h-0.5 bg-kailash-gold mx-auto mt-6"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {accommodationTypes.map(acc => (
+          <div class="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-kailash-gold/30 transition-all duration-300">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl">{acc.icon}</span>
+              <div>
+                <h3 class="font-display text-xl font-bold text-white">{acc.type}</h3>
+                <span class="text-kailash-gold text-sm">{acc.rating} comfort level</span>
+              </div>
+            </div>
+            <p class="text-white/70 text-sm leading-relaxed mb-3">{acc.desc}</p>
+            <p class="text-white/40 text-xs"><span class="text-kailash-gold">Locations:</span> {acc.locations}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Transport Section -->
+  <section class="py-20 px-4 bg-kailash-light">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-4">
+          Getting There — Transport
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Reaching Mount Kailash is an expedition in itself. The journey across the Tibetan Plateau is one of the world's great overland adventures.
+        </p>
+        <div class="w-24 h-0.5 bg-kailash-gold mx-auto mt-6"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {transportOptions.map(transport => (
+          <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300">
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">{transport.mode}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-3">{transport.details}</p>
+            <p class="text-kailash-gold text-sm font-medium">Duration: {transport.duration}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost Breakdown Section -->
+  <section class="py-20 px-4 bg-kailash-dark">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+          Cost Breakdown
+        </h2>
+        <p class="text-lg text-white/60 max-w-3xl mx-auto">
+          Estimated costs for a Mount Kailash pilgrimage in 2026. Prices are in USD and reflect typical ranges. Actual costs vary by tour operator, group size, season, and level of comfort.
+        </p>
+        <div class="w-24 h-0.5 bg-kailash-gold mx-auto mt-6"></div>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl overflow-hidden border border-white/10">
+        <div class="hidden md:grid grid-cols-12 gap-4 p-4 bg-white/10 text-xs font-bold text-kailash-gold uppercase tracking-wider">
+          <div class="col-span-5">Category</div>
+          <div class="col-span-3">Estimated Cost (USD)</div>
+          <div class="col-span-4">Notes</div>
+        </div>
+        <div class="divide-y divide-white/5">
+          {costBreakdown.map((item, index) => (
+            <div class="grid md:grid-cols-12 gap-4 p-4 hover:bg-white/5 transition">
+              <div class="md:col-span-5">
+                <p class="text-white font-medium text-sm">{item.category}</p>
+              </div>
+              <div class="md:col-span-3">
+                <p class="text-kailash-gold font-bold text-sm">{item.range}</p>
+              </div>
+              <div class="md:col-span-4">
+                <p class="text-white/50 text-xs leading-relaxed">{item.note}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-8 p-6 bg-kailash-gold/10 rounded-2xl border border-kailash-gold/30 text-center">
+        <p class="text-white text-sm leading-relaxed">
+          <span class="text-kailash-gold font-bold">Estimated Total Range:</span> $3,900 - $8,900+ per person (all-inclusive, excluding international flights). Budget travelers can reduce costs by joining larger groups and choosing basic accommodation. The 2026 Horse Year may see premium pricing due to exceptional demand — book early to secure better rates.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="py-20 px-4 bg-kailash-light">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-6">
+        Ready to Begin Your Journey?
+      </h2>
+      <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-2xl mx-auto">
+        The 2026 Horse Year offers a once-in-twelve-years opportunity to experience the Kailash kora at its most spiritually potent. Start planning early — permits, accommodation, and tour operators book up months in advance for this special year.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/en/routes" class="inline-block bg-kailash-gold text-kailash-dark px-8 py-4 rounded-2xl font-bold text-lg hover:bg-kailash-gold/90 transition shadow-lg hover:shadow-xl">
+          Explore the Kora Routes
+        </a>
+        <a href="/en/culture" class="inline-block bg-kailash-dark text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-kailash-dark/90 transition shadow-lg">
+          Discover Sacred Culture
+        </a>
+        <a href="/en/stories" class="inline-block border border-kailash-dark/20 text-kailash-dark px-8 py-4 rounded-2xl font-bold text-lg hover:bg-kailash-dark/5 transition">
+          Read Pilgrim Stories
+        </a>
+      </div>
+      <p class="mt-10 text-gray-500 text-sm">
+        Have questions? <a href="/en/contact" class="text-kailash-gold underline underline-offset-2 hover:text-kailash-dark transition">Contact us</a> — we're here to help you prepare for the pilgrimage of a lifetime.
+      </p>
+    </div>
+  </section>
+
+</Layout>

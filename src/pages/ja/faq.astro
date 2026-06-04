@@ -1,0 +1,211 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqCategories = [
+  {
+    category: '一般',
+    categoryIcon: '📋',
+    questions: [
+      {
+        q: 'カイラス山とはどのような場所ですか？',
+        a: 'カイラス山（標高6,656m）はチベット高原西部に位置する聖山で、チベット仏教、ヒンドゥー教、ボン教、ジャイナ教の四大宗教が共に聖地として崇めています。ピラミッド型の特徴的な山容を持ち、今日まで登頂されたことのない未踏峰です。「世界の中心」とも呼ばれ、毎年世界中から数万人の巡礼者が訪れます。'
+      },
+      {
+        q: 'コーラ（巡礼）とは何ですか？',
+        a: 'コーラとは、カイラス山の周囲を時計回りに一周する巡礼行のことです。全長52km、標高4,600mから最高5,648mのドルマラ峠を越える3日間の行程が標準です。チベット仏教では、コーラを一周することで六字真言（オム・マニ・ペメ・フム）を六億遍唱えたのと同等の功徳があるとされています。多くの敬虔な巡礼者は13周（または108周）を目指します。'
+      },
+      {
+        q: '日本人でも参加できますか？',
+        a: 'はい、参加可能です。国籍を問わず、どなたでもツアーにご参加いただけます。ただし、チベット自治区への入域には外国人向けの特別許可証が必要です。当社のツアーではこれらの許可証取得を全面的にサポートします。また、日本語を話すガイドは常駐していませんが、英語対応可能なガイドが同行します。基本的な英会話力があるとより充実した体験ができます。'
+      }
+    ]
+  },
+  {
+    category: '許可証',
+    categoryIcon: '📜',
+    questions: [
+      {
+        q: '日本人がチベットに行くにはどんな許可証が必要ですか？',
+        a: '日本国籍の方がカイラス山へ行くには以下の書類が必要です：（1）中国ビザ（L観光ビザ）、（2）チベット入域許可証（TTP）、（3）外国人旅行許可証（ATP）。全ての許可証は中国の登録旅行代理店を通じて申請する必要があり、個人での手配はできません。当社が申請手続きを代行しますので、パスポートとビザのコピーをご提出いただくだけで大丈夫です。'
+      },
+      {
+        q: '許可証の申請はいつまでに行えばよいですか？',
+        a: '中国ビザは出発の1〜2ヶ月前までに取得してください。チベット入域許可証（TTP）は出発の15〜20日前までに申請が必要です。パスポートの残存有効期間が6ヶ月以上必要ですので、事前にご確認ください。当社から申請に必要な書類リストとスケジュールをご案内します。繁忙期（6月〜9月）は許可証の発給に時間がかかることがあるため、早めのご予約をお勧めします。'
+      },
+      {
+        q: '個人でチベットに行くことはできますか？',
+        a: '申し訳ありませんが、外国人（中国国籍以外の方）のチベット自治区への個人旅行は認められていません。必ず登録旅行代理店が手配する団体ツアーに参加する必要があります。ツアー中は公認ガイドが同行し、許可証を常時携行します。これが中国政府の規定ですので、ご理解ください。日本人の単独旅行はできないため、信頼できるツアー会社の選択が何より重要です。'
+      }
+    ]
+  },
+  {
+    category: '体力',
+    categoryIcon: '💪',
+    questions: [
+      {
+        q: 'どの程度の体力が必要ですか？',
+        a: '52kmの山道を3日間かけて歩く持久力が必要です。日常的に運動している方であれば準備次第で達成可能です。具体的には、事前に週3〜4回の有酸素運動（ランニング、水泳等）を2〜3ヶ月継続し、富士山登山クラスの高低差1000m以上のトレッキングを2〜3回経験しておくことをお勧めします。体力に自信がない方はポーターや馬（有料オプション）の利用もご検討ください。'
+      },
+      {
+        q: '高山病が心配です。どう対策すればよいですか？',
+        a: '高山病はカイラス巡礼における最大のリスクですが、適切な対策でリスクを大幅に低減できます。具体的には：（1）ラサで最低2泊して標高に順応する、（2）1日3〜4Lの水分補給、（3）アルコール・喫煙を避ける、（4）ゆっくりとしたペースで歩く、（5）高山病予防薬（ダイアモックス）の予防服用を医師に相談する。当ツアーではガイドが参加者の状態を常に観察し、酸素ボンベも携行しています。重度の症状が出た場合はすぐに下山します。'
+      },
+      {
+        q: '60代・70代でも参加できますか？',
+        a: '年齢よりも体力と健康状態が重要です。実際に70代でコーラを完走された日本人の方もいらっしゃいます。ただし、事前の医師相談と十分なトレーニングが不可欠です。また、ポーターや馬を利用することで体力的な負担を大幅に軽減できます。ご自身のペースを守り、無理をしないことが完走の秘訣です。持病のある方は必ず出発前にかかりつけ医に相談し、高地旅行が可能かどうかの判断を仰いでください。'
+      }
+    ]
+  },
+  {
+    category: 'ルート',
+    categoryIcon: '🗺️',
+    questions: [
+      {
+        q: 'コーラの標準的な日程を教えてください。',
+        a: '標準的なコーラは3日2泊です。1日目：タルチェン（4,600m）→ ディラプク寺（5,200m）約22km・6〜8時間。2日目：ディラプク寺 → ドルマラ峠（5,648m）→ ゾンチュ寺（4,800m）約18km・8〜10時間。3日目：ゾンチュ寺 → タルチェン 約12km・3〜4時間。体力に自信のある方は2日1泊での完走も可能ですが、初めての方は3日間の行程を強くお勧めします。'
+      },
+      {
+        q: 'トイレや宿泊施設の状況はどうですか？',
+        a: 'タルチェンの宿泊施設には簡易水洗トイレがあります。コーラ途中の茶屋や宿泊所には屋外の簡易トイレ（汲み取り式）があります。ドルマラ峠付近など区間によってはトイレがない場所もあり、自然の中で用を足すことになります。ティッシュペーパーとウェットティッシュ、消毒ジェルを必ず携行してください。宿泊はゲストハウスまたは茶屋の簡易宿泊所となり、寝袋持参を推奨します。'
+      },
+      {
+        q: 'コーラを途中で断念した場合どうなりますか？',
+        a: '体調不良や怪我で続行が困難になった場合、ガイドの判断で安全な地点から下山します。タルチェンからの緊急車両手配や、必要に応じて救助要請を行います。ツアー料金の払い戻しはできませんが、安全が最優先です。無理をして重大な事故につながるケースが毎年報告されています。自分の体調を正直にガイドに伝えることが何より大切です。'
+      }
+    ]
+  },
+  {
+    category: '実用情報',
+    categoryIcon: '📝',
+    questions: [
+      {
+        q: '日本語は通じますか？',
+        a: 'チベットでは日本語はほとんど通じません。当ツアーのガイドは英語と中国語に対応しています。基本的な英語でのコミュニケーションができるとスムーズです。日本語専用ガイドが必要な場合は事前にご相談ください（追加料金が発生する場合があります）。また、オフラインで使える翻訳アプリをスマートフォンにインストールしておくことを強くお勧めします。'
+      },
+      {
+        q: 'ベジタリアン・ビーガン対応は可能ですか？',
+        a: '可能です。チベット料理は肉料理が多いですが、野菜料理や豆腐料理も多数あります。ツアー予約時に食事制限をお知らせいただければ、可能な限り対応いたします。ただし、コーラ中の補給所では選択肢が限られるため、ベジタリアン向けのレトルト食品や高カロリースナック（ナッツ、ドライフルーツ、エナジーバー等）を日本から持参されることをお勧めします。インスタント味噌汁や梅干しなど、日本の保存食は標高の高い環境で大変重宝します。'
+      },
+      {
+        q: 'お金はどのくらい持っていけばよいですか？',
+        a: 'ツアー料金に含まれない個人的な支出として、3〜5万円分の中国元をご用意ください。内訳の目安：自由行動時の食事（1食30〜80元）、お土産（タルチェンの商店で経旗やマニ石等）、ポーターや馬へのチップ（任意ですが100〜300元程度）、追加の飲料・軽食等。中国元は日本国内の空港またはラサの空港・市内で両替できます。クレジットカードはチベットではほぼ使えませんので、現金が必須です。'
+      }
+    ]
+  },
+  {
+    category: '安全',
+    categoryIcon: '🛡️',
+    questions: [
+      {
+        q: 'チベットの治安と日本人の安全性は大丈夫ですか？',
+        a: 'チベットの治安は比較的良好で、特に巡礼路での犯罪はほとんど報告されていません。地元の人々は巡礼者に対して友好的で親切です。日本人観光客が標的にされることも特にありません。ただし、以下の一般的な注意事項を守ってください：（1）貴重品は肌身離さず携帯する、（2）夜間の単独行動を避ける、（3）ガイドの指示に常に従う、（4）政治的な話題や写真撮影は避ける。検問所では係官の指示に従い、許可証を提示してください。'
+      },
+      {
+        q: '海外旅行保険は必要ですか？',
+        a: '必須です。チベット高原での疾病や怪我に備え、以下の条件を満たす海外旅行保険に必ずご加入ください：（1）高所トレッキング（標高5,600m以上）に対応していること、（2）ヘリコプター救助費用がカバーされていること、（3）治療費の補償額が十分であること（最低1,000万円以上推奨）。通常の海外旅行保険では高所トレッキングが補償対象外となる場合があるため、必ず約款をご確認ください。日本人向けには、モンベルやエイチ・エス損保の高所登山対応プランがお勧めです。'
+      },
+      {
+        q: '天候が急変した場合や緊急時はどう対応しますか？',
+        a: 'チベット高原の天候は非常に変わりやすく、夏でも突然の降雪や雷雨に見舞われることがあります。天候が危険と判断された場合、ガイドの判断で行程を変更または中止します。安全な場所で待機するか、引き返すこともあります。ガイドは衛星電話と無線機を常時携行しており、緊急時にはタルチェン本部と連絡を取り、救助手配を行います。ツアー行程の遅延や変更による追加費用が発生する可能性がありますので、日程には余裕を持ってご参加ください。'
+      }
+    ]
+  }
+];
+---
+
+<Layout title="よくある質問 - カイラス巡礼 | カイラス2026" description="カイラス巡礼に関するよくある質問と回答。許可証、体力、ルート、費用、安全対策など。日本からの巡礼者向け完全FAQ。日本人旅行者の特有の不安（言葉の壁、団体ツアー、単独旅行の安全性、ベジタリアン対応）に丁寧に回答します。">
+
+  <!-- Hero Section -->
+  <section class="relative bg-kailash-dark">
+    <div class="relative w-full h-[45vh] lg:h-[55vh]">
+      <div class="absolute inset-0 bg-[url('/images/kailash-birds.jpg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-kailash-dark/30 to-kailash-dark"></div>
+    </div>
+
+    <div class="relative -mt-12 z-10 px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-white mb-4">
+          よくある質問
+        </h1>
+        <p class="text-xl text-white/60 max-w-3xl mx-auto">
+          カイラス巡礼に関する疑問や不安、すべてにお答えします
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Category quick nav -->
+      <div class="mb-16">
+        <div class="flex flex-wrap justify-center gap-3">
+          {faqCategories.map(cat => (
+            <a href={`#cat-${cat.category}`} class="bg-white hover:bg-kailash-gold hover:text-kailash-dark transition px-4 py-2 rounded-full text-sm font-medium shadow-sm">
+              {cat.categoryIcon} {cat.category}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- FAQ categories -->
+      {faqCategories.map((category, catIdx) => (
+        <div id={`cat-${category.category}`} class="mb-16 last:mb-0 scroll-mt-24">
+          <div class="flex items-center gap-3 mb-8 pb-4 border-b-2 border-kailash-gold">
+            <span class="text-3xl">{category.categoryIcon}</span>
+            <h2 class="font-display text-2xl md:text-3xl font-bold text-kailash-dark">{category.category}</h2>
+          </div>
+
+          <div class="space-y-4">
+            {category.questions.map((item, qIdx) => (
+              <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <details class="group">
+                  <summary class="flex items-start gap-3 p-6 cursor-pointer list-none">
+                    <span class="bg-kailash-gold text-kailash-dark w-7 h-7 rounded-full flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">Q</span>
+                    <span class="flex-1 font-semibold text-lg text-kailash-dark group-open:text-kailash-gold transition">{item.q}</span>
+                    <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="px-6 pb-6 pt-0">
+                    <div class="flex items-start gap-3 pl-10">
+                      <p class="text-gray-600 leading-relaxed">{item.a}</p>
+                    </div>
+                  </div>
+                </details>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Still have questions -->
+      <div class="mt-20 bg-kailash-dark text-white rounded-2xl p-10 text-center">
+        <h2 class="font-display text-3xl font-bold mb-4">お探しの回答が見つかりませんか？</h2>
+        <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+          ここに記載のないご質問や、さらに詳しい情報が必要な場合は、お気軽にお問い合わせください。経験豊富なスタッフが対応いたします。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="mailto:kailash2026Lucas@outlook.com" class="inline-flex items-center justify-center gap-2 bg-kailash-gold text-kailash-dark px-6 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            メールで問い合わせる
+          </a>
+          <a href="/ja/contact" class="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+            お問い合わせフォーム
+          </a>
+        </div>
+        <p class="mt-6 text-gray-500 text-sm">
+          または WeChat: <span class="text-kailash-gold font-medium">Kailash2026</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
