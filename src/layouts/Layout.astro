@@ -6,9 +6,32 @@ import '../styles/global.css';
 export interface Props {
   title: string;
   description?: string;
+  lang?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, lang = 'zh-CN' } = Astro.props;
+
+const siteUrl = 'https://kailash2026.com';
+const currentPath = Astro.url.pathname;
+
+// Extract current route from path (strip language prefix)
+let routePath = currentPath;
+for (const prefix of ['/en', '/ja', '/hi']) {
+  if (currentPath === prefix) {
+    routePath = '/';
+    break;
+  }
+  if (currentPath.startsWith(prefix + '/')) {
+    routePath = currentPath.slice(prefix.length);
+    break;
+  }
+}
+
+// Build alternate URLs for hreflang tags
+const zhAlt = siteUrl + (routePath === '/' ? '' : routePath);
+const enAlt = siteUrl + '/en' + (routePath === '/' ? '' : routePath);
+const jaAlt = siteUrl + '/ja' + (routePath === '/' ? '' : routePath);
+const hiAlt = siteUrl + '/hi' + (routePath === '/' ? '' : routePath);
 
 const navItems = [
   { label: 'གཙོ་ངོས།', labelZh: '首页', labelEn: 'Home', href: '/' },
@@ -24,15 +47,16 @@ const navItems = [
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang={lang}>
 <head>
   <SEO title={title} description={description} />
   <Analytics />
-  <link rel="alternate" hreflang="zh-CN" href="https://kailash2026.com/" />
-  <link rel="alternate" hreflang="en" href="https://kailash2026.com/en/" />
-  <link rel="alternate" hreflang="hi" href="https://kailash2026.com/hi/" />
-  <link rel="alternate" hreflang="ja" href="https://kailash2026.com/ja/" />
-  <link rel="alternate" hreflang="x-default" href="https://kailash2026.com/" />
+  <meta name="msvalidate.01" content="A201D66C22CCDC609070662B96215D47" />
+  <link rel="alternate" hreflang="zh-CN" href={zhAlt} />
+  <link rel="alternate" hreflang="en" href={enAlt} />
+  <link rel="alternate" hreflang="hi" href={hiAlt} />
+  <link rel="alternate" hreflang="ja" href={jaAlt} />
+  <link rel="alternate" hreflang="x-default" href={zhAlt} />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
@@ -42,7 +66,7 @@ const navItems = [
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <a href="/" class="text-kailash-gold font-display text-2xl font-bold">Kailash 2026</a>
-        
+
         {/* Desktop Nav */}
         <div class="hidden lg:flex items-center space-x-6">
           {navItems.slice(0, 5).map(item => (
@@ -51,51 +75,51 @@ const navItems = [
               <span class="hidden group-hover:inline text-xs text-kailash-gold ml-1">{item.label}</span>
             </a>
           ))}
-          
+
           {/* Language Switcher */}
           <div class="flex items-center gap-1 ml-4 border-l border-white/20 pl-4">
-            <button 
-              class="lang-btn px-2 py-1 rounded text-sm text-kailash-gold font-medium" 
+            <button
+              class="lang-btn px-2 py-1 rounded text-sm text-kailash-gold font-medium"
               data-lang="zh"
               onclick="switchLanguage('zh')"
             >
               中文
             </button>
             <span class="text-white/30">|</span>
-            <button 
-              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition" 
+            <button
+              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition"
               data-lang="en"
               onclick="switchLanguage('en')"
             >
               EN
             </button>
             <span class="text-white/30">|</span>
-            <button 
-              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition" 
+            <button
+              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition"
               data-lang="hi"
               onclick="switchLanguage('hi')"
             >
               हिंदी
             </button>
             <span class="text-white/30">|</span>
-            <button 
-              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition" 
+            <button
+              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition"
               data-lang="ja"
               onclick="switchLanguage('ja')"
             >
               日本語
             </button>
           </div>
-          
+
         {/* Search Box */}
         <div class="relative ml-4">
-          <input 
-            type="text" 
+          <input
+            type="text"
             id="nav-search-input"
-            placeholder="搜索..." 
+            placeholder="搜索..."
             class="bg-white/10 text-white placeholder-white/50 px-4 py-2 rounded-lg text-sm w-48 focus:outline-none focus:ring-2 focus:ring-kailash-gold/50 focus:bg-white/20 transition"
           />
-          <button 
+          <button
             id="nav-search-btn"
             class="absolute right-2 top-1/2 -translate-y-1/2 text-white/60 hover:text-kailash-gold transition"
           >
@@ -125,16 +149,16 @@ const navItems = [
           <a href="/guide" class="bg-kailash-gold text-kailash-dark px-4 py-3 rounded-lg font-medium text-center">
             Explore / 探索
           </a>
-          
+
           {/* Mobile Search */}
           <div class="relative mt-3">
-            <input 
-              type="text" 
+            <input
+              type="text"
               id="mobile-search-input"
-              placeholder="搜索..." 
+              placeholder="搜索..."
               class="bg-white/10 text-white placeholder-white/50 px-4 py-3 rounded-lg text-sm w-full focus:outline-none focus:ring-2 focus:ring-kailash-gold/50 focus:bg-white/20 transition"
             />
-            <button 
+            <button
               id="mobile-search-btn"
               class="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-kailash-gold transition"
             >
@@ -147,11 +171,11 @@ const navItems = [
       </div>
     </nav>
   </header>
-  
+
   <main class="pt-16">
     <slot />
   </main>
-  
+
   <footer class="bg-kailash-dark text-white py-12 mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-4 gap-8">
@@ -159,7 +183,7 @@ const navItems = [
           <h3 class="font-display text-xl text-kailash-gold mb-4">Kailash 2026</h3>
           <p class="text-gray-400 text-sm">专注冈仁波齐朝圣之旅，为您提供专业的文化解读与行程服务。</p>
         </div>
-        
+
         <div>
           <h4 class="font-medium mb-4">探索</h4>
           <ul class="space-y-2 text-gray-400 text-sm">
@@ -170,7 +194,7 @@ const navItems = [
             <li><a href="/gallery" class="hover:text-kailash-gold">图库</a></li>
           </ul>
         </div>
-        
+
         <div>
           <h4 class="font-medium mb-4">服务</h4>
           <ul class="space-y-2 text-gray-400 text-sm">
@@ -179,7 +203,7 @@ const navItems = [
             <li><a href="/contact" class="hover:text-kailash-gold">联系我们</a></li>
           </ul>
         </div>
-        
+
         <div>
           <h4 class="font-medium mb-4">联系我们</h4>
           <p class="text-gray-400 text-sm">kailash2026Lucas@outlook.com</p>
@@ -196,17 +220,17 @@ const navItems = [
     // Mobile menu toggle
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    
+
     menuBtn?.addEventListener('click', () => {
       mobileMenu?.classList.toggle('hidden');
     });
-    
+
     // Search functionality
     function performSearch(query) {
       if (!query || query.trim().length === 0) return;
-      
+
       const searchTerm = query.trim().toLowerCase();
-      
+
       // Define searchable pages with keywords
       const searchablePages = [
         { url: '/culture', title: '神山文化', keywords: ['文化', '宗教', '历史', '藏传佛教', '印度教', '苯教', '耆那教'] },
@@ -218,14 +242,14 @@ const navItems = [
         { url: '/about', title: '关于我们', keywords: ['关于', '介绍', '团队', '使命', '愿景'] },
         { url: '/contact', title: '联系我们', keywords: ['联系', '邮箱', '反馈', '合作'] }
       ];
-      
+
       // Find matching pages
       const results = searchablePages.filter(page => {
         const inTitle = page.title.toLowerCase().includes(searchTerm);
         const inKeywords = page.keywords.some(k => k.includes(searchTerm));
         return inTitle || inKeywords;
       });
-      
+
       if (results.length > 0) {
         // Navigate to the best match (first result)
         window.location.href = results[0].url;
@@ -234,29 +258,29 @@ const navItems = [
         alert('未找到相关内容，请尝试其他关键词');
       }
     }
-    
+
     // Desktop search
     const desktopSearchInput = document.getElementById('nav-search-input');
     const desktopSearchBtn = document.getElementById('nav-search-btn');
-    
+
     desktopSearchBtn?.addEventListener('click', () => {
       performSearch(desktopSearchInput?.value);
     });
-    
+
     desktopSearchInput?.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         performSearch(desktopSearchInput.value);
       }
     });
-    
+
     // Mobile search
     const mobileSearchInput = document.getElementById('mobile-search-input');
     const mobileSearchBtn = document.getElementById('mobile-search-btn');
-    
+
     mobileSearchBtn?.addEventListener('click', () => {
       performSearch(mobileSearchInput?.value);
     });
-    
+
     mobileSearchInput?.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         performSearch(mobileSearchInput.value);
@@ -269,7 +293,7 @@ const navItems = [
       function switchLanguage(lang) {
         document.documentElement.setAttribute('data-lang', lang);
         localStorage.setItem('preferred-lang', lang);
-        
+
         // Update button styles
         document.querySelectorAll('.lang-btn').forEach(btn => {
           if (btn.getAttribute('data-lang') === lang) {
@@ -280,7 +304,7 @@ const navItems = [
             btn.classList.add('text-white/60', 'hover:text-white');
           }
         });
-        
+
         // Toggle content visibility
         document.querySelectorAll('[data-lang-content]').forEach(el => {
           if (el.getAttribute('data-lang-content') === lang) {
@@ -290,11 +314,11 @@ const navItems = [
           }
         });
       }
-      
+
       // Initialize on page load
       const savedLang = localStorage.getItem('preferred-lang') || 'zh';
       switchLanguage(savedLang);
-      
+
       // Expose to global scope for onclick handlers
       window.switchLanguage = switchLanguage;
     })();
