@@ -50,11 +50,11 @@ const articleLd = {
     '@id': new URL(Astro.url.pathname, 'https://kailash2026.com').toString(),
   },
   'keywords': post.data.tags.join(', '),
-  'inLanguage': 'en',
+  'inLanguage': 'ja',
 };
 ---
 
-<Layout title={pageTitle} description={post.data.description} lang="en">
+<Layout title={pageTitle} description={post.data.description} lang="ja">
   <!-- Hero Header -->
   <section class="relative bg-kailash-dark">
     <div class="relative w-full h-[30vh] lg:h-[35vh]">

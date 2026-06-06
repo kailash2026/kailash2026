@@ -1,0 +1,3 @@
+# Vercel deployment ignore
+public/images/.backup/
+lighthouse-report.json
