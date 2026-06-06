@@ -5,7 +5,7 @@ category: "figures"
 categoryZh: "人物"
 lang: "zh"
 order: 2
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## 莲花生大士

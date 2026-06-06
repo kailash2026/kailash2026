@@ -4,7 +4,7 @@ description: "日本人がカイラス巡礼（標高5,648m）を安全に完遂
 date: 2026-06-08
 lang: ja
 tags: ["高山病", "安全", "健康", "準備"]
-image: /images/kailash-golden.jpg
+image: /images/kailash-golden.webp
 ---
 
 # 高山病対策完全マニュアル：カイラス巡礼を安全に完遂するために

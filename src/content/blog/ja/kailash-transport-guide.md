@@ -4,7 +4,7 @@ description: "日本から聖地カイラス山までの全交通ルートを徹
 date: 2026-06-07
 lang: ja
 tags: ["交通", "カイラス山", "行き方", "ラサ", "カトマンズ", "チベット旅行", "高山順応"]
-image: /images/kailash-golden.jpg
+image: /images/kailash-golden.webp
 ---
 
 # カイラス山への行き方2026：日本人のための完全交通ガイド

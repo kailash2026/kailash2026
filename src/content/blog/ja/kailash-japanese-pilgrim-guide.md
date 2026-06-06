@@ -4,7 +4,7 @@ description: "2026年はチベット暦で12年に一度の馬年。聖地カイ
 date: 2026-06-07
 lang: ja
 tags: ["カイラス", "巡礼", "チベット"]
-image: /images/kailash-golden.jpg
+image: /images/kailash-golden.webp
 ---
 
 # カイラス山巡礼2026：日本人旅行者のための完全ガイド

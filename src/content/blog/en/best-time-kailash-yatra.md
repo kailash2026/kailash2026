@@ -4,7 +4,7 @@ description: "A detailed month-by-month breakdown of the best time to trek Mount
 date: 2026-06-07
 lang: en
 tags: ["Mount Kailash", "Best Time to Visit", "Kailash Yatra", "Tibet Trekking", "Weather Guide", "Horse Year 2026", "Saga Dawa", "Seasonal Guide"]
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 # Best Time to Visit Mount Kailash 2026: Month-by-Month Guide

@@ -4,7 +4,7 @@ description: "详解急性高山病（AMS）的成因、症状分级、科学预
 date: 2026-06-07
 lang: zh
 tags: ["高反", "健康安全", "转山攻略", "高原医学", "急救"]
-image: /images/kailash-golden.jpg
+image: /images/kailash-golden.webp
 ---
 
 # 高原反应完全指南：冈仁波齐转山如何安全应对高反

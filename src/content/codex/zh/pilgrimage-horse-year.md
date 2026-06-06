@@ -5,7 +5,7 @@ category: "pilgrimage"
 categoryZh: "朝圣实践"
 lang: "zh"
 order: 2
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## 马年的特殊意义

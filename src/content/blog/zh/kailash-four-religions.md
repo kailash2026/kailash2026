@@ -4,7 +4,7 @@ description: "深度解读冈仁波齐为何成为藏传佛教、印度教、苯
 date: 2026-06-08
 lang: zh
 tags: ["宗教", "文化", "藏传佛教", "印度教", "苯教", "耆那教"]
-image: /images/kailash-golden.jpg
+image: /images/kailash-golden.webp
 ---
 
 # 冈仁波齐：四大宗教共同的圣地——深度解读

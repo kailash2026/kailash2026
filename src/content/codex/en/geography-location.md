@@ -5,7 +5,7 @@ category: "geography"
 categoryZh: "地理"
 lang: "en"
 order: 1
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## Location

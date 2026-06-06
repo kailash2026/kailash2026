@@ -4,7 +4,7 @@ description: "The ultimate guide to the Mount Kailash Kora in 2026. Covers the 5
 date: 2026-06-07
 lang: en
 tags: ["Mount Kailash", "Kora Guide", "Pilgrimage", "Tibet Travel", "Trekking", "Sacred Mountain", "2026"]
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 # Mount Kailash Complete Guide 2026: Routes, Preparation, Best Time

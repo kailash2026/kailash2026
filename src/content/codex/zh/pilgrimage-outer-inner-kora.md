@@ -5,7 +5,7 @@ category: "pilgrimage"
 categoryZh: "朝圣实践"
 lang: "zh"
 order: 1
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## 外转（大转）

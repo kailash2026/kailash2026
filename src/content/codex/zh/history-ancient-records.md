@@ -5,7 +5,7 @@ category: "history"
 categoryZh: "历史"
 lang: "zh"
 order: 1
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## 最古老的记载

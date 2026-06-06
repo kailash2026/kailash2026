@@ -5,7 +5,7 @@ category: "myths"
 categoryZh: "神话传说"
 lang: "zh"
 order: 1
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## 苯教的创世说

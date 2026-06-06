@@ -5,7 +5,7 @@ category: "history"
 categoryZh: "历史"
 lang: "zh"
 order: 2
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## 早期的西方接触

@@ -4,7 +4,7 @@ description: "A detailed month-by-month climate guide for the Mount Kailash kora
 date: 2026-06-08
 lang: en
 tags: ["weather", "climate", "planning", "seasons"]
-image: /images/kailash-golden.jpg
+image: /images/kailash-golden.webp
 ---
 
 # Mount Kailash Weather & Climate Guide: What to Expect Each Month

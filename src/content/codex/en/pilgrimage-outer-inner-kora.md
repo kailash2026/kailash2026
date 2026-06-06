@@ -5,7 +5,7 @@ category: "pilgrimage"
 categoryZh: "朝圣实践"
 lang: "en"
 order: 1
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## Outer Kora

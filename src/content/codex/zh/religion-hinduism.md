@@ -5,7 +5,7 @@ category: "religion"
 categoryZh: "宗教意义"
 lang: "zh"
 order: 2
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## 湿婆的居所

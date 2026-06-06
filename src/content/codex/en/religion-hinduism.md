@@ -5,7 +5,7 @@ category: "religion"
 categoryZh: "宗教意义"
 lang: "en"
 order: 2
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## Abode of Shiva

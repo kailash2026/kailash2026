@@ -4,7 +4,7 @@ description: "2026年冈仁波齐转山最全面指南。涵盖52公里外转路
 date: 2026-06-07
 lang: zh
 tags: ["转山指南", "冈仁波齐", "朝圣攻略", "路线规划", "装备清单", "高原反应", "2026"]
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 # 冈仁波齐转山完整指南2026：路线、准备、最佳时间

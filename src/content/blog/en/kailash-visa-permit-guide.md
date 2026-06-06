@@ -4,7 +4,7 @@ description: "Everything you need to know about obtaining permits for the Mount 
 date: 2026-06-07
 lang: en
 tags: ["Mount Kailash", "Permits", "Visa Guide", "Tibet Travel", "Pilgrimage", "Horse Year 2026", "Border Permit", "Travel Documents"]
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 # How to Get Permits for Mount Kailash 2026: Complete Visa & Permit Guide

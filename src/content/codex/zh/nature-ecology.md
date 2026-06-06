@@ -5,7 +5,7 @@ category: "nature"
 categoryZh: "自然生态"
 lang: "zh"
 order: 1
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## 高原环境

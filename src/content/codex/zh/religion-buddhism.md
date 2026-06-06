@@ -5,7 +5,7 @@ category: "religion"
 categoryZh: "宗教意义"
 lang: "zh"
 order: 1
-image: "/images/kailash-golden.jpg"
+image: "/images/kailash-golden.webp"
 ---
 
 ## 须弥山
