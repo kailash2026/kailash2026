@@ -1,0 +1,100 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const entries = await getCollection('codex', ({ data }) => data.lang === 'zh');
+const sorted = entries.sort((a, b) => a.data.order - b.data.order);
+
+const title = '冈仁波齐知识宝典 - Kailash Codex | Kailash 2026';
+const description = '最全面的冈仁波齐知识百科全书：地理、宗教、历史、人物、神话、生态与朝圣实践，深度解读神山的一切。';
+
+// Group by category
+const categoryMap: Record<string, { label: string; entries: typeof sorted; icon: string }> = {
+  geography: { label: '地理', icon: '🏔️', entries: [] },
+  religion: { label: '宗教意义', icon: '🙏', entries: [] },
+  history: { label: '历史', icon: '📜', entries: [] },
+  figures: { label: '人物', icon: '👤', entries: [] },
+  myths: { label: '神话传说', icon: '🗣️', entries: [] },
+  nature: { label: '自然生态', icon: '🌿', entries: [] },
+  pilgrimage: { label: '朝圣实践', icon: '🚶', entries: [] },
+};
+
+for (const e of sorted) {
+  if (categoryMap[e.data.category]) {
+    categoryMap[e.data.category].entries.push(e);
+  }
+}
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero -->
+  <section class="relative bg-kailash-dark">
+    <div class="relative w-full h-[40vh] lg:h-[45vh]">
+      <div class="absolute inset-0 bg-[url('/images/kailash-golden.webp')] bg-cover bg-center opacity-50"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/30 to-kailash-dark"></div>
+    </div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="text-center px-4 mt-16">
+        <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-4 font-light">知识 · 智慧 · 神圣</p>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-white mb-4">
+          冈仁波齐<span class="text-kailash-gold">知识宝典</span>
+        </h1>
+        <p class="text-xl text-white/60 max-w-3xl mx-auto">
+          从地理到信仰，从传说到现实——最全面的神山知识库
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Grid -->
+  <section class="py-16 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {Object.entries(categoryMap).filter(([_, cat]) => cat.entries.length > 0).map(([key, cat]) => (
+          <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group">
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">{cat.icon}</span>
+                <h2 class="font-display text-xl font-bold text-kailash-dark">{cat.label}</h2>
+                <span class="text-sm text-gray-400 ml-auto">({cat.entries.length})</span>
+              </div>
+              <div class="space-y-2">
+                {cat.entries.map((entry) => {
+                  const slug = entry.id.replace(/\.md$/, '').replace(/^zh\//, '');
+                  return (
+                    <a
+                      href={`/codex/${slug}`}
+                      class="block px-3 py-2 rounded-lg hover:bg-kailash-cream transition-colors group/item"
+                    >
+                      <span class="text-sm font-medium text-kailash-dark group-hover/item:text-kailash-gold transition-colors">
+                        {entry.data.title}
+                      </span>
+                      <p class="text-xs text-gray-500 mt-0.5 line-clamp-1">{entry.data.description}</p>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats / Call to action -->
+  <section class="py-16 bg-kailash-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-white mb-4">持续更新的知识宝库</h2>
+      <p class="text-white/60 mb-8 max-w-2xl mx-auto">
+        我们正在系统性地整理冈仁波齐相关的所有知识，涵盖七大领域，为您呈现最完整的文化图景。
+      </p>
+      <div class="inline-flex items-center gap-2 text-kailash-gold">
+        <span class="text-sm">已收录 {sorted.length} 个条目</span>
+        <span class="text-white/40">·</span>
+        <span class="text-sm">7 个分类</span>
+        <span class="text-white/40">·</span>
+        <span class="text-sm">持续更新中</span>
+      </div>
+    </div>
+  </section>
+</Layout>

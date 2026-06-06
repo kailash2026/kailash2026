@@ -39,6 +39,7 @@ const navItems = [
   { label: 'མཇལ་བསྐོར་གནས་ཚུལ།', labelZh: '朝圣攻略', labelEn: 'Guide', href: '/guide' },
   { label: 'ལམ་ཐིག', labelZh: '转山路线', labelEn: 'Routes', href: '/routes' },
   { label: 'མངའ་རིས་རིག་གནས།', labelZh: '阿里人文', labelEn: 'Ngari Culture', href: '/ali' },
+  { label: 'ཤེས་བྱའི་མཛོད།', labelZh: '知识宝典', labelEn: 'Codex', href: '/codex' },
   { label: 'སྒྲོལ་ལྗོངས།', labelZh: '朝圣故事', labelEn: 'Stories', href: '/stories' },
   { label: 'བརྙན་མཛོད།', labelZh: '图库', labelEn: 'Gallery', href: '/gallery' },
   { label: 'ཟུང་བྲལ།', labelZh: '常见问题', labelEn: 'FAQ', href: '/faq' },
@@ -61,6 +62,8 @@ const navItems = [
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/images/kailash-golden.webp" />
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable" />
 </head>
 <body class="bg-kailash-light text-kailash-dark antialiased">
   <header class="fixed top-0 w-full bg-kailash-dark/95 backdrop-blur-sm z-50">
@@ -191,6 +194,7 @@ const navItems = [
             <li><a href="/culture" class="hover:text-kailash-gold">神山文化</a></li>
             <li><a href="/guide" class="hover:text-kailash-gold">朝圣攻略</a></li>
             <li><a href="/routes" class="hover:text-kailash-gold">转山路线</a></li>
+            <li><a href="/codex" class="hover:text-kailash-gold">知识宝典</a></li>
             <li><a href="/stories" class="hover:text-kailash-gold">朝圣故事</a></li>
             <li><a href="/gallery" class="hover:text-kailash-gold">图库</a></li>
           </ul>
