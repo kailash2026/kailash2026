@@ -11,7 +11,8 @@ export default {
           accent: '#A67B5B',
           warm: '#C9A87C',
           cream: '#E8E0D5',
-          stone: '#2A2826'
+          stone: '#2A2826',
+          'gold-dark': '#7A5A24'
         }
       },
       fontFamily: {
