@@ -1,0 +1,170 @@
+---
+export interface Props {
+  url?: string;
+  title?: string;
+  description?: string;
+  lang?: string;
+}
+
+const {
+  url = Astro.url.toString(),
+  title = "Kailash 2026",
+  description = "",
+  lang = "zh",
+} = Astro.props;
+
+const encodedUrl = encodeURIComponent(url);
+const encodedTitle = encodeURIComponent(title);
+const encodedDesc = encodeURIComponent(description);
+
+// Language-specific share button labels and platform names
+const labels: Record<string, { shareText: string; copyText: string; copiedText: string; wechat: string; weibo: string; twitter: string; facebook: string; whatsapp: string; line: string; telegram: string; copy: string }> = {
+  zh: { shareText: '分享到', copyText: '复制链接', copiedText: '已复制！', wechat: '微信', weibo: '微博', twitter: 'Twitter/X', facebook: 'Facebook', whatsapp: 'WhatsApp', line: 'LINE', telegram: 'Telegram', copy: '复制链接' },
+  en: { shareText: 'Share on', copyText: 'Copy Link', copiedText: 'Copied!', wechat: 'WeChat', weibo: 'Weibo', twitter: 'Twitter/X', facebook: 'Facebook', whatsapp: 'WhatsApp', line: 'LINE', telegram: 'Telegram', copy: 'Copy Link' },
+  ja: { shareText: '共有する', copyText: 'リンクをコピー', copiedText: 'コピーしました！', wechat: 'WeChat', weibo: 'Weibo', twitter: 'Twitter/X', facebook: 'Facebook', whatsapp: 'WhatsApp', line: 'LINE', telegram: 'Telegram', copy: 'リンクをコピー' },
+  hi: { shareText: 'शेयर करें', copyText: 'लिंक कॉपी करें', copiedText: 'कॉपी हो गया!', wechat: 'WeChat', weibo: 'Weibo', twitter: 'Twitter/X', facebook: 'Facebook', whatsapp: 'WhatsApp', line: 'LINE', telegram: 'Telegram', copy: 'लिंक कॉपी करें' },
+};
+
+const t = labels[lang] || labels.zh;
+
+// Platform configs with SVG icons
+const platforms = [
+  { key: 'twitter', name: t.twitter, color: 'hover:bg-[#1DA1F2]', icon: 'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z' },
+  { key: 'facebook', name: t.facebook, color: 'hover:bg-[#1877F2]', icon: 'M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z' },
+  { key: 'whatsapp', name: t.whatsapp, color: 'hover:bg-[#25D366]', icon: 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z' },
+  { key: 'line', name: t.line, color: 'hover:bg-[#06C755]', icon: 'M19.365 9.863c.349 0 .63.285.63.636 0 .353-.281.637-.63.637H4.63a.635.635 0 01-.63-.637c0-.351.281-.636.63-.636h14.735zM12 2C6.477 2 2 5.815 2 10.52c0 4.21 3.906 7.735 9.181 8.402.358.077.845.236.968.542.111.278.073.714.036.995l-.153.918c-.048.278-.22 1.088.953.593 1.173-.494 6.334-3.73 8.642-6.386C23.236 13.721 24 11.995 24 10.518 24 5.815 19.523 2 12 2z' },
+  { key: 'telegram', name: t.telegram, color: 'hover:bg-[#26A5E4]', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.87-1.25 4.79-2.08 5.76-2.47 2.74-1.14 3.31-1.34 3.68-1.34.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z' },
+  { key: 'wechat', name: t.wechat, color: 'hover:bg-[#07C160]', icon: 'M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-3.95 0-7.15 2.886-7.15 6.448 0 3.56 3.2 6.447 7.15 6.447a7.56 7.56 0 002.264-.332.714.714 0 01.565.074l1.433.838a.237.237 0 00.125.04.22.22 0 00.218-.222c0-.054-.022-.107-.036-.16l-.294-1.114a.444.444 0 01.16-.5C22.907 14.338 24 12.793 24 11.075c0-3.338-3.116-6.045-6.952-6.217zm-2.066 3.39c.48 0 .87.396.87.884a.877.877 0 01-.87.884.877.877 0 01-.87-.884c0-.488.39-.884.87-.884zm4.298 0c.48 0 .87.396.87.884a.877.877 0 01-.87.884.877.877 0 01-.87-.884c0-.488.39-.884.87-.884z' },
+  { key: 'weibo', name: t.weibo, color: 'hover:bg-[#E6162D]', icon: 'M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.739 5.443zm-2.67-4.727c-.374.404-.313.776.172.935.53.175 1.255.123 1.992-.235.72-.354 1.202-.871 1.296-1.17.073-.239-.027-.371-.246-.295-.493.171-1.143.306-1.803.349-.668.043-1.137-.032-1.412.416zm2.067 2.305c-1.178.832-2.276 1.092-2.795.702-.553-.413-.397-1.415.423-2.354.838-.963 2.012-1.484 2.628-1.096.63.403.8 1.802-.256 2.748zm6.72-6.9c-1.665-.565-3.814.341-4.867 2.026-.1.155-.032.28.147.224 1.178-.37 1.874-.92 2.89-1.04 1.315-.16 2.132.437 2.909.916.151.096.266.05.296-.123.115-.7-.232-1.565-1.375-2.003zm3.902-1.543C17.423 8.2 13.878 7.8 11.122 8.654c-2.425.745-4.311 2.21-5.374 4.172-.208.383-.023.485.29.28 1.627-1.09 4.018-1.87 6.636-2.1 3.027-.264 6.1.236 8.314 1.393.656.34 1.087.122.804-.54a10.1 10.1 0 00-1.775-2.4z' },
+];
+---
+
+<div class="share-buttons" data-share-component>
+  <span class="share-label">{t.shareText}</span>
+  <div class="flex flex-wrap gap-1.5">
+    {platforms.filter(p => {
+      // Hide WeChat and Weibo for non-Chinese audiences (kept for zh and shown as optional)
+      if ((p.key === 'wechat' || p.key === 'weibo') && lang !== 'zh') return false;
+      // Hide LINE for non-Japanese audiences
+      if (p.key === 'line' && lang !== 'ja') return false;
+      return true;
+    }).map((p) => (
+      <a
+        href={p.key === 'wechat' ? '#' :
+              p.key === 'copy' ? '#' :
+              p.key === 'facebook' ? `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}` :
+              p.key === 'twitter' ? `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}` :
+              p.key === 'whatsapp' ? `https://wa.me/?text=${encodedTitle}%20${encodedUrl}` :
+              p.key === 'line' ? `https://social-plugins.line.me/lineit/share?url=${encodedUrl}` :
+              p.key === 'telegram' ? `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}` :
+              p.key === 'weibo' ? `https://service.weibo.com/share/share.php?url=${encodedUrl}&title=${encodedTitle}` :
+              `#`}
+        target={p.key === 'wechat' || p.key === 'copy' ? undefined : '_blank'}
+        rel={p.key === 'wechat' || p.key === 'copy' ? undefined : 'noopener noreferrer'}
+        class={`share-btn inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 ${p.color} hover:text-white transition-all duration-200`}
+        title={p.name}
+        aria-label={p.name}
+        {...(p.key === 'wechat' ? { 'data-wechat': 'true' } : {})}
+        {...(p.key === 'copy' ? { 'data-copy': 'true', 'data-copy-text': url } : {})}
+      >
+        <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor">
+          <path d={p.icon} />
+        </svg>
+      </a>
+    ))}
+    <!-- Copy Link Button -->
+    <button
+      class="share-btn inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:bg-kailash-gold hover:text-white transition-all duration-200"
+      title={t.copy}
+      aria-label={t.copy}
+      data-copy-btn
+      data-copy-text={url}
+    >
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>
+    </button>
+  </div>
+  <span class="copied-toast" data-copied-toast style="display:none;">{t.copiedText}</span>
+</div>
+
+<style>
+  .share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .share-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    min-width: fit-content;
+  }
+  .share-btn svg {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+  .copied-toast {
+    font-size: 0.8rem;
+    color: #059669;
+    font-weight: 500;
+    animation: fadeInOut 2s ease;
+  }
+  @keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(4px); }
+    15% { opacity: 1; transform: translateY(0); }
+    85% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-4px); }
+  }
+</style>
+
+<script>
+  (function() {
+    const container = document.currentScript?.parentElement?.querySelector('[data-share-component]');
+    if (!container) return;
+
+    // Copy link functionality
+    const copyBtn = container.querySelector('[data-copy-btn]');
+    const toast = container.querySelector('[data-copied-toast]');
+
+    copyBtn?.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const text = copyBtn.getAttribute('data-copy-text');
+      try {
+        await navigator.clipboard.writeText(text);
+        if (toast) {
+          toast.style.display = 'inline';
+          setTimeout(() => { toast.style.display = 'none'; }, 2000);
+        }
+      } catch {
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        if (toast) {
+          toast.style.display = 'inline';
+          setTimeout(() => { toast.style.display = 'none'; }, 2000);
+        }
+      }
+    });
+
+    // WeChat: show QR or hint
+    const wechatBtn = container.querySelector('[data-wechat]');
+    wechatBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Create a simple tooltip for WeChat (can't share via URL on web)
+      const tip = document.createElement('div');
+      tip.textContent = '请用微信扫码或分享此页面链接';
+      tip.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#07C160;color:white;padding:10px 20px;border-radius:8px;z-index:9999;font-size:14px;box-shadow:0 4px 12px rgba(0,0,0,0.2);';
+      document.body.appendChild(tip);
+      setTimeout(() => tip.remove(), 2500);
+    });
+  })();
+</script>

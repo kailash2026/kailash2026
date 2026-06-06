@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import ShareButtons from '../../components/ShareButtons.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => data.lang === 'zh');
@@ -115,7 +116,13 @@ const articleLd = {
 
         <!-- Share & Tags -->
         <div class="mt-12 pt-8 border-t border-gray-200">
-          <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="flex flex-col gap-4">
+            <ShareButtons
+              url={new URL(Astro.url.pathname, 'https://kailash2026.com').toString()}
+              title={post.data.title}
+              description={post.data.description}
+              lang="zh"
+            />
             <div class="flex flex-wrap gap-2">
               {post.data.tags.map((tag) => (
                 <span class="text-sm bg-kailash-cream text-kailash-dark/70 px-3 py-1.5 rounded-full font-medium">

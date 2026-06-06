@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
+import ShareButtons from '../../../components/ShareButtons.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => data.lang === 'hi');
@@ -65,11 +66,11 @@ const articleLd = {
     </div>
     <div class="relative -mt-10 z-10 px-4 pb-8">
       <div class="max-w-4xl mx-auto">
-        <a href="/en/blog" class="inline-flex items-center text-kailash-gold text-sm mb-4 hover:text-kailash-accent transition-colors">
+        <a href="/hi/blog" class="inline-flex items-center text-kailash-gold text-sm mb-4 hover:text-kailash-accent transition-colors">
           <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
-          Back to Blog
+          ब्लॉग पर वापस जाएँ
         </a>
         <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
           {post.data.title}
@@ -112,9 +113,15 @@ const articleLd = {
           <Content />
         </div>
 
-        <!-- Tags -->
+        <!-- Share & Tags -->
         <div class="mt-12 pt-8 border-t border-gray-200">
-          <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="flex flex-col gap-4">
+            <ShareButtons
+              url={new URL(Astro.url.pathname, 'https://kailash2026.com').toString()}
+              title={post.data.title}
+              description={post.data.description}
+              lang="hi"
+            />
             <div class="flex flex-wrap gap-2">
               {post.data.tags.map((tag) => (
                 <span class="text-sm bg-kailash-cream text-kailash-dark/70 px-3 py-1.5 rounded-full font-medium">
@@ -127,11 +134,11 @@ const articleLd = {
 
         <!-- Navigation -->
         <div class="mt-8 flex justify-between items-center">
-          <a href="/en/blog" class="inline-flex items-center text-kailash-gold font-medium hover:text-kailash-accent transition-colors">
+          <a href="/hi/blog" class="inline-flex items-center text-kailash-gold font-medium hover:text-kailash-accent transition-colors">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
             </svg>
-            Back to Blog
+            ब्लॉग पर वापस जाएँ
           </a>
         </div>
       </div>
@@ -141,17 +148,17 @@ const articleLd = {
   <!-- Related CTA -->
   <section class="py-12 bg-kailash-gold">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-display text-2xl font-bold text-kailash-dark mb-3">Ready to Start Your Pilgrimage?</h2>
-      <p class="text-kailash-dark/70 mb-6">Explore more guides and route information to prepare for your Mount Kailash journey.</p>
+      <h2 class="font-display text-2xl font-bold text-kailash-dark mb-3">अपनी तीर्थयात्रा के लिए तैयार हैं?</h2>
+      <p class="text-kailash-dark/70 mb-6">कैलाश पर्वत की यात्रा की तैयारी के लिए अधिक गाइड और मार्ग जानकारी देखें।</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="/en/guide" class="bg-kailash-dark text-white px-6 py-3 rounded-lg font-medium hover:bg-kailash-stone transition">
-          Pilgrimage Guide
+        <a href="/hi/guide" class="bg-kailash-dark text-white px-6 py-3 rounded-lg font-medium hover:bg-kailash-stone transition">
+          तीर्थयात्रा गाइड
         </a>
-        <a href="/en/routes" class="bg-white text-kailash-dark px-6 py-3 rounded-lg font-medium hover:bg-kailash-cream transition">
-          Kora Routes
+        <a href="/hi/routes" class="bg-white text-kailash-dark px-6 py-3 rounded-lg font-medium hover:bg-kailash-cream transition">
+          परिक्रमा मार्ग
         </a>
-        <a href="/en/faq" class="bg-white text-kailash-dark px-6 py-3 rounded-lg font-medium hover:bg-kailash-cream transition">
-          FAQ
+        <a href="/hi/faq" class="bg-white text-kailash-dark px-6 py-3 rounded-lg font-medium hover:bg-kailash-cream transition">
+          सामान्य प्रश्न
         </a>
       </div>
     </div>

@@ -1,0 +1,283 @@
+---
+export interface Props {
+  lang?: string;
+  variant?: 'inline' | 'card';
+}
+
+const { lang = 'zh', variant = 'card' } = Astro.props;
+
+const content: Record<string, {
+  title: string;
+  subtitle: string;
+  placeholder: string;
+  button: string;
+  success: string;
+  privacy: string;
+  emailHint: string;
+}> = {
+  zh: {
+    title: '订阅朝圣资讯',
+    subtitle: '获取冈仁波齐最新资讯、马年转山攻略和朝圣者故事',
+    placeholder: '输入您的邮箱',
+    button: '免费订阅',
+    success: '感谢订阅！请查收确认邮件。',
+    privacy: '不发送垃圾邮件，随时可退订',
+    emailHint: 'kailash2026Lucas@outlook.com',
+  },
+  en: {
+    title: 'Get Pilgrimage Updates',
+    subtitle: 'Receive the latest Kailash news, Horse Year guides, and pilgrim stories',
+    placeholder: 'Enter your email',
+    button: 'Subscribe Free',
+    success: 'Thank you! Please check your email to confirm.',
+    privacy: 'No spam, unsubscribe anytime',
+    emailHint: 'kailash2026Lucas@outlook.com',
+  },
+  ja: {
+    title: '巡礼情報を受け取る',
+    subtitle: 'カイラス山の最新情報、馬年巡礼ガイド、巡礼者の体験談をお届けします',
+    placeholder: 'メールアドレスを入力',
+    button: '無料登録',
+    success: 'ありがとうございます！確認メールをご確認ください。',
+    privacy: '迷惑メールなし、いつでも解除可能',
+    emailHint: 'kailash2026Lucas@outlook.com',
+  },
+  hi: {
+    title: 'तीर्थयात्रा अपडेट प्राप्त करें',
+    subtitle: 'कैलाश पर्वत की नवीनतम जानकारी, अश्व वर्ष गाइड और तीर्थयात्रियों की कहानियाँ पाएँ',
+    placeholder: 'अपना ईमेल दर्ज करें',
+    button: 'मुफ़्त सदस्यता लें',
+    success: 'धन्यवाद! कृपया पुष्टि के लिए अपना ईमेल देखें।',
+    privacy: 'कोई स्पैम नहीं, कभी भी सदस्यता रद्द करें',
+    emailHint: 'kailash2026Lucas@outlook.com',
+  },
+};
+
+const t = content[lang] || content.zh;
+const isCard = variant === 'card';
+---
+
+<div class={`newsletter-signup ${isCard ? 'newsletter-card' : 'newsletter-inline'}`} data-newsletter>
+  <div class="newsletter-content">
+    {isCard && (
+      <div class="newsletter-icon">
+        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </div>
+    )}
+    <div class="newsletter-text">
+      <h3 class={`font-display font-bold ${isCard ? 'text-2xl mb-2' : 'text-lg mb-1'}`}>{t.title}</h3>
+      <p class="newsletter-subtitle">{t.subtitle}</p>
+    </div>
+    <form class="newsletter-form" data-newsletter-form>
+      <div class="newsletter-input-group">
+        <input
+          type="email"
+          name="email"
+          placeholder={t.placeholder}
+          required
+          class="newsletter-input"
+          aria-label={t.placeholder}
+        />
+        <button type="submit" class="newsletter-btn">
+          {t.button}
+        </button>
+      </div>
+      <p class="newsletter-success" data-newsletter-success style="display:none;">{t.success}</p>
+      <p class="newsletter-privacy">{t.privacy}</p>
+    </form>
+  </div>
+</div>
+
+<style>
+  .newsletter-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+  .newsletter-icon {
+    width: 4rem;
+    height: 4rem;
+    background: rgba(212, 175, 55, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    color: #d4af37;
+  }
+  .newsletter-card .newsletter-text h3 {
+    color: white;
+  }
+  .newsletter-card .newsletter-subtitle {
+    color: rgba(255,255,255,0.65);
+    max-width: 28rem;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+  }
+  .newsletter-inline {
+    background: #f8f5f0;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+  }
+  .newsletter-inline .newsletter-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .newsletter-inline .newsletter-text {
+    flex: 1;
+    min-width: 200px;
+  }
+  .newsletter-inline .newsletter-form {
+    flex: 1;
+    min-width: 280px;
+  }
+  .newsletter-inline .newsletter-subtitle {
+    color: #6b7280;
+    font-size: 0.9rem;
+  }
+  .newsletter-input-group {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+  .newsletter-input {
+    flex: 1;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 0.75rem;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    min-width: 0;
+  }
+  .newsletter-card .newsletter-input {
+    border-color: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    color: white;
+  }
+  .newsletter-card .newsletter-input::placeholder {
+    color: rgba(255,255,255,0.4);
+  }
+  .newsletter-inline .newsletter-input {
+    border-color: #d1d5db;
+    background: white;
+    color: #1a1a2e;
+  }
+  .newsletter-inline .newsletter-input::placeholder {
+    color: #9ca3af;
+  }
+  .newsletter-input:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+  }
+  .newsletter-btn {
+    padding: 0.75rem 1.75rem;
+    background: #d4af37;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .newsletter-btn:hover {
+    background: #c9a030;
+    transform: translateY(-1px);
+  }
+  .newsletter-btn:active {
+    transform: translateY(0);
+  }
+  .newsletter-success {
+    color: #4ade80;
+    margin-top: 0.75rem;
+    font-weight: 500;
+  }
+  .newsletter-privacy {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 0.5rem;
+  }
+  .newsletter-inline .newsletter-privacy {
+    color: #9ca3af;
+  }
+  @media (max-width: 640px) {
+    .newsletter-input-group {
+      flex-direction: column;
+    }
+    .newsletter-btn {
+      width: 100%;
+    }
+    .newsletter-card {
+      padding: 1.75rem 1.25rem;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    const container = document.currentScript?.parentElement;
+    if (!container) return;
+    const form = container.querySelector('[data-newsletter-form]');
+    const success = container.querySelector('[data-newsletter-success]');
+    const inputGroup = container.querySelector('.newsletter-input-group');
+    const privacy = container.querySelector('.newsletter-privacy');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.querySelector('input[name="email"]')?.value?.trim();
+      if (!email) return;
+
+      const btn = form.querySelector('.newsletter-btn');
+      const originalText = btn?.textContent;
+      if (btn) {
+        btn.textContent = '...';
+        btn.disabled = true;
+      }
+
+      try {
+        // Use Resend API via the existing email endpoint
+        const response = await fetch('/api/booking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'newsletter',
+            email: email,
+            source: window.location.pathname,
+            lang: document.documentElement.getAttribute('data-lang') || 'zh',
+          }),
+        });
+
+        if (response.ok || response.status === 201) {
+          if (inputGroup) inputGroup.style.display = 'none';
+          if (privacy) privacy.style.display = 'none';
+          if (success) success.style.display = 'block';
+        } else {
+          if (btn) {
+            btn.textContent = originalText || 'Subscribe';
+            btn.disabled = false;
+          }
+          alert('Something went wrong. Please try again or email us directly.');
+        }
+      } catch {
+        if (btn) {
+          btn.textContent = originalText || 'Subscribe';
+          btn.disabled = false;
+        }
+        alert('Network error. Please try again.');
+      }
+    });
+  })();
+</script>
