@@ -10,6 +10,16 @@ const bestTime = {
   notesEn: "Avoid Jul-Aug rainy season; winter closure Nov-Mar"
 };
 
+const monthlyDetail = [
+  { month: "4月", monthEn: "April", temp: "-5°C ~ 10°C", weather: "残雪未消，早晚严寒", weatherEn: "Lingering snow, frigid dawn/dusk", pro: "游客稀少，价格较低，雪山景色壮丽", proEn: "Few tourists, lower prices, stunning snowscapes", con: "垭口积雪可能未融化，需备冰爪", conEn: "Mountain pass may still be snow-blocked; bring crampons" },
+  { month: "5月", monthEn: "May", temp: "-2°C ~ 13°C", weather: "回暖明显，白天舒适", weatherEn: "Noticeable warming, comfortable days", pro: "天气稳定，能见度极佳，推荐月份", proEn: "Stable weather, excellent visibility, highly recommended", con: "早晚温差大，需备足保暖衣物", conEn: "Large day-night temperature swing; bring ample warm layers" },
+  { month: "6月", monthEn: "June", temp: "2°C ~ 16°C", weather: "日照充足，偶有阵雨", weatherEn: "Abundant sunshine, occasional showers", pro: "白昼最长，日照充足，转山最佳窗口", proEn: "Longest daylight hours, ample sun — ideal trekking window", con: "萨嘎达瓦节期间人多，住宿紧张", conEn: "Crowded during Saga Dawa festival; tight lodging" },
+  { month: "7月", monthEn: "July", temp: "5°C ~ 18°C", weather: "雨季高峰，午后多雷阵雨", weatherEn: "Peak rainy season, afternoon thunderstorms", pro: "气温最适宜，草原绿意盎然", proEn: "Warmest temperatures, lush green grasslands", con: "雨天频繁，路面泥泞，偶有塌方", conEn: "Frequent rain, muddy trails, occasional landslides" },
+  { month: "8月", monthEn: "August", temp: "6°C ~ 19°C", weather: "雨季尾声，湿度较大", weatherEn: "Late rainy season, high humidity", pro: "植被最茂盛，野生动物活跃", proEn: "Lush vegetation, active wildlife", con: "云雾较多，神山可能被遮挡", conEn: "Heavy cloud cover may obscure mountain views" },
+  { month: "9月", monthEn: "September", temp: "0°C ~ 14°C", weather: "秋高气爽，天空澄澈", weatherEn: "Crisp autumn, crystal skies", pro: "雨季结束，天气绝佳，推荐月份", proEn: "Rainy season over, superb weather — recommended", con: "夜晚温度骤降，注意保暖", conEn: "Sharp temperature drop at night; stay warm" },
+  { month: "10月", monthEn: "October", temp: "-4°C ~ 10°C", weather: "初冬气息，偶有降雪", weatherEn: "Early winter chill, occasional snowfall", pro: "秋色最美，游客渐少", proEn: "Most beautiful autumn colors, fewer tourists", con: "月末可能降雪封路，需关注天气", conEn: "Snow closures possible late month; monitor weather" }
+];
+
 const equipment = {
   required: [
     { item: "冲锋衣裤", itemEn: "Hardshell jacket & pants", desc: "防风防水，三合一更佳", descEn: "Windproof/waterproof, 3-in-1 preferred" },
@@ -25,6 +35,30 @@ const equipment = {
     { item: "墨镜", itemEn: "Sunglasses", desc: "防雪盲", descEn: "Prevent snow blindness" },
     { item: "保温水壶", itemEn: "Insulated bottle", desc: "500ml以上", descEn: "500ml+" },
     { item: "急救包", itemEn: "First-aid kit", desc: "常用药品、创可贴", descEn: "Common meds, bandages" }
+  ],
+  additional: [
+    { item: "速干内衣", itemEn: "Quick-dry base layer", desc: "排汗保暖，避免棉质", descEn: "Moisture-wicking, avoid cotton" },
+    { item: "防水手套", itemEn: "Waterproof gloves", desc: "清晨出发必备", descEn: "Essential for early morning starts" },
+    { item: "护膝", itemEn: "Knee braces", desc: "下山坡陡，保护膝盖", descEn: "Steep descents — protect your knees" },
+    { item: "润唇膏", itemEn: "Lip balm", desc: "高原干燥，嘴唇易裂", descEn: "High-altitude dryness; lips crack easily" },
+    { item: "充电宝", itemEn: "Power bank", desc: "20000mAh+，沿途充电不便", descEn: "20000mAh+; charging scarce on trail" },
+    { item: "湿纸巾", itemEn: "Wet wipes", desc: "住宿点无法洗澡", descEn: "No shower facilities at guesthouses" }
+  ],
+  medications: [
+    { item: "红景天/高原安", itemEn: "Rhodiola / Gaoyuan'an", desc: "提前2周服用，辅助抗高反", descEn: "Start 2 weeks prior; aids altitude adaptation" },
+    { item: "止痛药", itemEn: "Painkillers", desc: "布洛芬，缓解高反头痛", descEn: "Ibuprofen for altitude headaches" },
+    { item: "感冒药", itemEn: "Cold medicine", desc: "高原感冒极易恶化", descEn: "Colds escalate rapidly at altitude" },
+    { item: "肠胃药", itemEn: "Digestive meds", desc: "水土不服常见腹泻", descEn: "Traveler's diarrhea is common" },
+    { item: "晕车药", itemEn: "Motion sickness pills", desc: "长途山路颠簸", descEn: "Long bumpy mountain roads" },
+    { item: "创可贴/绷带", itemEn: "Bandages & tape", desc: "水泡处理、小伤口", descEn: "Blisters and minor cuts" }
+  ],
+  foodSuggestions: [
+    { item: "能量棒/巧克力", itemEn: "Energy bars / chocolate", desc: "快速补给热量", descEn: "Quick energy boost" },
+    { item: "坚果/干果", itemEn: "Nuts / dried fruit", desc: "营养密度高", descEn: "High nutrient density" },
+    { item: "葡萄糖粉", itemEn: "Glucose powder", desc: "冲水服用，快速恢复", descEn: "Dissolve in water for quick recovery" },
+    { item: "泡面/速食", itemEn: "Instant noodles / meals", desc: "住宿点热水可得", descEn: "Hot water available at guesthouses" },
+    { item: "电解质冲剂", itemEn: "Electrolyte packets", desc: "防脱水抽筋", descEn: "Prevent dehydration and cramps" },
+    { item: "压缩饼干", itemEn: "Compressed biscuits", desc: "轻量高能，应急备用", descEn: "Lightweight, high-energy, emergency backup" }
   ],
   provided: [
     "氧气罐",
@@ -76,7 +110,42 @@ const altitudeTips = [
     titleEn: "Descend immediately",
     content: "出现严重头痛、呕吐、呼吸困难，立即停止上升，必要时下撤。",
     contentEn: "Severe headache, vomiting, or breathing difficulty? Stop and descend immediately."
+  },
+  {
+    title: "戒烟戒酒",
+    titleEn: "No smoking or alcohol",
+    content: "烟草和酒精会抑制呼吸并加速脱水，转山前一周及全程禁烟禁酒。",
+    contentEn: "Tobacco and alcohol suppress breathing and accelerate dehydration. Abstain one week before and throughout the trek."
+  },
+  {
+    title: "高碳饮食",
+    titleEn: "High-carb diet",
+    content: "碳水化合物代谢需要更少的氧气，多吃米饭、面条、土豆等。",
+    contentEn: "Carbs require less oxygen to metabolize. Eat more rice, noodles, and potatoes."
+  },
+  {
+    title: "睡眠姿势",
+    titleEn: "Sleeping position",
+    content: "头部略高的半卧位有助于夜间呼吸，睡前可适量吸氧。",
+    contentEn: "Semi-reclined position with head elevated aids nighttime breathing. Consider low-flow oxygen before sleep."
+  },
+  {
+    title: "监测血氧",
+    titleEn: "Monitor SpO2",
+    content: "携带血氧仪，血氧低于80%应立即下撤，不可心存侥幸。",
+    contentEn: "Carry a pulse oximeter. If SpO2 drops below 80%, descend immediately without delay."
   }
+];
+
+const symptomChecklist = [
+  { symptom: "轻度头痛", symptomEn: "Mild headache", level: "轻度", levelEn: "Mild", action: "休息、喝水、服止痛药", actionEn: "Rest, hydrate, take painkillers" },
+  { symptom: "恶心食欲减退", symptomEn: "Nausea / appetite loss", level: "轻度", levelEn: "Mild", action: "清淡饮食、少量多餐", actionEn: "Light diet, small frequent meals" },
+  { symptom: "疲乏无力", symptomEn: "Fatigue / weakness", level: "轻度", levelEn: "Mild", action: "充分休息、补充葡萄糖", actionEn: "Rest thoroughly, take glucose" },
+  { symptom: "失眠多梦", symptomEn: "Insomnia / vivid dreams", level: "中度", levelEn: "Moderate", action: "药物助眠、低流量吸氧", actionEn: "Sleep aids, low-flow oxygen" },
+  { symptom: "呼吸困难", symptomEn: "Shortness of breath", level: "中度", levelEn: "Moderate", action: "减慢速度、深呼吸、吸氧", actionEn: "Slow pace, deep breaths, oxygen" },
+  { symptom: "持续呕吐", symptomEn: "Persistent vomiting", level: "重度", levelEn: "Severe", action: "立即下撤、寻求医疗", actionEn: "Descend immediately, seek medical help" },
+  { symptom: "意识模糊", symptomEn: "Confusion / disorientation", level: "危重", levelEn: "Critical", action: "紧急下撤、呼叫救援", actionEn: "Emergency descent, call rescue" },
+  { symptom: "粉红色泡沫痰", symptomEn: "Pink frothy sputum", level: "危重", levelEn: "Critical", action: "此为肺水肿征兆，即刻下撤", actionEn: "HAPE sign — descend NOW" }
 ];
 
 const permits = [
@@ -102,6 +171,281 @@ const permits = [
     required: false
   }
 ];
+
+const permitSteps = [
+  { step: 1, title: "确认户籍所在地", titleEn: "Confirm your hukou city", detail: "边防证只能在户籍所在地公安局或拉萨办理。如户籍地不支持个人办理，需通过拉萨旅行社代办。", detailEn: "Border permits can only be obtained at your hukou city's PSB or in Lhasa. If your city doesn't process personal applications, book through a Lhasa travel agency." },
+  { step: 2, title: "准备申请材料", titleEn: "Prepare application documents", detail: "携带本人身份证原件、复印件、2张一寸白底证件照。如有护照也请一并带上。外籍人士还需护照复印件和中国签证复印件。", detailEn: "Bring original ID card, copies, two 1-inch white-background photos. Bring your passport if available. Foreigners also need passport and visa copies." },
+  { step: 3, title: "填写申请表", titleEn: "Complete the application form", detail: "填写《边境管理区通行证申请表》，目的地填写「西藏阿里地区」或「日喀则地区」。务必明确写上「阿里地区」，否则无法进入塔尔钦。", detailEn: "Fill in the Border Region Entry Permit application. Write 'Ngari Prefecture, Tibet' as your destination. Must explicitly state 'Ngari' or you cannot enter Darchen." },
+  { step: 4, title: "提交审核", titleEn: "Submit for review", detail: "在户籍所在地公安局户政大厅提交，通常当场可办理，费用低廉（约10-20元）。拉萨办理需1-2个工作日，费用约100-200元。", detailEn: "Submit at your local PSB. Usually processed on the spot with minimal fee (10-20 RMB). Lhasa processing takes 1-2 working days, costs 100-200 RMB." },
+  { step: 5, title: "外籍人士流程", titleEn: "Foreign nationals process", detail: "外籍人士必须通过注册旅行社办理「进藏函」（Tibet Travel Permit）。需提前至少30天联系旅行社，提交护照和签证扫描件。不允许个人自由前往阿里地区。", detailEn: "Foreigners MUST apply through a registered travel agency for the Tibet Travel Permit. Contact an agency at least 30 days in advance and submit passport/visa scans. Independent travel to Ngari is not permitted." }
+];
+
+const transportRoutes = [
+  {
+    from: "拉萨",
+    fromEn: "Lhasa",
+    distance: "约1200公里",
+    distanceEn: "~1200km",
+    options: [
+      { mode: "长途大巴", modeEn: "Long-distance bus", time: "2-3天（含日喀则中转）", timeEn: "2-3 days (via Shigatse)", cost: "400-600元", costEn: "400-600 RMB", note: "最经济但耗时，每天仅1-2班", noteEn: "Most economical but slow; only 1-2 departures daily" },
+      { mode: "包车/自驾", modeEn: "Private car / self-drive", time: "4-5天（经停珠峰）", timeEn: "4-5 days (via Everest)", cost: "3000-5000元/天", costEn: "3000-5000 RMB/day", note: "灵活自由，可沿途游览", noteEn: "Flexible; scenic stops along the way" },
+      { mode: "飞机+包车", modeEn: "Fly + private car", time: "1天飞抵阿里+半天车程", timeEn: "1-day flight + half-day drive", cost: "机票约2500元+包车500元", costEn: "~2500 RMB flight + 500 RMB car", note: "最快但高海拔直飞风险大", noteEn: "Fastest, but flying directly to high altitude risky" }
+    ]
+  },
+  {
+    from: "日喀则",
+    fromEn: "Shigatse",
+    distance: "约800公里",
+    distanceEn: "~800km",
+    options: [
+      { mode: "长途大巴", modeEn: "Long-distance bus", time: "1-2天", timeEn: "1-2 days", cost: "300-500元", costEn: "300-500 RMB", note: "班次较少，提前购票", noteEn: "Limited departures; book early" },
+      { mode: "包车/拼车", modeEn: "Private/shared car", time: "2天（经停萨嘎）", timeEn: "2 days (via Saga)", cost: "2000-3000元", costEn: "2000-3000 RMB", note: "推荐方式，舒适安全", noteEn: "Recommended; comfortable and safe" }
+    ]
+  },
+  {
+    from: "加德满都",
+    fromEn: "Kathmandu",
+    distance: "约1000公里（含入境）",
+    distanceEn: "~1000km (including border crossing)",
+    options: [
+      { mode: "陆路+包车", modeEn: "Overland + private car", time: "7-10天", timeEn: "7-10 days", cost: "5000-8000元", costEn: "5000-8000 RMB", note: "经吉隆口岸入境，风景绝美但艰苦", noteEn: "Via Gyirong Port; spectacular but arduous" },
+      { mode: "飞机+包车", modeEn: "Fly + drive", time: "尼泊尔飞拉萨+拉萨出发", timeEn: "Fly KTM→Lhasa then drive", cost: "约4000元", costEn: "~4000 RMB", note: "需提前办妥中国签证和入藏函", noteEn: "Need China visa + Tibet permit in advance" }
+    ]
+  }
+];
+
+const mapNote = {
+  title: "四天陆路旅程概览",
+  titleEn: "The 4-Day Overland Journey",
+  zh: "从拉萨出发，沿G219新藏公路一路向西，途经日喀则、萨嘎、仲巴等县城，需要四天时间才能抵达塔尔钦。这条路线穿过雅鲁藏布江上游谷地、喜马拉雅北麓荒原，是世界上海拔最高、景色最壮丽的自驾路线之一。每天车程约6-8小时，沿途检查站众多，务必随身携带边防证和身份证。",
+  en: "Departing Lhasa westward along the G219 highway, passing through Shigatse, Saga, and Zhongba counties, it takes four full days to reach Darchen. This route traverses the upper Brahmaputra valley and the northern Himalayan wilderness — one of the world's highest and most spectacular overland journeys. Expect 6-8 hours of driving daily with frequent checkpoints. Keep your border permit and ID card accessible at all times."
+};
+
+const accommodationPlaces = [
+  {
+    place: "塔尔钦",
+    placeEn: "Darchen (base town)",
+    altitude: "4560m",
+    options: [
+      { type: "宾馆/酒店", typeEn: "Hotels", price: "200-800元/晚", priceEn: "200-800 RMB/night", detail: "有标间、热水、WiFi，旺季需提前一个月预订", detailEn: "Standard rooms with hot water and WiFi; book one month ahead in peak season" },
+      { type: "客栈/青旅", typeEn: "Guesthouses / hostels", price: "80-200元/晚", priceEn: "80-200 RMB/night", detail: "多人间，公共卫浴，背包客首选", detailEn: "Dorm beds with shared bathroom; favored by backpackers" }
+    ]
+  },
+  {
+    place: "止热寺",
+    placeEn: "Drirapuk Monastery",
+    altitude: "5080m",
+    options: [
+      { type: "寺院招待所", typeEn: "Monastery guesthouse", price: "80-150元/晚", priceEn: "80-150 RMB/night", detail: "大通铺，无热水，无暖气，卫生条件有限。自备睡袋至关重要。床位有限，节假日和萨嘎达瓦期间极为紧张。", detailEn: "Large communal bunks, no hot water, no heating, basic sanitation. Bringing your own sleeping bag is essential. Beds are very limited and fill up completely during holidays and Saga Dawa." }
+    ]
+  },
+  {
+    place: "尊最普寺",
+    placeEn: "Zutulpuk Monastery",
+    altitude: "4820m",
+    options: [
+      { type: "寺院简易住宿", typeEn: "Basic monastery lodging", price: "60-120元/晚", priceEn: "60-120 RMB/night", detail: "条件最艰苦的一站。简易木板房或帐篷，仅有通铺床位。无热水、无电力、无手机信号（或极弱）。建议到达后尽早占位，床位先到先得。这是转山最难忘的一夜——头顶星空，身畔雪山。", detailEn: "The most rustic stop. Simple wooden rooms or tents with basic bunk beds. No hot water, no electricity, no (or very weak) mobile signal. Arrive early to claim a spot — beds are first-come-first-served. This is the most memorable night of the kora — under a canopy of stars beside snow peaks." }
+    ]
+  }
+];
+
+const bookingTips = [
+  { tip: "提前预订", tipEn: "Book ahead", detail: "旺季（5-6月、9-10月及马年全年）塔尔钦住宿需提前1-2个月预订。可直接致电酒店或通过旅行社代订，微信和支付宝支付更为便捷。", detailEn: "In peak season (May-Jun, Sep-Oct, and all Horse Year), book Darchen accommodation 1-2 months ahead. Call hotels directly or book through a travel agency. WeChat Pay and Alipay are most convenient." },
+  { tip: "备用计划", tipEn: "Backup plan", detail: "寺院住宿不接受预订，全凭当日到达顺序。务必准备帐篷和睡袋作为后备，特别是在萨嘎达瓦节、马年等重大节日期间。", detailEn: "Monastery guesthouses do not accept reservations; it's first-come-first-served on the day. Always carry a tent and sleeping bag as backup, especially during Saga Dawa, Horse Year, and major festivals." },
+  { tip: "议价空间", tipEn: "Room to negotiate", detail: "非旺季时期，塔尔钦多数酒店可以议价，特别是住2晚以上。淡季（4月、10月下旬）价格可降至旺季的一半。", detailEn: "Outside peak season, most Darchen hotels are negotiable, especially for stays of 2+ nights. Off-season prices (April, late October) can drop to half of peak rates." },
+  { tip: "团队优势", tipEn: "Group advantage", detail: "跟团出行通常包含住宿预订，旅行社会提前锁定额外床位。散客出行在旺季可能需要露宿，建议加入朝圣团队以保障住宿。", detailEn: "Group tours typically include accommodation bookings; agencies lock in extra beds in advance. Independent trekkers risk having no bed in peak season. Joining a pilgrimage team ensures lodging." }
+];
+
+const costReference = {
+  transportation: [
+    { item: "国内飞拉萨机票（往返）", itemEn: "Domestic flights to Lhasa (round-trip)", range: "2000-5000元", rangeEn: "2000-5000 RMB", note: "出发城市差异大", noteEn: "Varies greatly by departure city" },
+    { item: "拉萨至日喀则大巴", itemEn: "Lhasa to Shigatse bus", range: "100-150元", rangeEn: "100-150 RMB", note: "约5小时", noteEn: "~5 hours" },
+    { item: "日喀则至塔尔钦大巴", itemEn: "Shigatse to Darchen bus", range: "300-500元", rangeEn: "300-500 RMB", note: "约2天", noteEn: "~2 days" },
+    { item: "拉萨至塔尔钦包车（单程）", itemEn: "Lhasa to Darchen private car (one-way)", range: "3000-5000元", rangeEn: "3000-5000 RMB", note: "4天行程，可多人分摊", noteEn: "4-day journey; split among passengers" },
+    { item: "阿里昆莎机场至塔尔钦", itemEn: "Ali Kunsha Airport to Darchen", range: "400-600元", rangeEn: "400-600 RMB", note: "约3小时车程", noteEn: "~3-hour drive" }
+  ],
+  accommodation: [
+    { item: "拉萨住宿（三星级）", itemEn: "Lhasa lodging (3-star)", range: "200-400元/晚", rangeEn: "200-400 RMB/night" },
+    { item: "日喀则住宿（经济型）", itemEn: "Shigatse lodging (budget)", range: "150-300元/晚", rangeEn: "150-300 RMB/night" },
+    { item: "塔尔钦住宿", itemEn: "Darchen lodging", range: "80-800元/晚", rangeEn: "80-800 RMB/night" },
+    { item: "止热寺住宿", itemEn: "Drirapuk lodging", range: "80-150元/晚", rangeEn: "80-150 RMB/night" },
+    { item: "尊最普寺住宿", itemEn: "Zutulpuk lodging", range: "60-120元/晚", rangeEn: "60-120 RMB/night" }
+  ],
+  services: [
+    { item: "背夫（全程3天）", itemEn: "Porter (3-day kora)", range: "1500-2500元", rangeEn: "1500-2500 RMB", note: "负重15-20kg", noteEn: "Carries 15-20kg" },
+    { item: "骑马转山（全程）", itemEn: "Horse kora (full circuit)", range: "3000-5000元", rangeEn: "3000-5000 RMB", note: "含马夫，不含卓玛拉垭口段", noteEn: "Includes handler; excludes Drolma La pass section" },
+    { item: "向导费（3天）", itemEn: "Guide fee (3 days)", range: "800-1500元", rangeEn: "800-1500 RMB", note: "当地藏族向导，经验丰富", noteEn: "Local Tibetan guide, experienced" },
+    { item: "边防证代办费（拉萨）", itemEn: "Border permit agency fee (Lhasa)", range: "100-200元", rangeEn: "100-200 RMB", note: "户籍地办理仅10-20元", noteEn: "Only 10-20 RMB at home city" },
+    { item: "进藏函（外籍）", itemEn: "Tibet Travel Permit (foreigners)", range: "200-500元", rangeEn: "200-500 RMB", note: "通过旅行社办理", noteEn: "Via travel agency" },
+    { item: "景区门票", itemEn: "Scenic area entry fee", range: "150-200元", rangeEn: "150-200 RMB", note: "冈仁波齐+玛旁雍错联票", noteEn: "Combined Kailash + Manasarovar ticket" }
+  ],
+  daily: [
+    { item: "沿途餐饮（每日）", itemEn: "Meals on route (daily)", range: "50-100元", rangeEn: "50-100 RMB", note: "住宿点有简餐供应", noteEn: "Simple meals available at guesthouses" },
+    { item: "饮用水/补给（每日）", itemEn: "Water & supplies (daily)", range: "30-50元", rangeEn: "30-50 RMB", note: "沿途有售卖点", noteEn: "Vendors along the trail" }
+  ],
+  totalRange: { low: "5000元", lowEn: "5000 RMB", high: "15000元", highEn: "15000 RMB", desc: "国内出发、经济型至舒适型全程预算（含交通、住宿、餐饮、服务）", descEn: "Budget to comfort-level total from domestic departure (transport, lodging, meals, services)" }
+};
+
+const physicalPrepPhases = [
+  {
+    phase: "6个月前",
+    phaseEn: "6 months before",
+    focus: "建立有氧基础",
+    focusEn: "Build aerobic base",
+    tasks: [
+      "每周至少3次有氧运动：慢跑、游泳、骑行，每次45-60分钟",
+      "逐步增加运动时长至每次90分钟，心率保持在130-150bpm",
+      "开始爬楼训练：每周2次，每次30层以上，不乘电梯",
+      "进行体检：重点关注心肺功能、血压、血常规",
+      "如有慢性疾病（哮喘、心脏病等），咨询医生是否适合高原旅行"
+    ],
+    tasksEn: [
+      "Minimum 3x weekly aerobic training: jogging, swimming, cycling, 45-60 min each",
+      "Gradually increase to 90 min per session, heart rate 130-150 bpm",
+      "Start stair climbing: 2x weekly, 30+ floors, no elevator",
+      "Medical checkup: focus on cardio-pulmonary function, blood pressure, CBC",
+      "If you have chronic conditions (asthma, heart issues), consult your doctor about high-altitude travel"
+    ]
+  },
+  {
+    phase: "3个月前",
+    phaseEn: "3 months before",
+    focus: "模拟高原条件",
+    focusEn: "Simulate altitude conditions",
+    tasks: [
+      "增加负重训练：背着10-15kg背包徒步，感受转山负重感",
+      "增加长距离徒步：每周1次15-20km山地徒步",
+      "有条件的可进行低氧训练（低氧健身房或低氧面罩）",
+      "强化腿部力量：深蹲、弓箭步、腿部推举",
+      "开始服用红景天（可选），让身体提前适应"
+    ],
+    tasksEn: [
+      "Add weighted training: hike with 10-15kg backpack to simulate kora load",
+      "Add long-distance hikes: 1x weekly 15-20km mountain trek",
+      "If available: hypoxic training (altitude gym or hypoxic mask)",
+      "Strengthen legs: squats, lunges, leg presses",
+      "Optional: begin Rhodiola supplementation for early adaptation"
+    ]
+  },
+  {
+    phase: "1个月前",
+    phaseEn: "1 month before",
+    focus: "最终调整与检查",
+    focusEn: "Final conditioning & checks",
+    tasks: [
+      "保持每周3-4次有氧运动，但强度逐渐降低（避免受伤）",
+      "完成最后一次长距离徒步（20km+），之后以恢复性训练为主",
+      "进行全面体检：心电图、肺功能测试、血氧饱和度基线值",
+      "完成边防证办理，确认所有证件有效期",
+      "购买旅行保险——务必包含高海拔救援和直升机转运",
+      "开始整理装备清单，逐项检查并试用新装备"
+    ],
+    tasksEn: [
+      "Maintain 3-4x weekly aerobic sessions but gradually reduce intensity (avoid injury)",
+      "Complete one final long hike (20km+), then focus on recovery training",
+      "Full medical checkup: ECG, pulmonary function test, baseline SpO2",
+      "Complete border permit application; verify all document validity",
+      "Buy travel insurance — MUST include high-altitude rescue and helicopter evacuation",
+      "Start organizing gear checklist; inspect and test all new equipment"
+    ]
+  },
+  {
+    phase: "1周前",
+    phaseEn: "1 week before",
+    focus: "休息与药物准备",
+    focusEn: "Rest & medication prep",
+    tasks: [
+      "完全停止高强度训练，仅进行散步和拉伸",
+      "每天保证8小时以上睡眠，养精蓄锐",
+      "开始服用红景天/高原安（每天2次，早晚各一次）",
+      "打包行李：按照装备清单逐项装包，称重控制在15kg以内",
+      "准备常用药品包：感冒药、止痛药、肠胃药、创可贴、消毒液",
+      "复印所有证件（边防证、身份证、护照），电子版保存在手机中"
+    ],
+    tasksEn: [
+      "Stop all high-intensity training; only walking and stretching",
+      "Ensure 8+ hours of sleep daily; build up energy reserves",
+      "Start Rhodiola / Gaoyuan'an supplementation (2x daily, morning and evening)",
+      "Pack luggage: follow equipment checklist, keep total weight under 15kg",
+      "Prepare medicine kit: cold meds, painkillers, digestive meds, bandages, antiseptic",
+      "Photocopy all documents (permit, ID, passport); save digital copies on phone"
+    ]
+  }
+];
+
+const horseYearInfo = {
+  why: {
+    zh: "藏传佛教传统认为，释迦牟尼佛诞生于马年。冈仁波齐被视为胜乐金刚的坛城，在马年转山一圈的功德相当于其他年份的13圈。十二生肖中每一个马年（每12年一次），来自世界各地的朝圣者都会齐聚冈仁波齐脚下，完成一生中最重要的一次朝圣。2026年正是藏历火马年，下一次要等到2038年。",
+    en: "Tibetan Buddhist tradition holds that Shakyamuni Buddha was born in the Year of the Horse. Mount Kailash is considered the mandala of Chakrasamvara. One kora during Horse Year is believed to equal 13 koras in any other year. Every Horse Year (once every 12 years), pilgrims from around the world converge at the foot of Kailash for the most important pilgrimage of their lives. 2026 is the Fire Horse Year in the Tibetan calendar. The next opportunity is 2038."
+  },
+  crowd: {
+    zh: "预计2026年转山人数将达到正常年份的3-5倍。塔尔钦的住宿容量约2000人，但高峰期可能涌入5000-8000人。寺院住宿点（止热寺、尊最普寺）床位极为紧张，绝大多数朝圣者需要露营。建议避开萨嘎达瓦节（藏历四月十五，约公历6月）高峰日，当日人流量可达平时的10倍。",
+    en: "Pilgrim numbers in 2026 are expected to be 3-5x a normal year. Darchen's lodging capacity is about 2,000 people, but peak periods may see 5,000-8,000. Monastery guesthouses (Drirapuk, Zutulpuk) will be extremely tight; most pilgrims will need to camp. Avoid the Saga Dawa festival peak day (15th day of the 4th Tibetan month, ~June) when crowds can be 10x normal."
+  },
+  prep: {
+    zh: "马年朝圣需要更充分的准备。住宿方面，必须自备帐篷和睡袋，不可依赖寺院床位。交通方面，建议提前3个月预订拉萨至塔尔钦的车辆，临时找车几乎不可能。证件方面，边防证办理人数激增，建议提前1个月在户籍地办理完毕。食物方面，沿途补给点可能被抢购一空，自备2-3天的口粮是明智之举。",
+    en: "Horse Year pilgrimage demands extra preparation. Lodging: bring your own tent and sleeping bag — don't rely on monastery beds. Transport: book Lhasa-to-Darchen vehicles 3 months ahead; last-minute cars will be nearly impossible to find. Permits: application volumes surge — complete your border permit at your home city one month before departure. Food: trail supply points may sell out — carry 2-3 days of your own provisions."
+  },
+  keyDates: [
+    { date: "2026年4月中旬", dateEn: "Mid-April 2026", event: "转山道正式开放", eventEn: "Kora trail officially opens", note: "早期积雪可能未完全融化", noteEn: "Snow may not have fully melted" },
+    { date: "2026年5月下旬", dateEn: "Late May 2026", event: "第一批朝圣高峰", eventEn: "First pilgrimage peak", note: "印度朝圣团集中抵达", noteEn: "Indian pilgrimage groups arrive en masse" },
+    { date: "2026年6月中旬", dateEn: "Mid-June 2026", event: "萨嘎达瓦节", eventEn: "Saga Dawa Festival", note: "全年人流最密集的一天", noteEn: "Single busiest day of the entire year" },
+    { date: "2026年7月-8月", dateEn: "Jul-Aug 2026", event: "暑期国内朝圣高峰", eventEn: "Domestic summer pilgrimage peak", note: "雨季，但国内游客最多", noteEn: "Rainy season but most domestic visitors" },
+    { date: "2026年9月-10月中旬", dateEn: "Sep to mid-Oct 2026", event: "秋季最佳朝圣窗口", eventEn: "Best autumn pilgrimage window", note: "天气最佳，强烈推荐", noteEn: "Best weather, strongly recommended" },
+    { date: "2026年10月下旬", dateEn: "Late Oct 2026", event: "转山道关闭", eventEn: "Kora trail closes", note: "视天气情况可能提前或延后", noteEn: "May close earlier or later depending on weather" }
+  ]
+};
+
+const suggestedItineraries = [
+  {
+    name: "经典10日朝圣之旅",
+    nameEn: "Classic 10-Day Pilgrimage",
+    summary: "拉萨出发，途经日喀则、珠峰大本营、萨嘎，最终抵达冈仁波齐，转山后返回拉萨。适合首次入藏的朝圣者。",
+    summaryEn: "Depart Lhasa, pass through Shigatse, Everest Base Camp, Saga, arrive at Kailash, complete the kora and return to Lhasa. Ideal for first-time Tibet pilgrims.",
+    days: [
+      { day: 1, title: "拉萨（3650m）", titleEn: "Lhasa (3650m)", desc: "抵达拉萨，适应海拔，轻度活动。参观布达拉宫广场，八廓街漫步，感受圣城氛围。全天休息，多喝水，不饮酒。", descEn: "Arrive in Lhasa, acclimatize, light activity. Visit Potala Palace Square and Barkhor Street. Rest all day, hydrate, no alcohol." },
+      { day: 2, title: "拉萨适应日", titleEn: "Lhasa acclimatization", desc: "参观大昭寺、色拉寺。海拔适应至关重要，不要急于出发。轻度步行2-3小时即可，避免剧烈运动。", descEn: "Visit Jokhang Temple and Sera Monastery. Altitude adaptation is critical — don't rush departure. Light walking 2-3 hours only; avoid exertion." },
+      { day: 3, title: "拉萨→日喀则（3850m）", titleEn: "Lhasa→Shigatse (3850m)", desc: "沿雅鲁藏布江前行，途经羊卓雍措（三大圣湖之一），翻越岗巴拉山（5030m）。车程约6小时，沿途风景壮丽。", descEn: "Follow the Brahmaputra River, pass Yamdrok Lake (one of three sacred lakes), cross Gambala Pass (5030m). ~6 hours driving with spectacular scenery." },
+      { day: 4, title: "日喀则→珠峰大本营（5200m）", titleEn: "Shigatse→Everest Base Camp (5200m)", desc: "参观扎什伦布寺后出发，翻越嘉措拉山（5248m），傍晚抵达珠峰大本营，观日落金山。这是适应超高海拔的关键一天。", descEn: "Visit Tashilhunpo Monastery, depart, cross Gyatso La (5248m), arrive at EBC by evening for the golden sunset on Everest. A key day for ultra-high-altitude adaptation." },
+      { day: 5, title: "珠峰→萨嘎（4500m）", titleEn: "Everest→Saga (4500m)", desc: "清晨观珠峰日出后出发，经老定日、佩枯错、希夏邦马峰，抵达萨嘎县城。车程约8小时，是旅途中最漫长的一天。", descEn: "Watch Everest sunrise, depart via Old Tingri, Pekutso Lake, Shishapangma Peak, arrive Saga. ~8 hours driving — the longest driving day." },
+      { day: 6, title: "萨嘎→塔尔钦（4560m）", titleEn: "Saga→Darchen (4560m)", desc: "最后一程！途经帕羊草原、玛旁雍错（圣湖），远眺纳木那尼峰，下午抵达冈仁波齐脚下的塔尔钦小镇。", descEn: "The final leg! Cross Paryang grasslands, pass Lake Manasarovar (the sacred lake), glimpse Naimona'nyi Peak, arrive at Darchen beneath Kailash by afternoon." },
+      { day: 7, title: "转山第1天：塔尔钦→止热寺（5080m）", titleEn: "Kora Day 1: Darchen→Drirapuk (5080m)", desc: "步行22公里，约7-9小时。沿拉曲河谷上行，经经幡广场和双腿佛塔，在止热寺仰望冈仁波齐壮丽的北壁。夜间气温可能降至-10°C。", descEn: "22km trek, ~7-9 hours. Ascend the Lha-chu Valley, pass the prayer-flag square and Chorten Kangnyi, gaze at Kailash's magnificent north face from Drirapuk. Night temps may drop to -10°C." },
+      { day: 8, title: "转山第2天：止热寺→尊最普寺（4820m）", titleEn: "Kora Day 2: Drirapuk→Zutulpuk (4820m)", desc: "最艰难的一天！翻越卓玛拉垭口（5648m），全程22公里，约10-12小时。垭口段的经幡海洋、慈悲湖和天舞台石刻是最难忘的体验。务必在日出前出发。", descEn: "The hardest day! Cross Drolma La Pass (5648m), 22km total, ~10-12 hours. The ocean of prayer flags, Lake of Compassion, and rock carvings at the pass are unforgettable. Must depart before sunrise." },
+      { day: 9, title: "转山第3天：尊最普寺→塔尔钦（4560m）", titleEn: "Kora Day 3: Zutulpuk→Darchen (4560m)", desc: "最后8公里，约3-4小时。沿河谷下行，地势平缓，是相对轻松的一段。抵达塔尔钦后举行小型庆祝仪式，完成朝圣。", descEn: "Final 8km, ~3-4 hours. Gentle descent along the valley — the easiest section. Arrive at Darchen, hold a small celebration ceremony. Pilgrimage complete." },
+      { day: 10, title: "塔尔钦→拉萨（返程）", titleEn: "Darchen→Lhasa (return)", desc: "可乘飞机从阿里昆莎机场返回拉萨（约1.5小时），或原路包车返回。建议飞机返程以节省时间和体力。", descEn: "Fly back to Lhasa from Ali Kunsha Airport (~1.5 hours) or drive back the original route. Flying back is recommended to save time and energy." }
+    ]
+  },
+  {
+    name: "快速7日朝圣",
+    nameEn: "Express 7-Day Pilgrimage",
+    summary: "适合时间有限但体能较好的朝圣者。飞抵阿里后直接开始转山，省去陆路长途跋涉。风险：缺乏海拔适应时间，高反风险显著增加。",
+    summaryEn: "For time-limited pilgrims with strong fitness. Fly directly to Ali and begin the kora immediately, skipping the long overland journey. Risk: minimal altitude acclimatization significantly increases AMS risk.",
+    days: [
+      { day: 1, title: "飞抵拉萨（3650m）", titleEn: "Fly to Lhasa (3650m)", desc: "当天抵达拉萨，立即休息，开始服用红景天和高原安。多喝水，不要洗澡。", descEn: "Arrive Lhasa, rest immediately, begin Rhodiola and Gaoyuan'an. Hydrate well, no shower." },
+      { day: 2, title: "拉萨→阿里昆莎机场→塔尔钦", titleEn: "Lhasa→Ali Kunsha Airport→Darchen", desc: "早班机飞往阿里（约1.5小时），乘车前往塔尔钦（约3小时）。全天休息，适应4560米海拔。这是决定能否成功转山的关键期。", descEn: "Morning flight to Ali (~1.5h), drive to Darchen (~3h). Rest all day, adapt to 4560m. This is the critical period that determines kora success." },
+      { day: 3, title: "转山第1天：塔尔钦→止热寺", titleEn: "Kora Day 1: Darchen→Drirapuk", desc: "如身体无严重高反，开始转山。22公里，7-9小时。如感不适，在塔尔钦再休息一天。", descEn: "If no severe AMS symptoms, begin kora. 22km, 7-9 hours. If uncomfortable, rest one more day in Darchen." },
+      { day: 4, title: "转山第2天：止热寺→尊最普寺", titleEn: "Kora Day 2: Drirapuk→Zutulpuk", desc: "翻越卓玛拉垭口，最艰苦的一天。务必在日出前出发，带足氧气和水。", descEn: "Cross Drolma La — the toughest day. Must depart before sunrise. Carry ample oxygen and water." },
+      { day: 5, title: "转山第3天：尊最普寺→塔尔钦", titleEn: "Kora Day 3: Zutulpuk→Darchen", desc: "最后8公里轻松步行，完成转山。下午休整，可去玛旁雍错湖边静坐。", descEn: "Easy final 8km walk. Kora complete! Rest in the afternoon; optionally sit by Lake Manasarovar." },
+      { day: 6, title: "朝圣湖玛旁雍错", titleEn: "Manasarovar pilgrimage", desc: "乘车前往玛旁雍错（三大圣湖之一），绕湖部分路段。下午参观即乌寺，感受圣湖的宁静与神圣。", descEn: "Drive to Lake Manasarovar (one of three sacred lakes), walk a portion of the lake circuit. Visit Chiu Monastery in the afternoon." },
+      { day: 7, title: "返回拉萨", titleEn: "Return to Lhasa", desc: "从阿里昆莎机场飞回拉萨，行程结束。建议在拉萨再多住1天休息恢复。", descEn: "Fly back to Lhasa from Ali Kunsha Airport. Trip complete. Recommend one extra rest day in Lhasa." }
+    ]
+  },
+  {
+    name: "尼泊尔入境朝圣线",
+    nameEn: "Nepal Entry Pilgrimage Route",
+    summary: "从加德满都经吉隆口岸入藏，是一条风景壮美但条件艰苦的路线。适合有高原经验、时间充裕的朝圣者。全程约14-16天。",
+    summaryEn: "Enter Tibet from Kathmandu via Gyirong Port. A spectacular but demanding route. Suitable for altitude-experienced pilgrims with ample time. ~14-16 days total.",
+    days: [
+      { day: 1, title: "加德满都休整（1400m）", titleEn: "Kathmandu rest (1400m)", desc: "在加德满都办理中国签证（如需），联系旅行社办理进藏函。参观博达哈大佛塔和斯瓦扬布纳寺（猴庙），为朝圣之旅祈福。", descEn: "Process China visa in Kathmandu if needed; arrange Tibet Travel Permit through an agency. Visit Boudhanath Stupa and Swayambhunath (Monkey Temple) for pilgrimage blessings." },
+      { day: 2, title: "加德满都→吉隆镇（2700m）", titleEn: "Kathmandu→Gyirong Town (2700m)", desc: "乘车前往中尼边境吉隆口岸（约6-8小时），入境中国后乘车至吉隆镇。海拔从1400m升至2700m，第一级适应。", descEn: "Drive to Gyirong border port (6-8 hours). Cross into China, drive to Gyirong Town. Altitude rises from 1400m to 2700m — first stage of adaptation." },
+      { day: 3, title: "吉隆镇→定日（4300m）", titleEn: "Gyirong→Tingri (4300m)", desc: "穿越喜马拉雅山脉北坡，途经佩枯错和希夏邦马峰。车程约5-6小时，风景从亚热带峡谷变为高寒荒漠。", descEn: "Cross the northern Himalayan slopes, pass Pekutso Lake and Shishapangma. ~5-6 hours driving. Landscape transforms from subtropical gorges to alpine desert." },
+      { day: 4, title: "定日→珠峰大本营→定日", titleEn: "Tingri→EBC→Tingri", desc: "前往珠峰大本营（5200m）参观后返回定日住宿。避免在5200m过夜，这是高原适应的黄金法则。", descEn: "Visit Everest Base Camp (5200m), return to Tingri to sleep. Avoid overnighting at 5200m — a golden rule of altitude adaptation." },
+      { day: 5, title: "定日→萨嘎（4500m）", titleEn: "Tingri→Saga (4500m)", desc: "沿G219向西，车程约6小时。萨嘎是前往阿里的最后一个较大补给城镇，建议在此补充物资。", descEn: "Westward on G219, ~6 hours. Saga is the last large supply town before Ngari. Restock provisions here." },
+      { day: 6, title: "萨嘎→塔尔钦", titleEn: "Saga→Darchen", desc: "最后一段车程。途经帕羊、霍尔乡，在玛旁雍错湖畔停留致敬神湖，傍晚抵达塔尔钦。", descEn: "Final drive. Pass Paryang and Hor, stop to pay respects at Lake Manasarovar, arrive Darchen by evening." },
+      { day: 7, title: "转山准备日", titleEn: "Kora preparation day", desc: "在塔尔钦休整一天，办理转山登记，雇佣背夫或马匹，做最后的身体和心理准备。可绕塔尔钦小镇散步，感受神山脚下的特殊能量。", descEn: "Rest day in Darchen. Register for the kora, hire porters or horses, make final physical and mental preparations. Walk around Darchen to feel the special energy at the mountain's foot." }
+    ]
+  }
+];
 ---
 
 <Layout title="朝圣攻略 - 冈仁波齐转山指南 | Kailash 2026" description="最详尽的冈仁波齐转山攻略：最佳时间、装备清单、高原反应预防、边防证办理。52公里转山路线全程指南。">
@@ -112,7 +456,7 @@ const permits = [
       <div class="absolute inset-0 bg-[url('/images/kailash-aerial.jpg')] bg-cover bg-top"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-kailash-dark/30 to-kailash-dark"></div>
     </div>
-    
+
     <!-- Content below photo -->
     <div class="relative -mt-12 z-10 px-4 sm:px-6 lg:px-8 pb-8">
       <div class="max-w-4xl mx-auto text-center">
@@ -209,7 +553,7 @@ const permits = [
 <!-- Best Time -->
   <section class="py-20 bg-kailash-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
         <div>
           <h2 class="font-display text-4xl font-bold text-kailash-dark mb-6" data-lang-content="zh">最佳时间</h2>
           <h2 class="font-display text-4xl font-bold text-kailash-dark mb-6" data-lang-content="en" style="display: none;">Best Time to Go</h2>
@@ -222,8 +566,8 @@ const permits = [
               </div>
               <p class="text-kailash-gold font-bold text-xl" data-lang-content="zh">{bestTime.season}</p>
               <p class="text-kailash-gold font-bold text-xl" data-lang-content="en" style="display: none;">{bestTime.seasonEn}</p>
-              <p class="text-gray-600 mt-2" data-lang-content="zh">每年冬季（11月-次年3月）大雪封山，转山道关闭</p>
-              <p class="text-gray-600 mt-2" data-lang-content="en" style="display: none;">Winter closure Nov–Mar due to heavy snow</p>
+              <p class="text-gray-600 mt-2" data-lang-content="zh">每年冬季（11月-次年3月）大雪封山，转山道关闭。2026年为马年，如天气条件允许可能提前至3月下旬开放，但4月中旬更为稳妥。</p>
+              <p class="text-gray-600 mt-2" data-lang-content="en" style="display: none;">Winter closure Nov–Mar due to heavy snow. For the 2026 Horse Year, the trail may open as early as late March if weather permits, but mid-April is more reliable.</p>
             </div>
             <div class="bg-white rounded-xl p-6 shadow-md">
               <div class="flex items-center gap-3 mb-2">
@@ -233,8 +577,8 @@ const permits = [
               </div>
               <p class="text-kailash-gold font-bold text-xl" data-lang-content="zh">{bestTime.peak}</p>
               <p class="text-kailash-gold font-bold text-xl" data-lang-content="en" style="display: none;">{bestTime.peakEn}</p>
-              <p class="text-gray-600 mt-2" data-lang-content="zh">天气稳定，能见度高，转山体验最佳</p>
-              <p class="text-gray-600 mt-2" data-lang-content="en" style="display: none;">Stable weather, great visibility—ideal for trekking</p>
+              <p class="text-gray-600 mt-2" data-lang-content="zh">天气稳定，能见度高，转山体验最佳。5月日照充足，9-10月秋高气爽，是最理想的转山窗口。</p>
+              <p class="text-gray-600 mt-2" data-lang-content="en" style="display: none;">Stable weather, great visibility—ideal for trekking. May offers abundant sunshine; Sep-Oct brings crisp autumn air, the two best windows for kora.</p>
             </div>
             <div class="bg-amber-50 border border-amber-200 rounded-xl p-6">
               <div class="flex items-center gap-3 mb-2">
@@ -248,21 +592,28 @@ const permits = [
           </div>
         </div>
         <div class="bg-white rounded-2xl p-8 shadow-lg">
-          <h3 class="font-display text-xl font-bold mb-6" data-lang-content="zh">月度天气参考</h3>
-          <h3 class="font-display text-xl font-bold mb-6" data-lang-content="en" style="display: none;">Monthly Weather Guide</h3>
-          <div class="space-y-3">
-            {[
-              { month: "4月", monthEn: "Apr", temp: "-5°C ~ 10°C", note: "转山道刚开放，可能积雪", noteEn: "Trail just reopened, possible snow" },
-              { month: "5-6月", monthEn: "May-Jun", temp: "0°C ~ 15°C", note: "天气最佳，推荐", noteEn: "Best weather, highly recommended" },
-              { month: "7-8月", monthEn: "Jul-Aug", temp: "5°C ~ 18°C", note: "雨季，偶有泥石流", noteEn: "Rainy season, occasional landslides" },
-              { month: "9-10月", monthEn: "Sep-Oct", temp: "-2°C ~ 12°C", note: "秋高气爽，推荐", noteEn: "Crisp autumn air, recommended" }
-            ].map(m => (
-              <div class="flex justify-between items-center py-3 border-b border-gray-100 last:border-0">
-                <span class="font-medium" data-lang-content="zh">{m.month}</span>
-                <span class="font-medium" data-lang-content="en" style="display: none;">{m.monthEn}</span>
-                <span class="text-gray-600">{m.temp}</span>
-                <span class="text-sm text-gray-500" data-lang-content="zh">{m.note}</span>
-                <span class="text-sm text-gray-500" data-lang-content="en" style="display: none;">{m.noteEn}</span>
+          <h3 class="font-display text-xl font-bold mb-6" data-lang-content="zh">月度天气详情</h3>
+          <h3 class="font-display text-xl font-bold mb-6" data-lang-content="en" style="display: none;">Monthly Weather Details</h3>
+          <div class="space-y-4">
+            {monthlyDetail.map(m => (
+              <div class="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-semibold text-kailash-dark" data-lang-content="zh">{m.month}</span>
+                  <span class="font-semibold text-kailash-dark" data-lang-content="en" style="display: none;">{m.monthEn}</span>
+                  <span class="text-kailash-gold font-medium">{m.temp}</span>
+                </div>
+                <p class="text-sm text-gray-500 mb-1" data-lang-content="zh">天气：{m.weather}</p>
+                <p class="text-sm text-gray-500 mb-1" data-lang-content="en" style="display: none;">Weather: {m.weatherEn}</p>
+                <div class="grid grid-cols-2 gap-2 mt-2">
+                  <div class="bg-green-50 rounded-lg px-3 py-2">
+                    <span class="text-xs text-green-600 font-medium" data-lang-content="zh">✅ {m.pro}</span>
+                    <span class="text-xs text-green-600 font-medium" data-lang-content="en" style="display: none;">✅ {m.proEn}</span>
+                  </div>
+                  <div class="bg-red-50 rounded-lg px-3 py-2">
+                    <span class="text-xs text-red-600 font-medium" data-lang-content="zh">⚠️ {m.con}</span>
+                    <span class="text-xs text-red-600 font-medium" data-lang-content="en" style="display: none;">⚠️ {m.conEn}</span>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -281,7 +632,7 @@ const permits = [
         <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">Be fully prepared for the harsh high-altitude environment</p>
       </div>
 
-      <div class="grid lg:grid-cols-3 gap-8">
+      <div class="grid lg:grid-cols-3 gap-8 mb-12">
         <!-- Required -->
         <div class="bg-red-50 rounded-2xl p-8">
           <div class="flex items-center gap-3 mb-6">
@@ -355,6 +706,78 @@ const permits = [
           </ul>
         </div>
       </div>
+
+      <!-- Additional Equipment -->
+      <div class="grid lg:grid-cols-2 gap-8 mb-12">
+        <!-- Additional Items -->
+        <div class="bg-gray-50 rounded-2xl p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-2xl">🧳</span>
+            <h3 class="font-display text-xl font-bold" data-lang-content="zh">补充装备</h3>
+            <h3 class="font-display text-xl font-bold" data-lang-content="en" style="display: none;">Additional Gear</h3>
+          </div>
+          <ul class="space-y-4">
+            {equipment.additional.map(item => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-kailash-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <p class="font-medium" data-lang-content="zh">{item.item}</p>
+                  <p class="font-medium" data-lang-content="en" style="display: none;">{item.itemEn}</p>
+                  <p class="text-sm text-gray-600" data-lang-content="zh">{item.desc}</p>
+                  <p class="text-sm text-gray-600" data-lang-content="en" style="display: none;">{item.descEn}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Medications -->
+        <div class="bg-purple-50 rounded-2xl p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-2xl">💊</span>
+            <h3 class="font-display text-xl font-bold" data-lang-content="zh">药品清单</h3>
+            <h3 class="font-display text-xl font-bold" data-lang-content="en" style="display: none;">Medication List</h3>
+          </div>
+          <ul class="space-y-4">
+            {equipment.medications.map(item => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <p class="font-medium" data-lang-content="zh">{item.item}</p>
+                  <p class="font-medium" data-lang-content="en" style="display: none;">{item.itemEn}</p>
+                  <p class="text-sm text-gray-600" data-lang-content="zh">{item.desc}</p>
+                  <p class="text-sm text-gray-600" data-lang-content="en" style="display: none;">{item.descEn}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Food Suggestions -->
+      <div class="bg-amber-50 rounded-2xl p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-2xl">🍫</span>
+          <h3 class="font-display text-xl font-bold" data-lang-content="zh">食物补给建议</h3>
+          <h3 class="font-display text-xl font-bold" data-lang-content="en" style="display: none;">Food & Nutrition Suggestions</h3>
+        </div>
+        <p class="text-gray-600 mb-6" data-lang-content="zh">转山沿途的补给点提供简餐（藏面、糌粑、方便面、热水），但品种有限且价格较高。建议自带以下食物以补充能量和营养：</p>
+        <p class="text-gray-600 mb-6" data-lang-content="en" style="display: none;">Trail-side stops offer simple meals (Tibetan noodles, tsampa, instant noodles, hot water), but selection is limited and prices are high. Bring the following for energy and nutrition:</p>
+        <div class="grid md:grid-cols-3 gap-4">
+          {equipment.foodSuggestions.map(item => (
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+              <p class="font-semibold text-kailash-dark mb-1" data-lang-content="zh">{item.item}</p>
+              <p class="font-semibold text-kailash-dark mb-1" data-lang-content="en" style="display: none;">{item.itemEn}</p>
+              <p class="text-sm text-gray-500" data-lang-content="zh">{item.desc}</p>
+              <p class="text-sm text-gray-500" data-lang-content="en" style="display: none;">{item.descEn}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
@@ -364,8 +787,8 @@ const permits = [
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-bold mb-4" data-lang-content="zh">高原反应预防</h2>
         <h2 class="font-display text-4xl font-bold mb-4" data-lang-content="en" style="display: none;">Altitude Sickness Prevention</h2>
-        <p class="text-gray-400" data-lang-content="zh">海拔4560米起步，最高5630米，高反是最大挑战</p>
-        <p class="text-gray-400" data-lang-content="en" style="display: none;">Starting at 4,560m, peaking at 5,630m—altitude sickness is the biggest challenge</p>
+        <p class="text-gray-400" data-lang-content="zh">海拔4560米起步，最高5648米，高反是最大挑战</p>
+        <p class="text-gray-400" data-lang-content="en" style="display: none;">Starting at 4,560m, peaking at 5,648m—altitude sickness is the biggest challenge</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6">
@@ -384,6 +807,52 @@ const permits = [
             </div>
           </div>
         ))}
+      </div>
+
+      <!-- Symptom Checklist -->
+      <div class="mt-12 bg-white/5 rounded-2xl p-8">
+        <h3 class="font-display text-2xl font-bold mb-6 text-center" data-lang-content="zh">高反症状对照表</h3>
+        <h3 class="font-display text-2xl font-bold mb-6 text-center" data-lang-content="en" style="display: none;">AMS Symptom Reference Chart</h3>
+        <p class="text-gray-400 text-center mb-8" data-lang-content="zh">根据症状严重程度采取对应措施。宁可过度谨慎，不可冒险前行。</p>
+        <p class="text-gray-400 text-center mb-8" data-lang-content="en" style="display: none;">Take action according to symptom severity. Better overly cautious than recklessly pushing on.</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="border-b border-white/10">
+                <th class="py-3 px-4 text-sm font-semibold text-kailash-gold" data-lang-content="zh">症状</th>
+                <th class="py-3 px-4 text-sm font-semibold text-kailash-gold" data-lang-content="en" style="display: none;">Symptom</th>
+                <th class="py-3 px-4 text-sm font-semibold text-kailash-gold" data-lang-content="zh">程度</th>
+                <th class="py-3 px-4 text-sm font-semibold text-kailash-gold" data-lang-content="en" style="display: none;">Severity</th>
+                <th class="py-3 px-4 text-sm font-semibold text-kailash-gold" data-lang-content="zh">应对措施</th>
+                <th class="py-3 px-4 text-sm font-semibold text-kailash-gold" data-lang-content="en" style="display: none;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {symptomChecklist.map(s => (
+                <tr class="border-b border-white/5">
+                  <td class="py-3 px-4 text-sm" data-lang-content="zh">{s.symptom}</td>
+                  <td class="py-3 px-4 text-sm" data-lang-content="en" style="display: none;">{s.symptomEn}</td>
+                  <td class="py-3 px-4">
+                    <span class={`px-2 py-1 rounded-full text-xs font-medium ${
+                      s.level === '轻度' || s.level === 'Mild' ? 'bg-green-500/20 text-green-400' :
+                      s.level === '中度' || s.level === 'Moderate' ? 'bg-yellow-500/20 text-yellow-400' :
+                      s.level === '重度' || s.level === 'Severe' ? 'bg-orange-500/20 text-orange-400' :
+                      'bg-red-500/20 text-red-400'
+                    }`} data-lang-content="zh">{s.level}</span>
+                    <span class={`px-2 py-1 rounded-full text-xs font-medium ${
+                      s.level === '轻度' || s.level === 'Mild' ? 'bg-green-500/20 text-green-400' :
+                      s.level === '中度' || s.level === 'Moderate' ? 'bg-yellow-500/20 text-yellow-400' :
+                      s.level === '重度' || s.level === 'Severe' ? 'bg-orange-500/20 text-orange-400' :
+                      'bg-red-500/20 text-red-400'
+                    }`} data-lang-content="en" style="display: none;">{s.levelEn}</span>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-300" data-lang-content="zh">{s.action}</td>
+                  <td class="py-3 px-4 text-sm text-gray-300" data-lang-content="en" style="display: none;">{s.actionEn}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="mt-12 bg-red-500/10 border border-red-500/30 rounded-xl p-6">
@@ -410,7 +879,7 @@ const permits = [
         <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">Prepare in advance to avoid delays</p>
       </div>
 
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
         <div class="divide-y divide-gray-100">
           {permits.map(permit => (
             <div class="p-6 flex items-center justify-between">
@@ -434,13 +903,510 @@ const permits = [
         </div>
       </div>
 
-      <div class="mt-8 text-center">
-        <p class="text-gray-600 mb-4" data-lang-content="zh">不确定需要哪些证件？联系我们协助办理</p>
-        <p class="text-gray-600 mb-4" data-lang-content="en" style="display: none;">Not sure which permits you need? Contact us for assistance</p>
-        <a href="/contact" class="inline-flex items-center bg-kailash-gold text-kailash-dark px-6 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
-          <span data-lang-content="zh">咨询详情</span>
-          <span data-lang-content="en" style="display: none;">Inquire Now</span>
+      <!-- Step-by-step Permit Guide -->
+      <div class="bg-white rounded-2xl shadow-lg p-8">
+        <h3 class="font-display text-2xl font-bold text-kailash-dark mb-6 text-center" data-lang-content="zh">边防证办理步骤</h3>
+        <h3 class="font-display text-2xl font-bold text-kailash-dark mb-6 text-center" data-lang-content="en" style="display: none;">Border Permit Application Steps</h3>
+        <div class="space-y-8">
+          {permitSteps.map((s) => (
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <span class="bg-kailash-gold text-kailash-dark w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">{s.step}</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg text-kailash-dark mb-2" data-lang-content="zh">{s.title}</h4>
+                <h4 class="font-semibold text-lg text-kailash-dark mb-2" data-lang-content="en" style="display: none;">{s.titleEn}</h4>
+                <p class="text-gray-600 leading-relaxed" data-lang-content="zh">{s.detail}</p>
+                <p class="text-gray-600 leading-relaxed" data-lang-content="en" style="display: none;">{s.detailEn}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transportation Guide (NEW) -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">交通指南</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Transportation Guide</h2>
+        <p class="text-lg text-gray-600" data-lang-content="zh">从你所在的地方，抵达冈仁波齐的每一条路</p>
+        <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">Every route from your doorstep to the foot of Mount Kailash</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 mb-16">
+        {transportRoutes.map(route => (
+          <div class="bg-kailash-light rounded-2xl p-8 shadow-md">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-3xl">{route.from === '拉萨' ? '🏙️' : route.from === '日喀则' ? '🏛️' : '🏔️'}</span>
+              <div>
+                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="zh">从{route.from}出发</h3>
+                <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="en" style="display: none;">From {route.fromEn}</h3>
+              </div>
+            </div>
+            <p class="text-kailash-gold font-medium mb-4" data-lang-content="zh">距离：{route.distance}</p>
+            <p class="text-kailash-gold font-medium mb-4" data-lang-content="en" style="display: none;">Distance: {route.distanceEn}</p>
+            <div class="space-y-4">
+              {route.options.map(opt => (
+                <div class="bg-white rounded-xl p-4 shadow-sm">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-semibold text-kailash-dark" data-lang-content="zh">{opt.mode}</span>
+                    <span class="font-semibold text-kailash-dark" data-lang-content="en" style="display: none;">{opt.modeEn}</span>
+                    <span class="text-kailash-gold font-medium text-sm">{opt.cost}</span>
+                  </div>
+                  <p class="text-sm text-gray-500 mb-1" data-lang-content="zh">⏱ {opt.time}</p>
+                  <p class="text-sm text-gray-500 mb-1" data-lang-content="en" style="display: none;">⏱ {opt.timeEn}</p>
+                  <p class="text-xs text-gray-400" data-lang-content="zh">{opt.note}</p>
+                  <p class="text-xs text-gray-400" data-lang-content="en" style="display: none;">{opt.noteEn}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Map Note: 4-Day Overland -->
+      <div class="bg-kailash-dark rounded-2xl p-8 shadow-lg text-white">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-3xl">🗺️</span>
+          <h3 class="font-display text-2xl font-bold text-kailash-gold" data-lang-content="zh">{mapNote.title}</h3>
+          <h3 class="font-display text-2xl font-bold text-kailash-gold" data-lang-content="en" style="display: none;">{mapNote.titleEn}</h3>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <p class="text-gray-300 leading-relaxed" data-lang-content="zh">{mapNote.zh}</p>
+            <p class="text-gray-300 leading-relaxed" data-lang-content="en" style="display: none;">{mapNote.en}</p>
+          </div>
+          <div class="bg-white/5 rounded-xl p-6">
+            <h4 class="font-semibold text-kailash-gold mb-3" data-lang-content="zh">四天行程概览</h4>
+            <h4 class="font-semibold text-kailash-gold mb-3" data-lang-content="en" style="display: none;">4-Day Itinerary Overview</h4>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <span class="bg-kailash-gold text-kailash-dark w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                <span class="text-sm text-gray-300" data-lang-content="zh">拉萨 → 日喀则（约5小时，经羊卓雍错）</span>
+                <span class="text-sm text-gray-300" data-lang-content="en" style="display: none;">Lhasa → Shigatse (~5h, via Yamdrok Lake)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="bg-kailash-gold text-kailash-dark w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                <span class="text-sm text-gray-300" data-lang-content="zh">日喀则 → 萨嘎（约8小时，经珠峰观景台）</span>
+                <span class="text-sm text-gray-300" data-lang-content="en" style="display: none;">Shigatse → Saga (~8h, via Everest viewpoint)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="bg-kailash-gold text-kailash-dark w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                <span class="text-sm text-gray-300" data-lang-content="zh">萨嘎 → 帕羊 → 霍尔（约7小时，草原风光）</span>
+                <span class="text-sm text-gray-300" data-lang-content="en" style="display: none;">Saga → Paryang → Hor (~7h, grassland scenery)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="bg-kailash-gold text-kailash-dark w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">4</span>
+                <span class="text-sm text-gray-300" data-lang-content="zh">霍尔 → 玛旁雍错 → 塔尔钦（约3小时，抵达！）</span>
+                <span class="text-sm text-gray-300" data-lang-content="en" style="display: none;">Hor → Manasarovar → Darchen (~3h, arrive!)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accommodation Details (NEW) -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">住宿详解</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Accommodation Details</h2>
+        <p class="text-lg text-gray-600" data-lang-content="zh">从塔尔钦的舒适宾馆到尊最普寺的木板通铺——各站住宿全解析</p>
+        <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">From comfortable Darchen hotels to Zutulpuk's wooden bunks — every stop explained</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 mb-16">
+        {accommodationPlaces.map(place => (
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">{place.place === '塔尔钦' ? '🏨' : place.place === '止热寺' ? '🏛️' : '⛺'}</span>
+              <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="zh">{place.place}</h3>
+              <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="en" style="display: none;">{place.placeEn}</h3>
+            </div>
+            <p class="text-kailash-gold font-medium text-sm mb-4" data-lang-content="zh">海拔 {place.altitude}</p>
+            <p class="text-kailash-gold font-medium text-sm mb-4" data-lang-content="en" style="display: none;">Altitude: {place.altitude}</p>
+            <div class="space-y-4">
+              {place.options.map(opt => (
+                <div class="border-l-2 border-kailash-gold pl-4">
+                  <div class="flex justify-between items-center mb-1">
+                    <span class="font-semibold text-kailash-dark text-sm" data-lang-content="zh">{opt.type}</span>
+                    <span class="font-semibold text-kailash-dark text-sm" data-lang-content="en" style="display: none;">{opt.typeEn}</span>
+                    <span class="text-kailash-gold font-medium text-xs">{opt.price}</span>
+                  </div>
+                  <p class="text-sm text-gray-600" data-lang-content="zh">{opt.detail}</p>
+                  <p class="text-sm text-gray-600" data-lang-content="en" style="display: none;">{opt.detailEn}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Booking Tips -->
+      <div class="bg-white rounded-2xl shadow-lg p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-3xl">💡</span>
+          <h3 class="font-display text-2xl font-bold text-kailash-dark" data-lang-content="zh">预订实用技巧</h3>
+          <h3 class="font-display text-2xl font-bold text-kailash-dark" data-lang-content="en" style="display: none;">Practical Booking Tips</h3>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          {bookingTips.map(tip => (
+            <div class="bg-kailash-light rounded-xl p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-5 h-5 text-kailash-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                </svg>
+                <h4 class="font-semibold text-kailash-dark" data-lang-content="zh">{tip.tip}</h4>
+                <h4 class="font-semibold text-kailash-dark" data-lang-content="en" style="display: none;">{tip.tipEn}</h4>
+              </div>
+              <p class="text-sm text-gray-600" data-lang-content="zh">{tip.detail}</p>
+              <p class="text-sm text-gray-600" data-lang-content="en" style="display: none;">{tip.detailEn}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost Reference (NEW) -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">费用参考</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Cost Reference</h2>
+        <p class="text-lg text-gray-600" data-lang-content="zh">透明公开的预算参考，帮助你更好地规划朝圣之旅</p>
+        <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">Transparent budget reference to help you plan your pilgrimage</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 mb-8">
+        <!-- Transportation Costs -->
+        <div class="bg-kailash-light rounded-2xl p-8 shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-3xl">🚗</span>
+            <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="zh">交通费用</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="en" style="display: none;">Transportation Costs</h3>
+          </div>
+          <div class="space-y-3">
+            {costReference.transportation.map(item => (
+              <div class="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
+                <div>
+                  <p class="text-sm font-medium text-kailash-dark" data-lang-content="zh">{item.item}</p>
+                  <p class="text-sm font-medium text-kailash-dark" data-lang-content="en" style="display: none;">{item.itemEn}</p>
+                  <p class="text-xs text-gray-500" data-lang-content="zh">{item.note}</p>
+                  <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">{item.noteEn}</p>
+                </div>
+                <span class="text-kailash-gold font-semibold text-sm whitespace-nowrap">{item.range}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Accommodation Costs -->
+        <div class="bg-kailash-light rounded-2xl p-8 shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-3xl">🏨</span>
+            <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="zh">住宿费用（每晚）</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="en" style="display: none;">Accommodation Costs (per night)</h3>
+          </div>
+          <div class="space-y-3">
+            {costReference.accommodation.map(item => (
+              <div class="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
+                <p class="text-sm font-medium text-kailash-dark" data-lang-content="zh">{item.item}</p>
+                <p class="text-sm font-medium text-kailash-dark" data-lang-content="en" style="display: none;">{item.itemEn}</p>
+                <span class="text-kailash-gold font-semibold text-sm whitespace-nowrap">{item.range}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Services Costs -->
+        <div class="bg-kailash-light rounded-2xl p-8 shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-3xl">🧑‍🏫</span>
+            <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="zh">服务费用</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="en" style="display: none;">Service Costs</h3>
+          </div>
+          <div class="space-y-3">
+            {costReference.services.map(item => (
+              <div class="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
+                <div>
+                  <p class="text-sm font-medium text-kailash-dark" data-lang-content="zh">{item.item}</p>
+                  <p class="text-sm font-medium text-kailash-dark" data-lang-content="en" style="display: none;">{item.itemEn}</p>
+                  <p class="text-xs text-gray-500" data-lang-content="zh">{item.note}</p>
+                  <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">{item.noteEn}</p>
+                </div>
+                <span class="text-kailash-gold font-semibold text-sm whitespace-nowrap">{item.range}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Daily Costs -->
+        <div class="bg-kailash-light rounded-2xl p-8 shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-3xl">🍜</span>
+            <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="zh">日常开销</h3>
+            <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="en" style="display: none;">Daily Expenses</h3>
+          </div>
+          <div class="space-y-3">
+            {costReference.daily.map(item => (
+              <div class="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
+                <div>
+                  <p class="text-sm font-medium text-kailash-dark" data-lang-content="zh">{item.item}</p>
+                  <p class="text-sm font-medium text-kailash-dark" data-lang-content="en" style="display: none;">{item.itemEn}</p>
+                  <p class="text-xs text-gray-500" data-lang-content="zh">{item.note}</p>
+                  <p class="text-xs text-gray-500" data-lang-content="en" style="display: none;">{item.noteEn}</p>
+                </div>
+                <span class="text-kailash-gold font-semibold text-sm whitespace-nowrap">{item.range}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Estimate -->
+      <div class="bg-kailash-dark rounded-2xl p-8 shadow-lg text-white text-center">
+        <h3 class="font-display text-2xl font-bold text-kailash-gold mb-4" data-lang-content="zh">全程预算估算</h3>
+        <h3 class="font-display text-2xl font-bold text-kailash-gold mb-4" data-lang-content="en" style="display: none;">Total Estimated Budget</h3>
+        <div class="flex justify-center items-center gap-4 mb-4">
+          <span class="text-4xl font-bold" data-lang-content="zh">{costReference.totalRange.low} - {costReference.totalRange.high}</span>
+          <span class="text-4xl font-bold" data-lang-content="en" style="display: none;">{costReference.totalRange.lowEn} - {costReference.totalRange.highEn}</span>
+        </div>
+        <p class="text-gray-400" data-lang-content="zh">{costReference.totalRange.desc}</p>
+        <p class="text-gray-400" data-lang-content="en" style="display: none;">{costReference.totalRange.descEn}</p>
+        <p class="text-kailash-gold mt-4 text-sm" data-lang-content="zh">以上价格为2026年参考价格，实际以出行时为准。马年期间住宿和交通费用可能上涨30%-50%。</p>
+        <p class="text-kailash-gold mt-4 text-sm" data-lang-content="en" style="display: none;">Prices are 2026 estimates and subject to change. During Horse Year, accommodation and transport costs may increase by 30%-50%.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physical Preparation (NEW) -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">身体准备</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Physical Preparation</h2>
+        <p class="text-lg text-gray-600" data-lang-content="zh">从今天开始，为52公里、5648米的极限挑战做好万全准备</p>
+        <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">Start today — prepare thoroughly for 52km and 5,648m of extreme challenge</p>
+      </div>
+
+      <div class="space-y-12">
+        {physicalPrepPhases.map((phase, phaseIndex) => (
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class={`p-6 ${phaseIndex === 0 ? 'bg-blue-600' : phaseIndex === 1 ? 'bg-indigo-600' : phaseIndex === 2 ? 'bg-purple-600' : 'bg-kailash-dark'} text-white`}>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="text-3xl">{phaseIndex === 0 ? '🏃' : phaseIndex === 1 ? '⛰️' : phaseIndex === 2 ? '🩺' : '😴'}</span>
+                  <div>
+                    <h3 class="font-display text-2xl font-bold" data-lang-content="zh">{phase.phase}</h3>
+                    <h3 class="font-display text-2xl font-bold" data-lang-content="en" style="display: none;">{phase.phaseEn}</h3>
+                    <p class="text-white/70 text-sm" data-lang-content="zh">核心目标：{phase.focus}</p>
+                    <p class="text-white/70 text-sm" data-lang-content="en" style="display: none;">Core focus: {phase.focusEn}</p>
+                  </div>
+                </div>
+                <div class="hidden md:block">
+                  <span class="text-5xl font-bold text-white/20">{phaseIndex + 1}</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <ul class="space-y-3">
+                {phase.tasks.map((task, taskIndex) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-kailash-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <div>
+                      <span class="text-kailash-dark text-sm" data-lang-content="zh">{task}</span>
+                      <span class="text-kailash-dark text-sm" data-lang-content="en" style="display: none;">{phase.tasksEn[taskIndex]}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 bg-amber-50 border border-amber-200 rounded-xl p-6">
+        <div class="flex items-start gap-4">
+          <span class="text-2xl">⚠️</span>
+          <div>
+            <h3 class="font-semibold text-lg mb-2" data-lang-content="zh">重要提醒</h3>
+            <h3 class="font-semibold text-lg mb-2" data-lang-content="en" style="display: none;">Important Reminder</h3>
+            <p class="text-gray-700" data-lang-content="zh">身体状况是转山成功的关键。以下人群应慎重考虑：严重心脏病、未控制的哮喘、严重贫血、近期手术者。即使体能极佳，海拔反应没有"免疫力"——任何人都可能出现严重高反。不要因为自信而忽视身体的警告信号。</p>
+            <p class="text-gray-700" data-lang-content="en" style="display: none;">Physical condition is the key to kora success. Consider carefully if you have: severe heart conditions, uncontrolled asthma, severe anemia, or recent surgery. Even peak fitness does not grant "immunity" to altitude — anyone can develop severe AMS. Never ignore your body's warning signals out of overconfidence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2026 Horse Year Special (NEW) -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-block bg-kailash-gold text-kailash-dark px-4 py-1 rounded-full text-sm font-semibold mb-4" data-lang-content="zh">🐴 马年限定</span>
+        <span class="inline-block bg-kailash-gold text-kailash-dark px-4 py-1 rounded-full text-sm font-semibold mb-4" data-lang-content="en" style="display: none;">🐴 Horse Year Special</span>
+        <h2 class="font-display text-4xl font-bold mb-4" data-lang-content="zh">2026 藏历火马年专题</h2>
+        <h2 class="font-display text-4xl font-bold mb-4" data-lang-content="en" style="display: none;">2026 Fire Horse Year Special</h2>
+        <p class="text-gray-400" data-lang-content="zh">一生一次的马年转山——1圈等于13圈的功德</p>
+        <p class="text-gray-400" data-lang-content="en" style="display: none;">Once-in-a-lifetime Horse Year kora — one circuit equals thirteen</p>
+      </div>
+
+      <!-- Why Horse Year Matters -->
+      <div class="grid lg:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white/5 rounded-2xl p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-3xl">🐴</span>
+            <h3 class="font-display text-2xl font-bold text-kailash-gold" data-lang-content="zh">为什么马年如此重要？</h3>
+            <h3 class="font-display text-2xl font-bold text-kailash-gold" data-lang-content="en" style="display: none;">Why Does Horse Year Matter?</h3>
+          </div>
+          <p class="text-gray-300 leading-relaxed" data-lang-content="zh">{horseYearInfo.why.zh}</p>
+          <p class="text-gray-300 leading-relaxed" data-lang-content="en" style="display: none;">{horseYearInfo.why.en}</p>
+        </div>
+        <div class="bg-white/5 rounded-2xl p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-3xl">👥</span>
+            <h3 class="font-display text-2xl font-bold text-kailash-gold" data-lang-content="zh">预计人流规模</h3>
+            <h3 class="font-display text-2xl font-bold text-kailash-gold" data-lang-content="en" style="display: none;">Expected Crowd Levels</h3>
+          </div>
+          <p class="text-gray-300 leading-relaxed" data-lang-content="zh">{horseYearInfo.crowd.zh}</p>
+          <p class="text-gray-300 leading-relaxed" data-lang-content="en" style="display: none;">{horseYearInfo.crowd.en}</p>
+        </div>
+      </div>
+
+      <!-- Special Preparations -->
+      <div class="bg-white/5 rounded-2xl p-8 mb-12">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-3xl">📋</span>
+          <h3 class="font-display text-2xl font-bold text-kailash-gold" data-lang-content="zh">马年特别准备</h3>
+          <h3 class="font-display text-2xl font-bold text-kailash-gold" data-lang-content="en" style="display: none;">Special Preparations for Horse Year</h3>
+        </div>
+        <p class="text-gray-300 leading-relaxed" data-lang-content="zh">{horseYearInfo.prep.zh}</p>
+        <p class="text-gray-300 leading-relaxed" data-lang-content="en" style="display: none;">{horseYearInfo.prep.en}</p>
+      </div>
+
+      <!-- Key Dates Timeline -->
+      <div class="bg-white/5 rounded-2xl p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-3xl">📅</span>
+          <h3 class="font-display text-2xl font-bold text-kailash-gold" data-lang-content="zh">2026年马年朝圣关键日期</h3>
+          <h3 class="font-display text-2xl font-bold text-kailash-gold" data-lang-content="en" style="display: none;">Key 2026 Horse Year Pilgrimage Dates</h3>
+        </div>
+        <div class="space-y-4">
+          {horseYearInfo.keyDates.map((kd, i) => (
+            <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4">
+              <div class="flex-shrink-0">
+                <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">{i + 1}</span>
+              </div>
+              <div class="flex-grow">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="font-semibold text-white" data-lang-content="zh">{kd.date}</span>
+                  <span class="font-semibold text-white" data-lang-content="en" style="display: none;">{kd.dateEn}</span>
+                  <span class="text-xs text-gray-400" data-lang-content="zh">{kd.note}</span>
+                  <span class="text-xs text-gray-400" data-lang-content="en" style="display: none;">{kd.noteEn}</span>
+                </div>
+                <p class="text-kailash-gold text-sm" data-lang-content="zh">{kd.event}</p>
+                <p class="text-kailash-gold text-sm" data-lang-content="en" style="display: none;">{kd.eventEn}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Suggested Itineraries (NEW) -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">行程建议</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Suggested Itineraries</h2>
+        <p class="text-lg text-gray-600" data-lang-content="zh">从轻松到挑战——三条精心设计的朝圣路线供你选择</p>
+        <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">From relaxed to challenging — three carefully designed pilgrimage routes</p>
+      </div>
+
+      <div class="space-y-16">
+        {suggestedItineraries.map((itin, itinIndex) => (
+          <div>
+            <div class={`rounded-2xl overflow-hidden shadow-lg ${itinIndex === 0 ? 'bg-kailash-light' : itinIndex === 1 ? 'bg-amber-50' : 'bg-indigo-50'}`}>
+              <div class={`p-6 ${itinIndex === 0 ? 'bg-kailash-dark text-white' : itinIndex === 1 ? 'bg-amber-600 text-white' : 'bg-indigo-600 text-white'}`}>
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class={`px-3 py-1 rounded-full text-xs font-semibold ${itinIndex === 0 ? 'bg-kailash-gold text-kailash-dark' : itinIndex === 1 ? 'bg-amber-300 text-amber-900' : 'bg-indigo-300 text-indigo-900'}`} data-lang-content="zh">
+                        {itinIndex === 0 ? '🏆 推荐首选' : itinIndex === 1 ? '⚡ 快捷线' : '🌏 国际线'}
+                      </span>
+                      <span class={`px-3 py-1 rounded-full text-xs font-semibold ${itinIndex === 0 ? 'bg-kailash-gold text-kailash-dark' : itinIndex === 1 ? 'bg-amber-300 text-amber-900' : 'bg-indigo-300 text-indigo-900'}`} data-lang-content="en" style="display: none;">
+                        {itinIndex === 0 ? '🏆 Top Pick' : itinIndex === 1 ? '⚡ Express' : '🌏 International'}
+                      </span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold" data-lang-content="zh">{itin.name}</h3>
+                    <h3 class="font-display text-2xl font-bold" data-lang-content="en" style="display: none;">{itin.nameEn}</h3>
+                  </div>
+                  <span class="hidden md:inline text-5xl font-bold opacity-20">{itin.days.length}</span>
+                </div>
+                <p class="text-sm mt-2 opacity-80" data-lang-content="zh">{itin.summary}</p>
+                <p class="text-sm mt-2 opacity-80" data-lang-content="en" style="display: none;">{itin.summaryEn}</p>
+              </div>
+              <div class="p-6">
+                <div class="space-y-4">
+                  {itin.days.map((d, dayIndex) => (
+                    <div class="flex gap-4 items-start">
+                      <div class="flex-shrink-0 pt-1">
+                        <span class={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${itinIndex === 0 ? 'bg-kailash-gold text-kailash-dark' : itinIndex === 1 ? 'bg-amber-500 text-white' : 'bg-indigo-500 text-white'}`}>
+                          {d.day}
+                        </span>
+                      </div>
+                      <div class="flex-grow border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+                        <h4 class="font-semibold text-kailash-dark" data-lang-content="zh">{d.title}</h4>
+                        <h4 class="font-semibold text-kailash-dark" data-lang-content="en" style="display: none;">{d.titleEn}</h4>
+                        <p class="text-sm text-gray-600 mt-1" data-lang-content="zh">{d.desc}</p>
+                        <p class="text-sm text-gray-600 mt-1" data-lang-content="en" style="display: none;">{d.descEn}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 bg-kailash-light rounded-2xl p-8 text-center shadow-md">
+        <p class="text-gray-600 mb-4" data-lang-content="zh">以上行程仅供参考。我们的团队可以根据你的时间、预算和体能状况定制专属朝圣行程。</p>
+        <p class="text-gray-600 mb-4" data-lang-content="en" style="display: none;">These itineraries are for reference only. Our team can customize a pilgrimage plan based on your schedule, budget, and fitness level.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-4xl font-bold mb-4" data-lang-content="zh">准备好出发了吗？</h2>
+      <h2 class="font-display text-4xl font-bold mb-4" data-lang-content="en" style="display: none;">Ready to Begin Your Pilgrimage?</h2>
+      <p class="text-gray-400 text-lg mb-8" data-lang-content="zh">
+        从今天开始，按照这份攻略逐步准备。无论你是已经决定出发，还是仍在犹豫——我们都在这里，随时为你解答任何疑问。
+      </p>
+      <p class="text-gray-400 text-lg mb-8" data-lang-content="en" style="display: none;">
+        Start preparing today following this guide. Whether you've already decided to go or are still considering — we are here, ready to answer any questions you may have.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/contact" class="inline-flex items-center bg-kailash-gold text-kailash-dark px-8 py-4 rounded-xl font-semibold text-lg hover:bg-kailash-accent transition shadow-lg">
+          <span data-lang-content="zh">联系我们 · 开启朝圣之旅</span>
+          <span data-lang-content="en" style="display: none;">Contact Us · Start Your Pilgrimage</span>
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+        <a href="/routes" class="inline-flex items-center border border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition">
+          <span data-lang-content="zh">查看转山路线</span>
+          <span data-lang-content="en" style="display: none;">Explore Kora Routes</span>
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
         </a>
       </div>
     </div>

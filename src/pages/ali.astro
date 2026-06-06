@@ -1,0 +1,290 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 阿里人文风情 - 照片数据
+const culturePhotos = [
+  {
+    id: "guge",
+    title: "古格王朝遗址",
+    titleEn: "Guge Kingdom Ruins",
+    desc: "神秘消失的古格王朝，留存于扎达土林之中的千年文明",
+    descEn: "The mysterious Guge Kingdom, a thousand-year civilization preserved in Zanda's earth forest",
+    image: "kailash-aerial.jpg",
+    location: "扎达县"
+  },
+  {
+    id: "tholing",
+    title: "托林寺",
+    titleEn: "Tholing Monastery",
+    desc: "藏传佛教后弘期发源地，千年壁画见证佛法复兴",
+    descEn: "Cradle of Tibetan Buddhism's later dissemination, millennium-old murals witness Dharma revival",
+    image: "kailash-golden.jpg",
+    location: "扎达县"
+  },
+  {
+    id: "zanda",
+    title: "扎达土林",
+    titleEn: "Zanda Earth Forest",
+    desc: "千万年地质变迁形成的天然奇观，宛如外星地貌",
+    descEn: "A natural wonder formed by millions of years of geological change, like an alien landscape",
+    image: "kailash-prairie.jpg",
+    location: "扎达县"
+  },
+  {
+    id: "nomad",
+    title: "阿里牧民",
+    titleEn: "Ngari Nomads",
+    desc: "逐水草而居的游牧生活，高原上的自由灵魂",
+    descEn: "Nomadic life following water and grass, free spirits on the high plateau",
+    image: "kailash-yaks.jpg",
+    location: "阿里地区"
+  },
+  {
+    id: "manasarovar",
+    title: "玛旁雍错",
+    titleEn: "Lake Manasarovar",
+    desc: "世界上海拔最高的淡水湖之一，四大河流的源头圣湖",
+    descEn: "One of the highest freshwater lakes, sacred source of four great rivers",
+    image: "kailash-lake.jpg",
+    location: "普兰县"
+  },
+  {
+    id: "prayer",
+    title: "经幡与玛尼堆",
+    titleEn: "Prayer Flags & Mani Stones",
+    desc: "风马旗随风飘扬，玛尼石刻经累世——信仰的无声诉说",
+    descEn: "Wind-horse flags flutter, mani stones accumulate prayers — the silent voice of faith",
+    image: "kailash-birds.jpg",
+    location: "转山沿途"
+  },
+  {
+    id: "sunrise",
+    title: "神山日出",
+    titleEn: "Sacred Sunrise",
+    desc: "第一缕阳光照亮神山金顶，新的一天在祈祷中开始",
+    descEn: "First light illuminates the golden peak, a new day begins in prayer",
+    image: "kailash-sunrise.jpg",
+    location: "冈仁波齐"
+  },
+  {
+    id: "starry",
+    title: "阿里星空",
+    titleEn: "Ngari Starry Sky",
+    desc: "世界最佳暗夜保护区之一，银河横跨神山之巅",
+    descEn: "One of the world's best dark sky reserves, the Milky Way spans the sacred peak",
+    image: "kailash-golden.jpg",
+    location: "阿里暗夜公园"
+  },
+  {
+    id: "birds",
+    title: "候鸟天堂",
+    titleEn: "Bird Paradise",
+    desc: "班公错湖上万千候鸟栖息，生命在高原绽放",
+    descEn: "Thousands of migratory birds on Pangong Tso, life blooming on the plateau",
+    image: "kailash-birds.jpg",
+    location: "班公错"
+  },
+  {
+    id: "village",
+    title: "阿里人家",
+    titleEn: "Tibetan Village Life",
+    desc: "远离尘嚣的高原村落，保留着最淳朴的生活方式",
+    descEn: "Remote highland villages preserve the simplest way of life",
+    image: "kailash-prairie.jpg",
+    location: "普兰县"
+  }
+];
+---
+
+<Layout title="阿里人文风情 - 影像中的阿里" description="阿里人文风情图集：古格王朝、托林寺、扎达土林、玛旁雍错、阿里星空——用影像记录西藏阿里的文化魅力。">
+  <!-- Hero Section -->
+  <section class="relative h-[70vh] min-h-[500px] flex items-end">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark via-kailash-dark/50 to-transparent"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-2 font-light" data-lang-content="zh">阿里 · 世界屋脊的屋脊</p>
+      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-2 font-light" data-lang-content="en" style="display: none;">NGARI · ROOF OF THE WORLD</p>
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-4" data-lang-content="zh">阿里人文风情</h1>
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-4" data-lang-content="en" style="display: none;">Ngari Cultural Charm</h1>
+      <p class="text-xl text-white/70 max-w-3xl" data-lang-content="zh">
+        用影像记录这片神圣土地上的文明印记——从古格王朝的千年遗址到玛旁雍错的碧波荡漾
+      </p>
+      <p class="text-xl text-white/70 max-w-3xl" data-lang-content="en" style="display: none;">
+        Capturing the marks of civilization on this sacred land — from the ancient Guge Kingdom to the sacred Lake Manasarovar
+      </p>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="py-16 bg-kailash-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="p-6">
+          <div class="text-4xl mb-3">🏔️</div>
+          <div class="text-kailash-gold text-2xl font-bold">30万+</div>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">平方公里疆域</p>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Sq. km Territory</p>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl mb-3">🏛️</div>
+          <div class="text-kailash-gold text-2xl font-bold">4500年</div>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">文明历史</p>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Years of History</p>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl mb-3">⛰️</div>
+          <div class="text-kailash-gold text-2xl font-bold">4500m+</div>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">平均海拔</p>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Average Altitude</p>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl mb-3">📿</div>
+          <div class="text-kailash-gold text-2xl font-bold">4大宗教</div>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">共同圣地</p>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Sacred Religions</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Wall - Full Width Masonry -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">📸 影像阿里</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">📸 Ngari in Images</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto" data-lang-content="zh">
+          每一张照片都是一段故事，带你走进阿里的人文深处
+        </p>
+        <p class="text-gray-600 max-w-2xl mx-auto" data-lang-content="en" style="display: none;">
+          Every photo tells a story, taking you deep into Ngari's cultural heart
+        </p>
+      </div>
+
+      <!-- Alternating Photo Layout -->
+      <div class="space-y-20">
+        {culturePhotos.map((photo, index) => (
+          <div class="group">
+            <!-- Large Photo -->
+            <div class={`relative overflow-hidden rounded-2xl ${index % 2 === 0 ? 'lg:ml-16' : 'lg:mr-16'}`}>
+              <div class="aspect-[16/9] md:aspect-[21/9] bg-gray-200 relative">
+                <img 
+                  src={`/images/${photo.image}`}
+                  alt={photo.title}
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading={index < 3 ? 'eager' : 'lazy'}
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                
+                <!-- Photo Info Overlay -->
+                <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                  <span class="inline-block bg-kailash-gold/90 text-kailash-dark text-xs px-3 py-1 rounded-full mb-3 font-medium">
+                    {photo.location}
+                  </span>
+                  <h3 class="text-white font-display text-3xl md:text-4xl font-bold mb-2" data-lang-content="zh">{photo.title}</h3>
+                  <h3 class="text-white font-display text-3xl md:text-4xl font-bold mb-2" data-lang-content="en" style="display: none;">{photo.titleEn}</h3>
+                  <p class="text-white/80 text-base md:text-lg max-w-2xl" data-lang-content="zh">{photo.desc}</p>
+                  <p class="text-white/80 text-base md:text-lg max-w-2xl" data-lang-content="en" style="display: none;">{photo.descEn}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="py-24 bg-kailash-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-aerial.jpg')] bg-cover bg-center opacity-10"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <svg class="w-12 h-12 text-kailash-gold/50 mx-auto mb-6" fill="currentColor" viewBox="0 0 32 32">
+        <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm16 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z"/>
+      </svg>
+      <blockquote class="font-display text-2xl md:text-3xl italic text-white/80 leading-relaxed" data-lang-content="zh">
+        "阿里是西藏的西藏，是高原上的高原。<br>这里不仅有世界中心的神山圣湖，<br>更有千年文明的深沉回响。"
+      </blockquote>
+      <blockquote class="font-display text-2xl md:text-3xl italic text-white/80 leading-relaxed" data-lang-content="en" style="display: none;">
+        "Ngari is the Tibet of Tibet, the highland above highlands.<br>Here lie not only the sacred mountain and lake at the world's center,<br>but also the deep echoes of a thousand-year civilization."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Topics Grid -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">阿里文化关键词</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Ngari Culture Keywords</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-amber-900 to-kailash-dark">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center p-4">
+              <span class="text-5xl block mb-3">🏛️</span>
+              <h3 class="text-white font-bold text-lg" data-lang-content="zh">古格文明</h3>
+              <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">Guge Kingdom</h3>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">消失的王朝</p>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Lost Kingdom</p>
+            </div>
+          </div>
+        </div>
+        <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-indigo-900 to-kailash-dark">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center p-4">
+              <span class="text-5xl block mb-3">🙏</span>
+              <h3 class="text-white font-bold text-lg" data-lang-content="zh">藏传佛教</h3>
+              <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">Tibetan Buddhism</h3>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">信仰的力量</p>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Power of Faith</p>
+            </div>
+          </div>
+        </div>
+        <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-emerald-900 to-kailash-dark">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center p-4">
+              <span class="text-5xl block mb-3">🏔️</span>
+              <h3 class="text-white font-bold text-lg" data-lang-content="zh">游牧文化</h3>
+              <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">Nomadic Culture</h3>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">高原游牧</p>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Highland Nomads</p>
+            </div>
+          </div>
+        </div>
+        <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-rose-900 to-kailash-dark">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center p-4">
+              <span class="text-5xl block mb-3">🎨</span>
+              <h3 class="text-white font-bold text-lg" data-lang-content="zh">唐卡壁画</h3>
+              <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">Thangka & Murals</h3>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">视觉盛宴</p>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Visual Feast</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold mb-4" data-lang-content="zh">分享你的阿里记忆</h2>
+      <h2 class="font-display text-3xl font-bold mb-4" data-lang-content="en" style="display: none;">Share Your Ngari Memories</h2>
+      <p class="text-gray-400 mb-8" data-lang-content="zh">如果你有阿里地区的精彩照片，欢迎分享给我们</p>
+      <p class="text-gray-400 mb-8" data-lang-content="en" style="display: none;">If you have amazing photos of Ngari, please share them with us</p>
+      <a href="mailto:kailash2026Lucas@outlook.com?subject=阿里照片投稿" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition" data-lang-content="zh">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+        </svg>
+        投稿照片
+      </a>
+      <a href="mailto:kailash2026Lucas@outlook.com?subject=Ali Photo Submission" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition" data-lang-content="en" style="display: none;">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+        </svg>
+        Submit Photos
+      </a>
+    </div>
+  </section>
+</Layout>

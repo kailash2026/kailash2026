@@ -38,6 +38,7 @@ const navItems = [
   { label: 'ལྷ་རིའི་རིག་གནས།', labelZh: '神山文化', labelEn: 'Culture', href: '/culture' },
   { label: 'མཇལ་བསྐོར་གནས་ཚུལ།', labelZh: '朝圣攻略', labelEn: 'Guide', href: '/guide' },
   { label: 'ལམ་ཐིག', labelZh: '转山路线', labelEn: 'Routes', href: '/routes' },
+  { label: 'མངའ་རིས་རིག་གནས།', labelZh: '阿里人文', labelEn: 'Ngari Culture', href: '/ali' },
   { label: 'སྒྲོལ་ལྗོངས།', labelZh: '朝圣故事', labelEn: 'Stories', href: '/stories' },
   { label: 'བརྙན་མཛོད།', labelZh: '图库', labelEn: 'Gallery', href: '/gallery' },
   { label: 'ཟུང་བྲལ།', labelZh: '常见问题', labelEn: 'FAQ', href: '/faq' },
@@ -291,6 +292,26 @@ const navItems = [
   <script is:inline>
     (function() {
       function switchLanguage(lang) {
+        const currentPath = window.location.pathname;
+        const isOnLangPage = currentPath.startsWith('/' + lang + '/');
+
+        // For ja/hi on pages without inline content: redirect to standalone page
+        if ((lang === 'ja' || lang === 'hi') && !isOnLangPage) {
+          var hasInline = document.querySelectorAll('[data-lang-content="' + lang + '"]').length > 0;
+          if (!hasInline) {
+            localStorage.setItem('preferred-lang', lang);
+            window.location.href = '/' + lang + currentPath;
+            return;
+          }
+        }
+
+        // From ja/hi standalone pages back to root for zh/en
+        if ((lang === 'zh' || lang === 'en') && (currentPath.startsWith('/ja/') || currentPath.startsWith('/hi/'))) {
+          localStorage.setItem('preferred-lang', lang);
+          window.location.href = currentPath.replace(/^\/(ja|hi)\//, '/');
+          return;
+        }
+
         document.documentElement.setAttribute('data-lang', lang);
         localStorage.setItem('preferred-lang', lang);
 

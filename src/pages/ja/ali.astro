@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const culturePhotos = [
+  { id: "guge", title: "グゲ王朝遺跡", desc: "謎に包まれたグゲ王朝、ザンダの土林に残る千年の文明", image: "kailash-aerial.jpg", location: "ザンダ県" },
+  { id: "tholing", title: "トゥオリン寺", desc: "チベット仏教後弘期の発祥地、千年の壁画が仏法復興を語る", image: "kailash-golden.jpg", location: "ザンダ県" },
+  { id: "zanda", title: "ザンダ土林", desc: "何百万年もの地質変動が生んだ自然の驚異、異星の風景のよう", image: "kailash-prairie.jpg", location: "ザンダ県" },
+  { id: "nomad", title: "遊牧民の暮らし", desc: "水と草を求めて移動する遊牧生活、高原の自由な魂", image: "kailash-yaks.jpg", location: "ンガリ地区" },
+  { id: "manasarovar", title: "マナサロワール湖", desc: "世界最高地点の淡水湖の一つ、四大河川の源流", image: "kailash-lake.jpg", location: "プラン県" },
+  { id: "prayer", title: "祈祷旗とマニ石", desc: "風に揺れるタルチョ、祈りが積み重なるマニ石", image: "kailash-birds.jpg", location: "コーラ参拝路" },
+  { id: "sunrise", title: "聖なる夜明け", desc: "最初の光が聖なる峰を黄金に染める", image: "kailash-sunrise.jpg", location: "カイラス山" },
+  { id: "starry", title: "ンガリの星空", desc: "世界有数の星空保護区、天の川が聖山を横切る", image: "kailash-golden.jpg", location: "ンガリ星空保護区" },
+  { id: "birds", title: "野鳥の楽園", desc: "パンゴンツォ湖に集まる何万もの渡り鳥", image: "kailash-birds.jpg", location: "パンゴンツォ湖" },
+  { id: "village", title: "チベットの村暮らし", desc: "世俗から遠く離れた高原の村々に息づく素朴な暮らし", image: "kailash-prairie.jpg", location: "プラン県" }
+];
+---
+
+<Layout title="ンガリの文化風情 - チベットの写真集" description="ンガリ文化写真ギャラリー：グゲ王朝、トゥオリン寺、ザンダ土林、マナサロワール湖、ンガリの星空——チベット・ンガリの魅力をとらえる。">
+  <section class="relative h-[70vh] min-h-[500px] flex items-end">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark via-kailash-dark/50 to-transparent"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-2 font-light">ンガリ · 世界の屋根</p>
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-4">ンガリの文化風情</h1>
+      <p class="text-xl text-white/70 max-w-3xl">この聖地に刻まれた文明の足跡を写真で綴る——古のグゲ王朝から聖なるマナサロワール湖まで</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-kailash-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="p-6"><div class="text-4xl mb-3">🏔️</div><div class="text-kailash-gold text-2xl font-bold">30万+</div><p class="text-gray-400 text-sm mt-1">平方キロメートル</p></div>
+        <div class="p-6"><div class="text-4xl mb-3">🏛️</div><div class="text-kailash-gold text-2xl font-bold">4500年</div><p class="text-gray-400 text-sm mt-1">文明の歴史</p></div>
+        <div class="p-6"><div class="text-4xl mb-3">⛰️</div><div class="text-kailash-gold text-2xl font-bold">4500m+</div><p class="text-gray-400 text-sm mt-1">平均標高</p></div>
+        <div class="p-6"><div class="text-4xl mb-3">📿</div><div class="text-kailash-gold text-2xl font-bold">4宗教</div><p class="text-gray-400 text-sm mt-1">聖地</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">📸 写真で見るンガリ</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">一枚一枚の写真が物語を語り、ンガリの文化の奥深くへ誘う</p>
+      </div>
+      <div class="space-y-20">
+        {culturePhotos.map((photo, index) => (
+          <div class="group">
+            <div class={`relative overflow-hidden rounded-2xl ${index % 2 === 0 ? 'lg:ml-16' : 'lg:mr-16'}`}>
+              <div class="aspect-[16/9] md:aspect-[21/9] bg-gray-200 relative">
+                <img src={`/images/${photo.image}`} alt={photo.title} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading={index < 3 ? 'eager' : 'lazy'} />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                  <span class="inline-block bg-kailash-gold/90 text-kailash-dark text-xs px-3 py-1 rounded-full mb-3 font-medium">{photo.location}</span>
+                  <h3 class="text-white font-display text-3xl md:text-4xl font-bold mb-2">{photo.title}</h3>
+                  <p class="text-white/80 text-base md:text-lg max-w-2xl">{photo.desc}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-kailash-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-aerial.jpg')] bg-cover bg-center opacity-10"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <blockquote class="font-display text-2xl md:text-3xl italic text-white/80 leading-relaxed">
+        「ンガリはチベットの中のチベット、高地の中の高地。<br>ここには世界の中心たる聖山と聖湖があるだけでなく、<br>千年の文明の深い響きも息づいている。」
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">ンガリ文化のキーワード</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="aspect-square rounded-xl bg-gradient-to-br from-amber-900 to-kailash-dark flex items-center justify-center"><div class="text-center p-4"><span class="text-5xl block mb-3">🏛️</span><h3 class="text-white font-bold text-lg">グゲ王朝</h3><p class="text-white/60 text-sm mt-1">失われた文明</p></div></div>
+        <div class="aspect-square rounded-xl bg-gradient-to-br from-indigo-900 to-kailash-dark flex items-center justify-center"><div class="text-center p-4"><span class="text-5xl block mb-3">🙏</span><h3 class="text-white font-bold text-lg">チベット仏教</h3><p class="text-white/60 text-sm mt-1">信仰の力</p></div></div>
+        <div class="aspect-square rounded-xl bg-gradient-to-br from-emerald-900 to-kailash-dark flex items-center justify-center"><div class="text-center p-4"><span class="text-5xl block mb-3">🏔️</span><h3 class="text-white font-bold text-lg">遊牧文化</h3><p class="text-white/60 text-sm mt-1">高原の遊牧民</p></div></div>
+        <div class="aspect-square rounded-xl bg-gradient-to-br from-rose-900 to-kailash-dark flex items-center justify-center"><div class="text-center p-4"><span class="text-5xl block mb-3">🎨</span><h3 class="text-white font-bold text-lg">タンカと壁画</h3><p class="text-white/60 text-sm mt-1">視覚の饗宴</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold mb-4">あなたのンガリの思い出をシェア</h2>
+      <p class="text-gray-400 mb-8">ンガリの素晴らしい写真があれば、ぜひ私たちと共有してください</p>
+      <a href="mailto:kailash2026Lucas@outlook.com?subject=Ali Photo Submission" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+        写真を投稿
+      </a>
+    </div>
+  </section>
+</Layout>

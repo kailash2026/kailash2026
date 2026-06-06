@@ -230,6 +230,261 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- NEW Section: Monthly Weather Details (मासिक मौसम विवरण) -->
+  <section id="masik-mausam" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">मासिक विवरण</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">मासिक मौसम विवरण — अप्रैल से अक्टूबर तक</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">हर महीने का विस्तृत तापमान, वर्षा, और परिस्थितियाँ। सही महीना चुनने के लिए लाभ और हानियाँ।</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <!-- April -->
+        <div class="bg-kailash-light rounded-2xl p-6 shadow-md hover:shadow-xl transition border-t-4 border-blue-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-2xl">❄️</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-kailash-dark">अप्रैल</h3>
+              <p class="text-blue-500 text-sm font-medium">मौसम का प्रारंभ</p>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600">
+            <div class="flex justify-between"><span>दिन का तापमान</span><span class="font-semibold">-2°C – 8°C</span></div>
+            <div class="flex justify-between"><span>रात का तापमान</span><span class="font-semibold">-15°C – -5°C</span></div>
+            <div class="flex justify-between"><span>वर्षा</span><span class="font-semibold">बहुत कम</span></div>
+            <div class="flex justify-between"><span>हिमपात</span><span class="font-semibold">संभव</span></div>
+            <div class="flex justify-between"><span>भीड़</span><span class="font-semibold text-blue-500">बहुत कम</span></div>
+          </div>
+          <div class="mt-4 space-y-2">
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">पर्यटक बहुत कम, एकांत अनुभव</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">कीमतें सबसे कम — बजट यात्रा</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">दोलमा ला दर्रा बर्फ़ से बंद हो सकता है</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">अत्यधिक ठंड — -15°C तक रात में</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">अधिकांश गेस्टहाउस बंद</span></div>
+          </div>
+          <p class="text-gray-600 text-xs mt-4 leading-relaxed">केवल अनुभवी शीतकालीन ट्रेकरों के लिए। दर्रा आमतौर पर अप्रैल के अंत या मई के प्रारंभ में खुलता है। यात्रा से पहले स्थानीय प्रशासन से पुष्टि करें। बर्फ़ की कीलें (क्रैम्पन) अनिवार्य।</p>
+          <div class="mt-4 flex gap-2">
+            <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded-full text-xs">शून्य भीड़</span>
+            <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded-full text-xs">जोखिमपूर्ण</span>
+          </div>
+        </div>
+
+        <!-- May -->
+        <div class="bg-kailash-light rounded-2xl p-6 shadow-md hover:shadow-xl transition border-t-4 border-green-400">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-2xl">🌱</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-kailash-dark">मई</h3>
+              <p class="text-green-600 text-sm font-medium">वसंत ऋतु</p>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600">
+            <div class="flex justify-between"><span>दिन का तापमान</span><span class="font-semibold">5°C – 14°C</span></div>
+            <div class="flex justify-between"><span>रात का तापमान</span><span class="font-semibold">-8°C – 0°C</span></div>
+            <div class="flex justify-between"><span>वर्षा</span><span class="font-semibold">कम</span></div>
+            <div class="flex justify-between"><span>हिमपात</span><span class="font-semibold">प्रारंभ में संभव</span></div>
+            <div class="flex justify-between"><span>भीड़</span><span class="font-semibold text-green-600">कम</span></div>
+          </div>
+          <div class="mt-4 space-y-2">
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">मौसम स्थिर, उत्कृष्ट दृश्यता</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">सागा दावा उत्सव (बुद्ध पूर्णिमा)</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">ताज़ी बर्फ़ से ढकी चोटियाँ</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">रातें अभी भी बहुत ठंडी</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">मार्ग कीचड़ भरा हो सकता है</span></div>
+          </div>
+          <p class="text-gray-600 text-xs mt-4 leading-relaxed">अत्यधिक अनुशंसित महीना। मौसम स्थिर, आकाश स्वच्छ, और भीड़ अभी कम। सागा दावा के लिए आध्यात्मिक रूप से महत्वपूर्ण। दिन-रात के तापमान में भारी अंतर — गर्म कपड़े अनिवार्य।</p>
+          <div class="mt-4 flex gap-2">
+            <span class="bg-green-50 text-green-700 px-2 py-1 rounded-full text-xs">सागा दावा</span>
+            <span class="bg-green-50 text-green-700 px-2 py-1 rounded-full text-xs">अनुशंसित ★★★★</span>
+          </div>
+        </div>
+
+        <!-- June -->
+        <div class="bg-kailash-light rounded-2xl p-6 shadow-md hover:shadow-xl transition border-t-4 border-teal-400">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-2xl">☀️</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-kailash-dark">जून</h3>
+              <p class="text-teal-600 text-sm font-medium">ग्रीष्म ऋतु का प्रारंभ</p>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600">
+            <div class="flex justify-between"><span>दिन का तापमान</span><span class="font-semibold">8°C – 17°C</span></div>
+            <div class="flex justify-between"><span>रात का तापमान</span><span class="font-semibold">-4°C – 4°C</span></div>
+            <div class="flex justify-between"><span>वर्षा</span><span class="font-semibold">कम-मध्यम</span></div>
+            <div class="flex justify-between"><span>दिन का प्रकाश</span><span class="font-semibold">14+ घंटे</span></div>
+            <div class="flex justify-between"><span>भीड़</span><span class="font-semibold text-teal-600">मध्यम-अधिक</span></div>
+          </div>
+          <div class="mt-4 space-y-2">
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">सबसे लंबे दिन — परिक्रमा के लिए पर्याप्त समय</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">सागा दावा का मुख्य दिन — आध्यात्मिक चरम</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">प्रचुर धूप, साफ़ आकाश</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">सागा दावा के दिन अत्यधिक भीड़</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">आवास पहले से बुक करना अनिवार्य</span></div>
+          </div>
+          <p class="text-gray-600 text-xs mt-4 leading-relaxed">तिब्बती कैलेंडर का सबसे पवित्र महीना। सागा दावा पूर्णिमा का दिन वर्ष का सबसे व्यस्त दिन। आवास और परिवहन 2-3 माह पूर्व बुक करें। आध्यात्मिक अनुभव के लिए सर्वोत्तम।</p>
+          <div class="mt-4 flex gap-2">
+            <span class="bg-teal-50 text-teal-700 px-2 py-1 rounded-full text-xs">लंबे दिन</span>
+            <span class="bg-teal-50 text-teal-700 px-2 py-1 rounded-full text-xs">धार्मिक चरम ★★★★★</span>
+          </div>
+        </div>
+
+        <!-- July -->
+        <div class="bg-kailash-light rounded-2xl p-6 shadow-md hover:shadow-xl transition border-t-4 border-amber-400">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-2xl">🌧️</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-kailash-dark">जुलाई</h3>
+              <p class="text-amber-600 text-sm font-medium">वर्षा ऋतु</p>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600">
+            <div class="flex justify-between"><span>दिन का तापमान</span><span class="font-semibold">10°C – 19°C</span></div>
+            <div class="flex justify-between"><span>रात का तापमान</span><span class="font-semibold">-2°C – 6°C</span></div>
+            <div class="flex justify-between"><span>वर्षा</span><span class="font-semibold">मध्यम-अधिक</span></div>
+            <div class="flex justify-between"><span>आर्द्रता</span><span class="font-semibold">उच्च</span></div>
+            <div class="flex justify-between"><span>भीड़</span><span class="font-semibold text-amber-600">अधिक</span></div>
+          </div>
+          <div class="mt-4 space-y-2">
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">सबसे गर्म महीना — दिन में आरामदायक</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">हरे-भरे घास के मैदान, जंगली फूल</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">वन्यजीव अधिक सक्रिय</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">लगातार वर्षा — जलरोधक उपकरण अनिवार्य</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">फिसलन भरा मार्ग, कीचड़</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">भूस्खलन का जोखिम</span></div>
+          </div>
+          <p class="text-gray-600 text-xs mt-4 leading-relaxed">मानसून का प्रभाव। दोपहर बाद गरज के साथ बारिश आम। सुबह जल्दी प्रस्थान करें। बादलों के बीच कैलाश के क्षणिक दर्शन रोमांचक अनुभव।</p>
+          <div class="mt-4 flex gap-2">
+            <span class="bg-amber-50 text-amber-700 px-2 py-1 rounded-full text-xs">वर्षा संभव</span>
+            <span class="bg-amber-50 text-amber-700 px-2 py-1 rounded-full text-xs">हरियाली ★★★</span>
+          </div>
+        </div>
+
+        <!-- August -->
+        <div class="bg-kailash-light rounded-2xl p-6 shadow-md hover:shadow-xl transition border-t-4 border-orange-400">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">⛅</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-kailash-dark">अगस्त</h3>
+              <p class="text-orange-600 text-sm font-medium">पीक ग्रीष्म</p>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600">
+            <div class="flex justify-between"><span>दिन का तापमान</span><span class="font-semibold">8°C – 17°C</span></div>
+            <div class="flex justify-between"><span>रात का तापमान</span><span class="font-semibold">-3°C – 5°C</span></div>
+            <div class="flex justify-between"><span>वर्षा</span><span class="font-semibold">मध्यम</span></div>
+            <div class="flex justify-between"><span>वनस्पति</span><span class="font-semibold">सर्वाधिक हरी-भरी</span></div>
+            <div class="flex justify-between"><span>भीड़</span><span class="font-semibold text-orange-600">बहुत अधिक</span></div>
+          </div>
+          <div class="mt-4 space-y-2">
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">सबसे विश्वसनीय दिन का तापमान</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">जंगली फूलों का चरम</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">जीवंत तीर्थयात्री वातावरण</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">पीक सीज़न — हर जगह भीड़</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">बादल छाने पर पर्वत दृश्य बाधित</span></div>
+          </div>
+          <p class="text-gray-600 text-xs mt-4 leading-relaxed">सबसे गर्म और व्यस्त महीना। चीनी ग्रीष्मकालीन छुट्टियों के कारण घरेलू पर्यटकों की भारी भीड़। आवास के लिए प्रतिस्पर्धा अधिक। UV विकिरण तीव्र — SPF 50+ अनिवार्य।</p>
+          <div class="mt-4 flex gap-2">
+            <span class="bg-orange-50 text-orange-700 px-2 py-1 rounded-full text-xs">पीक सीज़न</span>
+            <span class="bg-orange-50 text-orange-700 px-2 py-1 rounded-full text-xs">जीवंत ★★★★</span>
+          </div>
+        </div>
+
+        <!-- September -->
+        <div class="bg-kailash-light rounded-2xl p-6 shadow-md hover:shadow-xl transition border-t-4 border-yellow-500">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">🍂</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-kailash-dark">सितंबर</h3>
+              <p class="text-yellow-600 text-sm font-medium">स्वर्णिम शरद</p>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600">
+            <div class="flex justify-between"><span>दिन का तापमान</span><span class="font-semibold">6°C – 15°C</span></div>
+            <div class="flex justify-between"><span>रात का तापमान</span><span class="font-semibold">-5°C – 2°C</span></div>
+            <div class="flex justify-between"><span>वर्षा</span><span class="font-semibold">बहुत कम</span></div>
+            <div class="flex justify-between"><span>आकाश</span><span class="font-semibold">अत्यंत स्वच्छ</span></div>
+            <div class="flex justify-between"><span>भीड़</span><span class="font-semibold text-yellow-600">मध्यम</span></div>
+          </div>
+          <div class="mt-4 space-y-2">
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">वर्षा ऋतु समाप्त — मौसम उत्तम</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">बिल्कुल साफ़ आकाश, फ़ोटोग्राफ़ी के लिए सर्वोत्तम</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">शरद ऋतु के रंग — स्वर्णिम घास के मैदान</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">रातें तेज़ी से ठंडी होती हैं</span></div>
+          </div>
+          <p class="text-gray-600 text-xs mt-4 leading-relaxed"><span class="font-bold">सबसे अच्छा समग्र महीना।</span> वर्षा का अंत, तापमान सुहावना, और शरद ऋतु के जीवंत रंग। फ़ोटोग्राफ़रों और शांतिप्रिय यात्रियों के लिए आदर्श। हमारी सर्वोच्च अनुशंसा।</p>
+          <div class="mt-4 flex gap-2">
+            <span class="bg-yellow-50 text-yellow-700 px-2 py-1 rounded-full text-xs">स्वर्णिम दृश्य</span>
+            <span class="bg-yellow-50 text-yellow-700 px-2 py-1 rounded-full text-xs">सर्वोत्तम ★★★★★</span>
+          </div>
+        </div>
+
+        <!-- October -->
+        <div class="bg-kailash-light rounded-2xl p-6 shadow-md hover:shadow-xl transition border-t-4 border-purple-400">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-2xl">❄️</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-kailash-dark">अक्टूबर</h3>
+              <p class="text-purple-600 text-sm font-medium">शीत ऋतु का आगमन</p>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600">
+            <div class="flex justify-between"><span>दिन का तापमान</span><span class="font-semibold">0°C – 10°C</span></div>
+            <div class="flex justify-between"><span>रात का तापमान</span><span class="font-semibold">-12°C – -4°C</span></div>
+            <div class="flex justify-between"><span>वर्षा</span><span class="font-semibold">बहुत कम</span></div>
+            <div class="flex justify-between"><span>हिमपात</span><span class="font-semibold">माह के अंत में संभव</span></div>
+            <div class="flex justify-between"><span>भीड़</span><span class="font-semibold text-purple-600">कम</span></div>
+          </div>
+          <div class="mt-4 space-y-2">
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">सबसे सुंदर शरद ऋतु के रंग</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">पर्यटक कम, शांत वातावरण</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-green-500">✓</span><span class="text-gray-600">कीमतें घटने लगती हैं</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">अत्यधिक ठंड, विशेषकर रात में</span></div>
+            <div class="flex items-start gap-1 text-xs"><span class="text-red-500">✗</span><span class="text-gray-600">माह के अंत में दर्रा बंद हो सकता है</span></div>
+          </div>
+          <p class="text-gray-600 text-xs mt-4 leading-relaxed">मौसम का अंतिम महीना। अक्टूबर के मध्य तक यात्रा करें। माह के अंत तक दोलमा ला दर्रा बर्फ़ से बंद हो सकता है। अनुभवी यात्रियों के लिए — कठोर ठंड के लिए तैयार रहें।</p>
+          <div class="mt-4 flex gap-2">
+            <span class="bg-purple-50 text-purple-700 px-2 py-1 rounded-full text-xs">अंतिम मौका</span>
+            <span class="bg-purple-50 text-purple-700 px-2 py-1 rounded-full text-xs">शरद रंग ★★★</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Table -->
+      <div class="bg-kailash-dark rounded-2xl p-8 md:p-10">
+        <h3 class="font-display text-2xl font-bold text-kailash-gold mb-8 text-center">मासिक तुलना — एक नज़र में</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left">
+            <thead>
+              <tr class="border-b border-white/20">
+                <th class="p-3 text-kailash-gold font-semibold">महीना</th>
+                <th class="p-3 text-kailash-gold font-semibold">दिन का ताप.</th>
+                <th class="p-3 text-kailash-gold font-semibold">रात का ताप.</th>
+                <th class="p-3 text-kailash-gold font-semibold">वर्षा</th>
+                <th class="p-3 text-kailash-gold font-semibold">भीड़</th>
+                <th class="p-3 text-kailash-gold font-semibold">रेटिंग</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-white/10"><td class="p-3 text-white">अप्रैल</td><td class="p-3 text-white/70">-2°C – 8°C</td><td class="p-3 text-white/70">-15°C – -5°C</td><td class="p-3 text-white/70">बहुत कम</td><td class="p-3 text-white/70">बहुत कम</td><td class="p-3 text-yellow-400">★★☆</td></tr>
+              <tr class="border-b border-white/10"><td class="p-3 text-white">मई</td><td class="p-3 text-white/70">5°C – 14°C</td><td class="p-3 text-white/70">-8°C – 0°C</td><td class="p-3 text-white/70">कम</td><td class="p-3 text-white/70">कम</td><td class="p-3 text-green-400">★★★★</td></tr>
+              <tr class="border-b border-white/10"><td class="p-3 text-white">जून</td><td class="p-3 text-white/70">8°C – 17°C</td><td class="p-3 text-white/70">-4°C – 4°C</td><td class="p-3 text-white/70">कम-मध्यम</td><td class="p-3 text-white/70">मध्यम-अधिक</td><td class="p-3 text-green-400">★★★★★</td></tr>
+              <tr class="border-b border-white/10"><td class="p-3 text-white">जुलाई</td><td class="p-3 text-white/70">10°C – 19°C</td><td class="p-3 text-white/70">-2°C – 6°C</td><td class="p-3 text-white/70">मध्यम-अधिक</td><td class="p-3 text-white/70">अधिक</td><td class="p-3 text-yellow-400">★★★</td></tr>
+              <tr class="border-b border-white/10"><td class="p-3 text-white">अगस्त</td><td class="p-3 text-white/70">8°C – 17°C</td><td class="p-3 text-white/70">-3°C – 5°C</td><td class="p-3 text-white/70">मध्यम</td><td class="p-3 text-white/70">बहुत अधिक</td><td class="p-3 text-green-400">★★★★</td></tr>
+              <tr class="border-b border-white/10"><td class="p-3 text-white">सितंबर</td><td class="p-3 text-white/70">6°C – 15°C</td><td class="p-3 text-white/70">-5°C – 2°C</td><td class="p-3 text-white/70">बहुत कम</td><td class="p-3 text-white/70">मध्यम</td><td class="p-3 text-green-400">★★★★★</td></tr>
+              <tr><td class="p-3 text-white">अक्टूबर</td><td class="p-3 text-white/70">0°C – 10°C</td><td class="p-3 text-white/70">-12°C – -4°C</td><td class="p-3 text-white/70">बहुत कम</td><td class="p-3 text-white/70">कम</td><td class="p-3 text-yellow-400">★★★</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-8 pt-6 border-t border-white/10 text-center">
+          <p class="text-kailash-gold font-semibold mb-2">🏆 हमारी सिफ़ारिश: जून (आध्यात्मिक) या सितंबर (दृश्य और मौसम)</p>
+          <p class="text-white/50 text-sm">दोनों महीने उत्कृष्ट हैं — चुनाव आपकी प्राथमिकता पर निर्भर करता है: धार्मिक उत्सव या स्वच्छ आकाश।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Section 3: Permit & Documents -->
   <section id="parmit" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -403,6 +658,177 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- NEW Section: Detailed Permit Guide (विस्तृत परमिट गाइड) -->
+  <section id="parmit-guide" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">चरण-दर-चरण मार्गदर्शन</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">विस्तृत परमिट गाइड — भारतीय नागरिकों के लिए</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">कैलाश यात्रा के लिए आवश्यक सभी परमिट प्राप्त करने की चरण-दर-चरण प्रक्रिया। भारतीय नागरिकों और विदेशी नागरिकों के लिए अलग-अलग प्रक्रियाएँ।</p>
+      </div>
+
+      <!-- Step by Step for Indian Citizens -->
+      <div class="bg-kailash-light rounded-2xl p-8 shadow-md mb-8">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center text-3xl">🇮🇳</div>
+          <div>
+            <h3 class="font-display text-2xl font-bold text-kailash-dark">भारतीय नागरिकों के लिए चरण-दर-चरण प्रक्रिया</h3>
+            <p class="text-gray-600 text-sm">काठमांडू मार्ग से यात्रा करने वाले भारतीय नागरिकों के लिए</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Step 1 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start gap-4">
+              <span class="bg-kailash-gold text-kailash-dark w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">1</span>
+              <div>
+                <h4 class="font-semibold text-lg text-kailash-dark">पासपोर्ट तैयार करें</h4>
+                <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                  <li>• सुनिश्चित करें कि आपका पासपोर्ट यात्रा समाप्ति के बाद कम से कम 6 महीने तक वैध हो</li>
+                  <li>• पासपोर्ट में कम से कम 2 खाली पृष्ठ होने चाहिए</li>
+                  <li>• पुराना/क्षतिग्रस्त पासपोर्ट होने पर नया बनवाएँ (तत्काल: 7-14 दिन)</li>
+                  <li>• पासपोर्ट की कम से कम 6 फ़ोटोकॉपी और डिजिटल स्कैन रखें</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start gap-4">
+              <span class="bg-kailash-gold text-kailash-dark w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">2</span>
+              <div>
+                <h4 class="font-semibold text-lg text-kailash-dark">चीनी वीज़ा (L टूरिस्ट) प्राप्त करें</h4>
+                <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                  <li>• <span class="font-semibold">कहाँ:</span> काठमांडू स्थित चीनी दूतावास या भारत में चीनी वीज़ा केंद्र (दिल्ली, मुंबई, कोलकाता)</li>
+                  <li>• <span class="font-semibold">प्रकार:</span> L टूरिस्ट वीज़ा (एकल प्रवेश, 30 दिन)</li>
+                  <li>• <span class="font-semibold">शुल्क:</span> ₹3,800 (भारत में) या $60-100 (काठमांडू में)</li>
+                  <li>• <span class="font-semibold">समय:</span> 4-7 कार्य दिवस (भारत), 3-5 दिन (काठमांडू)</li>
+                  <li>• <span class="font-semibold">दस्तावेज़:</span> पासपोर्ट, फ़ोटो, आवेदन पत्र, यात्रा कार्यक्रम, होटल बुकिंग</li>
+                  <li>• <span class="font-semibold">महत्वपूर्ण:</span> आवेदन में "तिब्बत" का उल्लेख न करें — केवल "चीन" या "चेंगदू/कुनमिंग" लिखें</li>
+                </ul>
+                <div class="mt-3 bg-red-50 rounded-lg p-3 border border-red-200">
+                  <p class="text-red-700 text-sm"><span class="font-bold">⚠️ सावधानी:</span> यदि आपने वीज़ा आवेदन में तिब्बत का उल्लेख किया, तो आवेदन अस्वीकार होने की संभावना बहुत अधिक है। चीनी अधिकारी विदेशियों को स्वतंत्र रूप से तिब्बत जाने की अनुमति नहीं देते।</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start gap-4">
+              <span class="bg-kailash-gold text-kailash-dark w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">3</span>
+              <div>
+                <h4 class="font-semibold text-lg text-kailash-dark">पंजीकृत तिब्बत ट्रैवल एजेंसी चुनें</h4>
+                <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                  <li>• केवल पंजीकृत और मान्यता प्राप्त तिब्बत ट्रैवल एजेंसी का चयन करें</li>
+                  <li>• एजेंसी का लाइसेंस नंबर और समीक्षाएँ जाँचें</li>
+                  <li>• यात्रा से कम से कम 2-3 महीने पहले एजेंसी से संपर्क करें</li>
+                  <li>• एजेंसी को पासपोर्ट और वीज़ा की स्कैन कॉपी भेजें</li>
+                  <li>• अग्रिम भुगतान (25-50%) करने से पहले अनुबंध की शर्तें पढ़ें</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start gap-4">
+              <span class="bg-kailash-gold text-kailash-dark w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">4</span>
+              <div>
+                <h4 class="font-semibold text-lg text-kailash-dark">तिब्बत यात्रा परमिट (TTP) की प्रक्रिया</h4>
+                <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                  <li>• एजेंसी आपकी ओर से TTP के लिए आवेदन करेगी</li>
+                  <li>• प्रसंस्करण समय: 8-15 कार्य दिवस</li>
+                  <li>• आवश्यक: पासपोर्ट और चीनी वीज़ा की स्कैन कॉपी</li>
+                  <li>• TTP एक समूह दस्तावेज़ है — मूल प्रति गाइड के पास रहती है</li>
+                  <li>• आपको केवल फ़ोटोकॉपी मिलेगी — इसे हमेशा साथ रखें</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start gap-4">
+              <span class="bg-kailash-gold text-kailash-dark w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">5</span>
+              <div>
+                <h4 class="font-semibold text-lg text-kailash-dark">अन्य परमिट और दस्तावेज़</h4>
+                <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                  <li>• <span class="font-semibold">ATP (एलियन ट्रैवल परमिट):</span> तिब्बत पहुँचने पर PSB द्वारा जारी — एजेंसी संभालती है</li>
+                  <li>• <span class="font-semibold">सैन्य परमिट:</span> सीमा क्षेत्र के लिए — एजेंसी स्वतः प्राप्त करती है</li>
+                  <li>• <span class="font-semibold">यात्रा बीमा:</span> उच्च-ऊँचाई ट्रेकिंग और हेलीकॉप्टर बचाव कवर अनिवार्य</li>
+                  <li>• <span class="font-semibold">पासपोर्ट साइज़ फ़ोटो:</span> 4-6 अतिरिक्त फ़ोटो हमेशा साथ रखें</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- For Foreign Nationals -->
+      <div class="bg-kailash-dark rounded-2xl p-8 shadow-md mb-8 text-white">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center text-3xl">🌍</div>
+          <div>
+            <h3 class="font-display text-2xl font-bold text-kailash-gold">विदेशी नागरिकों के लिए (गैर-भारतीय/गैर-चीनी)</h3>
+            <p class="text-gray-400 text-sm">भारतीय नागरिकों के अलावा सभी विदेशी यात्रियों के लिए अतिरिक्त आवश्यकताएँ</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white/5 rounded-xl p-5">
+            <p class="font-bold text-kailash-gold mb-3">अतिरिक्त आवश्यकताएँ</p>
+            <ul class="space-y-2 text-gray-300 text-sm">
+              <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> तिब्बत में प्रवेश के लिए TTP (तिब्बत यात्रा परमिट) अनिवार्य</li>
+              <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> पंजीकृत ट्रैवल एजेंसी के माध्यम से ही सभी व्यवस्थाएँ</li>
+              <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> स्वतंत्र यात्रा पूरी तरह प्रतिबंधित</li>
+              <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> गाइड और निजी वाहन अनिवार्य</li>
+              <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> पूर्व-निर्धारित यात्रा कार्यक्रम से विचलन संभव नहीं</li>
+            </ul>
+          </div>
+          <div class="bg-white/5 rounded-xl p-5">
+            <p class="font-bold text-kailash-gold mb-3">समय-सीमा</p>
+            <ul class="space-y-2 text-gray-300 text-sm">
+              <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> <span class="font-semibold">यात्रा से 3-4 माह पूर्व:</span> एजेंसी से संपर्क करें</li>
+              <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> <span class="font-semibold">यात्रा से 2-3 माह पूर्व:</span> चीनी वीज़ा आवेदन</li>
+              <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> <span class="font-semibold">यात्रा से 30-45 दिन पूर्व:</span> TTP आवेदन (एजेंसी द्वारा)</li>
+              <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> <span class="font-semibold">यात्रा से 15-20 दिन पूर्व:</span> TTP स्वीकृति</li>
+              <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> सभी प्रक्रियाओं में देरी संभव — मार्जिन रखें</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Permit Checklist -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-red-50 border border-red-200 rounded-2xl p-6">
+          <h4 class="font-display text-xl font-bold text-red-800 mb-4">❌ सामान्य गलतियाँ</h4>
+          <ul class="space-y-2 text-red-700 text-sm">
+            <li class="flex items-start gap-2"><span>•</span> वीज़ा आवेदन में तिब्बत का उल्लेख करना</li>
+            <li class="flex items-start gap-2"><span>•</span> अंतिम समय पर एजेंसी से संपर्क करना (1 माह से कम)</li>
+            <li class="flex items-start gap-2"><span>•</span> पासपोर्ट की वैधता अवधि की जाँच न करना</li>
+            <li class="flex items-start gap-2"><span>•</span> बिना पंजीकृत एजेंसी के यात्रा का प्रयास करना</li>
+            <li class="flex items-start gap-2"><span>•</span> परमिट की फ़ोटोकॉपी साथ न रखना</li>
+          </ul>
+        </div>
+        <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
+          <h4 class="font-display text-xl font-bold text-green-800 mb-4">✅ परमिट जाँच सूची</h4>
+          <ul class="space-y-2 text-green-700 text-sm">
+            <li class="flex items-start gap-2"><span>✓</span> पासपोर्ट (6+ माह वैध, 2+ खाली पृष्ठ)</li>
+            <li class="flex items-start gap-2"><span>✓</span> चीनी वीज़ा (L टूरिस्ट, एकल प्रवेश)</li>
+            <li class="flex items-start gap-2"><span>✓</span> तिब्बत यात्रा परमिट — TTP (एजेंसी से प्राप्त)</li>
+            <li class="flex items-start gap-2"><span>✓</span> ATP (तिब्बत पहुँचने पर जारी)</li>
+            <li class="flex items-start gap-2"><span>✓</span> सभी दस्तावेज़ों की 3-4 फ़ोटोकॉपी</li>
+            <li class="flex items-start gap-2"><span>✓</span> सभी दस्तावेज़ों की डिजिटल स्कैन (ईमेल/फ़ोन में)</li>
+            <li class="flex items-start gap-2"><span>✓</span> पासपोर्ट साइज़ फ़ोटो (4-6 अतिरिक्त)</li>
+            <li class="flex items-start gap-2"><span>✓</span> यात्रा बीमा पॉलिसी (HEMS कवर सहित)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Section 4: Physical Preparation -->
   <section id="sharirik" class="py-20 bg-kailash-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -542,6 +968,201 @@ import Layout from '../../layouts/Layout.astro';
               <li>• सीढ़ी 40-50 मंज़िल तक</li>
               <li>• यात्रा से 2 सप्ताह पूर्व प्रशिक्षण घटाएँ</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW Section: Physical Preparation Timeline (शारीरिक तैयारी समय-सारिणी) -->
+  <section id="sharirik-timeline" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">विस्तृत प्रशिक्षण योजना</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">शारीरिक तैयारी समय-सारिणी — 6 माह से 1 सप्ताह तक</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">यात्रा से 6 महीने पहले से लेकर अंतिम सप्ताह तक की विस्तृत प्रशिक्षण योजना। हर चरण के लिए विशिष्ट लक्ष्य और गतिविधियाँ।</p>
+      </div>
+
+      <div class="space-y-8">
+        <!-- 6 Months -->
+        <div class="bg-blue-50 rounded-2xl overflow-hidden shadow-lg">
+          <div class="bg-blue-600 text-white p-6">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="text-3xl">🏃</span>
+                <div>
+                  <h3 class="font-display text-2xl font-bold">6 माह पूर्व — आधार निर्माण</h3>
+                  <p class="text-blue-100 text-sm">मुख्य लक्ष्य: हृदय-श्वसन क्षमता (Cardio) का आधार तैयार करना</p>
+                </div>
+              </div>
+              <span class="hidden md:block text-5xl font-bold text-white/20">1</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm">प्रति सप्ताह कम से कम 3 बार हृदय-श्वसन व्यायाम: दौड़ना, तैराकी, साइकिलिंग — प्रति सत्र 45-60 मिनट</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm">धीरे-धीरे व्यायाम की अवधि बढ़ाकर 90 मिनट प्रति सत्र करें — हृदय गति 130-150 bpm के बीच रखें</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm">सीढ़ी चढ़ने का प्रशिक्षण शुरू करें: सप्ताह में 2 बार, 30+ मंज़िल, लिफ़्ट का उपयोग न करें</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm">सम्पूर्ण चिकित्सा जाँच कराएँ: ECG, फेफड़ों की कार्यक्षमता, रक्तचाप, CBC — विशेष रूप से हृदय और फेफड़ों पर ध्यान दें</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm">यदि कोई पुरानी बीमारी (अस्थमा, हृदय रोग, मधुमेह) है तो डॉक्टर से उच्च-ऊँचाई यात्रा की सलाह लें</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3 Months -->
+        <div class="bg-indigo-50 rounded-2xl overflow-hidden shadow-lg">
+          <div class="bg-indigo-600 text-white p-6">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="text-3xl">⛰️</span>
+                <div>
+                  <h3 class="font-display text-2xl font-bold">3 माह पूर्व — ऊँचाई अनुकरण एवं शक्ति</h3>
+                  <p class="text-indigo-100 text-sm">मुख्य लक्ष्य: ऊँचाई की स्थितियों का अनुकरण और सहनशक्ति बढ़ाना</p>
+                </div>
+              </div>
+              <span class="hidden md:block text-5xl font-bold text-white/20">2</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm"><span class="font-semibold">भार सहित प्रशिक्षण:</span> 10-12 किग्रा के बैकपैक के साथ सप्ताहांत में 10-15 किमी की पैदल यात्रा</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm"><span class="font-semibold">लंबी दूरी की ट्रेकिंग:</span> सप्ताह में एक बार 15-20 किमी की पर्वतीय पैदल यात्रा — ढलान पर चलने का अभ्यास</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm"><span class="font-semibold">ऊँचाई अनुकरण (यदि उपलब्ध हो):</span> हाइपोक्सिक जिम या ऊँचाई प्रशिक्षण मास्क का उपयोग करें</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm"><span class="font-semibold">पैरों की शक्ति:</span> स्क्वाट्स (3 सेट × 20), लंजेज़ (3 सेट × 15 प्रति पैर), स्टेप-अप्स (3 सेट × 20)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm"><span class="font-semibold">यदि संभव हो:</span> लद्दाख (3,500मी+), स्पीति, या उत्तराखंड में 5-7 दिन की अभ्यास ट्रेक करें</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm">रोडियोला/अश्वगंधा जैसी अनुकूलन सहायक जड़ी-बूटियाँ लेना शुरू करें (डॉक्टर की सलाह से)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 1 Month -->
+        <div class="bg-purple-50 rounded-2xl overflow-hidden shadow-lg">
+          <div class="bg-purple-600 text-white p-6">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="text-3xl">🩺</span>
+                <div>
+                  <h3 class="font-display text-2xl font-bold">1 माह पूर्व — अंतिम अनुकूलन एवं जाँच</h3>
+                  <p class="text-purple-100 text-sm">मुख्य लक्ष्य: शारीरिक स्थिति को अंतिम रूप देना और सभी चिकित्सा जाँच पूर्ण करना</p>
+                </div>
+              </div>
+              <span class="hidden md:block text-5xl font-bold text-white/20">3</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm">प्रति सप्ताह 3-4 बार हृदय-श्वसन व्यायाम जारी रखें, लेकिन तीव्रता धीरे-धीरे कम करें — चोट से बचें</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm">एक अंतिम लंबी ट्रेक (20 किमी+) पूर्ण करें, फिर पुनर्प्राप्ति प्रशिक्षण पर ध्यान दें</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm"><span class="font-semibold">व्यापक चिकित्सा जाँच:</span> ECG, फुफ्फुसीय कार्य परीक्षण, SpO2 आधार रेखा, रक्त परीक्षण</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm"><span class="font-semibold">सभी परमिट प्रक्रिया पूर्ण करें:</span> चीनी वीज़ा, TTP — सभी दस्तावेज़ों की वैधता सुनिश्चित करें</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm"><span class="font-semibold">यात्रा बीमा खरीदें:</span> उच्च-ऊँचाई बचाव और हेलीकॉप्टर एवैक्यूएशन कवर अनिवार्य रूप से शामिल होना चाहिए</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-kailash-dark text-sm">उपकरण सूची तैयार करें: हर वस्तु की जाँच करें और नए उपकरण का परीक्षण करें</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 1 Week -->
+        <div class="bg-kailash-dark rounded-2xl overflow-hidden shadow-lg text-white">
+          <div class="bg-kailash-dark p-6 border-b border-white/10">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="text-3xl">😴</span>
+                <div>
+                  <h3 class="font-display text-2xl font-bold text-kailash-gold">1 सप्ताह पूर्व — विश्राम एवं तैयारी</h3>
+                  <p class="text-gray-400 text-sm">मुख्य लक्ष्य: पूर्ण विश्राम, दवा आरंभ, और अंतिम पैकिंग</p>
+                </div>
+              </div>
+              <span class="hidden md:block text-5xl font-bold text-white/20">4</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-kailash-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-300 text-sm"><span class="font-semibold">सभी उच्च-तीव्रता प्रशिक्षण पूरी तरह बंद कर दें</span> — केवल हल्की सैर और स्ट्रेचिंग करें</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-kailash-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-300 text-sm"><span class="font-semibold">प्रतिदिन 8+ घंटे की नींद सुनिश्चित करें</span> — शरीर को ऊर्जा संचित करने दें</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-kailash-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-300 text-sm"><span class="font-semibold">डायमॉक्स (एसिटाज़ोलामाइड) लेना शुरू करें</span> — 125mg दिन में 2 बार, डॉक्टर की सलाह अनुसार</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-kailash-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-300 text-sm"><span class="font-semibold">बैग पैक करें:</span> पैकिंग सूची के अनुसार सामान लगाएँ — कुल वज़न 15 किग्रा से कम रखें</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-kailash-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-300 text-sm"><span class="font-semibold">दवा किट तैयार करें:</span> सर्दी, दर्द, पाचन, ब्लिस्टर — सभी आवश्यक दवाइयाँ</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-kailash-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-300 text-sm"><span class="font-semibold">सभी दस्तावेज़ों की फ़ोटोकॉपी करें</span> और डिजिटल प्रति ईमेल/क्लाउड में सहेजें</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-6">
+        <div class="flex items-start gap-4">
+          <span class="text-2xl">⚠️</span>
+          <div>
+            <h3 class="font-semibold text-lg text-amber-800 mb-2">महत्वपूर्ण चेतावनी</h3>
+            <p class="text-amber-700 text-sm">शारीरिक फिटनेस परिक्रमा की सफलता की कुंजी है, लेकिन यह ऊँचाई बीमारी से सुरक्षा की गारंटी नहीं है। निम्नलिखित स्थितियों वाले व्यक्तियों को यात्रा पर पुनर्विचार करना चाहिए: गंभीर हृदय रोग, अनियंत्रित अस्थमा, गंभीर एनीमिया, हाल की सर्जरी। यदि आप पूरी तरह फ़िट हैं, तब भी ऊँचाई बीमारी किसी को भी हो सकती है — अति-आत्मविश्वास न रखें और अपने शरीर के संकेतों को अनदेखा न करें।</p>
           </div>
         </div>
       </div>
@@ -754,6 +1375,168 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- NEW Section: Altitude Sickness Symptom Chart (ऊंचाई बीमारी लक्षण तालिका) -->
+  <section id="unchai-lakshan" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">लक्षण पहचान</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">ऊँचाई बीमारी लक्षण तालिका — गंभीरता स्तर और कार्रवाई</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">हर स्तर के लक्षणों को पहचानना और सही समय पर सही कार्रवाई करना जीवन-रक्षक हो सकता है। इस तालिका को ध्यान से पढ़ें और अपने गाइड के साथ साझा करें।</p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse bg-white rounded-2xl shadow-lg overflow-hidden">
+          <thead>
+            <tr class="bg-kailash-dark text-white">
+              <th class="p-4 text-left font-semibold">गंभीरता</th>
+              <th class="p-4 text-left font-semibold">लक्षण</th>
+              <th class="p-4 text-left font-semibold">SpO2 (लगभग)</th>
+              <th class="p-4 text-left font-semibold">तुरंत कार्रवाई</th>
+              <th class="p-4 text-left font-semibold">आगे की योजना</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-green-50 transition">
+              <td class="p-4">
+                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">सामान्य</span>
+              </td>
+              <td class="p-4 text-sm text-gray-700">कोई लक्षण नहीं। हल्की साँस फूलना केवल चढ़ाई पर।</td>
+              <td class="p-4 text-sm font-semibold text-green-600">85-100%</td>
+              <td class="p-4 text-sm text-gray-700">जारी रखें। सामान्य सावधानी बनाए रखें।</td>
+              <td class="p-4 text-sm text-gray-700">योजनानुसार आगे बढ़ें।</td>
+            </tr>
+            <tr class="hover:bg-yellow-50 transition">
+              <td class="p-4">
+                <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">हल्का AMS</span>
+              </td>
+              <td class="p-4 text-sm text-gray-700">
+                <ul class="space-y-1">
+                  <li>• हल्का सिरदर्द</li>
+                  <li>• भूख में कमी, हल्की मतली</li>
+                  <li>• थकान और चक्कर</li>
+                  <li>• नींद में कठिनाई</li>
+                </ul>
+              </td>
+              <td class="p-4 text-sm font-semibold text-yellow-600">80-89%</td>
+              <td class="p-4 text-sm text-gray-700">
+                <ul class="space-y-1">
+                  <li>• <span class="font-semibold">रुकें और आराम करें</span></li>
+                  <li>• 500ml-1L पानी पिएँ</li>
+                  <li>• पैरासिटामोल लें</li>
+                  <li>• SpO2 मापें</li>
+                </ul>
+              </td>
+              <td class="p-4 text-sm text-gray-700">तब तक आगे न बढ़ें जब तक लक्षण पूरी तरह ठीक न हो जाएँ। यदि 24 घंटे में सुधार न हो, नीचे उतरें।</td>
+            </tr>
+            <tr class="hover:bg-orange-50 transition">
+              <td class="p-4">
+                <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold">मध्यम AMS</span>
+              </td>
+              <td class="p-4 text-sm text-gray-700">
+                <ul class="space-y-1">
+                  <li>• तेज़ सिरदर्द (दवा से ठीक नहीं)</li>
+                  <li>• बार-बार उल्टी</li>
+                  <li>• आराम करते समय भी साँस फूलना</li>
+                  <li>• गंभीर थकान, चलने में कठिनाई</li>
+                  <li>• पेशाब में कमी</li>
+                </ul>
+              </td>
+              <td class="p-4 text-sm font-semibold text-orange-600">70-80%</td>
+              <td class="p-4 text-sm text-gray-700">
+                <ul class="space-y-1">
+                  <li>• <span class="font-semibold">तुरंत चढ़ाई रोकें</span></li>
+                  <li>• डायमॉक्स 250mg (यदि पहले नहीं लिया)</li>
+                  <li>• ऑक्सीजन 2L/मिनट (यदि उपलब्ध)</li>
+                  <li>• गाइड को सूचित करें</li>
+                </ul>
+              </td>
+              <td class="p-4 text-sm text-gray-700"><span class="font-bold text-red-600">500-1000मी नीचे उतरें।</span> लक्षण ठीक होने पर ही पुनः चढ़ाई पर विचार करें।</td>
+            </tr>
+            <tr class="hover:bg-red-50 transition">
+              <td class="p-4">
+                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-semibold">गंभीर HAPE</span>
+              </td>
+              <td class="p-4 text-sm text-gray-700">
+                <ul class="space-y-1">
+                  <li>• आराम करते समय भी अत्यधिक साँस फूलना</li>
+                  <li>• खाँसी में सफ़ेद/गुलाबी झागदार बलगम</li>
+                  <li>• सीने में जकड़न/दर्द</li>
+                  <li>• होंठ/नाखून नीले पड़ना</li>
+                  <li>• दिल की धड़कन तेज़ (120+)</li>
+                </ul>
+              </td>
+              <td class="p-4 text-sm font-semibold text-red-600">60-75%</td>
+              <td class="p-4 text-sm text-gray-700">
+                <ul class="space-y-1">
+                  <li>• <span class="font-semibold text-red-700">तुरंत नीचे उतरना शुरू करें</span></li>
+                  <li>• ऑक्सीजन 4L/मिनट</li>
+                  <li>• निफ़ेडिपिन 20mg (यदि उपलब्ध)</li>
+                  <li>• बैठने की स्थिति में रखें</li>
+                </ul>
+              </td>
+              <td class="p-4 text-sm text-gray-700"><span class="font-bold text-red-700">तुरंत बचाव दल बुलाएँ।</span> जीवन के लिए ख़तरा — हर मिनट महत्वपूर्ण। हेलीकॉप्टर एवैक्यूएशन आवश्यक हो सकता है।</td>
+            </tr>
+            <tr class="hover:bg-red-100 transition">
+              <td class="p-4">
+                <span class="bg-red-200 text-red-900 px-3 py-1 rounded-full text-xs font-semibold">गंभीर HACE</span>
+              </td>
+              <td class="p-4 text-sm text-gray-700">
+                <ul class="space-y-1">
+                  <li>• भ्रम और दिशा-ज्ञान खोना</li>
+                  <li>• असामान्य व्यवहार/आक्रामकता</li>
+                  <li>• चलने-फिरने में असमर्थता (गतिभंग)</li>
+                  <li>• मतिभ्रम (हैलुसिनेशन)</li>
+                  <li>• बेहोशी/कोमा</li>
+                </ul>
+              </td>
+              <td class="p-4 text-sm font-semibold text-red-700">&lt;60%</td>
+              <td class="p-4 text-sm text-gray-700">
+                <ul class="space-y-1">
+                  <li>• <span class="font-semibold text-red-700">तुरंत नीचे उतरना शुरू करें</span></li>
+                  <li>• ऑक्सीजन अधिकतम प्रवाह</li>
+                  <li>• डेक्सामेथासोन 8mg (इंजेक्शन/मुँह से)</li>
+                  <li>• रोगी को लिटाकर/सहारा देकर ले जाएँ</li>
+                </ul>
+              </td>
+              <td class="p-4 text-sm text-gray-700"><span class="font-bold text-red-700">आपातकाल।</span> बिना तुरंत उपचार के 12-24 घंटों में मृत्यु संभव। तुरंत हेलीकॉप्टर बचाव की व्यवस्था करें।</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="bg-red-50 rounded-xl p-6 border border-red-200">
+          <p class="font-bold text-red-800 text-lg mb-2">🚨 3 स्वर्णिम नियम</p>
+          <ol class="space-y-2 text-red-700 text-sm list-decimal list-inside">
+            <li><span class="font-semibold">यदि ऊँचाई पर बीमार महसूस करें, तो यह ऊँचाई बीमारी ही है</span> — जब तक अन्यथा सिद्ध न हो</li>
+            <li><span class="font-semibold">AMS के लक्षणों के साथ कभी भी ऊपर न चढ़ें</span> — इससे स्थिति और बिगड़ती है</li>
+            <li><span class="font-semibold">यदि लक्षण बढ़ रहे हों, तो तुरंत नीचे उतरें</span> — देरी न करें, न ही "सुबह तक इंतज़ार" करें</li>
+          </ol>
+        </div>
+        <div class="bg-green-50 rounded-xl p-6 border border-green-200">
+          <p class="font-bold text-green-800 text-lg mb-2">🩺 SpO2 गाइड</p>
+          <ul class="space-y-2 text-green-700 text-sm">
+            <li>• <span class="font-semibold">90-100%:</span> सामान्य (समुद्र तल पर)</li>
+            <li>• <span class="font-semibold">80-89%:</span> ऊँचाई पर सामान्य — सावधानी रखें</li>
+            <li>• <span class="font-semibold">70-79%:</span> चिंताजनक — आराम करें, न चढ़ें</li>
+            <li>• <span class="font-semibold">60-69%:</span> ख़तरनाक — तुरंत नीचे उतरें</li>
+            <li>• <span class="font-semibold">&lt;60%:</span> जीवन-घातक — आपातकालीन बचाव</li>
+          </ul>
+        </div>
+        <div class="bg-amber-50 rounded-xl p-6 border border-amber-200">
+          <p class="font-bold text-amber-800 text-lg mb-2">📋 AMS जाँच प्रश्न</p>
+          <ul class="space-y-2 text-amber-700 text-sm">
+            <li class="flex items-start gap-2"><span class="font-semibold">प्रश्न 1:</span> क्या आपको सिरदर्द है? (0-3 स्कोर)</li>
+            <li class="flex items-start gap-2"><span class="font-semibold">प्रश्न 2:</span> क्या आपको भूख नहीं/मतली है?</li>
+            <li class="flex items-start gap-2"><span class="font-semibold">प्रश्न 3:</span> क्या आप असामान्य रूप से थके/चक्कर में हैं?</li>
+            <li class="flex items-start gap-2"><span class="font-semibold">प्रश्न 4:</span> क्या आपको सोने में कठिनाई हुई?</li>
+            <li class="flex items-start gap-2"><span class="font-semibold">स्कोर 3+ या कोई गंभीर लक्षण:</span> न चढ़ें!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Section 7: Accommodation -->
   <section id="aawas" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -942,6 +1725,165 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- NEW Section: Transportation from India (भारत से परिवहन गाइड) -->
+  <section id="bharat-parivahan" class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">भारत से यात्रा</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">भारत से दारचेन कैसे पहुँचें — सम्पूर्ण परिवहन गाइड</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">दिल्ली, मुंबई और अन्य भारतीय शहरों से कैलाश पर्वत तक पहुँचने के सभी मार्ग, समय, और खर्च का विस्तृत विवरण।</p>
+      </div>
+
+      <!-- Route 1: Via Kathmandu -->
+      <div class="bg-white rounded-2xl p-8 shadow-md mb-8">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-kailash-gold/20 rounded-full flex items-center justify-center text-3xl">🇳🇵</div>
+          <div>
+            <h3 class="font-display text-2xl font-bold text-kailash-dark">मार्ग 1: भारत → काठमांडू → तिब्बत</h3>
+            <p class="text-kailash-gold text-sm font-medium">भारतीय यात्रियों के लिए सबसे लोकप्रिय और अनुशंसित मार्ग</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-kailash-light rounded-xl p-5">
+            <p class="font-bold text-kailash-dark mb-2">चरण 1: काठमांडू पहुँचें</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• <span class="font-semibold">दिल्ली से:</span> सीधी उड़ान 1.5 घंटे, ₹4,000-8,000</li>
+              <li>• <span class="font-semibold">मुंबई से:</span> सीधी उड़ान 2.5 घंटे, ₹6,000-12,000</li>
+              <li>• <span class="font-semibold">कोलकाता से:</span> सीधी उड़ान 1 घंटा, ₹3,000-7,000</li>
+              <li>• <span class="font-semibold">बस/ट्रेन:</span> सुनौली/रक्सौल सीमा से नेपाल प्रवेश</li>
+              <li>• चीनी वीज़ा के लिए काठमांडू में 2-3 दिन रुकें</li>
+            </ul>
+          </div>
+          <div class="bg-kailash-light rounded-xl p-5">
+            <p class="font-bold text-kailash-dark mb-2">चरण 2: काठमांडू → केरुङ सीमा</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• <span class="font-semibold">दूरी:</span> लगभग 175 किमी</li>
+              <li>• <span class="font-semibold">समय:</span> 8-10 घंटे (पहाड़ी सड़कें)</li>
+              <li>• <span class="font-semibold">साधन:</span> निजी जीप/बस</li>
+              <li>• <span class="font-semibold">खर्च:</span> ₹2,000-4,000 प्रति व्यक्ति</li>
+              <li>• नेपाली सीमा पर इमिग्रेशन, चीनी सीमा पर प्रवेश</li>
+            </ul>
+          </div>
+          <div class="bg-kailash-light rounded-xl p-5">
+            <p class="font-bold text-kailash-dark mb-2">चरण 3: केरुङ → दारचेन</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• <span class="font-semibold">दूरी:</span> लगभग 800 किमी</li>
+              <li>• <span class="font-semibold">समय:</span> 4-5 दिन</li>
+              <li>• <span class="font-semibold">मार्ग:</span> केरुङ → सागा → पारयांग → दारचेन</li>
+              <li>• <span class="font-semibold">रात्रि विश्राम:</span> केरुङ, सागा, पारयांग</li>
+              <li>• टूर एजेंसी पूरे मार्ग का प्रबंध करती है</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-6 bg-green-50 rounded-xl p-4 border border-green-200">
+          <p class="text-green-800 text-sm"><span class="font-bold">✅ लाभ:</span> ल्हासा जाने की आवश्यकता नहीं। सीधा और छोटा मार्ग। क्रमिक ऊँचाई वृद्धि — अनुकूलन में सहायक। भारतीय भोजन और संस्कृति से परिचित मार्ग।</p>
+        </div>
+      </div>
+
+      <!-- Route 2: Via Lhasa -->
+      <div class="bg-white rounded-2xl p-8 shadow-md mb-8">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-kailash-gold/20 rounded-full flex items-center justify-center text-3xl">🇨🇳</div>
+          <div>
+            <h3 class="font-display text-2xl font-bold text-kailash-dark">मार्ग 2: भारत → चीन मुख्यभूमि → ल्हासा</h3>
+            <p class="text-kailash-gold text-sm font-medium">वैकल्पिक मार्ग — अधिक खर्चीला लेकिन अधिक आरामदायक</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-kailash-light rounded-xl p-5">
+            <p class="font-bold text-kailash-dark mb-2">उप-मार्ग A: बीजिंग/चेंगदू होते हुए</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• <span class="font-semibold">दिल्ली → बीजिंग:</span> उड़ान 5-6 घंटे, ₹25,000-40,000</li>
+              <li>• <span class="font-semibold">बीजिंग → ल्हासा:</span> उड़ान 4 घंटे या ट्रेन 40 घंटे</li>
+              <li>• बीजिंग में चीनी वीज़ा प्राप्त करें</li>
+              <li>• कुल यात्रा समय: 2-3 दिन (केवल आवागमन)</li>
+              <li>• <span class="font-semibold">कुल खर्च:</span> ₹50,000-80,000 (राउंड ट्रिप)</li>
+            </ul>
+          </div>
+          <div class="bg-kailash-light rounded-xl p-5">
+            <p class="font-bold text-kailash-dark mb-2">उप-मार्ग B: काठमांडू → ल्हासा उड़ान</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• <span class="font-semibold">काठमांडू → ल्हासा:</span> सीधी उड़ान 1.5 घंटे</li>
+              <li>• <span class="font-semibold">खर्च:</span> ₹12,000-20,000 (एक तरफ़)</li>
+              <li>• एवरेस्ट और हिमालय का हवाई दृश्य</li>
+              <li>• चेतावनी: 1,400मी से 3,650मी तक अचानक ऊँचाई परिवर्तन</li>
+              <li>• ल्हासा में 2-3 दिन अनुकूलन अनिवार्य</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-6 bg-amber-50 rounded-xl p-4 border border-amber-200">
+          <p class="text-amber-800 text-sm"><span class="font-bold">⚠️ ध्यान दें:</span> इस मार्ग में अधिक समय और खर्च लगता है। ल्हासा से दारचेन तक अतिरिक्त 4-5 दिन की सड़क यात्रा (1,200 किमी) जुड़ती है। केवल तभी चुनें जब आप ल्हासा और मध्य तिब्बत भी देखना चाहते हों।</p>
+        </div>
+      </div>
+
+      <!-- Route 3: Direct via Uttarakhand (Future/Pilgrim Route) -->
+      <div class="bg-white rounded-2xl p-8 shadow-md">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-kailash-gold/20 rounded-full flex items-center justify-center text-3xl">🛐</div>
+          <div>
+            <h3 class="font-display text-2xl font-bold text-kailash-dark">मार्ग 3: भारत सरकार तीर्थयात्री मार्ग</h3>
+            <p class="text-kailash-gold text-sm font-medium">सरकारी/संगठित समूह यात्रा</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-kailash-light rounded-xl p-5">
+            <p class="font-bold text-kailash-dark mb-2">कैलाश मानसरोवर यात्रा (MHA)</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• विदेश मंत्रालय द्वारा आयोजित</li>
+              <li>• उत्तराखंड के लिपुलेख दर्रे से</li>
+              <li>• 24 दिन की यात्रा</li>
+              <li>• आवेदन: MHA वेबसाइट पर</li>
+              <li>• सीमित सीटें, लॉटरी चयन</li>
+            </ul>
+          </div>
+          <div class="bg-kailash-light rounded-xl p-5">
+            <p class="font-bold text-kailash-dark mb-2">निजी टूर ऑपरेटर</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• काठमांडू-आधारित एजेंसियाँ</li>
+              <li>• 12-15 दिन का पैकेज</li>
+              <li>• ₹1,20,000-2,50,000 प्रति व्यक्ति</li>
+              <li>• सभी परमिट, आवास, परिवहन शामिल</li>
+              <li>• भारतीय भोजन और हिन्दी गाइड</li>
+            </ul>
+          </div>
+          <div class="bg-kailash-light rounded-xl p-5">
+            <p class="font-bold text-kailash-dark mb-2">स्वतंत्र यात्रा</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• <span class="font-semibold">संभव नहीं:</span> तिब्बत में विदेशी स्वतंत्र यात्रा वर्जित</li>
+              <li>• गाइड और पंजीकृत एजेंसी अनिवार्य</li>
+              <li>• निजी वाहन और पूर्व-निर्धारित कार्यक्रम आवश्यक</li>
+              <li>• बिना एजेंसी के यात्रा का प्रयास न करें</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transport Checklist for Indians -->
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="bg-kailash-dark rounded-2xl p-6">
+          <h4 class="font-display text-xl font-bold text-kailash-gold mb-4">भारतीय यात्रियों के लिए सुझाव</h4>
+          <ul class="space-y-2 text-white/70 text-sm">
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> काठमांडू मार्ग सबसे सस्ता और सरल — अधिकांश यात्रियों के लिए अनुशंसित</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> चीनी वीज़ा काठमांडू में भारतीय पासपोर्ट पर 3-5 दिन में मिलता है</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> नेपाल से तिब्बत में स्थलीय प्रवेश — क्रमिक ऊँचाई वृद्धि, AMS का कम जोखिम</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> INR नेपाल में चलता है, तिब्बत में केवल RMB</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> पूरी यात्रा के लिए कम से कम 15-18 दिन का समय रखें</li>
+          </ul>
+        </div>
+        <div class="bg-kailash-dark rounded-2xl p-6">
+          <h4 class="font-display text-xl font-bold text-kailash-gold mb-4">आवश्यक दस्तावेज़ (भारतीय नागरिक)</h4>
+          <ul class="space-y-2 text-white/70 text-sm">
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> भारतीय पासपोर्ट (यात्रा के बाद 6+ माह वैध)</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> चीनी वीज़ा (L टूरिस्ट — तिब्बत का उल्लेख न करें)</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> तिब्बत यात्रा परमिट (TTP — एजेंसी द्वारा)</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> पासपोर्ट साइज़ फ़ोटो (4-6 अतिरिक्त)</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> यात्रा बीमा (उच्च-ऊँचाई बचाव कवर)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Section 9: Cost Breakdown -->
   <section id="kharch" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1065,6 +2007,207 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- NEW Section: Detailed Cost Breakdown in INR (खर्च का विवरण INR में) -->
+  <section id="kharch-inr" class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">खर्च का विवरण INR में</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">विस्तृत खर्च विवरण — भारतीय रुपये और RMB में</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">भारत से कैलाश यात्रा का सम्पूर्ण बजट विवरण। सभी खर्च श्रेणियाँ INR (₹) और RMB (¥) दोनों में। वास्तविक खर्च मौसम, समूह आकार और सेवा स्तर पर निर्भर करता है।</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 mb-8">
+        <!-- Transportation from India -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-3xl">🚗</span>
+            <h3 class="font-display text-xl font-bold text-kailash-dark">परिवहन खर्च</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">दिल्ली-काठमांडू फ़्लाइट (राउंड ट्रिप)</p><p class="text-xs text-gray-500">2.5 घंटे</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">₹8,000 – ₹15,000</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">मुंबई-काठमांडू फ़्लाइट (राउंड ट्रिप)</p><p class="text-xs text-gray-500">3.5 घंटे</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">₹12,000 – ₹22,000</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">काठमांडू-केरुङ सीमा (बस/जीप)</p><p class="text-xs text-gray-500">8-10 घंटे</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">₹2,000 – ₹4,000</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">तिब्बत में निजी वाहन (प्रति दिन)</p><p class="text-xs text-gray-500">SUV/वैन + ड्राइवर</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥800 – ¥1,500/दिन</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">ल्हासा-दारचेन राउंड ट्रिप</p><p class="text-xs text-gray-500">4 दिन × 2 (आना-जाना)</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥6,000 – ¥12,000</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <div><p class="text-sm font-medium text-kailash-dark">अली कुन्शा-ल्हासा फ़्लाइट</p><p class="text-xs text-gray-500">1.5 घंटे</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥2,500 – ¥3,500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accommodation Costs -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-3xl">🏨</span>
+            <h3 class="font-display text-xl font-bold text-kailash-dark">आवास खर्च (प्रति रात)</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">काठमांडू होटल</p><p class="text-xs text-gray-500">बजट से मध्यम</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">₹800 – ₹3,000</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">केरुङ/सीमा गेस्टहाउस</p><p class="text-xs text-gray-500">साधारण</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥50 – ¥150</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">दारचेन होटल/गेस्टहाउस</p><p class="text-xs text-gray-500">डॉर्म से निजी कमरे तक</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥80 – ¥800</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">दिरापुक मठ आवास</p><p class="text-xs text-gray-500">डॉर्म/साझा कमरा</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥80 – ¥150</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">ज़ुनज़ेपु मठ आवास</p><p class="text-xs text-gray-500">सबसे साधारण</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥60 – ¥120</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <div><p class="text-sm font-medium text-kailash-dark">सागा/रास्ते के गेस्टहाउस</p><p class="text-xs text-gray-500">प्रति रात</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥100 – ¥300</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services & Permits -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-3xl">🧑‍🤝‍🧑</span>
+            <h3 class="font-display text-xl font-bold text-kailash-dark">सेवाएँ एवं परमिट</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">तिब्बती गाइड (प्रति दिन)</p><p class="text-xs text-gray-500">अनिवार्य</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥200 – ¥400/दिन</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">कुली/पोर्टर (3 दिन की परिक्रमा)</p><p class="text-xs text-gray-500">15-20 किग्रा भार</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥1,500 – ¥2,500</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">घोड़ा/याक किराया (परिक्रमा)</p><p class="text-xs text-gray-500">दोलमा ला दर्रा खंड को छोड़कर</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥3,000 – ¥5,000</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">चीनी वीज़ा शुल्क (भारतीय नागरिक)</p><p class="text-xs text-gray-500">दूतावास पर निर्भर</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">₹3,800 – ₹8,000</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">तिब्बत यात्रा परमिट (TTP) + ATP</p><p class="text-xs text-gray-500">एजेंसी द्वारा</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥200 – ¥500</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <div><p class="text-sm font-medium text-kailash-dark">कैलाश + मानसरोवर प्रवेश शुल्क</p><p class="text-xs text-gray-500">संयुक्त टिकट</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥150 – ¥200</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily & Miscellaneous -->
+        <div class="bg-white rounded-2xl p-8 shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-3xl">🍜</span>
+            <h3 class="font-display text-xl font-bold text-kailash-dark">दैनिक एवं अन्य खर्च</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">दैनिक भोजन (प्रति व्यक्ति)</p><p class="text-xs text-gray-500">साधारण भोजन, चाय</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥50 – ¥150/दिन</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">पीने का पानी (प्रति दिन)</p><p class="text-xs text-gray-500">बोतलबंद/उबला हुआ</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥20 – ¥50/दिन</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">यात्रा बीमा (HEMS सहित)</p><p class="text-xs text-gray-500">उच्च-ऊँचाई बचाव कवर</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">₹3,000 – ₹8,000</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">ट्रेकिंग उपकरण (खरीद/किराया)</p><p class="text-xs text-gray-500">काठमांडू में किफ़ायती</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">₹5,000 – ₹15,000</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+              <div><p class="text-sm font-medium text-kailash-dark">टिप्स (गाइड, ड्राइवर, कुली)</p><p class="text-xs text-gray-500">प्रति व्यक्ति</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥300 – ¥800</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <div><p class="text-sm font-medium text-kailash-dark">आपातकालीन निधि (नकद)</p><p class="text-xs text-gray-500">अतिरिक्त सुरक्षा</p></div>
+              <span class="text-kailash-gold font-semibold text-sm">¥1,000 – ¥2,000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Summary in INR -->
+      <div class="bg-kailash-dark rounded-2xl p-8 md:p-10 text-center">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">कुल अनुमानित लागत (भारत से)</p>
+        <p class="font-display text-4xl md:text-5xl font-bold text-white mb-2">₹80,000 – ₹2,50,000</p>
+        <p class="text-white/60 mb-2">प्रति व्यक्ति, 12-15 दिनों की यात्रा (भारत से वापसी तक)</p>
+        <p class="font-display text-2xl font-bold text-kailash-gold mb-6">≈ ¥7,000 – ¥22,000 RMB</p>
+        <div class="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
+          <div class="bg-white/5 rounded-lg p-4">
+            <p class="text-green-400 font-semibold text-sm mb-1">बजट यात्रा</p>
+            <p class="text-white text-lg font-bold">₹80,000 – ₹1,20,000</p>
+            <p class="text-white/50 text-xs">बस यात्रा, डॉर्म आवास, साधारण भोजन, समूह यात्रा</p>
+          </div>
+          <div class="bg-white/5 rounded-lg p-4">
+            <p class="text-kailash-gold font-semibold text-sm mb-1">मध्यम यात्रा ★</p>
+            <p class="text-white text-lg font-bold">₹1,20,000 – ₹1,80,000</p>
+            <p class="text-white/50 text-xs">मिश्रित आवास, निजी वाहन, बेहतर भोजन, 6-10 लोगों का समूह</p>
+          </div>
+          <div class="bg-white/5 rounded-lg p-4">
+            <p class="text-blue-400 font-semibold text-sm mb-1">प्रीमियम यात्रा</p>
+            <p class="text-white text-lg font-bold">₹1,80,000 – ₹2,50,000</p>
+            <p class="text-white/50 text-xs">निजी कमरे, छोटा समूह, घोड़ा/कुली, फ़्लाइट वापसी</p>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/10">
+          <p class="text-white/50 text-xs">* RMB मूल्य ¥1 ≈ ₹11.5 की दर से। वास्तविक विनिमय दर भिन्न हो सकती है। 2026 अश्व वर्ष में कीमतें 30-50% तक बढ़ सकती हैं। अंतर्राष्ट्रीय हवाई किराया शामिल नहीं।</p>
+        </div>
+      </div>
+
+      <!-- Money Tips -->
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-md">
+          <h4 class="font-display text-lg font-bold text-kailash-dark mb-3">💱 मुद्रा सुझाव</h4>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> तिब्बत में केवल RMB (चीनी युआन) चलता है</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> नकद RMB साथ लाएँ — कार्ड/Credit काम नहीं करते</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> WeChat Pay/AliPay केवल चीनी बैंक खाते से</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> काठमांडू में USD या INR से RMB बदलें</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> तिब्बत में ATM सीमित और अविश्वसनीय</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md">
+          <h4 class="font-display text-lg font-bold text-kailash-dark mb-3">💰 बचत सुझाव</h4>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> 8-12 लोगों का समूह — वाहन और गाइड खर्च बंटता है</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> कंधे के मौसम (मई, अक्टूबर) में 20-30% सस्ता</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> काठमांडू से उपकरण खरीदें/किराए पर लें — भारत से सस्ता</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> अपना भोजन और स्नैक्स साथ लाएँ</li>
+            <li class="flex items-start gap-2"><span class="text-kailash-gold">•</span> अग्रिम बुकिंग — अंतिम समय की कीमतें 2-3 गुना</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Quick Checklist Summary -->
   <section class="py-20 bg-kailash-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1134,6 +2277,502 @@ import Layout from '../../layouts/Layout.astro';
             </label>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW Section: 2026 Horse Year (2026 अश्व वर्ष) -->
+  <section id="ashwa-varsh" class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-block bg-kailash-gold text-kailash-dark px-4 py-1 rounded-full text-sm font-semibold mb-4">🐴 2026 अश्व वर्ष विशेष</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">2026 अश्व वर्ष — एक बार का अवसर</h2>
+        <p class="text-gray-400 text-lg max-w-3xl mx-auto">तिब्बती कैलेंडर के अनुसार हर 12 वर्षों में एक बार अश्व वर्ष आता है। 2026 अग्नि अश्व वर्ष है। इस वर्ष कैलाश परिक्रमा का महत्व 13 गुना बढ़ जाता है।</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white/5 rounded-2xl p-8 border border-white/10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-3xl">🐴</span>
+            <h3 class="font-display text-2xl font-bold text-kailash-gold">अश्व वर्ष क्यों महत्वपूर्ण है?</h3>
+          </div>
+          <p class="text-gray-300 leading-relaxed">तिब्बती बौद्ध परम्परा में यह मान्यता है कि भगवान बुद्ध का जन्म अश्व वर्ष में हुआ था। कैलाश पर्वत को चक्रसंवर (डेमचोक) का मंडल माना जाता है। अश्व वर्ष में एक परिक्रमा का पुण्य सामान्य वर्षों की 13 परिक्रमाओं के बराबर होता है। दुनिया भर से श्रद्धालु इस पवित्र अवसर पर कैलाश की परिक्रमा करने आते हैं। 2026 के बाद अगला अश्व वर्ष 2038 में आएगा।</p>
+        </div>
+        <div class="bg-white/5 rounded-2xl p-8 border border-white/10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-3xl">👥</span>
+            <h3 class="font-display text-2xl font-bold text-kailash-gold">भीड़ का अनुमान</h3>
+          </div>
+          <p class="text-gray-300 leading-relaxed">2026 में तीर्थयात्रियों की संख्या सामान्य वर्षों की तुलना में 3-5 गुना अधिक होने का अनुमान है। दारचेन की आवास क्षमता लगभग 2,000 व्यक्तियों की है, जबकि पीक समय में 5,000-8,000 लोग पहुँच सकते हैं। मठों (दिरापुक, ज़ुनज़ेपु) में बिस्तर अत्यंत सीमित होंगे — अधिकांश यात्रियों को टेंट में रहना होगा। सागा दावा उत्सव (जून मध्य) के दिन भीड़ सामान्य से 10 गुना तक हो सकती है।</p>
+        </div>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8 mb-12 border border-white/10">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-3xl">📋</span>
+          <h3 class="font-display text-2xl font-bold text-kailash-gold">अश्व वर्ष के लिए विशेष तैयारी</h3>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white/5 rounded-xl p-5">
+            <p class="text-kailash-gold font-semibold mb-2">🏕️ आवास</p>
+            <p class="text-gray-300 text-sm">अपना टेंट और स्लीपिंग बैग अवश्य लाएँ। मठों के बिस्तरों पर निर्भर न रहें। पीक समय में ज़मीन पर सोने की भी जगह नहीं मिल सकती।</p>
+          </div>
+          <div class="bg-white/5 rounded-xl p-5">
+            <p class="text-kailash-gold font-semibold mb-2">🚐 परिवहन</p>
+            <p class="text-gray-300 text-sm">ल्हासा से दारचेन के लिए वाहन 3 महीने पहले बुक करें। अंतिम समय पर वाहन मिलना लगभग असंभव होगा। समूह यात्रा अधिक सुरक्षित है।</p>
+          </div>
+          <div class="bg-white/5 rounded-xl p-5">
+            <p class="text-kailash-gold font-semibold mb-2">📄 परमिट</p>
+            <p class="text-gray-300 text-sm">आवेदनों की भारी संख्या के कारण प्रसंस्करण में देरी संभव। यात्रा से 2-3 महीने पहले सभी परमिट की प्रक्रिया शुरू कर दें।</p>
+          </div>
+          <div class="bg-white/5 rounded-xl p-5">
+            <p class="text-kailash-gold font-semibold mb-2">🍱 भोजन</p>
+            <p class="text-gray-300 text-sm">मार्ग पर आपूर्ति केंद्रों का सामान जल्दी बिक सकता है। 2-3 दिन का अतिरिक्त भोजन और स्नैक्स स्वयं साथ रखें।</p>
+          </div>
+          <div class="bg-white/5 rounded-xl p-5">
+            <p class="text-kailash-gold font-semibold mb-2">💰 बजट</p>
+            <p class="text-gray-300 text-sm">अश्व वर्ष में आवास और परिवहन की कीमतें 30-50% तक बढ़ सकती हैं। सामान्य बजट से 40% अधिक राशि रखें।</p>
+          </div>
+          <div class="bg-white/5 rounded-xl p-5">
+            <p class="text-kailash-gold font-semibold mb-2">🧘 मानसिक तैयारी</p>
+            <p class="text-gray-300 text-sm">भारी भीड़, लंबी कतारें, और सीमित सुविधाओं के लिए मानसिक रूप से तैयार रहें। धैर्य और सहनशीलता आवश्यक है।</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8 border border-white/10">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-3xl">📅</span>
+          <h3 class="font-display text-2xl font-bold text-kailash-gold">2026 अश्व वर्ष — प्रमुख तिथियाँ</h3>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</span>
+            <div>
+              <p class="font-semibold text-white">अप्रैल मध्य, 2026</p>
+              <p class="text-kailash-gold text-sm">परिक्रमा मार्ग आधिकारिक रूप से खुलता है</p>
+              <p class="text-xs text-gray-400">प्रारंभिक बर्फ़ पूरी तरह नहीं पिघली हो सकती</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</span>
+            <div>
+              <p class="font-semibold text-white">मई अंत, 2026</p>
+              <p class="text-kailash-gold text-sm">पहली तीर्थयात्री भीड़ का आगमन</p>
+              <p class="text-xs text-gray-400">भारतीय तीर्थयात्री दल बड़ी संख्या में पहुँचते हैं</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</span>
+            <div>
+              <p class="font-semibold text-white">जून मध्य, 2026</p>
+              <p class="text-kailash-gold text-sm">सागा दावा उत्सव (बुद्ध पूर्णिमा)</p>
+              <p class="text-xs text-gray-400">पूरे वर्ष का सबसे व्यस्त दिन — भीड़ सामान्य से 10 गुना</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">4</span>
+            <div>
+              <p class="font-semibold text-white">जुलाई-अगस्त, 2026</p>
+              <p class="text-kailash-gold text-sm">ग्रीष्मकालीन तीर्थयात्रा का चरम</p>
+              <p class="text-xs text-gray-400">वर्षा ऋतु के बावजूद घरेलू और अंतर्राष्ट्रीय यात्री सर्वाधिक</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">5</span>
+            <div>
+              <p class="font-semibold text-white">सितंबर-अक्टूबर मध्य, 2026</p>
+              <p class="text-kailash-gold text-sm">शरद ऋतु — सर्वोत्तम समय</p>
+              <p class="text-xs text-gray-400">मौसम सबसे अच्छा, अत्यधिक अनुशंसित</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">6</span>
+            <div>
+              <p class="font-semibold text-white">अक्टूबर अंत, 2026</p>
+              <p class="text-kailash-gold text-sm">परिक्रमा मार्ग बंद</p>
+              <p class="text-xs text-gray-400">मौसम अनुसार पहले या बाद में बंद हो सकता है</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW Section: Suggested Itineraries (यात्रा योजनाएं) -->
+  <section id="yatrayojana" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">यात्रा योजनाएं</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">सुझावित यात्रा योजनाएं — अपनी यात्रा चुनें</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">आपके समय, बजट और शारीरिक क्षमता के अनुसार तीन सावधानीपूर्वक डिज़ाइन की गई यात्रा योजनाएं। हर योजना में ऊँचाई अनुकूलन का पर्याप्त समय शामिल है।</p>
+      </div>
+
+      <!-- Itinerary 1: 10-Day Classic -->
+      <div class="bg-kailash-light rounded-2xl overflow-hidden shadow-lg mb-12">
+        <div class="bg-kailash-dark text-white p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="bg-kailash-gold text-kailash-dark px-3 py-1 rounded-full text-xs font-semibold">🏆 सर्वोत्तम अनुशंसित</span>
+              <h3 class="font-display text-2xl font-bold mt-2">10-दिवसीय क्लासिक तीर्थयात्रा</h3>
+            </div>
+            <span class="hidden md:inline text-5xl font-bold opacity-20">10</span>
+          </div>
+          <p class="text-sm mt-2 text-white/70">ल्हासा से प्रस्थान, शिगात्से, एवरेस्ट बेस कैंप, सागा होते हुए कैलाश। पहली बार के तीर्थयात्रियों के लिए आदर्श। पर्याप्त अनुकूलन समय।</p>
+        </div>
+        <div class="p-6 space-y-4">
+          <div class="flex gap-4 items-start">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</span>
+            <div class="border-b border-gray-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">ल्हासा आगमन (3,650मी)</h4>
+              <p class="text-sm text-gray-600 mt-1">ल्हासा पहुँचें, पूर्ण विश्राम। पानी खूब पिएँ, शराब से बचें। बरखोर स्ट्रीट और पोटाला पैलेस का हल्का भ्रमण।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</span>
+            <div class="border-b border-gray-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">ल्हासा अनुकूलन दिवस</h4>
+              <p class="text-sm text-gray-600 mt-1">जोखांग मंदिर और सेरा मठ दर्शन। ऊँचाई अनुकूलन के लिए महत्वपूर्ण दिन। हल्की सैर 2-3 घंटे।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</span>
+            <div class="border-b border-gray-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">ल्हासा → शिगात्से (3,850मी)</h4>
+              <p class="text-sm text-gray-600 mt-1">यारलुंग त्सांगपो नदी के साथ यात्रा, यामड्रोक झील (तीन पवित्र झीलों में से एक) के दर्शन। गाम्बाला दर्रा (5,030मी) पार। लगभग 6 घंटे।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">4</span>
+            <div class="border-b border-gray-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">शिगात्से → एवरेस्ट बेस कैंप (5,200मी)</h4>
+              <p class="text-sm text-gray-600 mt-1">ताशिलहुनपो मठ दर्शन। ग्यात्सो ला दर्रा (5,248मी) पार। शाम को एवरेस्ट पर स्वर्णिम सूर्यास्त। अति-उच्च ऊँचाई अनुकूलन का महत्वपूर्ण दिन।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">5</span>
+            <div class="border-b border-gray-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">एवरेस्ट → सागा (4,500मी)</h4>
+              <p class="text-sm text-gray-600 mt-1">एवरेस्ट सूर्योदय के बाद प्रस्थान। पुराना तिंगरी, पेकुत्सो झील, शीशापांगमा चोटी के दर्शन। लगभग 8 घंटे — सबसे लंबा ड्राइविंग दिन।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">6</span>
+            <div class="border-b border-gray-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">सागा → दारचेन (4,560मी)</h4>
+              <p class="text-sm text-gray-600 mt-1">अंतिम चरण! पारयांग घास के मैदान, मानसरोवर झील (पवित्र झील), नैमोनायनी चोटी के दूरस्थ दर्शन। दोपहर बाद कैलाश के चरणों में दारचेन पहुँचें।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">7</span>
+            <div class="border-b border-gray-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">परिक्रमा दिन 1: दारचेन → दिरापुक (5,080मी)</h4>
+              <p class="text-sm text-gray-600 mt-1">22 किमी, 7-9 घंटे। ल्हा-चू घाटी के साथ चढ़ाई। प्रार्थना ध्वज चौक और चोरटेन कांग्नी के दर्शन। दिरापुक से कैलाश के भव्य उत्तरी मुख का दर्शन। रात का तापमान -10°C तक।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">8</span>
+            <div class="border-b border-gray-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">परिक्रमा दिन 2: दिरापुक → ज़ुनज़ेपु (4,820मी)</h4>
+              <p class="text-sm text-gray-600 mt-1">सबसे कठिन दिन! दोलमा ला दर्रा (5,648मी) पार। 22 किमी, 10-12 घंटे। दर्रे पर प्रार्थना ध्वजों का सागर, करुणा झील और शिला उत्कीर्णन अविस्मरणीय अनुभव। सूर्योदय से पूर्व प्रस्थान अनिवार्य।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">9</span>
+            <div class="border-b border-gray-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">परिक्रमा दिन 3: ज़ुनज़ेपु → दारचेन</h4>
+              <p class="text-sm text-gray-600 mt-1">अंतिम 8 किमी, 3-4 घंटे। घाटी के साथ कोमल ढलान — सबसे सरल खंड। दारचेन पहुँचकर छोटा उत्सव समारोह। तीर्थयात्रा पूर्ण!</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-kailash-gold text-kailash-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">10</span>
+            <div>
+              <h4 class="font-semibold text-kailash-dark">दारचेन → ल्हासा (वापसी)</h4>
+              <p class="text-sm text-gray-600 mt-1">अली कुन्शा हवाई अड्डे से ल्हासा के लिए उड़ान (1.5 घंटे) या सड़क मार्ग से वापसी। समय और ऊर्जा बचाने के लिए हवाई यात्रा अनुशंसित।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Itinerary 2: 7-Day Express -->
+      <div class="bg-amber-50 rounded-2xl overflow-hidden shadow-lg mb-12">
+        <div class="bg-amber-600 text-white p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="bg-amber-300 text-amber-900 px-3 py-1 rounded-full text-xs font-semibold">⚡ त्वरित योजना</span>
+              <h3 class="font-display text-2xl font-bold mt-2">7-दिवसीय त्वरित तीर्थयात्रा</h3>
+            </div>
+            <span class="hidden md:inline text-5xl font-bold opacity-20">7</span>
+          </div>
+          <p class="text-sm mt-2 text-white/80">समय-सीमित लेकिन शारीरिक रूप से सक्षम यात्रियों के लिए। सीधे अली के लिए उड़ान, कम अनुकूलन समय। चेतावनी: ऊँचाई बीमारी का जोखिम अधिक।</p>
+        </div>
+        <div class="p-6 space-y-4">
+          <div class="flex gap-4 items-start">
+            <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</span>
+            <div class="border-b border-amber-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">ल्हासा आगमन (3,650मी)</h4>
+              <p class="text-sm text-gray-600 mt-1">ल्हासा पहुँचें, तुरंत विश्राम। रोडियोला और गाओयुआन लेना शुरू करें। खूब पानी पिएँ, स्नान न करें।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</span>
+            <div class="border-b border-amber-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">ल्हासा → अली कुन्शा → दारचेन</h4>
+              <p class="text-sm text-gray-600 mt-1">सुबह की उड़ान अली (1.5 घंटे), फिर दारचेन के लिए ड्राइव (3 घंटे)। पूरे दिन विश्राम, 4,560मी पर अनुकूलन। यह दिन तय करेगा कि परिक्रमा सफल होगी या नहीं।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</span>
+            <div class="border-b border-amber-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">परिक्रमा दिन 1: दारचेन → दिरापुक</h4>
+              <p class="text-sm text-gray-600 mt-1">यदि गंभीर AMS लक्षण न हों तो परिक्रमा शुरू करें। 22 किमी, 7-9 घंटे। असुविधा होने पर एक दिन और विश्राम करें।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">4</span>
+            <div class="border-b border-amber-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">परिक्रमा दिन 2: दिरापुक → ज़ुनज़ेपु</h4>
+              <p class="text-sm text-gray-600 mt-1">दोलमा ला दर्रा पार — सबसे कठिन दिन। सूर्योदय से पहले प्रस्थान। पर्याप्त ऑक्सीजन और पानी साथ रखें।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">5</span>
+            <div class="border-b border-amber-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">परिक्रमा दिन 3: ज़ुनज़ेपु → दारचेन</h4>
+              <p class="text-sm text-gray-600 mt-1">अंतिम 8 किमी आसान पैदल यात्रा। परिक्रमा पूर्ण! दोपहर में विश्राम। मानसरोवर झील के किनारे ध्यान।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">6</span>
+            <div class="border-b border-amber-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">मानसरोवर तीर्थयात्रा</h4>
+              <p class="text-sm text-gray-600 mt-1">मानसरोवर झील (तीन पवित्र झीलों में से एक) की यात्रा। झील परिक्रमा का कुछ भाग। चिऊ मठ दर्शन। पवित्र जल में स्नान।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">7</span>
+            <div>
+              <h4 class="font-semibold text-kailash-dark">दारचेन → ल्हासा (वापसी)</h4>
+              <p class="text-sm text-gray-600 mt-1">अली से ल्हासा के लिए उड़ान। शाम की उड़ान से अगले दिन घर के लिए कनेक्शन।</p>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6">
+          <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+            <p class="text-red-700 text-sm"><span class="font-bold">⚠️ चेतावनी:</span> इस योजना में ऊँचाई अनुकूलन का समय न्यूनतम है। AMS का जोखिम काफी अधिक है। केवल तभी चुनें जब आपने पहले 5,000मी+ ऊँचाई पर ट्रेकिंग की हो और आपका शरीर ऊँचाई के प्रति अच्छी प्रतिक्रिया देता हो।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Itinerary 3: Nepal-entry Route -->
+      <div class="bg-indigo-50 rounded-2xl overflow-hidden shadow-lg">
+        <div class="bg-indigo-600 text-white p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="bg-indigo-300 text-indigo-900 px-3 py-1 rounded-full text-xs font-semibold">🌏 नेपाल मार्ग</span>
+              <h3 class="font-display text-2xl font-bold mt-2">नेपाल-प्रवेश मार्ग (काठमांडू से)</h3>
+            </div>
+            <span class="hidden md:inline text-5xl font-bold opacity-20">12</span>
+          </div>
+          <p class="text-sm mt-2 text-white/80">भारतीय और नेपाली यात्रियों के लिए लोकप्रिय वैकल्पिक मार्ग। केरुङ/ग्यारोंग सीमा के माध्यम से स्थलीय प्रवेश। ल्हासा जाने की आवश्यकता नहीं।</p>
+        </div>
+        <div class="p-6 space-y-4">
+          <div class="flex gap-4 items-start">
+            <span class="bg-indigo-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1-2</span>
+            <div class="border-b border-indigo-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">काठमांडू आगमन एवं तैयारी</h4>
+              <p class="text-sm text-gray-600 mt-1">काठमांडू पहुँचें। चीनी वीज़ा (यदि पहले से नहीं है) और तिब्बत यात्रा परमिट की प्रक्रिया। ट्रेकिंग उपकरण खरीद या किराए पर लें।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-indigo-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</span>
+            <div class="border-b border-indigo-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">काठमांडू → केरुङ सीमा (8-10 घंटे)</h4>
+              <p class="text-sm text-gray-600 mt-1">काठमांडू से केरुङ (ग्यारोंग) सीमा तक ड्राइव। नेपाली पहाड़ियों और घाटियों का सुंदर दृश्य। सीमा पर रात्रि विश्राम।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-indigo-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">4</span>
+            <div class="border-b border-indigo-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">सीमा पार → केरुङ (तिब्बत) → सागा</h4>
+              <p class="text-sm text-gray-600 mt-1">सीमा औपचारिकताएँ पूर्ण कर तिब्बत में प्रवेश। चीनी वाहन में स्थानांतरण। सागा की ओर प्रस्थान। हिमालय के उत्तरी मुख के दर्शन।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-indigo-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">5-6</span>
+            <div class="border-b border-indigo-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">सागा → पारयांग → दारचेन</h4>
+              <p class="text-sm text-gray-600 mt-1">दो दिन की ड्राइव। विशाल तिब्बती पठार, जंगली गधे (कियांग), और दूरस्थ चोटियों के दृश्य। मानसरोवर झील के पहले दर्शन।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-indigo-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">7-9</span>
+            <div class="border-b border-indigo-200 pb-3 flex-grow">
+              <h4 class="font-semibold text-kailash-dark">कैलाश परिक्रमा (3 दिन)</h4>
+              <p class="text-sm text-gray-600 mt-1">दारचेन → दिरापुक → ज़ुनज़ेपु → दारचेन। मानक 52 किमी, 3-दिवसीय परिक्रमा।</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-indigo-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">10-12</span>
+            <div>
+              <h4 class="font-semibold text-kailash-dark">दारचेन → सागा → केरुङ → काठमांडू (वापसी)</h4>
+              <p class="text-sm text-gray-600 mt-1">उसी मार्ग से वापसी। 3-4 दिन। मानसरोवर में अंतिम दर्शन। काठमांडू में उत्सवपूर्ण रात्रिभोज!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 bg-kailash-light rounded-2xl p-8 text-center shadow-md">
+        <p class="text-gray-600">उपरोक्त योजनाएं संदर्भ के लिए हैं। हमारी टीम आपके समय, बजट और शारीरिक क्षमता के अनुसार अनुकूलित योजना बना सकती है।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW Section: Medical & Food Checklist (दवा और भोजन सूची) -->
+  <section id="dawa-bhojan" class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.2em] uppercase mb-3 font-medium">स्वास्थ्य एवं पोषण</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-kailash-dark mb-4">दवा और भोजन जाँच सूची</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">उच्च ऊँचाई पर सीमित चिकित्सा सुविधाओं के कारण, सभी आवश्यक दवाइयाँ और पोषक भोजन अपने साथ लाना अत्यंत महत्वपूर्ण है।</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Medicine Checklist -->
+        <div class="bg-white rounded-2xl p-8 shadow-md border-t-4 border-red-400">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center text-3xl">💊</div>
+            <h3 class="font-display text-2xl font-bold text-kailash-dark">आवश्यक दवा सूची</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">सभी दवाइयाँ अपने देश से लाएँ। तिब्बत में फ़ार्मेसी अत्यंत सीमित हैं।</p>
+
+          <div class="space-y-4">
+            <div class="bg-red-50 rounded-xl p-4 border border-red-100">
+              <p class="font-semibold text-red-800">🫁 ऊँचाई बीमारी की दवा</p>
+              <ul class="mt-2 space-y-1 text-red-700 text-sm">
+                <li>• <span class="font-semibold">डायमॉक्स (एसिटाज़ोलामाइड):</span> AMS रोकथाम — 125-250mg, दिन में 2 बार</li>
+                <li>• <span class="font-semibold">डेक्सामेथासोन:</span> गंभीर AMS आपातकाल — केवल डॉक्टर के परामर्श से</li>
+                <li>• <span class="font-semibold">निफ़ेडिपिन:</span> HAPE रोकथाम — डॉक्टर की सलाह अनिवार्य</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 rounded-xl p-4 border border-blue-100">
+              <p class="font-semibold text-blue-800">💊 सामान्य दवाइयाँ</p>
+              <ul class="mt-2 space-y-1 text-blue-700 text-sm">
+                <li>• <span class="font-semibold">सिरदर्द/बुखार:</span> पैरासिटामोल, आइबुप्रोफ़ेन</li>
+                <li>• <span class="font-semibold">सर्दी-खाँसी:</span> सिट्रीज़िन, डिकंजेस्टेंट, गले की खराश की दवा</li>
+                <li>• <span class="font-semibold">पाचन:</span> लोपेरामाइड (दस्त), ओमेप्राज़ोल (एसिडिटी), ओआरएस पैकेट</li>
+                <li>• <span class="font-semibold">एलर्जी:</span> एंटीहिस्टामाइन (सिट्रीज़िन/लोराटाडाइन)</li>
+                <li>• <span class="font-semibold">मोशन सिकनेस:</span> डाइमेनहाइड्रिनेट — लंबी घुमावदार सड़कों के लिए</li>
+                <li>• <span class="font-semibold">नींद:</span> मेलाटोनिन — ऊँचाई पर नींद में सहायक</li>
+              </ul>
+            </div>
+
+            <div class="bg-green-50 rounded-xl p-4 border border-green-100">
+              <p class="font-semibold text-green-800">🩹 प्राथमिक चिकित्सा</p>
+              <ul class="mt-2 space-y-1 text-green-700 text-sm">
+                <li>• <span class="font-semibold">ब्लिस्टर केयर:</span> मोलस्किन पैड, कॉम्पीड पैच, सेकेंड स्किन</li>
+                <li>• <span class="font-semibold">घाव:</span> एंटीसेप्टिक वाइप्स, पट्टियाँ, गॉज़, मेडिकल टेप</li>
+                <li>• <span class="font-semibold">मांसपेशी:</span> डीप हीट/वोल्टेरेन जेल, क्रेप बैंडेज</li>
+                <li>• <span class="font-semibold">उपकरण:</span> कैंची, चिमटी, सुरक्षा पिन, थर्मामीटर</li>
+                <li>• <span class="font-semibold">त्वचा:</span> SPF 50+ सनस्क्रीन, SPF 30+ लिप बाम, मॉइस्चराइज़र</li>
+                <li>• <span class="font-semibold">आँख:</span> आई ड्रॉप (सूखापन), UV400 धूप का चश्मा</li>
+              </ul>
+            </div>
+
+            <div class="bg-purple-50 rounded-xl p-4 border border-purple-100">
+              <p class="font-semibold text-purple-800">📋 व्यक्तिगत दवाइयाँ</p>
+              <ul class="mt-2 space-y-1 text-purple-700 text-sm">
+                <li>• अपनी सभी नियमित दवाइयाँ — यात्रा अवधि + 5 अतिरिक्त दिनों की मात्रा</li>
+                <li>• डॉक्टर का प्रिस्क्रिप्शन — दवाइयों के नाम और खुराक सहित</li>
+                <li>• एलर्जी कार्ड — यदि किसी दवा से एलर्जी है</li>
+                <li>• रक्त समूह कार्ड</li>
+                <li>• पल्स ऑक्सीमीटर — SpO2 निगरानी के लिए</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Food Checklist -->
+        <div class="bg-white rounded-2xl p-8 shadow-md border-t-4 border-amber-400">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center text-3xl">🍱</div>
+            <h3 class="font-display text-2xl font-bold text-kailash-dark">भोजन एवं पोषण सूची</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">मार्ग पर चायघर मिलते हैं लेकिन चयन सीमित है। अपना भोजन साथ लाना सुरक्षित और सस्ता है।</p>
+
+          <div class="space-y-4">
+            <div class="bg-amber-50 rounded-xl p-4 border border-amber-100">
+              <p class="font-semibold text-amber-800">⚡ तुरंत ऊर्जा</p>
+              <ul class="mt-2 space-y-1 text-amber-700 text-sm">
+                <li>• एनर्जी बार/प्रोटीन बार — 10-15 पीस (प्रतिदिन 1-2)</li>
+                <li>• चॉकलेट/कैंडी — डार्क चॉकलेट उत्तम</li>
+                <li>• ग्लूकोज़ टैबलेट/पाउडर — तुरंत रक्त शर्करा</li>
+                <li>• शहद के छोटे पैकेट — प्राकृतिक ऊर्जा स्रोत</li>
+              </ul>
+            </div>
+
+            <div class="bg-amber-50 rounded-xl p-4 border border-amber-100">
+              <p class="font-semibold text-amber-800">🥜 सूखे मेवे एवं नट्स</p>
+              <ul class="mt-2 space-y-1 text-amber-700 text-sm">
+                <li>• बादाम, काजू, अखरोट — प्रतिदिन मुट्ठी भर</li>
+                <li>• किशमिश, खजूर, सूखी खुबानी — प्राकृतिक मिठास</li>
+                <li>• मूंगफली, भुना चना — सस्ता और पौष्टिक</li>
+                <li>• मिश्रित ट्रेल मिक्स — सभी का संयोजन</li>
+              </ul>
+            </div>
+
+            <div class="bg-amber-50 rounded-xl p-4 border border-amber-100">
+              <p class="font-semibold text-amber-800">🍜 मुख्य भोजन</p>
+              <ul class="mt-2 space-y-1 text-amber-700 text-sm">
+                <li>• इंस्टेंट नूडल्स/कप नूडल्स — गर्म पानी से तैयार (6-8 पैक)</li>
+                <li>• इंस्टेंट सूप पाउच — टमाटर, स्वीट कॉर्न, हॉट & सॉर</li>
+                <li>• रेडी-टू-ईट भोजन पाउच — पोहा, उपमा, खिचड़ी</li>
+                <li>• ओट्स/दलिया पैकेट — नाश्ते के लिए</li>
+                <li>• ब्रेड/रस्क/खाखरा — हल्का और टिकाऊ</li>
+                <li>• चीज़ स्लाइस/पनीर — प्रोटीन स्रोत (यदि शाकाहारी हों)</li>
+              </ul>
+            </div>
+
+            <div class="bg-amber-50 rounded-xl p-4 border border-amber-100">
+              <p class="font-semibold text-amber-800">💧 पानी एवं पेय</p>
+              <ul class="mt-2 space-y-1 text-amber-700 text-sm">
+                <li>• इलेक्ट्रोलाइट पाउडर/टैबलेट — ORS, इलेक्ट्रल, गेटोरेड पाउडर</li>
+                <li>• चाय बैग्स/कॉफ़ी सैशे — गर्म पेय के लिए</li>
+                <li>• पानी शुद्धिकरण टैबलेट/फ़िल्टर — झरने का पानी पीने से पहले</li>
+                <li>• इंसुलेटेड थर्मस (1 लीटर) — गर्म पानी/चाय रखने के लिए</li>
+                <li>• पानी की बोतल (2 लीटर क्षमता) — चौड़े मुँह वाली</li>
+              </ul>
+            </div>
+
+            <div class="bg-amber-50 rounded-xl p-4 border border-amber-100">
+              <p class="font-semibold text-amber-800">🥫 विशेष आहार आवश्यकताएँ</p>
+              <ul class="mt-2 space-y-1 text-amber-700 text-sm">
+                <li>• <span class="font-semibold">शाकाहारी:</span> तिब्बत में शाकाहारी भोजन मिलना कठिन — स्वयं लाएँ</li>
+                <li>• <span class="font-semibold">ग्लूटेन-मुक्त:</span> कोई विकल्प उपलब्ध नहीं — सब कुछ साथ लाएँ</li>
+                <li>• <span class="font-semibold">डायबिटीज़:</span> शुगर-फ़्री स्नैक्स, ग्लूकोज़ मॉनिटर, अतिरिक्त इंसुलिन</li>
+                <li>• <span class="font-semibold">मसाले:</span> नमक, काली मिर्च, चाट मसाला — स्वाद बढ़ाने के लिए</li>
+              </ul>
+            </div>
+
+            <div class="bg-green-50 rounded-xl p-4 border border-green-100">
+              <p class="font-semibold text-green-800">💡 भोजन सुझाव</p>
+              <ul class="mt-2 space-y-1 text-green-700 text-sm">
+                <li>• ऊँचाई पर भूख कम लगती है — फिर भी नियमित अंतराल पर खाएँ</li>
+                <li>• कार्बोहाइड्रेट-युक्त भोजन पचाने में आसान और ऊर्जादायक</li>
+                <li>• तैलीय और भारी भोजन से बचें — पाचन धीमा होता है</li>
+                <li>• चायघरों में तिब्बती बटर टी और नमकीन चाय मुफ़्त/सस्ती</li>
+                <li>• भोजन से पहले और बाद में हैंड सैनिटाइज़र का उपयोग करें</li>
+                <li>• स्थानीय मांसाहारी भोजन से बचें यदि स्वच्छता संदिग्ध हो</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 bg-kailash-dark rounded-2xl p-8 text-center">
+        <p class="text-kailash-gold font-bold text-lg mb-2">⚠️ महत्वपूर्ण स्मरण</p>
+        <p class="text-white/70 text-sm">सभी दवाइयाँ अपने मूल पैकेजिंग में और डॉक्टर के प्रिस्क्रिप्शन के साथ रखें। तिब्बत में कुछ दवाइयाँ प्रतिबंधित हो सकती हैं। बड़ी मात्रा में नशीली दवाएँ (कोडीन-युक्त) ले जाने पर दस्तावेज़ आवश्यक।</p>
       </div>
     </div>
   </section>

@@ -1,0 +1,214 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const culturePhotos = [
+  {
+    id: "guge",
+    title: "Guge Kingdom Ruins",
+    desc: "The mysterious Guge Kingdom, a thousand-year civilization preserved in Zanda's earth forest",
+    image: "kailash-aerial.jpg",
+    location: "Zanda County"
+  },
+  {
+    id: "tholing",
+    title: "Tholing Monastery",
+    desc: "Cradle of Tibetan Buddhism's later dissemination, millennium-old murals witness Dharma revival",
+    image: "kailash-golden.jpg",
+    location: "Zanda County"
+  },
+  {
+    id: "zanda",
+    title: "Zanda Earth Forest",
+    desc: "A natural wonder formed by millions of years of geological change, like an alien landscape",
+    image: "kailash-prairie.jpg",
+    location: "Zanda County"
+  },
+  {
+    id: "nomad",
+    title: "Ngari Nomads",
+    desc: "Nomadic life following water and grass, free spirits on the high plateau",
+    image: "kailash-yaks.jpg",
+    location: "Ngari Prefecture"
+  },
+  {
+    id: "manasarovar",
+    title: "Lake Manasarovar",
+    desc: "One of the highest freshwater lakes, sacred source of four great rivers",
+    image: "kailash-lake.jpg",
+    location: "Burang County"
+  },
+  {
+    id: "prayer",
+    title: "Prayer Flags & Mani Stones",
+    desc: "Wind-horse flags flutter, mani stones accumulate prayers — the silent voice of faith",
+    image: "kailash-birds.jpg",
+    location: "Kora Trail"
+  },
+  {
+    id: "sunrise",
+    title: "Sacred Sunrise",
+    desc: "First light illuminates the golden peak, a new day begins in prayer",
+    image: "kailash-sunrise.jpg",
+    location: "Mount Kailash"
+  },
+  {
+    id: "starry",
+    title: "Ngari Starry Sky",
+    desc: "One of the world's best dark sky reserves, the Milky Way spans the sacred peak",
+    image: "kailash-golden.jpg",
+    location: "Ngari Dark Sky Reserve"
+  },
+  {
+    id: "birds",
+    title: "Bird Paradise",
+    desc: "Thousands of migratory birds on Pangong Tso, life blooming on the plateau",
+    image: "kailash-birds.jpg",
+    location: "Pangong Tso"
+  },
+  {
+    id: "village",
+    title: "Tibetan Village Life",
+    desc: "Remote highland villages preserve the simplest way of life",
+    image: "kailash-prairie.jpg",
+    location: "Burang County"
+  }
+];
+---
+
+<Layout title="Ngari Cultural Charm - Tibet in Images" description="Ngari cultural photo gallery: Guge Kingdom, Tholing Monastery, Zanda Earth Forest, Lake Manasarovar, Ngari starry sky — capturing the charm of Ngari, Tibet.">
+  <section class="relative h-[70vh] min-h-[500px] flex items-end">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark via-kailash-dark/50 to-transparent"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-2 font-light">NGARI · ROOF OF THE WORLD</p>
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-4">Ngari Cultural Charm</h1>
+      <p class="text-xl text-white/70 max-w-3xl">
+        Capturing the marks of civilization on this sacred land — from the ancient Guge Kingdom to the sacred Lake Manasarovar
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-kailash-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="p-6">
+          <div class="text-4xl mb-3">🏔️</div>
+          <div class="text-kailash-gold text-2xl font-bold">300K+</div>
+          <p class="text-gray-400 text-sm mt-1">Sq. km Territory</p>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl mb-3">🏛️</div>
+          <div class="text-kailash-gold text-2xl font-bold">4500 yrs</div>
+          <p class="text-gray-400 text-sm mt-1">Years of History</p>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl mb-3">⛰️</div>
+          <div class="text-kailash-gold text-2xl font-bold">4500m+</div>
+          <p class="text-gray-400 text-sm mt-1">Average Altitude</p>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl mb-3">📿</div>
+          <div class="text-kailash-gold text-2xl font-bold">4 Faiths</div>
+          <p class="text-gray-400 text-sm mt-1">Sacred Traditions</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">📸 Ngari in Images</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Every photo tells a story, taking you deep into Ngari's cultural heart</p>
+      </div>
+      <div class="space-y-20">
+        {culturePhotos.map((photo, index) => (
+          <div class="group">
+            <div class={`relative overflow-hidden rounded-2xl ${index % 2 === 0 ? 'lg:ml-16' : 'lg:mr-16'}`}>
+              <div class="aspect-[16/9] md:aspect-[21/9] bg-gray-200 relative">
+                <img src={`/images/${photo.image}`} alt={photo.title} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading={index < 3 ? 'eager' : 'lazy'} />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                  <span class="inline-block bg-kailash-gold/90 text-kailash-dark text-xs px-3 py-1 rounded-full mb-3 font-medium">{photo.location}</span>
+                  <h3 class="text-white font-display text-3xl md:text-4xl font-bold mb-2">{photo.title}</h3>
+                  <p class="text-white/80 text-base md:text-lg max-w-2xl">{photo.desc}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-kailash-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-aerial.jpg')] bg-cover bg-center opacity-10"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <svg class="w-12 h-12 text-kailash-gold/50 mx-auto mb-6" fill="currentColor" viewBox="0 0 32 32">
+        <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm16 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z"/>
+      </svg>
+      <blockquote class="font-display text-2xl md:text-3xl italic text-white/80 leading-relaxed">
+        "Ngari is the Tibet of Tibet, the highland above highlands.<br>Here lie not only the sacred mountain and lake at the world's center,<br>but also the deep echoes of a thousand-year civilization."
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">Ngari Culture Keywords</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-amber-900 to-kailash-dark">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center p-4">
+              <span class="text-5xl block mb-3">🏛️</span>
+              <h3 class="text-white font-bold text-lg">Guge Kingdom</h3>
+              <p class="text-white/60 text-sm mt-1">Lost Civilization</p>
+            </div>
+          </div>
+        </div>
+        <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-indigo-900 to-kailash-dark">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center p-4">
+              <span class="text-5xl block mb-3">🙏</span>
+              <h3 class="text-white font-bold text-lg">Tibetan Buddhism</h3>
+              <p class="text-white/60 text-sm mt-1">Power of Faith</p>
+            </div>
+          </div>
+        </div>
+        <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-emerald-900 to-kailash-dark">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center p-4">
+              <span class="text-5xl block mb-3">🏔️</span>
+              <h3 class="text-white font-bold text-lg">Nomadic Culture</h3>
+              <p class="text-white/60 text-sm mt-1">Highland Nomads</p>
+            </div>
+          </div>
+        </div>
+        <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-rose-900 to-kailash-dark">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center p-4">
+              <span class="text-5xl block mb-3">🎨</span>
+              <h3 class="text-white font-bold text-lg">Thangka & Murals</h3>
+              <p class="text-white/60 text-sm mt-1">Visual Feast</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold mb-4">Share Your Ngari Memories</h2>
+      <p class="text-gray-400 mb-8">If you have amazing photos of Ngari, please share them with us</p>
+      <a href="mailto:kailash2026Lucas@outlook.com?subject=Ali Photo Submission" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+        </svg>
+        Submit Photos
+      </a>
+    </div>
+  </section>
+</Layout>

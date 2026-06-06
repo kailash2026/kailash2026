@@ -1,0 +1,165 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => data.lang === 'zh');
+  return posts.map((post) => {
+    // Convert 'zh/some-slug' to just 'some-slug' for the URL
+    const slugParts = post.id.split('/');
+    const cleanSlug = slugParts.length > 1 ? slugParts.slice(1).join('/').replace(/\.md$/, '') : slugParts[0].replace(/\.md$/, '');
+    return {
+      params: { slug: cleanSlug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const formattedDate = post.data.date.toLocaleDateString('zh-CN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const pageTitle = `${post.data.title} - Kailash 2026 朝圣博客`;
+
+// Build structured data for blog post
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  'headline': post.data.title,
+  'description': post.data.description,
+  'image': new URL(post.data.image, 'https://kailash2026.com').toString(),
+  'datePublished': post.data.date.toISOString(),
+  'dateModified': post.data.date.toISOString(),
+  'author': {
+    '@type': 'Organization',
+    'name': 'Kailash 2026',
+    'url': 'https://kailash2026.com',
+  },
+  'publisher': {
+    '@type': 'Organization',
+    'name': 'Kailash 2026',
+    'url': 'https://kailash2026.com',
+  },
+  'mainEntityOfPage': {
+    '@type': 'WebPage',
+    '@id': new URL(Astro.url.pathname, 'https://kailash2026.com').toString(),
+  },
+  'keywords': post.data.tags.join(', '),
+  'inLanguage': 'zh-CN',
+};
+---
+
+<Layout title={pageTitle} description={post.data.description}>
+  <!-- Hero Header -->
+  <section class="relative bg-kailash-dark">
+    <div class="relative w-full h-[30vh] lg:h-[35vh]">
+      <div
+        class="absolute inset-0 bg-cover bg-center"
+        style={`background-image: url('${post.data.image}')`}
+      ></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/50 via-kailash-dark/30 to-kailash-dark"></div>
+    </div>
+    <div class="relative -mt-10 z-10 px-4 pb-8">
+      <div class="max-w-4xl mx-auto">
+        <a href="/blog" class="inline-flex items-center text-kailash-gold text-sm mb-4 hover:text-kailash-accent transition-colors">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          返回博客
+        </a>
+        <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+          {post.data.title}
+        </h1>
+        <div class="flex flex-wrap items-center gap-4 text-white/60 text-sm">
+          <time datetime={post.data.date.toISOString()}>{formattedDate}</time>
+          <span class="text-white/30">·</span>
+          <div class="flex flex-wrap gap-2">
+            {post.data.tags.map((tag) => (
+              <span class="text-xs bg-white/10 text-white/70 px-2.5 py-1 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="py-12 bg-kailash-light">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl shadow-md p-8 md:p-12">
+        <div class="prose prose-lg max-w-none
+          prose-headings:font-display prose-headings:text-kailash-dark prose-headings:font-bold
+          prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-kailash-cream
+          prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+          prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
+          prose-a:text-kailash-gold prose-a:no-underline hover:prose-a:text-kailash-accent
+          prose-strong:text-kailash-dark prose-strong:font-semibold
+          prose-ul:text-gray-700 prose-ol:text-gray-700
+          prose-blockquote:border-kailash-gold prose-blockquote:bg-kailash-light/50 prose-blockquote:rounded-r-lg prose-blockquote:py-3 prose-blockquote:px-6 prose-blockquote:italic
+          prose-li:mb-2 prose-li:leading-relaxed
+          prose-img:rounded-xl prose-img:shadow-md
+          prose-th:bg-kailash-dark prose-th:text-white prose-th:px-4 prose-th:py-3 prose-th:text-sm
+          prose-td:px-4 prose-td:py-3 prose-td:text-sm prose-td:text-gray-700 prose-td:border-b prose-td:border-gray-100
+          prose-table:rounded-xl prose-table:overflow-hidden
+          prose-code:bg-kailash-cream prose-code:text-kailash-accent prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+        ">
+          <Content />
+        </div>
+
+        <!-- Share & Tags -->
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-2">
+              {post.data.tags.map((tag) => (
+                <span class="text-sm bg-kailash-cream text-kailash-dark/70 px-3 py-1.5 rounded-full font-medium">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="mt-8 flex justify-between items-center">
+          <a href="/blog" class="inline-flex items-center text-kailash-gold font-medium hover:text-kailash-accent transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+            </svg>
+            返回博客列表
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Related CTA -->
+  <section class="py-12 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-2xl font-bold text-kailash-dark mb-3">准备好开始您的朝圣之旅了吗？</h2>
+      <p class="text-kailash-dark/70 mb-6">探索更多朝圣攻略与路线信息，为冈仁波齐之行做好万全准备。</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/guide" class="bg-kailash-dark text-white px-6 py-3 rounded-lg font-medium hover:bg-kailash-stone transition">
+          朝圣攻略
+        </a>
+        <a href="/routes" class="bg-white text-kailash-dark px-6 py-3 rounded-lg font-medium hover:bg-kailash-cream transition">
+          转山路线
+        </a>
+        <a href="/faq" class="bg-white text-kailash-dark px-6 py-3 rounded-lg font-medium hover:bg-kailash-cream transition">
+          常见问题
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {JSON.stringify(articleLd)}
+  </script>
+</Layout>

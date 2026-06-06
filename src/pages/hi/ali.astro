@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const culturePhotos = [
+  { id: "guge", title: "गुगे साम्राज्य के खंडहर", desc: "रहस्यमय गुगे साम्राज्य, ज़ांडा की मिट्टी के जंगल में संरक्षित हजारों वर्षों की सभ्यता", image: "kailash-aerial.jpg", location: "ज़ांडा जिला" },
+  { id: "tholing", title: "थोलिंग मठ", desc: "तिब्बती बौद्ध धर्म के पुनर्जागरण का उद्गम स्थल", image: "kailash-golden.jpg", location: "ज़ांडा जिला" },
+  { id: "zanda", title: "ज़ांडा मृदा वन", desc: "लाखों वर्षों के भूवैज्ञानिक परिवर्तनों से बना प्राकृतिक चमत्कार", image: "kailash-prairie.jpg", location: "ज़ांडा जिला" },
+  { id: "nomad", title: "न्गारी के घुमंतू", desc: "पानी और घास के पीछे चलने वाला खानाबदोश जीवन", image: "kailash-yaks.jpg", location: "न्गारी क्षेत्र" },
+  { id: "manasarovar", title: "मानसरोवर झील", desc: "दुनिया की सबसे ऊँची मीठे पानी की झीलों में से एक, चार महानदियों का स्रोत", image: "kailash-lake.jpg", location: "बुरांग जिला" },
+  { id: "prayer", title: "प्रार्थना झंडे और मणि पत्थर", desc: "हवा में लहराते प्रार्थना झंडे, सदियों से संचित प्रार्थनाएँ", image: "kailash-birds.jpg", location: "परिक्रमा मार्ग" },
+  { id: "sunrise", title: "पवित्र सूर्योदय", desc: "पहली किरण पवित्र शिखर को स्वर्णिम करती है", image: "kailash-sunrise.jpg", location: "कैलाश पर्वत" },
+  { id: "starry", title: "न्गारी का तारों भरा आकाश", desc: "दुनिया के सबसे अच्छे अंधकार आकाश संरक्षण क्षेत्रों में से एक", image: "kailash-golden.jpg", location: "न्गारी डार्क स्काई रिज़र्व" },
+  { id: "birds", title: "पक्षी स्वर्ग", desc: "पैंगोंग त्सो झील पर हज़ारों प्रवासी पक्षी", image: "kailash-birds.jpg", location: "पैंगोंग त्सो" },
+  { id: "village", title: "तिब्बती गाँव का जीवन", desc: "दूरदराज के ऊँचाई वाले गाँवों में संरक्षित सबसे सरल जीवन शैली", image: "kailash-prairie.jpg", location: "बुरांग जिला" }
+];
+---
+
+<Layout title="न्गारी की सांस्कृतिक छटा - तिब्बत की छवियाँ" description="न्गारी सांस्कृतिक फोटो गैलरी: गुगे साम्राज्य, थोलिंग मठ, ज़ांडा मृदा वन, मानसरोवर झील — तिब्बत के न्गारी की सुंदरता को कैद करना।">
+  <section class="relative h-[70vh] min-h-[500px] flex items-end">
+    <div class="absolute inset-0 bg-[url('/images/kailash-golden.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark via-kailash-dark/50 to-transparent"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-2 font-light">न्गारी · विश्व की छत</p>
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-4">न्गारी की सांस्कृतिक छटा</h1>
+      <p class="text-xl text-white/70 max-w-3xl">इस पवित्र भूमि पर सभ्यता के निशानों को कैद करना — प्राचीन गुगे साम्राज्य से लेकर पवित्र मानसरोवर झील तक</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-kailash-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="p-6"><div class="text-4xl mb-3">🏔️</div><div class="text-kailash-gold text-2xl font-bold">3 लाख+</div><p class="text-gray-400 text-sm mt-1">वर्ग किमी क्षेत्र</p></div>
+        <div class="p-6"><div class="text-4xl mb-3">🏛️</div><div class="text-kailash-gold text-2xl font-bold">4500 वर्ष</div><p class="text-gray-400 text-sm mt-1">सभ्यता का इतिहास</p></div>
+        <div class="p-6"><div class="text-4xl mb-3">⛰️</div><div class="text-kailash-gold text-2xl font-bold">4500मी+</div><p class="text-gray-400 text-sm mt-1">औसत ऊँचाई</p></div>
+        <div class="p-6"><div class="text-4xl mb-3">📿</div><div class="text-kailash-gold text-2xl font-bold">4 धर्म</div><p class="text-gray-400 text-sm mt-1">पवित्र परंपराएँ</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">📸 तस्वीरों में न्गारी</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">हर तस्वीर एक कहानी कहती है, आपको न्गारी के सांस्कृतिक हृदय में ले जाती है</p>
+      </div>
+      <div class="space-y-20">
+        {culturePhotos.map((photo, index) => (
+          <div class="group">
+            <div class={`relative overflow-hidden rounded-2xl ${index % 2 === 0 ? 'lg:ml-16' : 'lg:mr-16'}`}>
+              <div class="aspect-[16/9] md:aspect-[21/9] bg-gray-200 relative">
+                <img src={`/images/${photo.image}`} alt={photo.title} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading={index < 3 ? 'eager' : 'lazy'} />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                  <span class="inline-block bg-kailash-gold/90 text-kailash-dark text-xs px-3 py-1 rounded-full mb-3 font-medium">{photo.location}</span>
+                  <h3 class="text-white font-display text-3xl md:text-4xl font-bold mb-2">{photo.title}</h3>
+                  <p class="text-white/80 text-base md:text-lg max-w-2xl">{photo.desc}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-kailash-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-aerial.jpg')] bg-cover bg-center opacity-10"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <blockquote class="font-display text-2xl md:text-3xl italic text-white/80 leading-relaxed">
+        "न्गारी तिब्बत का तिब्बत है, ऊँचाई के ऊपर की ऊँचाई।<br>यहाँ न केवल दुनिया के केंद्र का पवित्र पर्वत और झील है,<br>बल्कि हजारों वर्षों की सभ्यता की गहरी गूँज भी है।"
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">न्गारी संस्कृति के कीवर्ड</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="aspect-square rounded-xl bg-gradient-to-br from-amber-900 to-kailash-dark flex items-center justify-center"><div class="text-center p-4"><span class="text-5xl block mb-3">🏛️</span><h3 class="text-white font-bold text-lg">गुगे साम्राज्य</h3><p class="text-white/60 text-sm mt-1">खोई हुई सभ्यता</p></div></div>
+        <div class="aspect-square rounded-xl bg-gradient-to-br from-indigo-900 to-kailash-dark flex items-center justify-center"><div class="text-center p-4"><span class="text-5xl block mb-3">🙏</span><h3 class="text-white font-bold text-lg">तिब्बती बौद्ध धर्म</h3><p class="text-white/60 text-sm mt-1">आस्था की शक्ति</p></div></div>
+        <div class="aspect-square rounded-xl bg-gradient-to-br from-emerald-900 to-kailash-dark flex items-center justify-center"><div class="text-center p-4"><span class="text-5xl block mb-3">🏔️</span><h3 class="text-white font-bold text-lg">खानाबदोश संस्कृति</h3><p class="text-white/60 text-sm mt-1">ऊँचाई के घुमंतू</p></div></div>
+        <div class="aspect-square rounded-xl bg-gradient-to-br from-rose-900 to-kailash-dark flex items-center justify-center"><div class="text-center p-4"><span class="text-5xl block mb-3">🎨</span><h3 class="text-white font-bold text-lg">थांगका और भित्तिचित्र</h3><p class="text-white/60 text-sm mt-1">दृश्य दावत</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold mb-4">अपनी न्गारी यादें साझा करें</h2>
+      <p class="text-gray-400 mb-8">अगर आपके पास न्गारी की अद्भुत तस्वीरें हैं, तो कृपया हमारे साथ साझा करें</p>
+      <a href="mailto:kailash2026Lucas@outlook.com?subject=Ali Photo Submission" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+        तस्वीरें सबमिट करें
+      </a>
+    </div>
+  </section>
+</Layout>
