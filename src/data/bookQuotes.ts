@@ -285,6 +285,55 @@ Bernbaum目前在加州大学伯克利分校任教，继续从事圣山和比较
 Bernbaum currently teaches at UC Berkeley, continuing research on sacred mountains and comparative religion.`
   },
   {
+    book: "《苯教与西藏神话的起源》",
+    bookEn: "Drung, Deu, and Bön",
+    author: "南喀诺布（Namkhai Norbu, 1938-2018）",
+    chapter: "仲、德乌与苯——古代西藏的叙事与象征",
+    chapterEn: "Narrations, Symbolic Languages, and the Bön Tradition in Ancient Tibet",
+    sourceType: 'academic',
+    verified: true,
+    fullQuote: `南喀诺布（Namkhai Norbu, 1938-2018）是国际著名藏学家、意大利那不勒斯大学东方学院终身教授，也是藏传佛教大圆满（Dzogchen）传承的重要上师。他的著作《苯教与西藏神话的起源："仲"、"德乌"和"苯"》（中文版，向红笳、才让太译，中国藏学出版社，2014年）是苯教研究领域的重要学术著作。
+
+该书从三个核心概念——"仲"（Drung，叙述故事）、"德乌"（Deu，象征语言）和"苯"（Bön，苯教传统）——入手，系统研究了西藏原始宗教苯教与西藏神话传说的起源关系。全书共15章，涵盖苯教仪式、医学、星算、创世神话、占卜术等丰富内容。
+
+关于冈仁波齐，南喀诺布指出，在苯教传统中，冈仁波齐被称为"雍仲九层山"（Yungdrung Gutsek），是苯教创始人敦巴辛饶（Tonpa Shenrab）从天而降之地。苯教的宇宙观将冈仁波齐视为连接天、地、人三界的宇宙轴心。与藏传佛教顺时针转山不同，苯教传统坚持逆时针转山，这一方向与苯教的雍仲（卍）符号的旋转方向一致。
+
+南喀诺布的研究特别强调了苯教作为西藏本土宗教的独立性——它早于佛教传入西藏，拥有独立的宇宙观、仪式体系和经典传承。冈仁波齐在苯教中的神圣地位，反映了这一古老宗教对自然地理的神圣化过程。
+
+英文版"Drung, Deu, and Bön: Narrations, Symbolic Languages, and the Bön Traditions in Ancient Tibet"由意大利学者Adriano Clemente编辑注释、Andrew Lukianowicz译为英文，1995年由印度达兰萨拉西藏文献图书馆出版。`,
+    fullQuoteEn: `Namkhai Norbu (1938-2018) was an internationally renowned Tibetologist, tenured professor at the Oriental Institute of the University of Naples, and an important teacher in the Dzogchen tradition of Tibetan Buddhism. His book "Drung, Deu, and Bön: Narrations, Symbolic Languages, and the Bön Traditions in Ancient Tibet" (English edition, translated by Adriano Clemente and Andrew Lukianowicz, Library of Tibetan Works and Archives, 1995; Chinese edition translated by Xiang Hongjia and Cairang Tai, China Tibetology Publishing House, 2014) is an important academic work in Bön studies.
+
+The book systematically explores the relationship between Tibet's indigenous Bön religion and Tibetan mythology through three core concepts: "Drung" (narratives), "Deu" (symbolic languages), and "Bön" (the Bön tradition). Its 15 chapters cover Bön rituals, medicine, astrology, creation myths, divination, and more.
+
+Regarding Mount Kailash, Namkhai Norbu notes that in the Bön tradition, Kailash is called "Yungdrung Gutsek" (Nine-Story Yungdrung Mountain), the place where the Bön founder Tonpa Shenrab descended from heaven. Bön cosmology regards Kailash as the cosmic axis connecting heaven, earth, and the human realm. Unlike Tibetan Buddhism's clockwise circumambulation, the Bön tradition maintains counter-clockwise circumambulation — a direction consistent with the Bön yungdrung (svastika) symbol's rotation.
+
+Namkhai Norbu's research particularly emphasizes Bön's independence as Tibet's indigenous religion — predating Buddhism's arrival in Tibet, with its own cosmology, ritual system, and textual lineage. Kailash's sacred status in Bön reflects this ancient religion's process of sacralizing natural geography.
+
+The English edition "Drung, Deu, and Bön" was edited and annotated by Italian scholar Adriano Clemente, translated into English by Andrew Lukianowicz, and published by the Library of Tibetan Works and Archives (Dharamsala, India, 1995).`,
+    interpretation: `南喀诺布的《苯教与西藏神话的起源》是目前关于苯教研究最具权威性的学术著作之一。其对冈仁波齐研究的重要贡献在于：
+
+1. **作者权威性**：南喀诺布既是国际顶级藏学家，又出身于藏传佛教大圆满传承，兼具学术训练和内部视角。这种双重身份使他的研究既有学术严谨性，又有对苯教传统的深刻理解。
+
+2. **"仲-德乌-苯"分析框架**：南喀诺布提出的三概念框架为理解苯教文化提供了一种独特的方法论。通过区分叙述、象征和仪式三个层面，他揭示了苯教如何将自然地理（如冈仁波齐）转化为宗教象征。
+
+3. **苯教独立性的论证**：南喀诺布有力地证明了苯教不是佛教的"变体"，而是拥有独立起源和传承体系的宗教传统。这对理解冈仁波齐在苯教中的独特地位（逆时针转山等）至关重要。
+
+4. **中英双语可及性**：该书中英文版的存在使全球研究者都能引用南喀诺布的研究成果。
+
+中文版由中国藏学出版社出版（ISBN 978-7-80253-708-8），属于国内藏学研究的权威出版机构。`,
+    interpretationEn: `Namkhai Norbu's "Drung, Deu, and Bön" is among the most authoritative academic works on Bön studies. Its important contributions to Kailash research include:
+
+1. **Author authority**: Namkhai Norbu was both an internationally top-tier Tibetologist and a lineage holder in the Dzogchen tradition, combining academic training with an insider's perspective. This dual identity gives his research both scholarly rigor and deep understanding of Bön traditions.
+
+2. **"Drung-Deu-Bön" analytical framework**: Namkhai Norbu's three-concept framework offers a unique methodology for understanding Bön culture. By distinguishing narrative, symbolic, and ritual levels, he reveals how Bön transforms physical geography (such as Kailash) into religious symbolism.
+
+3. **Argument for Bön independence**: Namkhai Norbu powerfully demonstrates that Bön is not a "variant" of Buddhism but a religious tradition with independent origins and lineage. This is crucial for understanding Kailash's unique position in Bön (counter-clockwise circumambulation, etc.).
+
+4. **Chinese-English bilingual accessibility**: The availability of both Chinese and English editions enables global researchers to cite Namkhai Norbu's work.
+
+The Chinese edition is published by China Tibetology Publishing House (ISBN 978-7-80253-708-8), an authoritative publisher in Chinese Tibetology.`
+  },
+  {
     book: "Journeys to the Transcendent",
     bookEn: "Journeys to the Transcendent",
     author: "Shreyas Rajagopal",
