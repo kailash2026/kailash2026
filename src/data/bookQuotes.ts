@@ -289,6 +289,60 @@ Bernbaum目前在加州大学伯克利分校任教，继续从事圣山和比较
 Bernbaum currently teaches at UC Berkeley, continuing research on sacred mountains and comparative religion.`
   },
   {
+    book: "《米拉日巴传》",
+    bookEn: "The Life of Milarepa",
+    author: "桑杰坚赞/仓央赫鲁嘎（Tsangnyön Heruka, 1452-1507）",
+    chapter: "寂静涅槃大行之部",
+    chapterEn: "The Deeds of Perfect Peace and Nirvana",
+    sourceType: 'scripture',
+    verified: true,
+    fullQuote: `《米拉日巴传》是藏传佛教噶举派最著名的圣徒传记，由15世纪宁玛派瑜伽士仓央赫鲁嘎（Tsangnyön Heruka，意为"疯僧"，1452-1507）根据口传传统编纂而成。全书共12章，分"轮回世间大行之部"（3章，记述米拉日巴早年复仇学咒的经历）和"寂静涅槃大行之部"（9章，记述其依止玛尔巴修行、苦行成就、救度众生的事迹）。
+
+米拉日巴（1040-1123）是藏传佛教噶举派祖师玛尔巴的弟子，被尊为西藏最伟大的瑜伽士和诗人。他在喜马拉雅山区苦行多年，仅着单薄棉衣却能在冰雪中生存，其道歌（mgur）至今传唱于整个藏文化区。
+
+中文译本有多种：
+- 张澄基译《密勒日巴尊者传》（1965年）以及《密勒日巴大师歌集》——台湾慧炬出版社，是最早且流传最广的中文译本
+- 刘立千译《米拉日巴传》（1946年译完，2000年由民族出版社正式出版，收入《刘立千藏学著译文集》）——据德格版和西藏人民出版社1979年版译出，学术严谨性较高
+- 乳毕坚金（Rus pa'i rgyan can，即仓央赫鲁嘎的别名）藏文原著
+
+英文译本：
+- Andrew Quintman译 "The Life of Milarepa"（Penguin Classics, 2010）——目前学术引用最多的英译本
+- Garma C.C. Chang（张澄基）译 "The Hundred Thousand Songs of Milarepa"（1962, Shambhala Publications）
+
+⚠️ 需要诚实说明：广为人知的"米拉日巴与苯教徒那若本琼在冈仁波齐斗法争山"的故事，**并不见于仓央赫鲁嘎原著《米拉日巴传》的任何章节**。据学者李初初考证，这一故事是后期佛教徒根据民间传说进行的文学改编，目的是为藏传佛教对冈仁波齐的神圣性主张提供叙事依据。本教学者对此故事的真实性提出了合理质疑。然而，米拉日巴本人确实在冈仁波齐一带修行，《米拉日巴传》中记载了他在喜马拉雅山区的苦行和传法活动。`,
+    fullQuoteEn: `"The Life of Milarepa" is the most famous saint's biography in the Kagyu tradition of Tibetan Buddhism, compiled by the 15th-century Nyingma yogi Tsangnyön Heruka (the "Madman of Tsang," 1452-1507) from oral traditions. The book has 12 chapters divided into "The Deeds of Samsaric Wanderings" (3 chapters on his early life and revenge) and "The Deeds of Perfect Peace and Nirvana" (9 chapters on his practice under Marpa, ascetic accomplishments, and teaching).
+
+Milarepa (1040-1123) was a disciple of Marpa, the founder of the Kagyu lineage. He is revered as Tibet's greatest yogi and poet. He practiced asceticism in the Himalayan region for years, surviving in snow and ice wearing only a thin cotton cloth. His spiritual songs (mgur) are still sung throughout Tibetan cultural areas.
+
+Chinese translations:
+- Zhang Chengji (Garma C.C. Chang): "Biography of Milarepa" (1965) and "The Hundred Thousand Songs of Milarepa" — Wisdom Torch Publishing, Taiwan; the earliest and most widely circulated Chinese translation
+- Liu Liqian: "The Life of Milarepa" (translated 1946, published 2000 by Nationalities Publishing House, included in "Collected Works of Liu Liqian's Tibetological Translations") — based on the Derge and 1979 Tibet People's Publishing House editions, known for scholarly rigor
+
+English translations:
+- Andrew Quintman: "The Life of Milarepa" (Penguin Classics, 2010) — the most academically cited English translation
+- Garma C.C. Chang: "The Hundred Thousand Songs of Milarepa" (1962, Shambhala Publications)
+
+⚠️ Honest scholarly note: The widely known story of "Milarepa's magical contest with the Bönpo Naro Bonchung at Mount Kailash" does NOT appear in any chapter of Tsangnyön Heruka's original "Life of Milarepa." According to scholar Li Chuchu's textual research, this story was a later literary adaptation by Buddhist authors based on folk legends, intended to provide narrative justification for Tibetan Buddhism's claim to Kailash's sacred authority. Bön scholars have raised reasonable doubts about the story's authenticity. However, Milarepa did practice in the Kailash region, and "The Life of Milarepa" documents his ascetic practices and teaching activities throughout the Himalayas.`,
+    interpretation: `《米拉日巴传》是理解藏传佛教与冈仁波齐关系的重要文献。其特殊价值在于：
+
+1. **最接近冈仁波齐的一手资料**：在本书库所有文献中，《米拉日巴传》与冈仁波齐的地理关系最为直接。米拉日巴的修行区域涵盖了今天的阿里地区和喜马拉雅山南麓，他在冈仁波齐的瑜伽洞至今仍是朝圣者的重要参拜点。
+
+2. **区分文本与传说**：我们诚实地指出斗法故事不在原著中，但这并不削弱《米拉日巴传》的价值。恰恰相反：区分历史文本与民间传说，使我们能够更准确地理解佛苯关系的历史演变。斗法传说虽然晚出，但它反映了佛苯在冈仁波齐话语权上的历史竞争，本身就是一个有价值的文化现象。
+
+3. **噶举派的核心文本**：《米拉日巴传》是噶举派最重要的圣徒传记，而噶举派对冈仁波齐的神圣化贡献最大。通过米拉日巴→玛尔巴→那若巴→帝洛巴的传承谱系，噶举派将冈仁波齐纳入了印度密教的法脉传承。
+
+4. **跨文化传播**：张澄基的中文翻译和Andrew Quintman的英文翻译使《米拉日巴传》成为全球读者了解藏传密教修行传统的最重要窗口之一。其道歌被翻译成20多种语言。`,
+    interpretationEn: `"The Life of Milarepa" is a crucial text for understanding the relationship between Tibetan Buddhism and Mount Kailash. Its special value lies in:
+
+1. **Closest primary source to Kailash**: Among all texts in our library, "The Life of Milarepa" has the most direct geographical connection to Kailash. Milarepa's practice territory covered today's Ngari Prefecture and the southern Himalayan foothills. His meditation cave at Kailash remains an important pilgrimage site.
+
+2. **Distinguishing text from legend**: We honestly note that the contest story is not in the original text, but this does not diminish the book's value. On the contrary: distinguishing historical texts from folk legends enables more accurate understanding of Buddhist-Bön historical relations. While the contest legend is of later origin, it reflects the historical competition for Kailash authority — itself a valuable cultural phenomenon.
+
+3. **Core Kagyu text**: "The Life of Milarepa" is the Kagyu tradition's most important saint's biography, and the Kagyu contributed most to Kailash's sacralization. Through the lineage Milarepa→Marpa→Naropa→Tilopa, the Kagyu integrated Kailash into the Indian tantric transmission.
+
+4. **Cross-cultural transmission**: Zhang Chengji's Chinese translation and Andrew Quintman's English translation have made "The Life of Milarepa" one of the most important windows for global readers to understand Tibetan tantric practice traditions. The songs have been translated into over 20 languages.`
+  },
+  {
     book: "《苯教与西藏神话的起源》",
     bookEn: "Drung, Deu, and Bön",
     author: "南喀诺布（Namkhai Norbu, 1938-2018）",
