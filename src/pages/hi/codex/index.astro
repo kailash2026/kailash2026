@@ -1,0 +1,99 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+
+const entries = await getCollection('codex', ({ data }) => data.lang === 'hi');
+const sorted = entries.sort((a, b) => a.data.order - b.data.order);
+
+const title = 'कैलाश पर्वत कोडेक्स - विश्वकोश | Kailash 2026';
+const description = 'कैलाश पर्वत का सबसे व्यापक विश्वकोश: भूगोल, धर्म, इतिहास, व्यक्तित्व, पौराणिक कथाएँ, पारिस्थितिकी, और तीर्थयात्रा अभ्यास।';
+
+const categoryMap: Record<string, { label: string; entries: typeof sorted; icon: string }> = {
+  geography: { label: 'भूगोल', icon: '🏔️', entries: [] },
+  religion: { label: 'धर्म', icon: '🙏', entries: [] },
+  history: { label: 'इतिहास', icon: '📜', entries: [] },
+  figures: { label: 'व्यक्तित्व', icon: '👤', entries: [] },
+  myths: { label: 'पौराणिक कथाएँ', icon: '🗣️', entries: [] },
+  nature: { label: 'प्रकृति', icon: '🌿', entries: [] },
+  pilgrimage: { label: 'तीर्थयात्रा', icon: '🚶', entries: [] },
+};
+
+for (const e of sorted) {
+  if (categoryMap[e.data.category]) {
+    categoryMap[e.data.category].entries.push(e);
+  }
+}
+---
+
+<Layout title={title} description={description} lang="hi">
+  <!-- Hero -->
+  <section class="relative bg-kailash-dark">
+    <div class="relative w-full h-[40vh] lg:h-[45vh]">
+      <div class="absolute inset-0 bg-[url('/images/kailash-golden.webp')] bg-cover bg-center opacity-50"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/30 to-kailash-dark"></div>
+    </div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="text-center px-4 mt-16">
+        <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-4 font-light">ज्ञान · विवेक · पवित्र</p>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-white mb-4">
+          कैलाश पर्वत <span class="text-kailash-gold">कोडेक्स</span>
+        </h1>
+        <p class="text-xl text-white/60 max-w-3xl mx-auto">
+          भूगोल से आस्था तक, किंवदंती से वास्तविकता तक — सबसे संपूर्ण ज्ञानकोश
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Grid -->
+  <section class="py-16 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {Object.entries(categoryMap).filter(([_, cat]) => cat.entries.length > 0).map(([key, cat]) => (
+          <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group">
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">{cat.icon}</span>
+                <h2 class="font-display text-xl font-bold text-kailash-dark">{cat.label}</h2>
+                <span class="text-sm text-gray-400 ml-auto">({cat.entries.length})</span>
+              </div>
+              <div class="space-y-2">
+                {cat.entries.map((entry) => {
+                  const slug = entry.id.replace(/\.md$/, '').replace(/^hi\//, '');
+                  return (
+                    <a
+                      href={`/hi/codex/${slug}`}
+                      class="block px-3 py-2 rounded-lg hover:bg-kailash-cream transition-colors group/item"
+                    >
+                      <span class="text-sm font-medium text-kailash-dark group-hover/item:text-kailash-gold transition-colors">
+                        {entry.data.title}
+                      </span>
+                      <p class="text-xs text-gray-500 mt-0.5 line-clamp-1">{entry.data.description}</p>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-16 bg-kailash-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-white mb-4">एक बढ़ता हुआ ज्ञानकोश</h2>
+      <p class="text-white/60 mb-8 max-w-2xl mx-auto">
+        हम कैलाश पर्वत के बारे में सभी ज्ञान को व्यवस्थित रूप से संकलित कर रहे हैं, सात प्रमुख क्षेत्रों को कवर करते हुए एक संपूर्ण सांस्कृतिक चित्र प्रस्तुत कर रहे हैं।
+      </p>
+      <div class="inline-flex items-center gap-2 text-kailash-gold">
+        <span class="text-sm">{sorted.length} प्रविष्टियाँ</span>
+        <span class="text-white/40">·</span>
+        <span class="text-sm">7 श्रेणियाँ</span>
+        <span class="text-white/40">·</span>
+        <span class="text-sm">निरंतर बढ़ रहा है</span>
+      </div>
+    </div>
+  </section>
+</Layout>
