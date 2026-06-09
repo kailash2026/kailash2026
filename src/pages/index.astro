@@ -1,6 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SearchBox from '../components/SearchBox.astro';
+import { getCollection } from 'astro:content';
+
+const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 ---
 
 <Layout title="冈仁波齐2026 - 全球朝圣者平台 | 神山冈仁波齐" description="冈仁波齐2026：连接全球朝圣者的平台。藏传佛教、印度教、苯教、耆那教共同的圣地。转山路线、朝圣攻略、神山文化。">
@@ -382,6 +387,60 @@ import SearchBox from '../components/SearchBox.astro';
         <span data-lang-content="hi" style="display: none;">कीवर्ड टाइप करें, अपनी ज़रूरत की जानकारी जल्दी पाएँ</span>
       </p>
       <SearchBox />
+    </div>
+  </section>
+
+  <!-- Latest Blog Posts -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
+          <span data-lang-content="zh">最新朝圣指南</span>
+          <span data-lang-content="en" style="display: none;">Latest Pilgrimage Guides</span>
+          <span data-lang-content="ja" style="display: none;">最新巡礼ガイド</span>
+          <span data-lang-content="hi" style="display: none;">नवीनतम तीर्थयात्रा गाइड</span>
+        </h2>
+        <p class="text-gray-500">
+          <span data-lang-content="zh">深度解读冈仁波齐的宗教、路线与朝圣故事</span>
+          <span data-lang-content="en" style="display: none;">In-depth guides on Kailash religion, routes, and pilgrimage stories</span>
+          <span data-lang-content="ja" style="display: none;">カイラス山の宗教、ルート、巡礼の物語を深く解説</span>
+          <span data-lang-content="hi" style="display: none;">कैलाश पर्वत के धर्म, मार्ग और तीर्थ कथाओं पर गहन मार्गदर्शन</span>
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {latestPosts.map((post) => {
+          const slugParts = post.id.split('/');
+          const cleanSlug = slugParts.length > 1 ? slugParts.slice(1).join('/').replace(/\.md$/, '') : slugParts[0].replace(/\.md$/, '');
+          return (
+            <article class="bg-kailash-light rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition group">
+              <a href={`/blog/${cleanSlug}`} class="block">
+                <div class="aspect-[16/10] overflow-hidden">
+                  <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+                </div>
+              </a>
+              <div class="p-6">
+                <div class="flex flex-wrap gap-2 mb-3">
+                  {post.data.tags.slice(0, 2).map((tag) => (
+                    <span class="text-xs bg-kailash-cream text-kailash-dark/60 px-2 py-0.5 rounded-full">{tag}</span>
+                  ))}
+                </div>
+                <a href={`/blog/${cleanSlug}`}>
+                  <h3 class="font-display text-lg font-bold text-kailash-dark mb-2 group-hover:text-kailash-gold transition line-clamp-2">{post.data.title}</h3>
+                </a>
+                <p class="text-gray-500 text-sm line-clamp-2">{post.data.description}</p>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+      <div class="text-center mt-10">
+        <a href="/blog" class="inline-flex items-center text-kailash-gold font-semibold hover:text-kailash-dark transition">
+          <span data-lang-content="zh">查看全部文章 →</span>
+          <span data-lang-content="en" style="display: none;">View All Articles →</span>
+          <span data-lang-content="ja" style="display: none;">すべての記事を見る →</span>
+          <span data-lang-content="hi" style="display: none;">सभी लेख देखें →</span>
+        </a>
+      </div>
     </div>
   </section>
 </Layout>

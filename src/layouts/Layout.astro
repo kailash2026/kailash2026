@@ -2,6 +2,22 @@
 import Analytics from '../components/Analytics.astro';
 import SEO from '../components/SEO.astro';
 import '../styles/global.css';
+import { getCollection } from 'astro:content';
+
+// Build search index from all blog posts
+const allBlogPosts = await getCollection('blog');
+const searchIndex = allBlogPosts.map(post => {
+  const slugParts = post.id.split('/');
+  const cleanSlug = slugParts.length > 1 ? slugParts.slice(1).join('/').replace(/\.md$/, '') : slugParts[0].replace(/\.md$/, '');
+  const prefix = { zh: '', en: '/en', ja: '/ja', hi: '/hi' }[post.data.lang] || '';
+  return {
+    url: `${prefix}/blog/${cleanSlug}`,
+    title: post.data.title,
+    description: post.data.description,
+    tags: post.data.tags,
+    lang: post.data.lang,
+  };
+});
 
 export interface Props {
   title: string;
@@ -225,7 +241,11 @@ const navItems = [
     </div>
   </footer>
 
+  <script define:vars={{ index: JSON.stringify(searchIndex) }}>
+    const blogSearchIndex = JSON.parse(index);
+  </script>
   <script>
+
     // Mobile menu toggle
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -242,28 +262,53 @@ const navItems = [
 
       // Define searchable pages with keywords
       const searchablePages = [
-        { url: '/culture', title: '神山文化', keywords: ['文化', '宗教', '历史', '藏传佛教', '印度教', '苯教', '耆那教'] },
-        { url: '/guide', title: '朝圣攻略', keywords: ['攻略', '指南', '准备', '行程', '装备', '注意事项', '高原反应'] },
-        { url: '/routes', title: '转山路线', keywords: ['路线', '转山', '徒步', '里程', '海拔', '卓玛拉', '天葬台'] },
-        { url: '/stories', title: '朝圣故事', keywords: ['故事', '朝圣', '经历', '感悟', '传说', '米拉日巴', '信仰'] },
-        { url: '/gallery', title: '图库', keywords: ['图片', '照片', '风景', '冈仁波齐', '玛旁雍错', '雪山'] },
-        { url: '/faq', title: '常见问题', keywords: ['问题', 'FAQ', '签证', '交通', '住宿', '费用', '最佳时间'] },
-        { url: '/about', title: '关于我们', keywords: ['关于', '介绍', '团队', '使命', '愿景'] },
-        { url: '/contact', title: '联系我们', keywords: ['联系', '邮箱', '反馈', '合作'] }
+        { url: '/culture', title: '神山文化', titleEn: 'Culture', keywords: ['文化', '宗教', '历史', '藏传佛教', '印度教', '苯教', '耆那教', 'culture', 'religion', 'buddhism', 'hinduism', 'bon', 'jainism'] },
+        { url: '/guide', title: '朝圣攻略', titleEn: 'Guide', keywords: ['攻略', '指南', '准备', '行程', '装备', '注意事项', '高原反应', 'guide', 'preparation', 'equipment', 'altitude'] },
+        { url: '/routes', title: '转山路线', titleEn: 'Routes', keywords: ['路线', '转山', '徒步', '里程', '海拔', '卓玛拉', 'kora', 'route', 'trek', '52km'] },
+        { url: '/stories', title: '朝圣故事', titleEn: 'Stories', keywords: ['故事', '朝圣', '经历', '感悟', '传说', '米拉日巴', 'pilgrim', 'story'] },
+        { url: '/gallery', title: '图库', titleEn: 'Gallery', keywords: ['图片', '照片', '风景', '冈仁波齐', '玛旁雍错', '雪山', 'photo', 'gallery'] },
+        { url: '/faq', title: '常见问题', titleEn: 'FAQ', keywords: ['问题', 'FAQ', '签证', '交通', '住宿', '费用', 'visa', 'transport', 'cost', 'permit'] },
+        { url: '/about', title: '关于我们', titleEn: 'About', keywords: ['关于', '介绍', '团队', '使命', '愿景', 'about'] },
+        { url: '/contact', title: '联系我们', titleEn: 'Contact', keywords: ['联系', '邮箱', '反馈', 'contact', 'email'] },
+        { url: '/codex', title: '知识宝典', titleEn: 'Codex', keywords: ['百科', '知识', 'codex', 'encyclopedia', '文献', '经典'] },
+        { url: '/blog', title: '朝圣博客', titleEn: 'Blog', keywords: ['博客', '文章', 'blog', 'article', '指南'] },
       ];
 
-      // Find matching pages
-      const results = searchablePages.filter(page => {
+      // Search static pages
+      const pageResults = searchablePages.filter(page => {
         const inTitle = page.title.toLowerCase().includes(searchTerm);
+        const inTitleEn = (page.titleEn || '').toLowerCase().includes(searchTerm);
         const inKeywords = page.keywords.some(k => k.includes(searchTerm));
-        return inTitle || inKeywords;
+        return inTitle || inTitleEn || inKeywords;
       });
 
-      if (results.length > 0) {
-        // Navigate to the best match (first result)
-        window.location.href = results[0].url;
+      // Search blog posts
+      const blogResults = blogSearchIndex.filter(post => {
+        const inTitle = post.title.toLowerCase().includes(searchTerm);
+        const inDesc = post.description.toLowerCase().includes(searchTerm);
+        const inTags = post.tags.some(t => t.toLowerCase().includes(searchTerm));
+        return inTitle || inDesc || inTags;
+      }).slice(0, 5);
+
+      const allResults = [...pageResults.map(p => ({ ...p, type: 'page' })), ...blogResults.map(p => ({ ...p, type: 'blog' }))];
+
+      if (allResults.length === 1) {
+        window.location.href = allResults[0].url;
+      } else if (allResults.length > 1) {
+        // Show results as a simple modal
+        const existing = document.getElementById('search-results-modal');
+        if (existing) existing.remove();
+        const modal = document.createElement('div');
+        modal.id = 'search-results-modal';
+        modal.style.cssText = 'position:fixed;top:4rem;left:50%;transform:translateX(-50%);width:90%;max-width:32rem;max-height:70vh;overflow-y:auto;background:white;border-radius:1rem;box-shadow:0 20px 60px rgba(0,0,0,0.3);z-index:9999;padding:1.5rem;';
+        const bg = document.createElement('div');
+        bg.style.cssText = 'position:fixed;inset:0;z-index:9998;';
+        bg.onclick = () => { modal.remove(); bg.remove(); };
+        modal.innerHTML = '<h3 class="font-bold text-kailash-dark mb-1">搜索结果 (' + allResults.length + ')</h3><p class="text-xs text-gray-400 mb-4">搜索: ' + searchTerm + '</p>' +
+          allResults.map(r => '<a href="' + r.url + '" class="block p-3 rounded-lg hover:bg-kailash-cream transition mb-1"><span class="font-medium text-kailash-dark">' + r.title + '</span><span class="text-xs text-gray-400 ml-2">' + (r.type === 'blog' ? '📝' : '📄') + '</span>' + (r.description ? '<p class="text-sm text-gray-500 mt-1 line-clamp-1">' + r.description + '</p>' : '') + '</a>').join('');
+        document.body.appendChild(bg);
+        document.body.appendChild(modal);
       } else {
-        // No results - show alert or redirect to search page
         alert('未找到相关内容，请尝试其他关键词');
       }
     }
