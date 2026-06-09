@@ -1,0 +1,266 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const enPosts = allPosts.filter(p => p.data.lang === 'en' || !p.data.lang);
+
+const relatedGuides = [
+  { title: 'Kora Route Guide', desc: 'Complete 52km outer kora guide', href: '/en/guide#kora', icon: '🥾' },
+  { title: 'Visa & Permits', desc: 'Tibet Travel Permit process', href: '/en/blog/kailash-visa-permit-guide', icon: '🛂' },
+  { title: 'Transport Guide', desc: 'How to reach Mount Kailash', href: '/en/blog/kailash-transport-guide', icon: '🚌' },
+  { title: 'Best Time to Visit', desc: 'Month-by-month 2026 guide', href: '/en/blog/best-time-kailash-yatra', icon: '📅' },
+];
+---
+
+<Layout title="2026 Horse Year — Once-in-12-Years Mount Kailash Pilgrimage" description="2026 is the Tibetan Fire Horse Year. One kora around Kailash equals thirteen. Discover the spiritual significance, key dates, and practical guides for the Horse Year pilgrimage." lang="en">
+  <style>
+    .horse-hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .horse-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(180,30,30,0.85) 0%, rgba(80,20,20,0.75) 50%, rgba(0,0,0,0.6) 100%), url('/kailash-golden.webp') center/cover; }
+    .horse-hero-content { position: relative; z-index: 1; text-align: center; padding: 2rem; max-width: 800px; }
+    .horse-hero h1 { font-size: clamp(2rem, 6vw, 4rem); color: #ffd700; font-weight: 800; line-height: 1.15; text-shadow: 0 4px 20px rgba(0,0,0,0.5); margin-bottom: 1rem; }
+    .horse-hero .subtitle { font-size: clamp(1rem, 2.5vw, 1.4rem); color: #f0e6d3; font-style: italic; letter-spacing: 2px; }
+
+    .fire-badge { display: inline-block; background: linear-gradient(135deg, #ff6b35, #ff4500); color: white; padding: 0.5rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(255,69,0,0.4); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 3px; }
+
+    .section { padding: 5rem 0; }
+    .section-alt { background: #faf6f0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #1a1a2e; margin-bottom: 0.5rem; }
+    .section-subtitle { text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 3rem; font-style: italic; }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+    .stat-card { background: white; border-radius: 16px; padding: 2rem; text-align: center; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+    .stat-number { font-size: 3rem; font-weight: 800; color: #b72b26; }
+    .stat-label { color: #666; font-size: 0.95rem; margin-top: 0.5rem; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .card { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid #f0ece5; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+    .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a1a2e; }
+    .card p { color: #555; line-height: 1.7; font-size: 0.95rem; }
+
+    .guide-card { background: white; border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: all 0.2s ease; border: 1px solid #f0ece5; text-decoration: none; }
+    .guide-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .guide-card .icon { font-size: 2rem; flex-shrink: 0; }
+    .guide-card .info h4 { font-size: 1.05rem; font-weight: 600; color: #1a1a2e; margin-bottom: 0.2rem; }
+    .guide-card .info p { font-size: 0.85rem; color: #888; }
+
+    .quote-block { background: linear-gradient(135deg, #1a1a2e, #2d2d44); color: #f0e6d3; border-radius: 16px; padding: 3rem; margin: 3rem 0; text-align: center; }
+    .quote-block q { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-style: italic; line-height: 1.8; }
+    .quote-block .source { margin-top: 1rem; color: #c9a84c; font-size: 0.9rem; }
+
+    .timeline { position: relative; margin: 3rem 0; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, #b72b26, #ff6b35); }
+    .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 2rem; }
+    .timeline-item::before { content: '🔥'; position: absolute; left: -1.2rem; top: 0; font-size: 1.2rem; }
+    .timeline-item .date { font-weight: 700; color: #b72b26; font-size: 1.1rem; }
+    .timeline-item p { color: #555; margin-top: 0.3rem; line-height: 1.6; }
+
+    .cta-section { background: linear-gradient(135deg, #8b1a1a, #b72b26); color: white; border-radius: 16px; padding: 3rem; text-align: center; margin: 3rem 0; }
+    .cta-section h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
+    .cta-section p { font-size: 1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+    .cta-btn { display: inline-block; background: #ffd700; color: #1a1a2e; padding: 0.8rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: transform 0.2s; }
+    .cta-btn:hover { transform: scale(1.05); }
+
+    .lang-badge { display: inline-block; background: #e8f4e8; color: #2d6a2d; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 0.5rem; font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .section { padding: 3rem 0; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .stat-card { padding: 1.2rem; }
+      .stat-number { font-size: 2rem; }
+    }
+  </style>
+
+  <!-- Hero -->
+  <section class="horse-hero">
+    <div class="horse-hero-content">
+      <div class="fire-badge">🔥 2026 Tibetan Fire Horse Year</div>
+      <h1>Once in 12 Years<br />Mount Kailash Pilgrimage</h1>
+      <p style="font-size:1.5rem;color:#ffd700;font-weight:600;margin:0.5rem 0">One Kora = Thirteen in Merit</p>
+      <p class="subtitle">Previous: 2014 — Next: 2038</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" style="margin-bottom:2rem">The Numbers Behind the Sacred Year</h2>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">13×</div><div class="stat-label">Merit multiplier in Horse Year</div></div>
+        <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">Years between cycles</div></div>
+        <div class="stat-card"><div class="stat-number">1966</div><div class="stat-label">Last Fire Horse Year</div></div>
+        <div class="stat-card"><div class="stat-number">2086</div><div class="stat-label">Next Fire Horse Year</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Horse Year -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Why the Horse Year Matters</h2>
+      <p class="section-subtitle">Four religions. One sacred mountain. One extraordinary year.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">📿</div>
+          <h3>Tibetan Buddhism</h3>
+          <p>Shakyamuni Buddha was born in a Horse Year. According to the Kalachakra Tantra, one circumambulation of Kailash in a Horse Year equals thirteen in ordinary years. Chakrasamvara's presence amplifies the merit.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🕉️</div>
+          <h3>Hinduism</h3>
+          <p>Kailasa is the abode of Lord Shiva. In the Horse Year, Shiva and his consort are believed to dance atop the mountain, blessing all pilgrims who make the journey.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">☸️</div>
+          <h3>Bön</h3>
+          <p>Bön founder Tonpa Shenrab descended from heaven in a Horse Year. As the cosmic axis (Yungdrung Gutseg), Kailash's power peaks during the Horse Year, making counter-clockwise circumambulation especially powerful.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🪷</div>
+          <h3>Jainism</h3>
+          <p>Rishabhanatha, the first Tirthankara, attained nirvana here. Circumambulating Kailash in the Horse Year honors all twenty-three Tirthankaras and purifies accumulated karma.</p>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        <q>One circumambulation of Mount Kailash in a Horse Year equals thirteen in ordinary years. This is not hyperbole — it is a thousand-year tradition born from the convergence of time, faith, and blessing.</q>
+        <div class="source">— Tibetan Buddhist tradition, rooted in the Kalachakra Tantra</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Dates -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">2026 Fire Horse Year Key Dates</h2>
+      <p class="section-subtitle">2026 is the Fire Horse Year of the 17th Rabjung cycle — the last was 1966, the next will be 2086</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="date">Mid-April — Trail Opens</div>
+          <p>The Kailash kora trail opens after winter closure. May open earlier than usual in a Horse Year.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">Mid-to-Late May — Early Window</div>
+          <p>Weather improves. Early Horse Year pilgrims begin arriving but crowds remain manageable.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">~June 13 — Saga Dawa Festival 🏆</div>
+          <p>The 15th day of the 4th Tibetan month. Buddha's enlightenment and parinirvana. Saga Dawa in a Horse Year = the pilgrimage of a lifetime! 3-5x normal crowds.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">July-August — Indian Yatra Peak</div>
+          <p>Official Kailash Mansarovar Yatra groups from India. The trail is busiest during this period.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">September — Secondary Peak</div>
+          <p>Stable weather. Still busy. Book accommodation by March.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">Mid-October — Final Window</div>
+          <p>Weather turns cold. Horse Year may push the closure date later. For experienced trekkers only.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practical Guides -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Horse Year Practical Guides</h2>
+      <p class="section-subtitle">3-5x normal pilgrim numbers — preparation is everything</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin:2rem 0">
+        {relatedGuides.map(g => (
+          <a href={g.href} class="guide-card">
+            <span class="icon">{g.icon}</span>
+            <div class="info"><h4>{g.title}</h4><p>{g.desc}</p></div>
+          </a>
+        ))}
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🏠</div>
+          <h3>Book Accommodation Early</h3>
+          <p>Darchen's normal capacity is ~2000 people. Horse Year peak can reach 5000-8000. Guesthouses at Drirapuk fill by mid-morning. Bring a tent and sleeping bag as backup.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📝</div>
+          <h3>Apply for Permits ASAP</h3>
+          <p>Tibet Travel Permit + Alien's Travel Permit for Ngari. Horse Year surges mean processing delays. Start 2-4 months ahead. You must join a licensed tour group.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚗</div>
+          <h3>Transport Prices Double</h3>
+          <p>The 1200km drive from Lhasa to Darchen can cost double during Horse Year. Book your vehicle 2-3 months in advance. Last-minute booking is nearly impossible.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎒</div>
+          <h3>Bring Your Own Supplies</h3>
+          <p>Teahouses along the 52km trail stock instant noodles and water, but supplies run out fast in a Horse Year. Stock up on 2-3 days of dry food in Lhasa or Shigatse before heading to Darchen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Indian Pilgrims -->
+  <section class="section" style="background:#f5f0e8">
+    <div class="container" style="text-align:center">
+      <h2 class="section-title">🇮🇳 For Indian Pilgrims</h2>
+      <p class="section-subtitle">Kailash Mansarovar Yatra 2026 — Official Information</p>
+      <div style="max-width:700px;margin:0 auto">
+        <p style="font-size:1.1rem;line-height:1.8;color:#444;margin-bottom:2rem">
+          The Government of India has organized official Yatra groups since 1981. The 2026 Horse Year is expected to see record applications. Consider applying through both the official MEA channel and Nepal-based group tours for backup options.
+        </p>
+        <p style="font-size:1.5rem;margin-bottom:1.5rem">🇮🇳 हिंदी में पढ़ें <span class="lang-badge">Hindi version</span></p>
+        <a href="/hi/blog/kailash-indian-pilgrim-guide" class="cta-btn" style="background:#b72b26;color:white">Indian Pilgrim Guide →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Content -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Deep Dive: Horse Year 2026</h2>
+      <p class="section-subtitle">Explore our complete library of Kailash articles</p>
+
+      <div class="card-grid">
+        <a href="/en/blog/kailash-horse-year-2026" class="card" style="text-decoration:none;display:block">
+          <div class="card-icon">📖</div>
+          <h3>Kailash Horse Year 2026: Why This Once-in-12-Years Pilgrimage Is the Most Auspicious</h3>
+          <p>From Buddhist scripture to practical preparation — the definitive guide to the 2026 Fire Horse Year.</p>
+        </a>
+        <a href="/en/blog/kailash-four-religions" class="card" style="text-decoration:none;display:block">
+          <div class="card-icon">📖</div>
+          <h3>Mount Kailash and the Four Religions</h3>
+          <p>How Tibetan Buddhism, Hinduism, Bön, and Jainism share this sacred mountain.</p>
+        </a>
+        <a href="/en/blog/best-time-kailash-yatra" class="card" style="text-decoration:none;display:block">
+          <div class="card-icon">📅</div>
+          <h3>Best Time to Visit Mount Kailash 2026</h3>
+          <p>Month-by-month guide with Horse Year crowd projections, weather data, and festival dates.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding:2rem 0 5rem">
+    <div class="container">
+      <div class="cta-section">
+        <h3>🕌 The 2026 Fire Horse Year Awaits</h3>
+        <p>2038 is a long time to wait. Twelve years is half a generation.</p>
+        <p>Start planning your Horse Year pilgrimage today.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <a href="/en/guide" class="cta-btn">Explore Pilgrimage Guide →</a>
+          <a href="/en/culture" class="cta-btn" style="background:white;color:#b72b26">Discover Sacred Mountain Culture →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,300 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all related content
+const allPosts = await getCollection('blog');
+const zhPosts = allPosts.filter(p => p.data.lang === 'zh');
+
+const horseYearContent = zhPosts.filter(p => 
+  p.id.includes('horse-year') || 
+  p.id.includes('pilgrimage-horse') ||
+  p.data.tags?.some(t => t.includes('马年') || t.includes('2026'))
+);
+
+const relatedGuides = [
+  { title: '转山路线详解', desc: '52公里外转完整攻略', href: '/guide#kora', icon: '🥾' },
+  { title: '签证与边防证', desc: '外国人进藏许可全流程', href: '/blog/kailash-visa-permit-guide', icon: '🛂' },
+  { title: '交通全攻略', desc: '如何抵达冈仁波齐', href: '/blog/kailash-transport-guide', icon: '🚌' },
+  { title: '最佳时间', desc: '2026逐月天气指南', href: '/blog/best-time-kailash-yatra', icon: '📅' },
+];
+
+const featuredArticles = zhPosts.filter(p =>
+  ['kailash-four-religions', 'kailash-kora-guide-2026', 'kailash-indian-pilgrim-guide'].some(id => p.id.includes(id))
+);
+---
+
+<Layout title="2026马年转山 — 十二年一遇的冈仁波齐朝圣盛事" description="2026年是藏历火马年，冈仁波齐转山功德相当于平年13倍。了解马年转山的宗教意义、最佳时间、实用攻略。">
+  <style>
+    .horse-hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .horse-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(180,30,30,0.85) 0%, rgba(80,20,20,0.75) 50%, rgba(0,0,0,0.6) 100%), url('/kailash-golden.webp') center/cover; }
+    .horse-hero-content { position: relative; z-index: 1; text-align: center; padding: 2rem; max-width: 800px; }
+    .horse-hero h1 { font-size: clamp(2.2rem, 6vw, 4.5rem); color: #ffd700; font-weight: 800; line-height: 1.15; text-shadow: 0 4px 20px rgba(0,0,0,0.5); margin-bottom: 1rem; }
+    .horse-hero .subtitle { font-size: clamp(1rem, 2.5vw, 1.4rem); color: #f0e6d3; font-style: italic; letter-spacing: 2px; }
+
+    .fire-badge { display: inline-block; background: linear-gradient(135deg, #ff6b35, #ff4500); color: white; padding: 0.5rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(255,69,0,0.4); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 3px; }
+
+    .section { padding: 5rem 0; }
+    .section-alt { background: #faf6f0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #1a1a2e; margin-bottom: 0.5rem; }
+    .section-subtitle { text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 3rem; font-style: italic; }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+    .stat-card { background: white; border-radius: 16px; padding: 2rem; text-align: center; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+    .stat-number { font-size: 3rem; font-weight: 800; color: #b72b26; }
+    .stat-label { color: #666; font-size: 0.95rem; margin-top: 0.5rem; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .card { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid #f0ece5; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+    .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a1a2e; }
+    .card p { color: #555; line-height: 1.7; font-size: 0.95rem; }
+
+    .guide-card { background: white; border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: all 0.2s ease; cursor: pointer; border: 1px solid #f0ece5; text-decoration: none; }
+    .guide-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .guide-card .icon { font-size: 2rem; flex-shrink: 0; }
+    .guide-card .info h4 { font-size: 1.05rem; font-weight: 600; color: #1a1a2e; margin-bottom: 0.2rem; }
+    .guide-card .info p { font-size: 0.85rem; color: #888; }
+
+    .quote-block { background: linear-gradient(135deg, #1a1a2e, #2d2d44); color: #f0e6d3; border-radius: 16px; padding: 3rem; margin: 3rem 0; text-align: center; }
+    .quote-block q { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-style: italic; line-height: 1.8; }
+    .quote-block .source { margin-top: 1rem; color: #c9a84c; font-size: 0.9rem; }
+
+    .timeline { position: relative; margin: 3rem 0; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, #b72b26, #ff6b35); }
+    .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 2rem; }
+    .timeline-item::before { content: '🔥'; position: absolute; left: -1.2rem; top: 0; font-size: 1.2rem; }
+    .timeline-item .date { font-weight: 700; color: #b72b26; font-size: 1.1rem; }
+    .timeline-item p { color: #555; margin-top: 0.3rem; line-height: 1.6; }
+
+    .cta-section { background: linear-gradient(135deg, #8b1a1a, #b72b26); color: white; border-radius: 16px; padding: 3rem; text-align: center; margin: 3rem 0; }
+    .cta-section h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
+    .cta-section p { font-size: 1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+    .cta-btn { display: inline-block; background: #ffd700; color: #1a1a2e; padding: 0.8rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: transform 0.2s; }
+    .cta-btn:hover { transform: scale(1.05); }
+
+    .lang-badge { display: inline-block; background: #e8f4e8; color: #2d6a2d; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 0.5rem; font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .section { padding: 3rem 0; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .stat-card { padding: 1.2rem; }
+      .stat-number { font-size: 2rem; }
+    }
+  </style>
+
+  <!-- Hero -->
+  <section class="horse-hero">
+    <div class="horse-hero-content">
+      <div class="fire-badge">🔥 2026 藏历火马年</div>
+      <h1>十二年一遇<br />冈仁波齐朝圣盛事</h1>
+      <p class="subtitle" style="font-size:1.5rem;color:#ffd700;font-weight:600;margin:0.5rem 0">转山一圈 · 功德十三倍</p>
+      <p class="subtitle">上一次马年：2014 — 下一次：2038</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">13×</div><div class="stat-label">马年转山功德倍率</div></div>
+        <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">年一次轮回</div></div>
+        <div class="stat-card"><div class="stat-number">1966</div><div class="stat-label">上一次火马年</div></div>
+        <div class="stat-card"><div class="stat-number">2086</div><div class="stat-label">下一次火马年</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Horse Year -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">为什么马年转山如此殊胜？</h2>
+      <p class="section-subtitle">藏传佛教·印度教·苯教·耆那教——四大宗教的共同圣年</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">📿</div>
+          <h3>藏传佛教</h3>
+          <p>释迦牟尼佛诞生于马年。据《时轮金刚续》记载，马年转冈仁波齐一圈，等于平常年份转十三圈。胜乐金刚在此驻锡加持，功德亿倍增长。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🕉️</div>
+          <h3>印度教</h3>
+          <p>凯拉萨是湿婆神的居所。马年朝圣尤其吉祥——传说在马年，湿婆与其眷属在冈仁波齐山顶起舞，降福于一切朝圣者。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">☸️</div>
+          <h3>苯教</h3>
+          <p>苯教创始人敦巴辛饶于马年从天而降。作为世界中心（宇宙轴），冈仁波齐在马年的加持力达到巅峰，逆时针转山功德尤为殊胜。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🪷</div>
+          <h3>耆那教</h3>
+          <p>第一位渡者（Tirthankara）瑞沙巴那他在此涅槃。马年绕行冈仁波齐，是对二十三位渡者的最高敬意，也是净化业力的最佳时机。</p>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        <q>马年转山一圈，等于平常年份转十三圈。这不是夸张的说法，而是藏传佛教千年传承的信念——是时空、信仰与加持的交汇。</q>
+        <div class="source">— 藏传佛教传统，源自《时轮金刚续》</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2026 Key Dates -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">2026火马年关键日期</h2>
+      <p class="section-subtitle">2026年是藏历第十七饶迥的火马年，上一次火马年是1966年，下一次是2086年</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="date">4月中旬 — 转山道开放</div>
+          <p>冬季关闭后，冈仁波齐转山道正式开放。马年可能提前开放。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">5月中下旬 — 最佳窗口</div>
+          <p>天气转好，马年早期朝圣者开始抵达，但尚未达到高峰。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">6月13日左右 — 萨嘎达瓦节 🏆</div>
+          <p>藏历四月十五，佛陀成道涅槃日。萨嘎达瓦 + 马年 = 一生一次的朝圣时机！人流量将是平常的3-5倍。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">7-8月 — 印度朝圣高峰</div>
+          <p>印度官方朝圣团（Kailash Mansarovar Yatra）集中出发，路段较为拥挤。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">9月 — 次高峰</div>
+          <p>天气稳定，朝圣者人数仍然较高。建议提前3个月预订。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">10月中旬 — 尾声</div>
+          <p>天气转冷，但马年可能延长开放时间。适合经验丰富的徒步者。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practical Guides -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">马年朝圣实用指南</h2>
+      <p class="section-subtitle">马年人数是平常3-5倍，提前准备是关键</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin:2rem 0">
+        <a href={relatedGuides[0].href} class="guide-card">
+          <span class="icon">{relatedGuides[0].icon}</span>
+          <div class="info"><h4>{relatedGuides[0].title}</h4><p>{relatedGuides[0].desc}</p></div>
+        </a>
+        <a href={relatedGuides[1].href} class="guide-card">
+          <span class="icon">{relatedGuides[1].icon}</span>
+          <div class="info"><h4>{relatedGuides[1].title}</h4><p>{relatedGuides[1].desc}</p></div>
+        </a>
+        <a href={relatedGuides[2].href} class="guide-card">
+          <span class="icon">{relatedGuides[2].icon}</span>
+          <div class="info"><h4>{relatedGuides[2].title}</h4><p>{relatedGuides[2].desc}</p></div>
+        </a>
+        <a href={relatedGuides[3].href} class="guide-card">
+          <span class="icon">{relatedGuides[3].icon}</span>
+          <div class="info"><h4>{relatedGuides[3].title}</h4><p>{relatedGuides[3].desc}</p></div>
+        </a>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🏠</div>
+          <h3>住宿提前订</h3>
+          <p>塔尔钦正常容量约2000人，马年高峰可达5000-8000人。止热寺床位极为紧张，建议自带帐篷睡袋备用。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📝</div>
+          <h3>许可证尽早办</h3>
+          <p>外国人进藏许可 + 阿里地区边防证。马年申请人数激增，建议提前2-4个月联系旅行社办理。100%需要跟团。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚗</div>
+          <h3>交通马年翻倍</h3>
+          <p>拉萨至塔尔钦的包车价格在马年可能翻倍。建议提前2-3个月预订，临时找车基本不可能。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎒</div>
+          <h3>物资自备</h3>
+          <p>沿途补给点的方便面、矿泉水在马年可能被抢购一空。建议在拉萨或日喀则提前备足2-3天干粮和补给。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Indian Pilgrims -->
+  <section class="section" style="background:#f5f0e8">
+    <div class="container" style="text-align:center">
+      <h2 class="section-title">🇮🇳 印度朝圣者专享</h2>
+      <p class="section-subtitle">Kailash Mansarovar Yatra 2026 官方信息</p>
+      <div style="max-width:700px;margin:0 auto">
+        <p style="font-size:1.1rem;line-height:1.8;color:#444;margin-bottom:2rem">
+          印度政府自1981年起组织官方朝圣团。2026马年预计申请人数激增。除官方通道外，也可通过尼泊尔加德满都经西藏入境。
+          建议同时准备多条路线方案。
+        </p>
+        <p style="font-size:1.5rem;margin-bottom:1.5rem">🇮🇳 हिंदी में पढ़ें <span class="lang-badge">印地语</span></p>
+        <a href="/hi/blog/kailash-indian-pilgrim-guide" class="cta-btn" style="background:#b72b26;color:white">印度朝圣者指南 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Content -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">深度了解马年转山</h2>
+      <p class="section-subtitle">更多关于冈仁波齐和2026火马年的内容</p>
+
+      <div class="card-grid">
+        {horseYearContent.length > 0 ? horseYearContent.slice(0, 4).map(post => {
+          const slug = post.id.replace(/\.md$/, '').split('/').slice(1).join('/');
+          return (
+            <a href={`/blog/${slug}`} class="card" style="text-decoration:none;display:block">
+              <div class="card-icon">📖</div>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+            </a>
+          );
+        }) : (
+          <>
+            <a href="/blog/kailash-horse-year-2026" class="card" style="text-decoration:none;display:block">
+              <div class="card-icon">📖</div>
+              <h3>2026马年转山：为什么今年是12年一遇的朝圣最佳时机</h3>
+              <p>从藏传佛教经典角度解读马年转山的殊胜意义，包括释迦牟尼佛与马年的渊源、火马年的特殊意义、四大宗教的马年视角，以及详细的朝圣准备工作。</p>
+            </a>
+            <a href="/blog/kailash-four-religions" class="card" style="text-decoration:none;display:block">
+              <div class="card-icon">📖</div>
+              <h3>冈仁波齐与四大宗教</h3>
+              <p>藏传佛教、印度教、苯教和耆那教如何共同尊崇这座神圣的山峰。</p>
+            </a>
+            <a href="/blog/kailash-kora-guide-2026" class="card" style="text-decoration:none;display:block">
+              <div class="card-icon">🥾</div>
+              <h3>2026冈仁波齐转山完整攻略</h3>
+              <p>52公里转山路线详解，含海拔、时间、补给点等实用信息。</p>
+            </a>
+          </>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding:2rem 0 5rem">
+    <div class="container">
+      <div class="cta-section">
+        <h3>🕌 2026火马年——你准备好了吗？</h3>
+        <p>2038年之前，这是唯一的机会。十二年太长，人生有几个十二年？</p>
+        <p>从今天开始规划你的马年朝圣之旅。</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <a href="/guide" class="cta-btn">浏览朝圣攻略 →</a>
+          <a href="/culture" class="cta-btn" style="background:white;color:#b72b26">了解神山文化 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
