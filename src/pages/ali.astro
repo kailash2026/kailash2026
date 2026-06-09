@@ -1,116 +1,117 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// 阿里人文风情 - 照片数据
+// 冈仁波齐·写实影像 — 用镜头记录神山与朝圣的真实面貌
+// 不做艺术加工，不搞旅游渲染。就是客观记录。
 const culturePhotos = [
   {
-    id: "guge",
-    title: "古格王朝遗址",
-    titleEn: "Guge Kingdom Ruins",
-    desc: "神秘消失的古格王朝，留存于扎达土林之中的千年文明",
-    descEn: "The mysterious Guge Kingdom, a thousand-year civilization preserved in Zanda's earth forest",
-    image: "kailash-aerial.webp",
-    location: "扎达县"
-  },
-  {
-    id: "tholing",
-    title: "托林寺",
-    titleEn: "Tholing Monastery",
-    desc: "藏传佛教后弘期发源地，千年壁画见证佛法复兴",
-    descEn: "Cradle of Tibetan Buddhism's later dissemination, millennium-old murals witness Dharma revival",
+    id: "golden-peak",
+    title: "日照金山",
+    titleEn: "Golden Summit at Dawn",
+    desc: "日出时分，第一缕阳光点燃冈仁波齐南壁。金字塔形山体在晨光中呈现金色——藏语称「斯巴阔洛」，意为金色神山。",
+    descEn: "First light ignites Kailash's south face at dawn. The pyramidal peak glows gold — Tibetans call this 'Serpo Kora,' the golden sacred mountain.",
     image: "kailash-golden.webp",
-    location: "扎达县"
+    location: "塔尔钦南侧·日出角度"
   },
   {
-    id: "zanda",
-    title: "扎达土林",
-    titleEn: "Zanda Earth Forest",
-    desc: "千万年地质变迁形成的天然奇观，宛如外星地貌",
-    descEn: "A natural wonder formed by millions of years of geological change, like an alien landscape",
-    image: "kailash-prairie.webp",
-    location: "扎达县"
+    id: "north-face",
+    title: "神山北壁",
+    titleEn: "The North Face",
+    desc: "转山第一天途中可见的北壁景观。巨大的万字符印记隐约可辨——藏传佛教和苯教均视此印记为神圣符号，方向相反，信仰如一。",
+    descEn: "The north face visible on Day 1 of the kora. A faint swastika mark can be discerned on the rock — revered by both Tibetan Buddhists and Bön practitioners, opposite in direction, one in faith.",
+    image: "kailash-aerial.webp",
+    location: "止热寺附近·转山沿途"
   },
   {
-    id: "nomad",
-    title: "阿里牧民",
-    titleEn: "Ngari Nomads",
-    desc: "逐水草而居的游牧生活，高原上的自由灵魂",
-    descEn: "Nomadic life following water and grass, free spirits on the high plateau",
-    image: "kailash-yaks.webp",
-    location: "阿里地区"
+    id: "drolma-la",
+    title: "卓玛拉垭口",
+    titleEn: "Drolma La Pass",
+    desc: "海拔5630米的卓玛拉垭口是转山路线最高点。朝圣者在此抛撒经幡、留下衣物——象征放下过去的自己。经年累月，经幡铺满山隘。",
+    descEn: "At 5,630 meters, Drolma La is the highest point of the kora. Pilgrims scatter lungta (prayer flags) and leave clothing — symbolizing the shedding of the old self. The pass is carpeted with years of prayer flags.",
+    image: "kailash-sunrise.webp",
+    location: "卓玛拉垭口·转山最高点"
   },
   {
-    id: "manasarovar",
+    id: "manasarovar-lake",
     title: "玛旁雍错",
     titleEn: "Lake Manasarovar",
-    desc: "世界上海拔最高的淡水湖之一，四大河流的源头圣湖",
-    descEn: "One of the highest freshwater lakes, sacred source of four great rivers",
+    desc: "冈仁波齐以南的玛旁雍错，世界海拔最高的淡水湖之一。印度教称其为「玛那莎之湖」——梵天意念所化。湖面海拔4588米，冬季冰封，夏季碧蓝如镜。",
+    descEn: "South of Kailash lies Manasarovar, among the world's highest freshwater lakes. Hindus call it 'the lake born from Brahma's mind.' At 4,588m, it freezes in winter and gleams turquoise in summer.",
     image: "kailash-lake.webp",
-    location: "普兰县"
+    location: "普兰县·冈仁波齐以南"
   },
   {
-    id: "prayer",
-    title: "经幡与玛尼堆",
-    titleEn: "Prayer Flags & Mani Stones",
-    desc: "风马旗随风飘扬，玛尼石刻经累世——信仰的无声诉说",
-    descEn: "Wind-horse flags flutter, mani stones accumulate prayers — the silent voice of faith",
-    image: "kailash-birds.webp",
+    id: "pilgrim-prostration",
+    title: "磕长头的朝圣者",
+    titleEn: "Prostrating Pilgrims",
+    desc: "转山路上，藏族朝圣者以全身伏地的方式前行——每一步都用身体丈量。转山一圈等于念诵六字真言六亿遍。这不是徒步，是修行。",
+    descEn: "On the kora route, Tibetan pilgrims advance by full-body prostration — measuring every step with their entire being. One circuit equals 600 million mantra recitations. This is not trekking; this is practice.",
+    image: "kailash-prairie.webp",
     location: "转山沿途"
   },
   {
-    id: "sunrise",
-    title: "神山日出",
-    titleEn: "Sacred Sunrise",
-    desc: "第一缕阳光照亮神山金顶，新的一天在祈祷中开始",
-    descEn: "First light illuminates the golden peak, a new day begins in prayer",
-    image: "kailash-sunrise.webp",
-    location: "冈仁波齐"
+    id: "drirapuk",
+    title: "止热寺",
+    titleEn: "Drirapuk Monastery",
+    desc: "转山第一天宿营点。海拔5080米，正对冈仁波齐北壁。传说米拉日巴曾在此修行——寺院岩壁上至今留有他的手印和头印。",
+    descEn: "Day 1 campsite of the kora. At 5,080m, it faces Kailash's north wall directly. Legend holds that Milarepa practiced here — his hand and head prints remain visible on the monastery rock face.",
+    image: "kailash-yaks.webp",
+    location: "止热寺·转山第一天"
   },
   {
-    id: "starry",
-    title: "阿里星空",
-    titleEn: "Ngari Starry Sky",
-    desc: "世界最佳暗夜保护区之一，银河横跨神山之巅",
-    descEn: "One of the world's best dark sky reserves, the Milky Way spans the sacred peak",
-    image: "kailash-golden.webp",
-    location: "阿里暗夜公园"
-  },
-  {
-    id: "birds",
-    title: "候鸟天堂",
-    titleEn: "Bird Paradise",
-    desc: "班公错湖上万千候鸟栖息，生命在高原绽放",
-    descEn: "Thousands of migratory birds on Pangong Tso, life blooming on the plateau",
+    id: "prayer-flags",
+    title: "经幡与风马",
+    titleEn: "Lungta: Wind Horses",
+    desc: "风马旗（藏语称「隆达」）在高原劲风中猎猎作响。五色——蓝白红绿黄——分别对应天、云、火、水、土。每一次风吹动经幡，等于念诵一遍经文。",
+    descEn: "Lungta (wind-horse flags) snap in the plateau wind. Five colors — blue, white, red, green, yellow — correspond to sky, cloud, fire, water, earth. Each flutter equals one prayer recited.",
     image: "kailash-birds.webp",
-    location: "班公错"
+    location: "转山沿途·各垭口"
   },
   {
-    id: "village",
-    title: "阿里人家",
-    titleEn: "Tibetan Village Life",
-    desc: "远离尘嚣的高原村落，保留着最淳朴的生活方式",
-    descEn: "Remote highland villages preserve the simplest way of life",
+    id: "mani-stones",
+    title: "玛尼堆",
+    titleEn: "Mani Stone Mounds",
+    desc: "刻有六字真言的石板层层堆叠，是藏传佛教最朴素的信仰表达。朝圣者每路过一个玛尼堆，便顺时针绕行三圈，添上一块石子。",
+    descEn: "Slate slabs carved with the six-syllable mantra, stacked layer upon layer — the humblest expression of Tibetan Buddhist faith. Pilgrims circumambulate each mound three times clockwise, adding a stone.",
+    image: "kailash-trek-map.webp",
+    location: "转山沿途"
+  },
+  {
+    id: "darchen-town",
+    title: "塔尔钦镇",
+    titleEn: "Darchen: The Pilgrim's Gateway",
+    desc: "转山的起点与终点。海拔4675米，世界最高的小镇之一。每年5-10月，来自印度、尼泊尔、中国及世界各地的朝圣者在此聚集，准备踏上52公里的神圣旅程。",
+    descEn: "Start and end point of the kora. At 4,675m, among the world's highest towns. Each year from May to October, pilgrims from India, Nepal, China, and beyond gather here to begin the 52km sacred circuit.",
     image: "kailash-prairie.webp",
-    location: "普兰县"
+    location: "塔尔钦镇·转山起点"
+  },
+  {
+    id: "kora-path",
+    title: "转山路",
+    titleEn: "The Kora Path",
+    desc: "52公里的土路，无铺装、无车道。海拔在4675至5630米之间起伏。碎石、泥泞、经幡和玛尼堆——这就是通往信仰的道路最真实的模样。",
+    descEn: "52 kilometers of dirt path. No pavement. No vehicle access. Altitude swings between 4,675 and 5,630 meters. Gravel, mud, prayer flags, and mani stones — this is what the path of faith actually looks like.",
+    image: "kailash-aerial.webp",
+    location: "转山路线全程"
   }
 ];
 ---
 
-<Layout title="阿里人文风情 - 影像中的阿里" description="阿里人文风情图集：古格王朝、托林寺、扎达土林、玛旁雍错、阿里星空——用影像记录西藏阿里的文化魅力。">
+<Layout title="神山影像 - 冈仁波齐写实记录" description="用写实照片客观记录冈仁波齐：金山日出、转山路、玛旁雍错、朝圣者、经幡、玛尼堆——不渲染，只呈现神山的真实面貌。">
   <!-- Hero Section -->
   <section class="relative h-[70vh] min-h-[500px] flex items-end">
     <div class="absolute inset-0 bg-[url('/images/kailash-golden.webp')] bg-cover bg-center"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-kailash-dark via-kailash-dark/50 to-transparent"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
-      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-2 font-light" data-lang-content="zh">阿里 · 世界屋脊的屋脊</p>
-      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-2 font-light" data-lang-content="en" style="display: none;">NGARI · ROOF OF THE WORLD</p>
-      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-4" data-lang-content="zh">阿里人文风情</h1>
-      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-4" data-lang-content="en" style="display: none;">Ngari Cultural Charm</h1>
+      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-2 font-light" data-lang-content="zh">写实影像 · 不渲染 · 不加工</p>
+      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-2 font-light" data-lang-content="en" style="display: none;">Documentary · Unembellished · Real</p>
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-4" data-lang-content="zh">神山影像</h1>
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-4" data-lang-content="en" style="display: none;">Kailash Through the Lens</h1>
       <p class="text-xl text-white/70 max-w-3xl" data-lang-content="zh">
-        用影像记录这片神圣土地上的文明印记——从古格王朝的千年遗址到玛旁雍错的碧波荡漾
+        用镜头客观记录冈仁波齐的真实面貌——日出、转山路、朝圣者、圣湖。没有滤镜，只有事实。
       </p>
       <p class="text-xl text-white/70 max-w-3xl" data-lang-content="en" style="display: none;">
-        Capturing the marks of civilization on this sacred land — from the ancient Guge Kingdom to the sacred Lake Manasarovar
+        An objective photographic record of Mount Kailash — dawn light, the kora path, pilgrims, the sacred lake. No filters. Just facts.
       </p>
     </div>
   </section>
@@ -121,27 +122,27 @@ const culturePhotos = [
       <div class="grid md:grid-cols-4 gap-8 text-center">
         <div class="p-6">
           <div class="text-4xl mb-3">🏔️</div>
-          <div class="text-kailash-gold text-2xl font-bold">30万+</div>
-          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">平方公里疆域</p>
-          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Sq. km Territory</p>
+          <div class="text-kailash-gold text-2xl font-bold">6656m</div>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">冈仁波齐海拔</p>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Peak Elevation</p>
         </div>
         <div class="p-6">
-          <div class="text-4xl mb-3">🏛️</div>
-          <div class="text-kailash-gold text-2xl font-bold">4500年</div>
-          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">文明历史</p>
-          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Years of History</p>
+          <div class="text-4xl mb-3">🚶</div>
+          <div class="text-kailash-gold text-2xl font-bold">52km</div>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">转山全程</p>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Kora Distance</p>
         </div>
         <div class="p-6">
           <div class="text-4xl mb-3">⛰️</div>
-          <div class="text-kailash-gold text-2xl font-bold">4500m+</div>
-          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">平均海拔</p>
-          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Average Altitude</p>
+          <div class="text-kailash-gold text-2xl font-bold">5630m</div>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">卓玛拉垭口</p>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Drolma La Pass</p>
         </div>
         <div class="p-6">
           <div class="text-4xl mb-3">📿</div>
-          <div class="text-kailash-gold text-2xl font-bold">4大宗教</div>
-          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">共同圣地</p>
-          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Sacred Religions</p>
+          <div class="text-kailash-gold text-2xl font-bold">4</div>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="zh">宗教共同圣地</p>
+          <p class="text-gray-400 text-sm mt-1" data-lang-content="en" style="display: none;">Sacred Traditions</p>
         </div>
       </div>
     </div>
@@ -151,13 +152,13 @@ const culturePhotos = [
   <section class="py-20 bg-kailash-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">📸 影像阿里</h2>
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">📸 Ngari in Images</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">📸 神山影像</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">📸 Kailash in Photographs</h2>
         <p class="text-gray-600 max-w-2xl mx-auto" data-lang-content="zh">
-          每一张照片都是一段故事，带你走进阿里的人文深处
+          写实照片，客观记录。不美化，不渲染——只呈现冈仁波齐和朝圣之路的真实面貌。
         </p>
         <p class="text-gray-600 max-w-2xl mx-auto" data-lang-content="en" style="display: none;">
-          Every photo tells a story, taking you deep into Ngari's cultural heart
+          Documentary photography. No embellishment. No dramatization — just Kailash and the pilgrimage path as they really are.
         </p>
       </div>
 
@@ -202,10 +203,10 @@ const culturePhotos = [
         <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm16 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z"/>
       </svg>
       <blockquote class="font-display text-2xl md:text-3xl italic text-white/80 leading-relaxed" data-lang-content="zh">
-        "阿里是西藏的西藏，是高原上的高原。<br>这里不仅有世界中心的神山圣湖，<br>更有千年文明的深沉回响。"
+        "照片不会说谎。<br>冈仁波齐就在那里——<br>不是滤镜里的神山，是海拔6656米的真实存在。"
       </blockquote>
       <blockquote class="font-display text-2xl md:text-3xl italic text-white/80 leading-relaxed" data-lang-content="en" style="display: none;">
-        "Ngari is the Tibet of Tibet, the highland above highlands.<br>Here lie not only the sacred mountain and lake at the world's center,<br>but also the deep echoes of a thousand-year civilization."
+        "Photographs don't lie.<br>Kailash is there — <br>not a filtered fantasy, but a real mountain at 6,656 meters."
       </blockquote>
     </div>
   </section>
@@ -214,51 +215,51 @@ const culturePhotos = [
   <section class="py-20 bg-kailash-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">阿里文化关键词</h2>
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Ngari Culture Keywords</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">冈仁波齐·四大元素</h2>
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="en" style="display: none;">Kailash · Four Elements</h2>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-amber-900 to-kailash-dark">
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center p-4">
-              <span class="text-5xl block mb-3">🏛️</span>
-              <h3 class="text-white font-bold text-lg" data-lang-content="zh">古格文明</h3>
-              <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">Guge Kingdom</h3>
-              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">消失的王朝</p>
-              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Lost Kingdom</p>
+              <span class="text-5xl block mb-3">🕉️</span>
+              <h3 class="text-white font-bold text-lg" data-lang-content="zh">印度教</h3>
+              <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">Hinduism</h3>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">湿婆的宝座</p>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Shiva's Abode</p>
             </div>
           </div>
         </div>
         <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-indigo-900 to-kailash-dark">
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center p-4">
-              <span class="text-5xl block mb-3">🙏</span>
+              <span class="text-5xl block mb-3">📿</span>
               <h3 class="text-white font-bold text-lg" data-lang-content="zh">藏传佛教</h3>
               <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">Tibetan Buddhism</h3>
-              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">信仰的力量</p>
-              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Power of Faith</p>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">胜乐金刚坛城</p>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Chakrasamvara Mandala</p>
             </div>
           </div>
         </div>
         <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-emerald-900 to-kailash-dark">
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center p-4">
-              <span class="text-5xl block mb-3">🏔️</span>
-              <h3 class="text-white font-bold text-lg" data-lang-content="zh">游牧文化</h3>
-              <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">Nomadic Culture</h3>
-              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">高原游牧</p>
-              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Highland Nomads</p>
+              <span class="text-5xl block mb-3">卍</span>
+              <h3 class="text-white font-bold text-lg" data-lang-content="zh">苯教</h3>
+              <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">Bön</h3>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">雍仲九层山</p>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Yungdrung Gutsek</p>
             </div>
           </div>
         </div>
         <div class="aspect-square relative overflow-hidden rounded-xl group cursor-pointer bg-gradient-to-br from-rose-900 to-kailash-dark">
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center p-4">
-              <span class="text-5xl block mb-3">🎨</span>
-              <h3 class="text-white font-bold text-lg" data-lang-content="zh">唐卡壁画</h3>
-              <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">Thangka & Murals</h3>
-              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">视觉盛宴</p>
-              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Visual Feast</p>
+              <span class="text-5xl block mb-3">☸️</span>
+              <h3 class="text-white font-bold text-lg" data-lang-content="zh">耆那教</h3>
+              <h3 class="text-white font-bold text-lg" data-lang-content="en" style="display: none;">Jainism</h3>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="zh">勒舍波解脱地</p>
+              <p class="text-white/60 text-sm mt-1" data-lang-content="en" style="display: none;">Ashtapada</p>
             </div>
           </div>
         </div>
@@ -269,17 +270,17 @@ const culturePhotos = [
   <!-- CTA -->
   <section class="py-20 bg-kailash-dark text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-display text-3xl font-bold mb-4" data-lang-content="zh">分享你的阿里记忆</h2>
-      <h2 class="font-display text-3xl font-bold mb-4" data-lang-content="en" style="display: none;">Share Your Ngari Memories</h2>
-      <p class="text-gray-400 mb-8" data-lang-content="zh">如果你有阿里地区的精彩照片，欢迎分享给我们</p>
-      <p class="text-gray-400 mb-8" data-lang-content="en" style="display: none;">If you have amazing photos of Ngari, please share them with us</p>
-      <a href="mailto:kailash2026Lucas@outlook.com?subject=阿里照片投稿" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition" data-lang-content="zh">
+      <h2 class="font-display text-3xl font-bold mb-4" data-lang-content="zh">分享你的冈仁波齐影像</h2>
+      <h2 class="font-display text-3xl font-bold mb-4" data-lang-content="en" style="display: none;">Share Your Kailash Photographs</h2>
+      <p class="text-gray-400 mb-8" data-lang-content="zh">如果你有冈仁波齐的真实照片——写实风格、无滤镜处理——欢迎投稿。每张照片署名。</p>
+      <p class="text-gray-400 mb-8" data-lang-content="en" style="display: none;">If you have documentary-style photos of Kailash — unembellished, unfiltered — please submit. Every photo is credited.</p>
+      <a href="mailto:kailash2026Lucas@outlook.com?subject=冈仁波齐照片投稿" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition" data-lang-content="zh">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
         </svg>
         投稿照片
       </a>
-      <a href="mailto:kailash2026Lucas@outlook.com?subject=Ali Photo Submission" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition" data-lang-content="en" style="display: none;">
+      <a href="mailto:kailash2026Lucas@outlook.com?subject=Kailash Photo Submission" class="inline-flex items-center gap-2 bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition" data-lang-content="en" style="display: none;">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
         </svg>
