@@ -28,22 +28,22 @@ One Horse Year kora equals thirteen ordinary-year koras. The doctrinal basis: **
 
 Cumulative system: 1 kora cleanses one lifetime's sins; 10 koras escape hell for 500 rebirths; 108 koras transcend the six realms.
 
-## IV. Milarepa & the Horse Year `Tibetan Buddhism · Bön`
+## IV. Milarepa & the Horse Year `Tibetan Buddhism`
 
 Tradition holds Kagyu master **Milarepa** (1040-1123) defeated the Bönpo Naro Bonchung in a magical contest at Kailash. Naro rode a sheepskin drum; Milarepa rode the first ray of sunlight.
 
 ⚠️ **This story does NOT appear in Tsangnyön Heruka's original "Life of Milarepa."** It is a later Buddhist literary adaptation. Bön scholars have raised reasonable doubts. As a cultural phenomenon reflecting Buddhist-Bön competition, it has scholarly value — but should not be stated as historical fact.
 
-## V. Modern Horse Years `Tibetan Buddhism · Hinduism`
+## V. Modern Horse Years `Tibetan Buddhism`
 
 | Year | Tibetan Name | Pilgrims |
 |------|-------------|----------|
 | 1906 | Fire Horse | Earliest photo evidence |
-| 2014 | Wood Horse | ~200,000 (15,000 from India) |
+| 2014 | Wood Horse | ~200,000 (incl. ~15,000 Indian KMY pilgrims*) |
 | **2026** | **Fire Horse** | **Projected record** |
 | 2038 | Earth Horse | Next Horse Year |
 
-2014 data from Ngari tourism authorities (public report).
+*\*Indian pilgrims attend for Kailash Mansarovar Yatra, not Horse Year belief — Hinduism has no Horse Year concept.*
 
 ## VI. Saga Dawa `Tibetan Buddhism`
 
