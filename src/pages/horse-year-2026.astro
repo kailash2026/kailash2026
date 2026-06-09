@@ -1,97 +1,77 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-// Get all related content
-const allPosts = await getCollection('blog');
-const zhPosts = allPosts.filter(p => p.data.lang === 'zh');
-
-const horseYearContent = zhPosts.filter(p => 
-  p.id.includes('horse-year') || 
-  p.id.includes('pilgrimage-horse') ||
-  p.data.tags?.some(t => t.includes('马年') || t.includes('2026'))
-);
 
 const relatedGuides = [
-  { title: '转山路线详解', desc: '52公里外转完整攻略', href: '/guide#kora', icon: '🥾' },
-  { title: '签证与边防证', desc: '外国人进藏许可全流程', href: '/blog/kailash-visa-permit-guide', icon: '🛂' },
-  { title: '交通全攻略', desc: '如何抵达冈仁波齐', href: '/blog/kailash-transport-guide', icon: '🚌' },
-  { title: '最佳时间', desc: '2026逐月天气指南', href: '/blog/best-time-kailash-yatra', icon: '📅' },
+  { titleZh: '转山路线详解', titleEn: 'Kora Route Guide', descZh: '52公里外转完整攻略', descEn: 'Complete 52km outer kora guide', href: '/guide', icon: '🥾' },
+  { titleZh: '签证与边防证', titleEn: 'Visa & Permits', descZh: '外国人进藏许可全流程', descEn: 'Complete Tibet permit process', href: '/blog/kailash-visa-permit-guide', icon: '🛂' },
+  { titleZh: '交通全攻略', titleEn: 'Transport Guide', descZh: '如何抵达冈仁波齐', descEn: 'How to reach Mount Kailash', href: '/blog/kailash-transport-guide', icon: '🚌' },
+  { titleZh: '最佳时间', titleEn: 'Best Time to Visit', descZh: '2026逐月天气指南', descEn: 'Month-by-month weather guide', href: '/blog/best-time-kailash-yatra', icon: '📅' },
 ];
-
-const featuredArticles = zhPosts.filter(p =>
-  ['kailash-four-religions', 'kailash-kora-guide-2026', 'kailash-indian-pilgrim-guide'].some(id => p.id.includes(id))
-);
 ---
 
-<Layout title="2026马年转山 — 十二年一遇的冈仁波齐朝圣盛事" description="2026年是藏历火马年，冈仁波齐转山功德相当于平年13倍。了解马年转山的宗教意义、最佳时间、实用攻略。">
+<Layout title="2026马年转山 — 12年一遇的冈仁波齐朝圣 | Kailash Horse Year 2026" description="2026藏历火马年，转山一圈功德等同十三圈。了解马年转山的完整历史、宗教意义与实用攻略。| 2026 Tibetan Fire Horse Year — one kora equals thirteen. Complete history, religious meaning & practical guide.">
   <style>
     .horse-hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .horse-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(180,30,30,0.85) 0%, rgba(80,20,20,0.75) 50%, rgba(0,0,0,0.6) 100%), url('/kailash-golden.webp') center/cover; }
+    .horse-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,14,13,0.9) 0%, rgba(15,14,13,0.75) 100%), url('/images/kailash-golden.webp') center/cover; }
     .horse-hero-content { position: relative; z-index: 1; text-align: center; padding: 2rem; max-width: 800px; }
-    .horse-hero h1 { font-size: clamp(2.2rem, 6vw, 4.5rem); color: #ffd700; font-weight: 800; line-height: 1.15; text-shadow: 0 4px 20px rgba(0,0,0,0.5); margin-bottom: 1rem; }
-    .horse-hero .subtitle { font-size: clamp(1rem, 2.5vw, 1.4rem); color: #f0e6d3; font-style: italic; letter-spacing: 2px; }
-
-    .fire-badge { display: inline-block; background: linear-gradient(135deg, #ff6b35, #ff4500); color: white; padding: 0.5rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(255,69,0,0.4); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 3px; }
-
+    .horse-hero h1 { font-size: clamp(2rem, 6vw, 4rem); color: #d4af37; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+    .horse-hero .subtitle { font-size: clamp(1rem, 2vw, 1.3rem); color: rgba(255,255,255,0.65); }
+    .fire-badge { display: inline-block; background: linear-gradient(135deg, #b72b26, #8b1a1a); color: #ffd700; padding: 0.5rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; margin-bottom: 1.5rem; letter-spacing: 3px; }
     .section { padding: 5rem 0; }
-    .section-alt { background: #faf6f0; }
+    .section-alt { background: #f8f6f3; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-    .section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #1a1a2e; margin-bottom: 0.5rem; }
-    .section-subtitle { text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 3rem; font-style: italic; }
-
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
-    .stat-card { background: white; border-radius: 16px; padding: 2rem; text-align: center; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
-    .stat-number { font-size: 3rem; font-weight: 800; color: #b72b26; }
-    .stat-label { color: #666; font-size: 0.95rem; margin-top: 0.5rem; }
-
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
-    .card { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid #f0ece5; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+    .section-title { text-align: center; font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 700; color: #0F0E0D; margin-bottom: 0.5rem; }
+    .section-subtitle { text-align: center; color: #666; font-size: 1rem; margin-bottom: 3rem; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+    .stat-card { background: white; border-radius: 16px; padding: 2rem; text-align: center; box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+    .stat-number { font-size: 2.5rem; font-weight: 800; color: #b72b26; }
+    .stat-label { color: #666; font-size: 0.9rem; margin-top: 0.5rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .card { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #f0ece5; }
     .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a1a2e; }
+    .card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: #0F0E0D; }
     .card p { color: #555; line-height: 1.7; font-size: 0.95rem; }
-
-    .guide-card { background: white; border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: all 0.2s ease; cursor: pointer; border: 1px solid #f0ece5; text-decoration: none; }
-    .guide-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-    .guide-card .icon { font-size: 2rem; flex-shrink: 0; }
-    .guide-card .info h4 { font-size: 1.05rem; font-weight: 600; color: #1a1a2e; margin-bottom: 0.2rem; }
+    .guide-card { background: white; border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #f0ece5; text-decoration: none; }
+    .guide-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+    .guide-card .icon { font-size: 2rem; }
+    .guide-card .info h4 { font-size: 1rem; font-weight: 600; color: #0F0E0D; margin-bottom: 0.2rem; }
     .guide-card .info p { font-size: 0.85rem; color: #888; }
-
-    .quote-block { background: linear-gradient(135deg, #1a1a2e, #2d2d44); color: #f0e6d3; border-radius: 16px; padding: 3rem; margin: 3rem 0; text-align: center; }
-    .quote-block q { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-style: italic; line-height: 1.8; }
-    .quote-block .source { margin-top: 1rem; color: #c9a84c; font-size: 0.9rem; }
-
+    .quote-block { background: #0F0E0D; color: #f0e6d3; border-radius: 16px; padding: 3rem; margin: 3rem 0; text-align: center; }
+    .quote-block q { font-size: clamp(1rem, 2vw, 1.4rem); font-style: italic; line-height: 1.8; }
+    .quote-block .source { margin-top: 1rem; color: #b8956a; font-size: 0.9rem; }
     .timeline { position: relative; margin: 3rem 0; padding-left: 2rem; }
-    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, #b72b26, #ff6b35); }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, #b72b26, #d4af37); }
     .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 2rem; }
     .timeline-item::before { content: '🔥'; position: absolute; left: -1.2rem; top: 0; font-size: 1.2rem; }
-    .timeline-item .date { font-weight: 700; color: #b72b26; font-size: 1.1rem; }
+    .timeline-item .date { font-weight: 700; color: #b72b26; font-size: 1.05rem; }
     .timeline-item p { color: #555; margin-top: 0.3rem; line-height: 1.6; }
-
-    .cta-section { background: linear-gradient(135deg, #8b1a1a, #b72b26); color: white; border-radius: 16px; padding: 3rem; text-align: center; margin: 3rem 0; }
-    .cta-section h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
-    .cta-section p { font-size: 1rem; opacity: 0.9; margin-bottom: 1.5rem; }
-    .cta-btn { display: inline-block; background: #ffd700; color: #1a1a2e; padding: 0.8rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: transform 0.2s; }
-    .cta-btn:hover { transform: scale(1.05); }
-
-    .lang-badge { display: inline-block; background: #e8f4e8; color: #2d6a2d; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 0.5rem; font-weight: 600; }
-
-    @media (max-width: 768px) {
-      .section { padding: 3rem 0; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-      .stat-card { padding: 1.2rem; }
-      .stat-number { font-size: 2rem; }
-    }
+    .cta-section { background: linear-gradient(135deg, #0F0E0D, #2A2826); color: white; border-radius: 16px; padding: 3rem; text-align: center; margin: 3rem 0; }
+    .cta-section h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; }
+    .cta-section p { font-size: 1rem; opacity: 0.8; margin-bottom: 1.5rem; }
+    .cta-btn { display: inline-block; background: #b8956a; color: white; padding: 0.8rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; }
+    .cta-btn:hover { background: #a67b5b; }
+    @media (max-width: 768px) { .section { padding: 3rem 0; } .stat-card { padding: 1.2rem; } .stat-number { font-size: 2rem; } }
   </style>
 
   <!-- Hero -->
   <section class="horse-hero">
     <div class="horse-hero-content">
-      <div class="fire-badge">🔥 2026 藏历火马年</div>
-      <h1>十二年一遇<br />冈仁波齐朝圣盛事</h1>
-      <p class="subtitle" style="font-size:1.5rem;color:#ffd700;font-weight:600;margin:0.5rem 0">转山一圈 · 功德十三倍</p>
-      <p class="subtitle">上一次马年：2014 — 下一次：2038</p>
+      <div class="fire-badge">
+        <span data-lang-content="zh">🔥 2026 藏历火马年</span>
+        <span data-lang-content="en" style="display:none">🔥 2026 TIBETAN FIRE HORSE YEAR</span>
+      </div>
+      <h1>
+        <span data-lang-content="zh">十二年一遇<br />冈仁波齐朝圣盛事</span>
+        <span data-lang-content="en" style="display:none">Once Every 12 Years<br />The Kailash Pilgrimage</span>
+      </h1>
+      <p class="subtitle" style="font-size:1.5rem;color:#d4af37;font-weight:600;margin:0.5rem 0">
+        <span data-lang-content="zh">转山一圈 · 功德十三倍</span>
+        <span data-lang-content="en" style="display:none">One Kora · Thirteen Times the Merit</span>
+      </p>
+      <p class="subtitle">
+        <span data-lang-content="zh">上一次马年：2014 — 下一次：2038</span>
+        <span data-lang-content="en" style="display:none">Last Horse Year: 2014 — Next: 2038</span>
+      </p>
     </div>
   </section>
 
@@ -99,10 +79,10 @@ const featuredArticles = zhPosts.filter(p =>
   <section class="section">
     <div class="container">
       <div class="stats-grid">
-        <div class="stat-card"><div class="stat-number">13×</div><div class="stat-label">马年转山功德倍率</div></div>
-        <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">年一次轮回</div></div>
-        <div class="stat-card"><div class="stat-number">1966</div><div class="stat-label">上一次火马年</div></div>
-        <div class="stat-card"><div class="stat-number">2086</div><div class="stat-label">下一次火马年</div></div>
+        <div class="stat-card"><div class="stat-number">13×</div><div class="stat-label" data-lang-content="zh">马年转山功德倍率</div><div class="stat-label" data-lang-content="en" style="display:none">Horse Year Multiplier</div></div>
+        <div class="stat-card"><div class="stat-number">12</div><div class="stat-label" data-lang-content="zh">年一次轮回</div><div class="stat-label" data-lang-content="en" style="display:none">Year Cycle</div></div>
+        <div class="stat-card"><div class="stat-number">1027</div><div class="stat-label" data-lang-content="zh">藏历纪年起</div><div class="stat-label" data-lang-content="en" style="display:none">Calendar Origin CE</div></div>
+        <div class="stat-card"><div class="stat-number">2086</div><div class="stat-label" data-lang-content="zh">下一次火马年</div><div class="stat-label" data-lang-content="en" style="display:none">Next Fire Horse</div></div>
       </div>
     </div>
   </section>
@@ -110,35 +90,71 @@ const featuredArticles = zhPosts.filter(p =>
   <!-- Why Horse Year -->
   <section class="section section-alt">
     <div class="container">
-      <h2 class="section-title">为什么马年转山如此殊胜？</h2>
-      <p class="section-subtitle">藏传佛教·印度教·苯教·耆那教——四大宗教的共同圣年</p>
+      <h2 class="section-title">
+        <span data-lang-content="zh">为什么马年转山如此殊胜？</span>
+        <span data-lang-content="en" style="display:none">Why Is the Horse Year So Special?</span>
+      </h2>
+      <p class="section-subtitle">
+        <span data-lang-content="zh">马年转山是藏传佛教专属体系。其他三大宗教（印度教、苯教、耆那教）无马年概念。</span>
+        <span data-lang-content="en" style="display:none">Horse Year pilgrimage is exclusive to Tibetan Buddhism. The other three religions have no Horse Year doctrine.</span>
+      </p>
 
       <div class="card-grid">
         <div class="card">
           <div class="card-icon">📿</div>
-          <h3>藏传佛教 <span style="font-size:0.7em;opacity:0.7">马年专属</span></h3>
-          <p>释迦牟尼佛诞生于马年（宗教传统叙事）。藏传佛教噶举派于12世纪正式确立马年转山体系——马年转冈仁波齐一圈，功德等同常年十三圈。此量化依据来自十二因缘学说，属于藏传佛教专属。</p>
+          <h3>
+            <span data-lang-content="zh">藏传佛教 · 马年专属</span>
+            <span data-lang-content="en" style="display:none">Tibetan Buddhism · Exclusive</span>
+          </h3>
+          <p>
+            <span data-lang-content="zh">释迦牟尼佛诞生于马年（宗教传统叙事）。藏传佛教噶举派于12世纪正式确立马年转山体系——马年转冈仁波齐一圈，功德等同常年十三圈。此量化依据来自十二因缘学说。</span>
+            <span data-lang-content="en" style="display:none">Buddha Shakyamuni was born in a Horse Year (traditional narrative). The Kagyu school formally established the Horse Year system in the 12th century — one kora equals thirteen. Based on the Twelve Nidanas doctrine.</span>
+          </p>
         </div>
         <div class="card">
           <div class="card-icon">🕉️</div>
-          <h3>印度教 <span style="font-size:0.7em;opacity:0.7">无马年概念</span></h3>
-          <p>凯拉萨是湿婆神的居所。印度教经典中并无"马年功德倍增"教义。印度朝圣者参与转山是Kailash Mansarovar Yatra传统，与马年无关。两者在马年时间点上交汇，但信仰脉络各自独立。</p>
+          <h3>
+            <span data-lang-content="zh">印度教 · 无马年概念</span>
+            <span data-lang-content="en" style="display:none">Hinduism · No Horse Year</span>
+          </h3>
+          <p>
+            <span data-lang-content="zh">凯拉萨是湿婆神的居所。印度教经典中无"马年功德倍增"教义。印度朝圣者参与转山是Kailash Mansarovar Yatra传统，与马年无关。两条信仰脉络在马年时间点交汇，但源头各自独立。</span>
+            <span data-lang-content="en" style="display:none">Kailasa is Shiva's abode. Hindu scriptures contain no "Horse Year multiplied merit" doctrine. Indian pilgrims attend the Kailash Mansarovar Yatra, unrelated to Horse Year. Two separate traditions that intersect temporally but originate independently.</span>
+          </p>
         </div>
         <div class="card">
           <div class="card-icon">☸️</div>
-          <h3>苯教 <span style="font-size:0.7em;opacity:0.7">无马年制度</span></h3>
-          <p>苯教正统经文记载敦巴辛饶于木鼠年下凡。民间有辛饶寻神马传说，但从未形成马年集中转山制度。马年大转山是藏传佛教体系，不应标注为苯教标签。</p>
+          <h3>
+            <span data-lang-content="zh">苯教 · 无马年制度</span>
+            <span data-lang-content="en" style="display:none">Bön · No Horse Year System</span>
+          </h3>
+          <p>
+            <span data-lang-content="zh">苯教经文记载敦巴辛饶于木鼠年下凡。民间有辛饶寻神马传说，但从未形成马年集中转山制度。马年大转山是藏传佛教体系，不应标注为苯教标签。</span>
+            <span data-lang-content="en" style="display:none">Bön scriptures record Tonpa Shenrab descending in a Wood Mouse Year. A folk legend about divine horses exists, but no Horse Year pilgrimage system formed. The Horse Year tradition belongs to Tibetan Buddhism, not Bön.</span>
+          </p>
         </div>
         <div class="card">
           <div class="card-icon">🪷</div>
-          <h3>耆那教 <span style="font-size:0.7em;opacity:0.7">无马年概念</span></h3>
-          <p>第一位祖师勒舍波（Rishabhanatha）在八足山（Ashtapada）获得解脱。耆那教经典中无马年朝圣传统。耆那教徒朝圣冈仁波齐是基于祖师解脱叙事，非藏历纪年。</p>
+          <h3>
+            <span data-lang-content="zh">耆那教 · 无马年概念</span>
+            <span data-lang-content="en" style="display:none">Jainism · No Horse Year</span>
+          </h3>
+          <p>
+            <span data-lang-content="zh">第一位祖师勒舍波在八足山（Ashtapada）获得解脱。耆那教经典中无马年朝圣传统。耆那教徒朝圣冈仁波齐是基于祖师解脱叙事，非藏历纪年体系。</span>
+            <span data-lang-content="en" style="display:none">The first Tirthankara Rishabhanatha attained liberation at Ashtapada. Jain scriptures contain no Horse Year tradition. Jain pilgrimage to Kailash is based on the liberation narrative, not the Tibetan calendar.</span>
+          </p>
         </div>
       </div>
 
       <div class="quote-block">
-        <q>马年转山一圈，等于平常年份转十三圈。这是藏传佛教噶举派于12世纪确立的千年传承——一套独属于藏传佛教的朝圣体系。</q>
-        <div class="source">— 藏传佛教传统，据权威藏地人文史料</div>
+        <q>
+          <span data-lang-content="zh">马年转山一圈，等于平常年份转十三圈。这是藏传佛教噶举派于12世纪确立的千年传承——一套独属于藏传佛教的朝圣体系。</span>
+          <span data-lang-content="en" style="display:none">One Horse Year kora equals thirteen ordinary koras. This is a thousand-year tradition established by the Kagyu school in the 12th century — a pilgrimage system belonging exclusively to Tibetan Buddhism.</span>
+        </q>
+        <div class="source">
+          <span data-lang-content="zh">— 藏传佛教传统，据权威藏地人文史料</span>
+          <span data-lang-content="en" style="display:none">— Tibetan Buddhist tradition, per authoritative Tibetan historical sources</span>
+        </div>
       </div>
     </div>
   </section>
@@ -146,33 +162,38 @@ const featuredArticles = zhPosts.filter(p =>
   <!-- 2026 Key Dates -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title">2026火马年关键日期</h2>
-      <p class="section-subtitle">2026年是藏历第十七饶迥的火马年，上一次火马年是1966年，下一次是2086年</p>
-
+      <h2 class="section-title">
+        <span data-lang-content="zh">2026火马年关键日期</span>
+        <span data-lang-content="en" style="display:none">2026 Fire Horse Year — Key Dates</span>
+      </h2>
+      <p class="section-subtitle">
+        <span data-lang-content="zh">2026年是藏历第十七饶迥的火马年</span>
+        <span data-lang-content="en" style="display:none">2026 is the Fire Horse Year of the 17th Rabjung cycle</span>
+      </p>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="date">4月中旬 — 转山道开放</div>
-          <p>冬季关闭后，冈仁波齐转山道正式开放。马年可能提前开放。</p>
+          <div class="date"><span data-lang-content="zh">4月中旬 — 转山道开放</span><span data-lang-content="en" style="display:none">Mid-April — Trail Opens</span></div>
+          <p><span data-lang-content="zh">冬季关闭后，冈仁波齐转山道正式开放。</span><span data-lang-content="en" style="display:none">After winter closure, the Kailash kora trail officially opens.</span></p>
         </div>
         <div class="timeline-item">
-          <div class="date">5月中下旬 — 最佳窗口</div>
-          <p>天气转好，马年早期朝圣者开始抵达，但尚未达到高峰。</p>
+          <div class="date"><span data-lang-content="zh">5月中下旬 — 最佳窗口</span><span data-lang-content="en" style="display:none">Late May — Best Window</span></div>
+          <p><span data-lang-content="zh">天气转好，早期朝圣者开始抵达。</span><span data-lang-content="en" style="display:none">Weather improves; early pilgrims begin arriving.</span></p>
         </div>
         <div class="timeline-item">
-          <div class="date">5月31日左右（±2天） — 萨嘎达瓦节 🏆</div>
-          <p>藏历四月十五，佛陀成道涅槃日。萨嘎达瓦 + 马年 = 一生一次的朝圣时机！人流量将是平常的3-5倍。</p>
+          <div class="date"><span data-lang-content="zh">5月31日（±2天） — 萨嘎达瓦节 🏆</span><span data-lang-content="en" style="display:none">May 31 (±2d) — Saga Dawa 🏆</span></div>
+          <p><span data-lang-content="zh">藏历四月十五，佛陀成道涅槃日。萨嘎达瓦 + 马年 = 最殊胜的朝圣时机。</span><span data-lang-content="en" style="display:none">15th day of 4th Tibetan month — Buddha's enlightenment. Saga Dawa + Horse Year = the most auspicious timing.</span></p>
         </div>
         <div class="timeline-item">
-          <div class="date">7-8月 — 印度朝圣高峰</div>
-          <p>印度官方朝圣团（Kailash Mansarovar Yatra）集中出发，路段较为拥挤。</p>
+          <div class="date"><span data-lang-content="zh">7-8月 — 印度朝圣高峰</span><span data-lang-content="en" style="display:none">Jul-Aug — Indian Pilgrimage Peak</span></div>
+          <p><span data-lang-content="zh">印度官方朝圣团（KMY）集中出发。</span><span data-lang-content="en" style="display:none">Indian official Yatra groups (KMY) depart in concentration.</span></p>
         </div>
         <div class="timeline-item">
-          <div class="date">9月 — 次高峰</div>
-          <p>天气稳定，朝圣者人数仍然较高。建议提前3个月预订。</p>
+          <div class="date"><span data-lang-content="zh">9月 — 次高峰</span><span data-lang-content="en" style="display:none">September — Second Peak</span></div>
+          <p><span data-lang-content="zh">天气稳定，建议提前3个月预订。</span><span data-lang-content="en" style="display:none">Stable weather. Book 3 months in advance.</span></p>
         </div>
         <div class="timeline-item">
-          <div class="date">10月中旬 — 尾声</div>
-          <p>天气转冷，但马年可能延长开放时间。适合经验丰富的徒步者。</p>
+          <div class="date"><span data-lang-content="zh">10月中旬 — 尾声</span><span data-lang-content="en" style="display:none">Mid-October — Season Ends</span></div>
+          <p><span data-lang-content="zh">天气转冷，适合经验丰富的徒步者。</span><span data-lang-content="en" style="display:none">Temperatures drop. Suitable for experienced trekkers.</span></p>
         </div>
       </div>
     </div>
@@ -181,119 +202,65 @@ const featuredArticles = zhPosts.filter(p =>
   <!-- Practical Guides -->
   <section class="section section-alt">
     <div class="container">
-      <h2 class="section-title">马年朝圣实用指南</h2>
-      <p class="section-subtitle">马年人数是平常3-5倍，提前准备是关键</p>
+      <h2 class="section-title">
+        <span data-lang-content="zh">马年朝圣实用指南</span>
+        <span data-lang-content="en" style="display:none">Horse Year Practical Guide</span>
+      </h2>
+      <p class="section-subtitle">
+        <span data-lang-content="zh">提前准备，从容转山</span>
+        <span data-lang-content="en" style="display:none">Prepare ahead, trek with peace of mind</span>
+      </p>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin:2rem 0">
-        <a href={relatedGuides[0].href} class="guide-card">
-          <span class="icon">{relatedGuides[0].icon}</span>
-          <div class="info"><h4>{relatedGuides[0].title}</h4><p>{relatedGuides[0].desc}</p></div>
-        </a>
-        <a href={relatedGuides[1].href} class="guide-card">
-          <span class="icon">{relatedGuides[1].icon}</span>
-          <div class="info"><h4>{relatedGuides[1].title}</h4><p>{relatedGuides[1].desc}</p></div>
-        </a>
-        <a href={relatedGuides[2].href} class="guide-card">
-          <span class="icon">{relatedGuides[2].icon}</span>
-          <div class="info"><h4>{relatedGuides[2].title}</h4><p>{relatedGuides[2].desc}</p></div>
-        </a>
-        <a href={relatedGuides[3].href} class="guide-card">
-          <span class="icon">{relatedGuides[3].icon}</span>
-          <div class="info"><h4>{relatedGuides[3].title}</h4><p>{relatedGuides[3].desc}</p></div>
-        </a>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0">
+        {relatedGuides.map(g => (
+          <a href={g.href} class="guide-card">
+            <span class="icon">{g.icon}</span>
+            <div class="info">
+              <h4 data-lang-content="zh">{g.titleZh}</h4>
+              <h4 data-lang-content="en" style="display:none">{g.titleEn}</h4>
+              <p data-lang-content="zh">{g.descZh}</p>
+              <p data-lang-content="en" style="display:none">{g.descEn}</p>
+            </div>
+          </a>
+        ))}
       </div>
 
       <div class="card-grid">
         <div class="card">
           <div class="card-icon">🏠</div>
-          <h3>住宿提前订</h3>
-          <p>塔尔钦正常容量约2000人，马年高峰可达5000-8000人。止热寺床位极为紧张，建议自带帐篷睡袋备用。</p>
+          <h3><span data-lang-content="zh">住宿提前订</span><span data-lang-content="en" style="display:none">Book Accommodation Early</span></h3>
+          <p><span data-lang-content="zh">塔尔钦正常容量约2000人，马年高峰可达5000-8000人。建议自带帐篷睡袋备用。</span><span data-lang-content="en" style="display:none">Darchen capacity ~2,000; Horse Year peak reaches 5,000-8,000. Bring tent and sleeping bag as backup.</span></p>
         </div>
         <div class="card">
           <div class="card-icon">📝</div>
-          <h3>许可证尽早办</h3>
-          <p>外国人进藏许可 + 阿里地区边防证。马年申请人数激增，建议提前2-4个月联系旅行社办理。100%需要跟团。</p>
+          <h3><span data-lang-content="zh">许可证尽早办</span><span data-lang-content="en" style="display:none">Get Permits Early</span></h3>
+          <p><span data-lang-content="zh">外国人需要西藏旅行许可+阿里边防证。马年申请激增，建议提前2-4个月联系旅行社。</span><span data-lang-content="en" style="display:none">Foreigners need Tibet Travel Permit + Ngari border permit. Apply 2-4 months ahead via travel agency.</span></p>
         </div>
         <div class="card">
-          <div class="card-icon">🚗</div>
-          <h3>交通马年翻倍</h3>
-          <p>拉萨至塔尔钦的包车价格在马年可能翻倍。建议提前2-3个月预订，临时找车基本不可能。</p>
+          <div class="card-icon">💊</div>
+          <h3><span data-lang-content="zh">高原反应预防</span><span data-lang-content="en" style="display:none">Altitude Sickness Prevention</span></h3>
+          <p><span data-lang-content="zh">提前服用Diamox（乙酰唑胺），在拉萨适应2-3天再出发。严重高反的唯一方案：立即下撤。</span><span data-lang-content="en" style="display:none">Take Diamox (acetazolamide) beforehand. Acclimatize 2-3 days in Lhasa. Severe AMS: descend immediately.</span></p>
         </div>
         <div class="card">
-          <div class="card-icon">🎒</div>
-          <h3>物资自备</h3>
-          <p>沿途补给点的方便面、矿泉水在马年可能被抢购一空。建议在拉萨或日喀则提前备足2-3天干粮和补给。</p>
+          <div class="card-icon">🚶</div>
+          <h3><span data-lang-content="zh">体力准备</span><span data-lang-content="en" style="display:none">Physical Preparation</span></h3>
+          <p><span data-lang-content="zh">52公里高海拔徒步，最高5630米。建议提前3个月开始有氧训练。转山不是竞速——慢就是快。</span><span data-lang-content="en" style="display:none">52km at high altitude, max 5,630m. Start cardio training 3 months ahead. Kora is not a race — slow is fast.</span></p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Indian Pilgrims -->
-  <section class="section" style="background:#f5f0e8">
-    <div class="container" style="text-align:center">
-      <h2 class="section-title">🇮🇳 印度朝圣者专享</h2>
-      <p class="section-subtitle">Kailash Mansarovar Yatra 2026 官方信息</p>
-      <div style="max-width:700px;margin:0 auto">
-        <p style="font-size:1.1rem;line-height:1.8;color:#444;margin-bottom:2rem">
-          印度政府自1981年起组织官方朝圣团。2026马年预计申请人数激增。除官方通道外，也可通过尼泊尔加德满都经西藏入境。
-          建议同时准备多条路线方案。
-        </p>
-        <p style="font-size:1.5rem;margin-bottom:1.5rem">🇮🇳 हिंदी में पढ़ें <span class="lang-badge">印地语</span></p>
-        <a href="/hi/blog/kailash-indian-pilgrim-guide" class="cta-btn" style="background:#b72b26;color:white">印度朝圣者指南 →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Content -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">深度了解马年转山</h2>
-      <p class="section-subtitle">更多关于冈仁波齐和2026火马年的内容</p>
-
-      <div class="card-grid">
-        {horseYearContent.length > 0 ? horseYearContent.slice(0, 4).map(post => {
-          const slug = post.id.replace(/\.md$/, '').split('/').slice(1).join('/');
-          return (
-            <a href={`/blog/${slug}`} class="card" style="text-decoration:none;display:block">
-              <div class="card-icon">📖</div>
-              <h3>{post.data.title}</h3>
-              <p>{post.data.description}</p>
-            </a>
-          );
-        }) : (
-          <>
-            <a href="/blog/kailash-horse-year-2026" class="card" style="text-decoration:none;display:block">
-              <div class="card-icon">📖</div>
-              <h3>2026马年转山：为什么今年是12年一遇的朝圣最佳时机</h3>
-              <p>从藏传佛教经典角度解读马年转山的殊胜意义，包括释迦牟尼佛与马年的渊源、火马年的特殊意义、四大宗教的马年视角，以及详细的朝圣准备工作。</p>
-            </a>
-            <a href="/blog/kailash-four-religions" class="card" style="text-decoration:none;display:block">
-              <div class="card-icon">📖</div>
-              <h3>冈仁波齐与四大宗教</h3>
-              <p>藏传佛教、印度教、苯教和耆那教如何共同尊崇这座神圣的山峰。</p>
-            </a>
-            <a href="/blog/kailash-kora-guide-2026" class="card" style="text-decoration:none;display:block">
-              <div class="card-icon">🥾</div>
-              <h3>2026冈仁波齐转山完整攻略</h3>
-              <p>52公里转山路线详解，含海拔、时间、补给点等实用信息。</p>
-            </a>
-          </>
-        )}
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section" style="padding:2rem 0 5rem">
-    <div class="container">
       <div class="cta-section">
-        <h3>🕌 2026火马年——你准备好了吗？</h3>
-        <p>2038年之前，这是唯一的机会。十二年太长，人生有几个十二年？</p>
-        <p>从今天开始规划你的马年朝圣之旅。</p>
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-          <a href="/guide" class="cta-btn">浏览朝圣攻略 →</a>
-          <a href="/culture" class="cta-btn" style="background:white;color:#b72b26">了解神山文化 →</a>
-        </div>
+        <h3>
+          <span data-lang-content="zh">为2026火马年做好准备</span>
+          <span data-lang-content="en" style="display:none">Prepare for the 2026 Fire Horse Year</span>
+        </h3>
+        <p>
+          <span data-lang-content="zh">浏览完整朝圣攻略 · 了解转山路线 · 查看装备清单</span>
+          <span data-lang-content="en" style="display:none">Browse complete pilgrimage guide · Kora route details · Packing checklist</span>
+        </p>
+        <a href="/guide" class="cta-btn">
+          <span data-lang-content="zh">📋 查看朝圣攻略</span>
+          <span data-lang-content="en" style="display:none">📋 View Pilgrimage Guide</span>
+        </a>
       </div>
     </div>
   </section>
