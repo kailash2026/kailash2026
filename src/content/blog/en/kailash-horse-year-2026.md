@@ -73,7 +73,7 @@ In a Horse Year, pilgrims from all four traditions converge on this single mount
 
 ## Expected Crowds in 2026
 
-If 2014 offers any precedent, 2026 will see unprecedented numbers. The 2014 Wood Horse Year drew an estimated 300,000 to 500,000 pilgrims over the course of the season. Since then, infrastructure has improved significantly — paved roads extend further, telecommunications cover more of the route, and awareness of the Kailash pilgrimage has spread globally through social media and travel media.
+If 2014 offers any precedent, 2026 will see unprecedented numbers. According to Ngari Prefecture tourism authority reports, the 2014 Wood Horse Year saw approximately 200,000 pilgrims on the kora. Since then, infrastructure has improved — paved roads extend further, telecommunications cover more of the route, and awareness of the Kailash pilgrimage has spread globally through social media and travel media.
 
 Add to this the pent-up demand from the pandemic years, during which international pilgrimage to Tibet was effectively suspended, and the calculus points to a record-breaking season. The small town of Darchen, with its normal accommodation capacity of roughly 2,000 beds, may see daily influxes of 5,000 to 8,000 people during peak periods.
 
