@@ -440,25 +440,34 @@ const geoFeatures = [
 ];
 
 
-// 马年转山·历史渊源
+// 马年转山·完整起源时间线 — 藏传佛教专属体系
 const horseYearFacts = [
   {
-    label: "藏历纪年",
-    labelEn: "Tibetan Calendar",
-    religion: "藏传佛教",
-    religionEn: "Tibetan Buddhism",
+    label: "神话缘起",
+    labelEn: "Mythological Origins",
+    religion: "藏传佛教专属",
+    religionEn: "Tibetan Buddhism only",
     religionColor: "bg-indigo-500/20 text-indigo-300",
-    content: `藏历的"绕迥"（Rabjung）纪年法始于公元1027年（阴火兔年）。这一年，印度佛教经典《时轮经》（Kalachakra Tantra）被译成藏文并正式传入藏地。绕迥以60年为一个完整循环，结合五行（金、木、水、火、土）与十二生肖，形成系统的纪年体系。2026年是藏历第十七绕迥的火马年（Me Phok Ta）。`,
-    contentEn: `The Tibetan "Rabjung" calendar system began in 1027 CE (Yin Fire Rabbit Year), when the Kalachakra Tantra was translated into Tibetan and formally introduced. Rabjung operates on a 60-year cycle combining five elements with twelve animals. 2026 is the Fire Horse Year in the 17th Rabjung cycle.`
+    content: `传说释迦牟尼在世时恰逢藏历马年，十方诸佛、诸天神灵齐聚冈仁波齐讲法，因此定马年为神山本命年，一圈功德等于常年十三圈。这套神话叙事是藏传佛教专属，早期苯教正统典籍并无"马年殊胜转山"设定；苯教马年吉祥仅与辛饶寻神马民间传说相关，从未形成十二年一轮转山习俗。印度教经典中亦无"马年功德倍增"教义。`,
+    contentEn: `According to Buddhist tradition, when Shakyamuni Buddha was alive during a Tibetan Horse Year, the Buddhas and deities of the ten directions gathered at Kailash to teach the Dharma — thus establishing Horse Year as the mountain's birth-sign year, with one kora equaling thirteen. This mythological narrative belongs exclusively to Tibetan Buddhism. Early orthodox Bön scriptures contain no "Horse Year special pilgrimage" doctrine; Bön's Horse Year associations are limited to a folk legend about Shenrab searching for divine horses, which never crystallized into a twelve-year pilgrimage system. Hindu scriptures likewise contain no "Horse Year multiplied merit" teaching.`
   },
   {
-    label: "马年信仰起源",
-    labelEn: "Origins",
+    label: "成型落地：12世纪",
+    labelEn: "Formalization: 12th Century",
     religion: "藏传佛教·噶举派",
     religionEn: "Tibetan Buddhism·Kagyu",
     religionColor: "bg-indigo-500/20 text-indigo-300",
-    content: `马年转山信仰的确切起源尚不可考，但可追溯至公元10世纪古格王朝时期。藏传佛教噶举派在冈仁波齐的神圣化过程中发挥了关键作用。据传统说法，佛祖释迦牟尼的生肖属马，因此马年被视作佛的本命年。但需要诚实说明：这一说法属于宗教传统叙事（traditional narrative），而非可验证的历史事实（historical fact）。最早的可靠文献证据是1907年的一张老照片——拍摄者记录前一年的火马年（1906年）转山人数"远远不可计其数"，证明至少在那时马年转山已是规模宏大的宗教活动。`,
-    contentEn: `The exact origins of Horse Year pilgrimage belief remain uncertain, but can be traced to the 10th-century Guge Kingdom period. The Kagyu school of Tibetan Buddhism played a key role in Kailash's sacralization. According to tradition, Buddha Shakyamuni was born in a Horse Year, making it the Buddha's birth-sign year. However, this must be honestly noted as religious traditional narrative rather than verifiable historical fact. The earliest reliable documentary evidence is a 1907 photograph whose caption records that during the previous Fire Horse Year (1906), pilgrim numbers were "beyond counting," confirming Horse Year pilgrimage as a massive religious event at least by that time.`
+    content: `权威藏地人文史料统一记载：马年转冈仁波齐、羊年转纳木错、猴年转扎日这套十二年生肖朝圣体系，固定成型于藏传佛教后弘期噶当、噶举派兴盛阶段（公元12世纪）。关键节点：11世纪阿底峡入藏、阿里古格王室大力复兴佛教，冈仁波齐从苯教核心圣山同步成为藏传佛教核心道场；12世纪噶举派米拉日巴时期，教派正式整理藏历纪年与神山对应仪轨，确立马年专属殊胜朝圣传统，十二年一轮大转山习俗传遍全藏。`,
+    contentEn: `Authoritative Tibetan historical sources uniformly record: the twelve-year zodiac pilgrimage system — Horse Year for Kailash, Sheep Year for Namtso, Monkey Year for Zari — was formally established during the Later Dissemination (Phyi dar) period, specifically the flourishing of the Kadam and Kagyu schools in the 12th century CE. Key milestones: 11th century — Atisha entered Tibet and the Guge royal house vigorously revived Buddhism, transforming Kailash from a Bön stronghold into a core Tibetan Buddhist sanctuary; 12th century — under Milarepa's Kagyu lineage, the school systematically codified the Tibetan calendar's correspondence with sacred mountain rituals, formally establishing the Horse Year pilgrimage tradition, which spread throughout Tibet.`
+  },
+  {
+    label: "体系确立：13世纪起",
+    labelEn: "System Codification: 13th Century+",
+    religion: "藏传佛教·萨迦派",
+    religionEn: "Tibetan Buddhism·Sakya",
+    religionColor: "bg-indigo-500/20 text-indigo-300",
+    content: `13世纪起，萨迦派与元朝治藏体系确立后，王室和寺院官方推广马年朝圣，使之成为全藏统一的民俗制度，一直延续至今。此后格鲁派继承了这一传统并进一步发扬光大。2026年是藏历第十七绕迥的火马年（Me Phok Ta），距离12世纪体系成型约800年。`,
+    contentEn: `From the 13th century onward, after the Sakya school and the Mongol Yuan dynasty established their governance over Tibet, the royal court and monasteries officially promoted Horse Year pilgrimage, making it a unified Tibetan folk institution that continues to this day. The Gelug school later inherited and further propagated this tradition. 2026 is the Fire Horse Year of the 17th Rabjung cycle, approximately 800 years since the system's formalization in the 12th century.`
   },
   {
     label: "功德量化",
@@ -466,17 +475,8 @@ const horseYearFacts = [
     religion: "藏传佛教",
     religionEn: "Tibetan Buddhism",
     religionColor: "bg-indigo-500/20 text-indigo-300",
-    content: `藏传佛教中流传"马年转山一圈等于平时十三圈"的说法。这一量化的宗教依据来自"十二因缘"（Twelve Nidanas）学说：十二个因缘构成轮回的完整链条，转山一圈等于断除一个因缘；第十三圈则代表超越轮回本身。马年作为佛的本命年，具有特殊的加持力——马年转山一圈的功德与其他年份转山十三圈的功德相等。此外还有累积性的功德体系：转山十圈可免五百轮回中的地狱之苦；转山一百零八圈可直接超脱六道轮回。这些量化标准为朝圣者提供了明确的宗教动机。`,
-    contentEn: `Tibetan Buddhism holds that "one Horse Year kora equals thirteen ordinary-year koras." The doctrinal basis comes from the Twelve Nidanas (links of dependent origination): twelve links form the complete chain of samsara, each kora severs one link; the thirteenth represents transcendence of samsara itself. As the Buddha's birth-sign year, the Horse Year carries special blessings. There is also a cumulative merit system: ten koras spare one from hell in five hundred rebirths; 108 koras directly transcend the six realms of existence.`
-  },
-  {
-    label: "米拉日巴与马年",
-    labelEn: "Milarepa Connection",
-    religion: "藏传佛教",
-    religionEn: "Tibetan Buddhism",
-    religionColor: "bg-indigo-500/20 text-indigo-300",
-    content: `⚠️ 诚实标注：民间传说噶举派祖师米拉日巴与苯教徒那若本琼在冈仁波齐斗法获胜的日子是藏历四月十五日（萨嘎达瓦节），噶举派因此将马年确立为冈仁波齐的本命年。但据学术考证（见经典文献区《米拉日巴传》条），这一斗法故事不见于仓央赫鲁嘎原著《米拉日巴传》，是后期佛教徒根据民间传说改编的文学叙事。它反映了佛苯两教在冈仁波齐的历史竞争，作为一个文化现象本身具有研究价值，但不应被当作历史事实陈述。`,
-    contentEn: `⚠️ Honest note: Folk tradition holds that Kagyu master Milarepa defeated the Bönpo Naro Bonchung at Kailash on the 15th day of the 4th Tibetan month (Saga Dawa), leading the Kagyu to designate Horse Year as Kailash's birth-sign year. However, scholarly research confirms this contest story does not appear in Tsangnyön Heruka's original biography of Milarepa. It is a later Buddhist literary adaptation of folk tradition. While valuable as a cultural phenomenon reflecting Buddhist-Bön historical competition for Kailash, it should not be stated as historical fact.`
+    content: `"马年转山一圈等于平时十三圈"的量化依据来自"十二因缘"（Twelve Nidanas）学说：十二个因缘——无明、行、识、名色、六入、触、受、爱、取、有、生、老死——构成轮回完整链条；转山一圈断除一个因缘，第十三圈超越轮回本身。此外：转山十圈免五百轮回地狱之苦；一百零八圈直接超脱六道。这些量化标准属于民间信仰对教义的通俗化阐释，为朝圣者提供明确的宗教动机。`,
+    contentEn: `The quantification "one Horse Year kora equals thirteen ordinary koras" derives from the Twelve Nidanas doctrine: ignorance, formations, consciousness, name-and-form, six senses, contact, feeling, craving, clinging, becoming, birth, and aging-death — each kora severs one link; the thirteenth transcends samsara. Additionally: ten koras spare one from hell in five hundred rebirths; 108 koras directly transcend the six realms. These quantifications represent folk-level popularization of doctrine, providing pilgrims with concrete religious motivation.`
   },
   {
     label: "近现代马年",
@@ -484,8 +484,8 @@ const horseYearFacts = [
     religion: "藏传佛教",
     religionEn: "Tibetan Buddhism",
     religionColor: "bg-indigo-500/20 text-indigo-300",
-    content: `有记录的近现代马年包括：1906年（火马年）、1966年（火马年）、1990年（铁马年）、2002年（水马年）、2014年（木马年）。2014年木马年，据阿里地区旅游局统计，全年转山人数超过20万人次。其中约1.5万印度朝圣者同期前来——但他们是参加Kailash Mansarovar Yatra，而非因马年信仰（印度教没有马年概念）。2026年火马年预计将创历史新高。下一次马年为2038年（土马年）。`,
-    contentEn: `Documented modern Horse Years include: 1906 (Fire Horse), 1966 (Fire Horse), 1990 (Iron Horse), 2002 (Water Horse), 2014 (Wood Horse). In the 2014 Wood Horse Year, Ngari tourism authorities recorded over 200,000 pilgrims. Approximately 15,000 Indian pilgrims visited concurrently — but for the Kailash Mansarovar Yatra, not due to Horse Year belief (Hinduism has no Horse Year concept). The 2026 Fire Horse Year is projected to set new records. The next Horse Year is 2038 (Earth Horse).`
+    content: `有记录的近现代马年：1906年（火马年，最早照片证据）、1966年（火马年）、1990年（铁马年）、2002年（水马年）、2014年（木马年，约20万人次转山）。2026年火马年预计创历史新高。下一次马年：2038年（土马年）。`,
+    contentEn: `Documented modern Horse Years: 1906 (Fire Horse, earliest photo evidence), 1966 (Fire Horse), 1990 (Iron Horse), 2002 (Water Horse), 2014 (Wood Horse, ~200,000 pilgrims). 2026 Fire Horse Year projected to set records. Next Horse Year: 2038 (Earth Horse).`
   },
   {
     label: "萨嘎达瓦节",
@@ -493,8 +493,26 @@ const horseYearFacts = [
     religion: "藏传佛教",
     religionEn: "Tibetan Buddhism",
     religionColor: "bg-indigo-500/20 text-indigo-300",
-    content: `藏历四月十五日是藏传佛教最重要的节日——萨嘎达瓦节（Saga Dawa Duchen）。这一天被认为是释迦牟尼诞生、成道、涅槃三大事件同日发生的神圣日子。在马年，萨嘎达瓦节与冈仁波齐转山叠加，形成最殊胜的朝圣时机。2026年的萨嘎达瓦节对应公历约5月31日。传统上，朝圣者会在这一天之前抵达塔尔钦，在节日当天开始转山——据信这一天的功德在马年基础上再乘以倍数。`,
-    contentEn: `The 15th day of the 4th Tibetan month is Saga Dawa Duchen, the most important holiday in Tibetan Buddhism. It marks the day Buddha Shakyamuni was born, attained enlightenment, and entered parinirvana — all three events in one. During Horse Year, Saga Dawa coincides with Kailash pilgrimage, creating the most auspicious timing. In 2026, Saga Dawa corresponds to approximately May 31 on the Gregorian calendar. Traditionally, pilgrims aim to arrive at Darchen before this date and begin their kora on the day itself, when merit is believed to multiply further upon the Horse Year foundation.`
+    content: `藏历四月十五日萨嘎达瓦节（Saga Dawa Duchen）是藏传佛教最神圣的日子——相传释迦牟尼诞生、成道、涅槃同日发生。马年萨嘎达瓦节与转山叠加，形成最殊胜朝圣时机。2026年对应公历约5月31日。传统上朝圣者在节前抵达塔尔钦，当天开始转山。`,
+    contentEn: `The 15th day of the 4th Tibetan month — Saga Dawa Duchen — is Tibetan Buddhism's holiest day, marking the Buddha's birth, enlightenment, and parinirvana. During Horse Year, Saga Dawa coincides with the kora for the most auspicious timing. In 2026: approximately May 31. Pilgrims traditionally arrive at Darchen before this date to begin their kora.`
+  },
+  {
+    label: "⚠️ 非马年体系：苯教",
+    labelEn: "⚠️ Outside Horse Year: Bön",
+    religion: "苯教 — 无马年转山制度",
+    religionEn: "Bön — No Horse Year system",
+    religionColor: "bg-amber-500/20 text-amber-300",
+    content: `苯教正统经文记载敦巴辛饶于木鼠年下凡；民间有"辛饶为寻七匹神马降临藏地"的传说，但马年概念仅停留在吉祥寓意层面，从未形成十二年一轮的集中转山制度。马年大转山是后世藏传佛教完善确立的体系，不应标注为苯教标签。苯教的冈仁波齐朝圣传统独立存在——其核心是逆时针转山和雍仲九层山（Yungdrung Gutsek）的宇宙观，与藏传佛教的马年计时体系无关。`,
+    contentEn: `Orthodox Bön scriptures record Tonpa Shenrab descending to earth in a Wood Mouse Year. A folk legend exists about "Shenrab descending to Tibet in search of seven divine horses," but the Horse Year concept remained at the level of auspicious symbolism and never crystallized into a twelve-year pilgrimage system. The Horse Year grand pilgrimage is a later Tibetan Buddhist development and should not be labeled as Bön. Bön's Kailash pilgrimage tradition exists independently — centered on counter-clockwise circumambulation and the Yungdrung Gutsek (Nine-Story Yungdrung Mountain) cosmology, unrelated to the Tibetan Buddhist Horse Year calendar system.`
+  },
+  {
+    label: "⚠️ 非马年体系：印度教",
+    labelEn: "⚠️ Outside Horse Year: Hinduism",
+    religion: "印度教 — 无马年功德教义",
+    religionEn: "Hinduism — No Horse Year doctrine",
+    religionColor: "bg-emerald-500/20 text-emerald-300",
+    content: `印度信徒常年朝拜湿婆神山（Kailash Mansarovar Yatra），部分朝圣者顺路参与马年集会，但印度教本土经典中并无"马年功德倍增"教义。马年概念属于藏历佛教民俗，非印度教原生信仰。将印度朝圣者参与马年转山的数据归为"印度教的马年信仰"，是在用一个不存在的宗教概念去解释朝圣行为。两者应严格区分：藏传佛教有马年体系；印度教有湿婆神山朝圣——这是两条不同的信仰脉络，在马年这个时间点上交汇，但源头各自独立。`,
+    contentEn: `Indian devotees venerate Mount Kailash year-round as Shiva's sacred abode through the Kailash Mansarovar Yatra. Some pilgrims' visits coincide with Horse Year gatherings, but indigenous Hindu scriptures contain no "Horse Year multiplied merit" doctrine. The Horse Year concept belongs to Tibetan Buddhist folk tradition, not Hindu belief. Attributing Indian pilgrims' Horse Year participation to "Hindu Horse Year faith" uses a non-existent religious concept to explain pilgrimage behavior. These must be strictly distinguished: Tibetan Buddhism has a Horse Year system; Hinduism has Shiva sacred mountain pilgrimage — two separate faith traditions that intersect temporally during Horse Year but originate independently.`
   }
 ];
 
