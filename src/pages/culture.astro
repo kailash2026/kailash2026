@@ -440,6 +440,46 @@ const geoFeatures = [
 ];
 
 
+// 马年转山·历史渊源
+const horseYearFacts = [
+  {
+    label: "藏历纪年",
+    labelEn: "Tibetan Calendar",
+    content: `藏历的"绕迥"（Rabjung）纪年法始于公元1027年（阴火兔年）。这一年，印度佛教经典《时轮经》（Kalachakra Tantra）被译成藏文并正式传入藏地。绕迥以60年为一个完整循环，结合五行（金、木、水、火、土）与十二生肖，形成系统的纪年体系。2026年是藏历第十七绕迥的火马年（Me Phok Ta）。`,
+    contentEn: `The Tibetan "Rabjung" calendar system began in 1027 CE (Yin Fire Rabbit Year), when the Kalachakra Tantra was translated into Tibetan and formally introduced. Rabjung operates on a 60-year cycle combining five elements with twelve animals. 2026 is the Fire Horse Year in the 17th Rabjung cycle.`
+  },
+  {
+    label: "马年信仰起源",
+    labelEn: "Origins",
+    content: `马年转山信仰的确切起源尚不可考，但可追溯至公元10世纪古格王朝时期。藏传佛教噶举派在冈仁波齐的神圣化过程中发挥了关键作用。据传统说法，佛祖释迦牟尼的生肖属马，因此马年被视作佛的本命年。但需要诚实说明：这一说法属于宗教传统叙事（traditional narrative），而非可验证的历史事实（historical fact）。最早的可靠文献证据是1907年的一张老照片——拍摄者记录前一年的火马年（1906年）转山人数"远远不可计其数"，证明至少在那时马年转山已是规模宏大的宗教活动。`,
+    contentEn: `The exact origins of Horse Year pilgrimage belief remain uncertain, but can be traced to the 10th-century Guge Kingdom period. The Kagyu school of Tibetan Buddhism played a key role in Kailash's sacralization. According to tradition, Buddha Shakyamuni was born in a Horse Year, making it the Buddha's birth-sign year. However, this must be honestly noted as religious traditional narrative rather than verifiable historical fact. The earliest reliable documentary evidence is a 1907 photograph whose caption records that during the previous Fire Horse Year (1906), pilgrim numbers were "beyond counting," confirming Horse Year pilgrimage as a massive religious event at least by that time.`
+  },
+  {
+    label: "功德量化",
+    labelEn: "Merit Calculus",
+    content: `藏传佛教中流传"马年转山一圈等于平时十三圈"的说法。这一量化的宗教依据来自"十二因缘"（Twelve Nidanas）学说：十二个因缘构成轮回的完整链条，转山一圈等于断除一个因缘；第十三圈则代表超越轮回本身。马年作为佛的本命年，具有特殊的加持力——马年转山一圈的功德与其他年份转山十三圈的功德相等。此外还有累积性的功德体系：转山十圈可免五百轮回中的地狱之苦；转山一百零八圈可直接超脱六道轮回。这些量化标准为朝圣者提供了明确的宗教动机。`,
+    contentEn: `Tibetan Buddhism holds that "one Horse Year kora equals thirteen ordinary-year koras." The doctrinal basis comes from the Twelve Nidanas (links of dependent origination): twelve links form the complete chain of samsara, each kora severs one link; the thirteenth represents transcendence of samsara itself. As the Buddha's birth-sign year, the Horse Year carries special blessings. There is also a cumulative merit system: ten koras spare one from hell in five hundred rebirths; 108 koras directly transcend the six realms of existence.`
+  },
+  {
+    label: "米拉日巴与马年",
+    labelEn: "Milarepa Connection",
+    content: `⚠️ 诚实标注：民间传说噶举派祖师米拉日巴与苯教徒那若本琼在冈仁波齐斗法获胜的日子是藏历四月十五日（萨嘎达瓦节），噶举派因此将马年确立为冈仁波齐的本命年。但据学术考证（见经典文献区《米拉日巴传》条），这一斗法故事不见于仓央赫鲁嘎原著《米拉日巴传》，是后期佛教徒根据民间传说改编的文学叙事。它反映了佛苯两教在冈仁波齐的历史竞争，作为一个文化现象本身具有研究价值，但不应被当作历史事实陈述。`,
+    contentEn: `⚠️ Honest note: Folk tradition holds that Kagyu master Milarepa defeated the Bönpo Naro Bonchung at Kailash on the 15th day of the 4th Tibetan month (Saga Dawa), leading the Kagyu to designate Horse Year as Kailash's birth-sign year. However, scholarly research confirms this contest story does not appear in Tsangnyön Heruka's original biography of Milarepa. It is a later Buddhist literary adaptation of folk tradition. While valuable as a cultural phenomenon reflecting Buddhist-Bön historical competition for Kailash, it should not be stated as historical fact.`
+  },
+  {
+    label: "近现代马年",
+    labelEn: "Modern Horse Years",
+    content: `有记录的近现代马年包括：1906年（火马年）、1966年（火马年）、1990年（铁马年）、2002年（水马年）、2014年（木马年）。2014年木马年，据阿里地区旅游局统计，全年转山人数超过20万人次，其中印度朝圣者约1.5万人。2026年火马年预计将创历史新高——不仅因为疫情后朝圣需求反弹，也因为中国和印度均放宽了朝圣许可证的发放。下一次马年为2038年（土马年）。`,
+    contentEn: `Documented modern Horse Years include: 1906 (Fire Horse), 1966 (Fire Horse), 1990 (Iron Horse), 2002 (Water Horse), 2014 (Wood Horse). In the 2014 Wood Horse Year, Ngari tourism authorities recorded over 200,000 pilgrims on the kora, including approximately 15,000 from India. The 2026 Fire Horse Year is projected to set new records — driven by post-pandemic pilgrimage demand and relaxed permit policies by both China and India. The next Horse Year is 2038 (Earth Horse).`
+  },
+  {
+    label: "萨嘎达瓦节",
+    labelEn: "Saga Dawa",
+    content: `藏历四月十五日是藏传佛教最重要的节日——萨嘎达瓦节（Saga Dawa Duchen）。这一天被认为是释迦牟尼诞生、成道、涅槃三大事件同日发生的神圣日子。在马年，萨嘎达瓦节与冈仁波齐转山叠加，形成最殊胜的朝圣时机。2026年的萨嘎达瓦节对应公历约5月31日。传统上，朝圣者会在这一天之前抵达塔尔钦，在节日当天开始转山——据信这一天的功德在马年基础上再乘以倍数。`,
+    contentEn: `The 15th day of the 4th Tibetan month is Saga Dawa Duchen, the most important holiday in Tibetan Buddhism. It marks the day Buddha Shakyamuni was born, attained enlightenment, and entered parinirvana — all three events in one. During Horse Year, Saga Dawa coincides with Kailash pilgrimage, creating the most auspicious timing. In 2026, Saga Dawa corresponds to approximately May 31 on the Gregorian calendar. Traditionally, pilgrims aim to arrive at Darchen before this date and begin their kora on the day itself, when merit is believed to multiply further upon the Horse Year foundation.`
+  }
+];
+
 // 新增经典文献
 const additionalBookQuotes = [
   {
@@ -1205,6 +1245,46 @@ const academicDebates = [
             <p class="text-gray-500 text-sm italic mt-4">{feature.contentEn}</p>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Horse Year Pilgrimage Section -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-3 font-light" data-lang-content="zh">12年一轮回 · 藏历火马年</p>
+        <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-3 font-light" data-lang-content="en" style="display: none;">Once Every 12 Years · Fire Horse Year</p>
+        <h2 class="font-display text-4xl font-bold text-white mb-2" data-lang-content="zh">马年转山：历史与信仰</h2>
+        <h2 class="font-display text-4xl font-bold text-white mb-2" data-lang-content="en" style="display: none;">Horse Year Pilgrimage: History &amp; Faith</h2>
+        <p class="text-white/50 text-sm mt-2" data-lang-content="zh">客观记录 · 不渲染神话 · 不回避事实</p>
+        <p class="text-white/50 text-sm mt-2" data-lang-content="en" style="display: none;">Documentary · No myth-making · Facts over fantasy</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {horseYearFacts.map((fact, i) => (
+          <div class={`bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:border-kailash-gold/30 transition ${i === 0 ? 'md:col-span-2' : ''}`}>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-kailash-gold text-2xl font-display font-bold">0{i + 1}</span>
+              <h3 class="text-xl font-display font-bold text-white">
+                <span data-lang-content="zh">{fact.label}</span>
+                <span data-lang-content="en" style="display: none;">{fact.labelEn}</span>
+              </h3>
+              {i === 3 && (
+                <span class="text-xs bg-yellow-600/20 text-yellow-400 px-2 py-0.5 rounded-full">⚠️ 诚实标注</span>
+              )}
+            </div>
+            <p class="text-white/70 leading-relaxed">
+              <span data-lang-content="zh">{fact.content}</span>
+              <span data-lang-content="en" style="display: none;">{fact.contentEn}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-12 text-white/40 text-sm">
+        <p data-lang-content="zh">下一次马年：2038年（土马年）| 距离2026年火马年还有12年</p>
+        <p data-lang-content="en" style="display: none;">Next Horse Year: 2038 (Earth Horse) | 12 years after the 2026 Fire Horse Year</p>
       </div>
     </div>
   </section>
