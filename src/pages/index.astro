@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SearchBox from '../components/SearchBox.astro';
+import Newsletter from '../components/Newsletter.astro';
 import { getCollection } from 'astro:content';
 
 const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh'))
@@ -441,6 +442,13 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <span data-lang-content="hi" style="display: none;">सभी लेख देखें →</span>
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Newsletter lang="zh" variant="card" />
     </div>
   </section>
 </Layout>

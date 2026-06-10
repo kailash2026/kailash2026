@@ -249,7 +249,7 @@ const isCard = variant === 'card';
 
       try {
         // Use Resend API via the existing email endpoint
-        const response = await fetch('/api/booking', {
+        const response = await fetch('/api/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

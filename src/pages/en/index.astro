@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SearchBox from '../../components/SearchBox.astro';
+import Newsletter from '../../components/Newsletter.astro';
 ---
 
 <Layout title="Kailash 2026 - Global Pilgrimage Platform | Sacred Mount Kailash, Tibet" description="Kailash 2026: The global pilgrimage platform connecting pilgrims worldwide. Sacred to Hinduism, Tibetan Buddhism, Bön, and Jainism. Join pilgrims from India, Nepal, China, and around the world on this transformative journey.">
@@ -268,6 +269,13 @@ import SearchBox from '../../components/SearchBox.astro';
       <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">Search Kailash</h2>
       <p class="text-kailash-dark/80 mb-8">Type keywords to quickly find what you need</p>
       <SearchBox />
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Newsletter lang="en" variant="card" />
     </div>
   </section>
 </Layout>
