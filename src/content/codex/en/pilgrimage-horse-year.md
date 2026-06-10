@@ -47,7 +47,7 @@ Tradition holds Kagyu master **Milarepa** (1040-1123) defeated the Bönpo Naro B
 
 ## VI. Saga Dawa `Tibetan Buddhism`
 
-The 15th day of the 4th Tibetan month marks Buddha's birth, enlightenment, and parinirvana on one day. During Horse Year, Saga Dawa coincides with Kailash pilgrimage. In 2026: approximately **May 31** (±2 days).
+The 15th day of the 4th Tibetan month marks Buddha's birth, enlightenment, and parinirvana on one day. During Horse Year, Saga Dawa coincides with Kailash pilgrimage. Saga Dawa follows the **Tibetan lunar calendar** — the Gregorian date varies annually. Consult the current year's Tibetan calendar for the exact date.
 
 ## VII. Kora Practice
 
