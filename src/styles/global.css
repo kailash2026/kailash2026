@@ -5,6 +5,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 性能优化：延迟渲染折叠线以下内容 */
+section:not(:first-of-type) {
+  content-visibility: auto;
+  contain-intrinsic-size: 500px;
+}
+
 /* 自定义滚动条 - 高级色调 */
 ::-webkit-scrollbar {
   width: 6px;
