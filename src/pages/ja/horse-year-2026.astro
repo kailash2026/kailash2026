@@ -1,0 +1,222 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const relatedGuides = [
+  { title: 'コーラ・ルートガイド', desc: '52km外周コーラ完全攻略', href: '/guide', icon: '🥾' },
+  { title: 'ビザと許可証', desc: '外国人のチベット入域許可手続き', href: '/blog/kailash-visa-permit-guide', icon: '🛂' },
+  { title: '交通ガイド', desc: 'カイラス山への行き方', href: '/blog/kailash-transport-guide', icon: '🚌' },
+  { title: 'ベストシーズン', desc: '2026年月別天気ガイド', href: '/blog/best-time-kailash-yatra', icon: '📅' },
+];
+---
+
+<Layout lang="ja" title="2026年火馬年 — 12年に一度のカイラス巡礼 | カイラス馬年2026" description="2026年チベット火馬年、一巡礼は十三周分の功徳。馬年巡礼の完全な歴史、宗教的意義と実用ガイド。| 2026 Tibetan Fire Horse Year — one kora equals thirteen. Complete history, religious meaning & practical guide.">
+  <style>
+    .horse-hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .horse-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,14,13,0.9) 0%, rgba(15,14,13,0.75) 100%), url('/images/kailash-golden.webp') center/cover; }
+    .horse-hero-content { position: relative; z-index: 1; text-align: center; padding: 2rem; max-width: 800px; }
+    .horse-hero h1 { font-size: clamp(2rem, 6vw, 4rem); color: #d4af37; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+    .horse-hero .subtitle { font-size: clamp(1rem, 2vw, 1.3rem); color: rgba(255,255,255,0.65); }
+    .fire-badge { display: inline-block; background: linear-gradient(135deg, #b72b26, #8b1a1a); color: #ffd700; padding: 0.5rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; margin-bottom: 1.5rem; letter-spacing: 3px; }
+    .section { padding: 5rem 0; }
+    .section-alt { background: #f8f6f3; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-title { text-align: center; font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 700; color: #0F0E0D; margin-bottom: 0.5rem; }
+    .section-subtitle { text-align: center; color: #666; font-size: 1rem; margin-bottom: 3rem; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+    .stat-card { background: white; border-radius: 16px; padding: 2rem; text-align: center; box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+    .stat-number { font-size: 2.5rem; font-weight: 800; color: #b72b26; }
+    .stat-label { color: #666; font-size: 0.9rem; margin-top: 0.5rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .card { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #f0ece5; }
+    .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: #0F0E0D; }
+    .card p { color: #555; line-height: 1.7; font-size: 0.95rem; }
+    .guide-card { background: white; border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #f0ece5; text-decoration: none; }
+    .guide-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+    .guide-card .icon { font-size: 2rem; }
+    .guide-card .info h4 { font-size: 1rem; font-weight: 600; color: #0F0E0D; margin-bottom: 0.2rem; }
+    .guide-card .info p { font-size: 0.85rem; color: #888; }
+    .quote-block { background: #0F0E0D; color: #f0e6d3; border-radius: 16px; padding: 3rem; margin: 3rem 0; text-align: center; }
+    .quote-block q { font-size: clamp(1rem, 2vw, 1.4rem); font-style: italic; line-height: 1.8; }
+    .quote-block .source { margin-top: 1rem; color: #b8956a; font-size: 0.9rem; }
+    .timeline { position: relative; margin: 3rem 0; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, #b72b26, #d4af37); }
+    .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 2rem; }
+    .timeline-item::before { content: '🔥'; position: absolute; left: -1.2rem; top: 0; font-size: 1.2rem; }
+    .timeline-item .date { font-weight: 700; color: #b72b26; font-size: 1.05rem; }
+    .timeline-item p { color: #555; margin-top: 0.3rem; line-height: 1.6; }
+    .cta-section { background: linear-gradient(135deg, #0F0E0D, #2A2826); color: white; border-radius: 16px; padding: 3rem; text-align: center; margin: 3rem 0; }
+    .cta-section h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; }
+    .cta-section p { font-size: 1rem; opacity: 0.8; margin-bottom: 1.5rem; }
+    .cta-btn { display: inline-block; background: #b8956a; color: white; padding: 0.8rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; }
+    .cta-btn:hover { background: #a67b5b; }
+    @media (max-width: 768px) { .section { padding: 3rem 0; } .stat-card { padding: 1.2rem; } .stat-number { font-size: 2rem; } }
+  </style>
+
+  <!-- Hero -->
+  <section class="horse-hero">
+    <div class="horse-hero-content">
+      <div class="fire-badge">🔥 2026 チベット火馬年</div>
+      <h1>十二年に一度の<br />カイラス巡礼</h1>
+      <p class="subtitle" style="font-size:1.5rem;color:#d4af37;font-weight:600;margin:0.5rem 0">
+        一巡礼 · 十三倍の功徳
+      </p>
+      <p class="subtitle">
+        前回の馬年：2014年 — 次回：2038年
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">13×</div><div class="stat-label">馬年功徳倍率</div></div>
+        <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">年周期</div></div>
+        <div class="stat-card"><div class="stat-number">1027</div><div class="stat-label">チベット暦紀元（西暦）</div></div>
+        <div class="stat-card"><div class="stat-number">2086</div><div class="stat-label">次回の火馬年</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Horse Year -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">なぜ馬年の巡礼は特別なのか？</h2>
+      <p class="section-subtitle">
+        馬年巡礼はチベット仏教に固有の体系です。他の三大宗教（ヒンドゥー教、ボン教、ジャイナ教）には馬年概念が存在しません。
+      </p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">📿</div>
+          <h3>チベット仏教 · 専属</h3>
+          <p>
+            釈迦牟尼仏陀は馬年に誕生（宗教的伝承）。チベット仏教カギュ派が12世紀に馬年巡礼体系を正式に確立——馬年のカイラス巡礼一周は、通常の年の十三周分の功徳に相当。この量化は十二因縁の教義に基づく。
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🕉️</div>
+          <h3>ヒンドゥー教 · 馬年概念なし</h3>
+          <p>
+            カイラスはシヴァ神の住居。ヒンドゥー教の経典には「馬年の功徳倍増」という教義は存在しない。インド人巡礼者の参加はカイラス・マーナサローヴァル・ヤトラの伝統によるもので、馬年とは無関係。二つの信仰の流れは馬年という時点で交わるが、源泉はそれぞれ独立している。
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">☸️</div>
+          <h3>ボン教 · 馬年制度なし</h3>
+          <p>
+            ボン教経典にはトンパ・シェンラプが木鼠年に降臨したと記される。神馬を探す民間伝説は存在するが、組織的な馬年巡礼制度は形成されなかった。馬年大巡礼はチベット仏教の体系であり、ボン教由来ではない。
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🪷</div>
+          <h3>ジャイナ教 · 馬年概念なし</h3>
+          <p>
+            初代ティールタンカラ、リシャバナータがアシュタパダ（八足山）で解脱。ジャイナ教経典に馬年巡礼の伝統はない。ジャイナ教徒の巡礼は解脱の物語に基づくものであり、チベット暦体系とは無関係。
+          </p>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        <q>
+          馬年にカイラスを一周することは、通常の年に十三周することに等しい。これはカギュ派が12世紀に確立した千年の伝承——チベット仏教にのみ属する巡礼体系である。
+        </q>
+        <div class="source">
+          — チベット仏教の伝承、信頼できるチベット人文史料に基づく
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2026 Key Dates -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">2026年火馬年 重要日程</h2>
+      <p class="section-subtitle">
+        2026年はチベット暦第17ラプチュン周期の火馬年
+      </p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="date">4月中旬 — 巡礼路開放</div>
+          <p>冬季閉鎖後、カイラス巡礼路が正式に開放されます。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">5月下旬 — 最適期間</div>
+          <p>天候が安定し、早期の巡礼者が到着し始めます。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">5月31日（±2日） — サガダワ祭 🏆</div>
+          <p>チベット暦4月15日、仏陀成道涅槃の日。サガダワ＋馬年＝最も神聖な巡礼の時。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">7〜8月 — インド巡礼者ピーク</div>
+          <p>インド公式巡礼団（KMY）が集中出発します。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">9月 — 第二の山場</div>
+          <p>天候が安定。3ヶ月前までの予約を推奨します。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">10月中旬 — シーズン終了</div>
+          <p>気温が低下。経験豊富なトレッカー向けです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practical Guides -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">馬年巡礼 実用ガイド</h2>
+      <p class="section-subtitle">
+        事前準備で、心穏やかな巡礼を
+      </p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0">
+        {relatedGuides.map(g => (
+          <a href={g.href} class="guide-card">
+            <span class="icon">{g.icon}</span>
+            <div class="info">
+              <h4>{g.title}</h4>
+              <p>{g.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🏠</div>
+          <h3>宿泊は早めに予約</h3>
+          <p>ダルチェンの通常収容人数は約2,000人ですが、馬年のピーク時には5,000〜8,000人に達します。テントと寝袋の持参を推奨します。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📝</div>
+          <h3>許可証は早期取得</h3>
+          <p>外国人はチベット旅行許可証＋ガリ地区国境通行証が必要です。馬年は申請が殺到するため、2〜4ヶ月前に旅行会社への連絡を推奨します。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💊</div>
+          <h3>高山病予防</h3>
+          <p>事前にダイアモックス（アセタゾラミド）を服用し、ラサで2〜3日間順応してから出発してください。重度の高山病には即時下山が唯一の対処法です。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚶</div>
+          <h3>体力準備</h3>
+          <p>52kmの高所トレッキング、最高標高5,630m。3ヶ月前からの有酸素トレーニングを推奨します。巡礼は競争ではありません——ゆっくりが速い。</p>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h3>2026年火馬年に向けて準備を</h3>
+        <p>
+          完全な巡礼ガイドを閲覧 · コーラルート詳細 · 装備チェックリスト
+        </p>
+        <a href="/guide" class="cta-btn">
+          📋 巡礼ガイドを見る
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

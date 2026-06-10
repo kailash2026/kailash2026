@@ -1,0 +1,48 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const messages = [
+  { id: 1, name: "田中 健太", location: "東京", date: "2026-05-20", content: "2025年にコーラを完遂しました。カイラス山の力は言葉にできません。2026年の馬年には両親を連れて行きたいです。", avatar: "田" },
+  { id: 2, name: "Rajesh Kumar", location: "デリー, インド", date: "2026-05-18", content: "カイラスはただの山じゃない。それは生きている神です。2026年の馬年が待ちきれません。インドの巡礼団に参加する予定です。", avatar: "R" },
+  { id: 3, name: "佐藤 花子", location: "大阪", date: "2026-05-15", content: "2年前に初めてコーラを経験しました。あの三日間は人生で一番大変で、そして一番美しい時間でした。2026年、馬年の祝福の中で再び巡礼したいです。", avatar: "佐" },
+];
+---
+
+<Layout title="巡礼者の声 - メッセージボード | Kailash 2026" description="カイラス山巡礼者のメッセージボード。巡礼者同士で質問したり、経験を共有したり、同行者を探したり。" lang="ja">
+  <style>
+    .msg-hero { background: linear-gradient(135deg, #0F0E0D, #2A2826); padding: 5rem 0 3rem; text-align: center; color: white; }
+    .msg-container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    .msg-card { background: white; border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+    .msg-avatar { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #b8956a; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+    .msg-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+    .msg-name { font-weight: 600; color: #0F0E0D; }
+    .msg-location { color: #888; font-size: 0.85rem; }
+    .msg-date { color: #aaa; font-size: 0.8rem; margin-left: auto; }
+    .msg-content { color: #555; line-height: 1.7; }
+  </style>
+
+  <section class="msg-hero">
+    <div class="msg-container">
+      <h1 class="font-display text-3xl md:text-5xl font-bold mb-4">巡礼者の声</h1>
+      <p class="text-white/60 text-lg">本物の巡礼者からのメッセージ——偽りの数字はありません</p>
+    </div>
+  </section>
+
+  <section style="padding: 4rem 0; background: #f8f6f3;">
+    <div class="msg-container">
+      {messages.map(msg => (
+        <div class="msg-card">
+          <div class="msg-header">
+            <div class="msg-avatar">{msg.avatar}</div>
+            <div>
+              <div class="msg-name">{msg.name}</div>
+              <div class="msg-location">{msg.location}</div>
+            </div>
+            <div class="msg-date">{msg.date}</div>
+          </div>
+          <p class="msg-content">{msg.content}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

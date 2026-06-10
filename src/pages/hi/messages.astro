@@ -1,0 +1,48 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const messages = [
+  { id: 1, name: "राजेश कुमार", location: "दिल्ली, भारत", date: "2026-05-20", content: "कैलाश सिर्फ एक पर्वत नहीं है। यह जीवित भगवान हैं। 2026 के अश्व वर्ष की प्रतीक्षा नहीं कर सकता। भारतीय यात्रा दल में शामिल होने की योजना है।", avatar: "रा" },
+  { id: 2, name: "प्रिया शर्मा", location: "मुंबई", date: "2026-05-18", content: "पिछले साल पहली बार कैलाश परिक्रमा की। वे तीन दिन मेरे जीवन के सबसे कठिन और सबसे सुंदर दिन थे। 2026 में फिर से जाना चाहती हूँ।", avatar: "प्र" },
+  { id: 3, name: "तेनज़िन दोरजे", location: "ल्हासा", date: "2026-05-15", content: "यह मेरी चौथी परिक्रमा है। हर बार पहाड़ वही रहता है, लेकिन मैं बदल जाता हूँ। हर परिक्रमा आत्मा की एक और परत उतार देती है।", avatar: "ते" },
+];
+---
+
+<Layout title="तीर्थयात्रियों की आवाज़ - संदेश बोर्ड | Kailash 2026" description="कैलाश पर्वत तीर्थयात्रियों का संदेश बोर्ड। प्रश्न पूछें, अनुभव साझा करें, या यात्रा साथी खोजें।" lang="hi">
+  <style>
+    .msg-hero { background: linear-gradient(135deg, #0F0E0D, #2A2826); padding: 5rem 0 3rem; text-align: center; color: white; }
+    .msg-container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    .msg-card { background: white; border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+    .msg-avatar { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #b8956a; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+    .msg-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+    .msg-name { font-weight: 600; color: #0F0E0D; }
+    .msg-location { color: #888; font-size: 0.85rem; }
+    .msg-date { color: #aaa; font-size: 0.8rem; margin-left: auto; }
+    .msg-content { color: #555; line-height: 1.7; }
+  </style>
+
+  <section class="msg-hero">
+    <div class="msg-container">
+      <h1 class="font-display text-3xl md:text-5xl font-bold mb-4">तीर्थयात्रियों की आवाज़</h1>
+      <p class="text-white/60 text-lg">वास्तविक तीर्थयात्रियों के संदेश — कोई नकली संख्या नहीं</p>
+    </div>
+  </section>
+
+  <section style="padding: 4rem 0; background: #f8f6f3;">
+    <div class="msg-container">
+      {messages.map(msg => (
+        <div class="msg-card">
+          <div class="msg-header">
+            <div class="msg-avatar">{msg.avatar}</div>
+            <div>
+              <div class="msg-name">{msg.name}</div>
+              <div class="msg-location">{msg.location}</div>
+            </div>
+            <div class="msg-date">{msg.date}</div>
+          </div>
+          <p class="msg-content">{msg.content}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

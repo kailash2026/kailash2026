@@ -1,0 +1,20 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="オフライン - Kailash 2026" description="オフラインです。キャッシュされた基本情報は引き続きご覧いただけます。" lang="ja">
+  <section class="min-h-screen flex items-center justify-center bg-kailash-light px-4">
+    <div class="text-center max-w-lg mx-auto py-20">
+      <div class="text-6xl mb-6">🏔️</div>
+      <h1 class="font-display text-3xl md:text-4xl font-bold text-kailash-dark mb-4">オフラインです</h1>
+      <p class="text-gray-600 text-lg mb-2">インターネット接続がありません</p>
+      <p class="text-gray-500 mb-8">巡礼ガイドとルート情報は引き続きご覧いただけます</p>
+      <div class="grid gap-4">
+        <a href="/ja" class="block bg-kailash-dark text-white px-6 py-4 rounded-xl font-medium hover:bg-kailash-stone transition">ホームに戻る</a>
+        <a href="/ja/guide" class="block bg-white text-kailash-dark px-6 py-4 rounded-xl font-medium border border-gray-200 hover:border-kailash-gold transition">巡礼ガイド（キャッシュ済）</a>
+        <a href="/ja/routes" class="block bg-white text-kailash-dark px-6 py-4 rounded-xl font-medium border border-gray-200 hover:border-kailash-gold transition">コーラルート（キャッシュ済）</a>
+      </div>
+      <p class="text-sm text-gray-400 mt-8">再接続時にコンテンツは自動更新されます。カイラス山はいつでもここにあります。</p>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,222 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const relatedGuides = [
+  { title: 'परिक्रमा मार्ग गाइड', desc: '52 किमी बाहरी परिक्रमा की पूर्ण गाइड', href: '/guide', icon: '🥾' },
+  { title: 'वीज़ा और परमिट', desc: 'विदेशियों के लिए तिब्बत प्रवेश प्रक्रिया', href: '/blog/kailash-visa-permit-guide', icon: '🛂' },
+  { title: 'यात्रा गाइड', desc: 'कैलाश पर्वत तक कैसे पहुँचें', href: '/blog/kailash-transport-guide', icon: '🚌' },
+  { title: 'सर्वोत्तम समय', desc: '2026 मासिक मौसम गाइड', href: '/blog/best-time-kailash-yatra', icon: '📅' },
+];
+---
+
+<Layout lang="hi" title="2026 अग्नि अश्व वर्ष — 12 वर्षों में एक बार कैलाश तीर्थयात्रा | कैलाश अश्व वर्ष 2026" description="2026 तिब्बती अग्नि अश्व वर्ष, एक परिक्रमा तेरह गुना पुण्य। अश्व वर्ष तीर्थयात्रा का संपूर्ण इतिहास, धार्मिक महत्व और व्यावहारिक गाइड। कैलाश मानसरोवर यात्रा।">
+  <style>
+    .horse-hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .horse-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,14,13,0.9) 0%, rgba(15,14,13,0.75) 100%), url('/images/kailash-golden.webp') center/cover; }
+    .horse-hero-content { position: relative; z-index: 1; text-align: center; padding: 2rem; max-width: 800px; }
+    .horse-hero h1 { font-size: clamp(2rem, 6vw, 4rem); color: #d4af37; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+    .horse-hero .subtitle { font-size: clamp(1rem, 2vw, 1.3rem); color: rgba(255,255,255,0.65); }
+    .fire-badge { display: inline-block; background: linear-gradient(135deg, #b72b26, #8b1a1a); color: #ffd700; padding: 0.5rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; margin-bottom: 1.5rem; letter-spacing: 3px; }
+    .section { padding: 5rem 0; }
+    .section-alt { background: #f8f6f3; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-title { text-align: center; font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 700; color: #0F0E0D; margin-bottom: 0.5rem; }
+    .section-subtitle { text-align: center; color: #666; font-size: 1rem; margin-bottom: 3rem; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+    .stat-card { background: white; border-radius: 16px; padding: 2rem; text-align: center; box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+    .stat-number { font-size: 2.5rem; font-weight: 800; color: #b72b26; }
+    .stat-label { color: #666; font-size: 0.9rem; margin-top: 0.5rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .card { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #f0ece5; }
+    .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: #0F0E0D; }
+    .card p { color: #555; line-height: 1.7; font-size: 0.95rem; }
+    .guide-card { background: white; border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #f0ece5; text-decoration: none; }
+    .guide-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+    .guide-card .icon { font-size: 2rem; }
+    .guide-card .info h4 { font-size: 1rem; font-weight: 600; color: #0F0E0D; margin-bottom: 0.2rem; }
+    .guide-card .info p { font-size: 0.85rem; color: #888; }
+    .quote-block { background: #0F0E0D; color: #f0e6d3; border-radius: 16px; padding: 3rem; margin: 3rem 0; text-align: center; }
+    .quote-block q { font-size: clamp(1rem, 2vw, 1.4rem); font-style: italic; line-height: 1.8; }
+    .quote-block .source { margin-top: 1rem; color: #b8956a; font-size: 0.9rem; }
+    .timeline { position: relative; margin: 3rem 0; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, #b72b26, #d4af37); }
+    .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 2rem; }
+    .timeline-item::before { content: '🔥'; position: absolute; left: -1.2rem; top: 0; font-size: 1.2rem; }
+    .timeline-item .date { font-weight: 700; color: #b72b26; font-size: 1.05rem; }
+    .timeline-item p { color: #555; margin-top: 0.3rem; line-height: 1.6; }
+    .cta-section { background: linear-gradient(135deg, #0F0E0D, #2A2826); color: white; border-radius: 16px; padding: 3rem; text-align: center; margin: 3rem 0; }
+    .cta-section h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; }
+    .cta-section p { font-size: 1rem; opacity: 0.8; margin-bottom: 1.5rem; }
+    .cta-btn { display: inline-block; background: #b8956a; color: white; padding: 0.8rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; }
+    .cta-btn:hover { background: #a67b5b; }
+    @media (max-width: 768px) { .section { padding: 3rem 0; } .stat-card { padding: 1.2rem; } .stat-number { font-size: 2rem; } }
+  </style>
+
+  <!-- Hero -->
+  <section class="horse-hero">
+    <div class="horse-hero-content">
+      <div class="fire-badge">🔥 2026 तिब्बती अग्नि अश्व वर्ष</div>
+      <h1>बारह वर्षों में एक बार<br />कैलाश तीर्थयात्रा का पावन अवसर</h1>
+      <p class="subtitle" style="font-size:1.5rem;color:#d4af37;font-weight:600;margin:0.5rem 0">
+        एक परिक्रमा · तेरह गुना पुण्य
+      </p>
+      <p class="subtitle">
+        पिछला अश्व वर्ष: 2014 — अगला: 2038
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">13×</div><div class="stat-label">अश्व वर्ष पुण्य गुणक</div></div>
+        <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">वर्ष चक्र</div></div>
+        <div class="stat-card"><div class="stat-number">1027</div><div class="stat-label">तिब्बती कैलेंडर आरंभ (ई.)</div></div>
+        <div class="stat-card"><div class="stat-number">2086</div><div class="stat-label">अगला अग्नि अश्व वर्ष</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Horse Year -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">अश्व वर्ष की परिक्रमा इतनी विशेष क्यों है?</h2>
+      <p class="section-subtitle">
+        अश्व वर्ष तीर्थयात्रा तिब्बती बौद्ध धर्म के लिए विशिष्ट है। अन्य तीन धर्मों (हिंदू, बॉन, जैन) में अश्व वर्ष की कोई अवधारणा नहीं है।
+      </p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">📿</div>
+          <h3>तिब्बती बौद्ध धर्म · विशिष्ट</h3>
+          <p>
+            भगवान बुद्ध का जन्म अश्व वर्ष में हुआ था (धार्मिक परंपरा)। काग्यू संप्रदाय ने 12वीं शताब्दी में अश्व वर्ष परिक्रमा प्रणाली स्थापित की — अश्व वर्ष में कैलाश की एक परिक्रमा, सामान्य वर्षों की तेरह परिक्रमाओं के बराबर पुण्य प्रदान करती है। यह मापन द्वादश निदान (बारह कारण-शृंखला) सिद्धांत पर आधारित है।
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🕉️</div>
+          <h3>हिंदू धर्म · अश्व वर्ष अवधारणा नहीं</h3>
+          <p>
+            कैलाश भगवान शिव का निवास स्थान है। हिंदू शास्त्रों में 'अश्व वर्ष पुण्य गुणन' की कोई शिक्षा नहीं है। भारतीय तीर्थयात्री कैलाश मानसरोवर यात्रा (KMY) परंपरा के तहत आते हैं, जो अश्व वर्ष से स्वतंत्र है। ये दो आस्था धाराएँ अश्व वर्ष के समय बिंदु पर मिलती हैं, किंतु दोनों के स्रोत स्वतंत्र हैं।
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">☸️</div>
+          <h3>बॉन धर्म · अश्व वर्ष प्रणाली नहीं</h3>
+          <p>
+            बॉन ग्रंथों में तोन्पा शेनराब का काष्ठ मूषक वर्ष में अवतरण वर्णित है। दिव्य अश्व की खोज की एक लोक कथा अवश्य है, किंतु कोई संगठित अश्व वर्ष परिक्रमा प्रणाली नहीं बनी। अश्व वर्ष की महापरिक्रमा तिब्बती बौद्ध धर्म की परंपरा है — इसे बॉन धर्म का नहीं माना जाना चाहिए।
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🪷</div>
+          <h3>जैन धर्म · अश्व वर्ष अवधारणा नहीं</h3>
+          <p>
+            प्रथम तीर्थंकर ऋषभनाथ ने अष्टापद पर्वत पर मोक्ष प्राप्त किया। जैन शास्त्रों में अश्व वर्ष तीर्थयात्रा की कोई परंपरा नहीं है। जैन तीर्थयात्रियों का कैलाश आगमन मोक्ष की कथा पर आधारित है, न कि तिब्बती कैलेंडर प्रणाली पर।
+          </p>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        <q>
+          अश्व वर्ष में एक परिक्रमा, सामान्य वर्षों की तेरह परिक्रमाओं के बराबर है। यह काग्यू संप्रदाय द्वारा 12वीं शताब्दी में स्थापित एक सहस्राब्दी पुरानी परंपरा है — एक तीर्थयात्रा प्रणाली जो विशेष रूप से तिब्बती बौद्ध धर्म से संबंधित है।
+        </q>
+        <div class="source">
+          — तिब्बती बौद्ध परंपरा, प्रामाणिक तिब्बती ऐतिहासिक स्रोतों के अनुसार
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2026 Key Dates -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">2026 अग्नि अश्व वर्ष — मुख्य तिथियाँ</h2>
+      <p class="section-subtitle">
+        2026 तिब्बती कैलेंडर के 17वें रबजुंग चक्र का अग्नि अश्व वर्ष है
+      </p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="date">मध्य अप्रैल — परिक्रमा मार्ग खुलता है</div>
+          <p>शीतकालीन बंदी के बाद, कैलाश परिक्रमा मार्ग आधिकारिक रूप से खुलता है।</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">मई के अंत — सर्वोत्तम अवधि</div>
+          <p>मौसम सुधरता है, आरंभिक तीर्थयात्री आने लगते हैं।</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">31 मई (±2 दिन) — सागा दावा 🏆</div>
+          <p>तिब्बती चौथे मास की 15वीं तिथि, बुद्ध का ज्ञान प्राप्ति और महापरिनिर्वाण दिवस। सागा दावा + अश्व वर्ष = सर्वाधिक शुभ तीर्थयात्रा अवसर।</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">जुलाई-अगस्त — भारतीय तीर्थयात्रियों का शिखर</div>
+          <p>भारत सरकार के आधिकारिक कैलाश मानसरोवर यात्रा (KMY) दल केंद्रित रूप से रवाना होते हैं।</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">सितंबर — दूसरा शिखर</div>
+          <p>मौसम स्थिर। 3 महीने पहले बुकिंग की सलाह दी जाती है।</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">मध्य अक्टूबर — सीज़न समाप्त</div>
+          <p>तापमान गिरता है। अनुभवी ट्रेकर्स के लिए उपयुक्त।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practical Guides -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">अश्व वर्ष तीर्थयात्रा — व्यावहारिक गाइड</h2>
+      <p class="section-subtitle">
+        पहले से तैयारी करें, निश्चिंत होकर परिक्रमा करें
+      </p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0">
+        {relatedGuides.map(g => (
+          <a href={g.href} class="guide-card">
+            <span class="icon">{g.icon}</span>
+            <div class="info">
+              <h4>{g.title}</h4>
+              <p>{g.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🏠</div>
+          <h3>आवास जल्दी बुक करें</h3>
+          <p>दारचेन की सामान्य क्षमता लगभग 2,000 लोगों की है, अश्व वर्ष के शिखर पर 5,000-8,000 तक पहुँच सकती है। बैकअप के रूप में तंबू और स्लीपिंग बैग साथ लाएँ।</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📝</div>
+          <h3>परमिट जल्दी बनवाएँ</h3>
+          <p>विदेशियों को तिब्बत यात्रा परमिट + न्गारी सीमा परमिट चाहिए। अश्व वर्ष में आवेदन तेज़ी से बढ़ते हैं, 2-4 महीने पहले ट्रैवल एजेंसी से संपर्क करें।</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💊</div>
+          <h3>ऊँचाई बीमारी से बचाव</h3>
+          <p>पहले से डायमॉक्स (एसिटाज़ोलामाइड) लें, ल्हासा में 2-3 दिन अनुकूलन करें, फिर आगे बढ़ें। गंभीर ऊँचाई बीमारी का एकमात्र उपाय: तुरंत नीचे उतरें।</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚶</div>
+          <h3>शारीरिक तैयारी</h3>
+          <p>52 किमी ऊँचाई पर ट्रेक, अधिकतम 5,630 मीटर। 3 महीने पहले से कार्डियो प्रशिक्षण शुरू करें। परिक्रमा दौड़ नहीं है — धीमे चलना ही तेज़ है।</p>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h3>2026 अग्नि अश्व वर्ष के लिए तैयार रहें</h3>
+        <p>
+          संपूर्ण तीर्थयात्रा गाइड देखें · परिक्रमा मार्ग की जानकारी · सामान सूची
+        </p>
+        <a href="/guide" class="cta-btn">
+          📋 तीर्थयात्रा गाइड देखें
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
