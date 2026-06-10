@@ -1039,45 +1039,61 @@ const academicDebates = [
   </section>
 
   <!-- Horse Year Pilgrimage Section -->
-  <section class="py-20 bg-kailash-dark text-white">
+  <section class="py-16 md:py-20" style="background: linear-gradient(135deg, #f8f6f3 0%, #ede6d8 50%, #f8f6f3 100%);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-3 font-light" data-lang-content="zh">12年一轮回 · 藏历火马年</p>
-        <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-3 font-light" data-lang-content="en" style="display: none;">Once Every 12 Years · Fire Horse Year</p>
-        <h2 class="font-display text-4xl font-bold text-white mb-2" data-lang-content="zh">马年转山：历史与信仰</h2>
-        <h2 class="font-display text-4xl font-bold text-white mb-2" data-lang-content="en" style="display: none;">Horse Year Pilgrimage: History &amp; Faith</h2>
-        <p class="text-white/50 text-sm mt-2" data-lang-content="zh">客观记录 · 不渲染神话 · 不回避事实</p>
-        <p class="text-white/50 text-sm mt-2" data-lang-content="en" style="display: none;">Documentary · No myth-making · Facts over fantasy</p>
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-1 mb-4">
+          <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+          <span class="w-3 h-3 rounded-full bg-white border border-gray-300"></span>
+          <span class="w-3 h-3 rounded-full bg-red-500"></span>
+          <span class="w-3 h-3 rounded-full bg-green-500"></span>
+          <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+          <span class="text-xs text-gray-400 ml-2" data-lang-content="zh">经幡五色 · 蓝天白云红火绿水黄土</span>
+          <span class="text-xs text-gray-400 ml-2" data-lang-content="en" style="display:none">Prayer Flag Colors · Sky Cloud Fire Water Earth</span>
+        </div>
+        <p class="text-red-700 text-sm tracking-[0.3em] uppercase mb-2 font-medium" data-lang-content="zh">藏历火马年</p>
+        <p class="text-red-700 text-sm tracking-[0.3em] uppercase mb-2 font-medium" data-lang-content="en" style="display: none;">Tibetan Fire Horse Year</p>
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-kailash-dark mb-3" data-lang-content="zh">马年转山：历史与信仰</h2>
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Horse Year Pilgrimage</h2>
+        <p class="text-gray-500 text-sm" data-lang-content="zh">客观记录 · 藏传佛教专属朝圣体系</p>
+        <p class="text-gray-500 text-sm" data-lang-content="en" style="display: none;">Documented · Exclusive to Tibetan Buddhism</p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 gap-6">
         {horseYearFacts.map((fact, i) => (
-          <div class={`bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:border-kailash-gold/30 transition ${i === 0 ? 'md:col-span-2' : ''}`}>
-            <div class="flex items-center gap-3 mb-4">
-              <span class="text-kailash-gold text-2xl font-display font-bold">0{i + 1}</span>
-              <h3 class="text-xl font-display font-bold text-white">
-                <span data-lang-content="zh">{fact.label}</span>
-                <span data-lang-content="en" style="display: none;">{fact.labelEn}</span>
-              </h3>
-              <span class={`text-xs px-2 py-0.5 rounded-full ${fact.religionColor || 'bg-white/10 text-white/60'}`}>
-                <span data-lang-content="zh">{fact.religion}</span>
-                <span data-lang-content="en" style="display: none;">{fact.religionEn}</span>
-              </span>
-              {i === 3 && (
-                <span class="text-xs bg-yellow-600/20 text-yellow-400 px-2 py-0.5 rounded-full">⚠️ 诚实标注</span>
-              )}
+          <div class={`bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden ${i === 0 ? 'md:col-span-2' : ''}`}>
+            <div class="flex flex-col h-full">
+              {/* 顶部色条 */}
+              <div class="h-1 flex">
+                {[0,1,2,3,4].map(j => (
+                  <div class="flex-1" style={`background:${['#2563eb','#ffffff','#dc2626','#16a34a','#ca8a04'][j]};${j===1?'border-b border-gray-200':''}`}></div>
+                ))}
+              </div>
+              <div class="p-6 md:p-8 flex-1">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-sm font-bold px-2.5 py-1 rounded-full bg-kailash-dark text-white">0{i + 1}</span>
+                  <h3 class="text-lg md:text-xl font-display font-bold text-kailash-dark">
+                    <span data-lang-content="zh">{fact.label}</span>
+                    <span data-lang-content="en" style="display: none;">{fact.labelEn}</span>
+                  </h3>
+                  <span class={`text-xs px-2 py-0.5 rounded-full ${fact.religionColor || 'bg-gray-100 text-gray-600'}`}>
+                    <span data-lang-content="zh">{fact.religion}</span>
+                    <span data-lang-content="en" style="display: none;">{fact.religionEn}</span>
+                  </span>
+                </div>
+                <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+                  <span data-lang-content="zh">{fact.content}</span>
+                  <span data-lang-content="en" style="display: none;">{fact.contentEn}</span>
+                </p>
+              </div>
             </div>
-            <p class="text-white/70 leading-relaxed">
-              <span data-lang-content="zh">{fact.content}</span>
-              <span data-lang-content="en" style="display: none;">{fact.contentEn}</span>
-            </p>
           </div>
         ))}
       </div>
 
-      <div class="text-center mt-12 text-white/40 text-sm">
-        <p data-lang-content="zh">下一次马年：2038年（土马年）| 距离2026年火马年还有12年</p>
-        <p data-lang-content="en" style="display: none;">Next Horse Year: 2038 (Earth Horse) | 12 years after the 2026 Fire Horse Year</p>
+      <div class="text-center mt-10 text-gray-400 text-sm">
+        <p data-lang-content="zh">下一次马年：2038年（土马年）</p>
+        <p data-lang-content="en" style="display: none;">Next Horse Year: 2038 (Earth Horse)</p>
       </div>
     </div>
   </section>
