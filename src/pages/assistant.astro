@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tools = [
+  {
+    icon: "🩺",
+    titleZh: "高原反应自检",
+    titleEn: "Altitude Sickness Check",
+    descZh: "输入你的症状、海拔、到达天数。判断是正常高反还是紧急情况，告诉你该休息还是下撤。",
+    descEn: "Enter your symptoms, altitude, and days since arrival. Determine if it's normal AMS or an emergency — and what to do.",
+    tips: [
+      { qZh: "头痛 + 海拔4500 + 到达第1天", aZh: "轻度AMS，正常。休息，喝水，不上升。严重时服用布洛芬。" },
+      { qZh: "呼吸困难 + 嘴唇发紫 + 静坐也喘", aZh: "⚠️ HAPE前兆。立即下撤至少500米，吸氧，寻求医疗救助。" },
+      { qZh: "走路不稳 + 意识模糊", aZh: "⚠️ HACE前兆。这是急症。必须立刻下撤，不能等。" },
+    ]
+  },
+  {
+    icon: "🗣️",
+    titleZh: "常用藏语速查",
+    titleEn: "Essential Tibetan Phrases",
+    descZh: "转山路上最常用的20句藏语。不会发音？点一下听语音。",
+    descEn: "The 20 most useful Tibetan phrases on the kora. Tap to hear pronunciation.",
+    tips: [
+      { qZh: "你好 / 吉祥如意", aZh: "扎西德勒 (Tashi Delek)" },
+      { qZh: "谢谢", aZh: "突及其 (Thuk je che)" },
+      { qZh: "厕所在哪里？", aZh: "桑久卡巴哟？(Sang chö khang pa yo?)" },
+      { qZh: "我头痛 / 不舒服", aZh: "ང་མགོ་ན། (Nga go na) / ང་བདེ་མིན། (Nga de min)" },
+      { qZh: "请问有热水吗？", aZh: "ཆུ་ཚ་པོ་ཡོད་པས། (Chu tsa po yö pe?)" },
+      { qZh: "多少钱？", aZh: "གོང་ག་ཚོད་རེད། (Gong ga tsö re?)" },
+    ]
+  },
+  {
+    icon: "☀️",
+    titleZh: "转山天气预报",
+    titleEn: "Kora Weather Guide",
+    descZh: "每个月份、每个路段的海拔和典型天气。知道明天翻垭口有没有暴风雪。",
+    descEn: "Elevation and typical weather for each segment, each month. Know if there's a snowstorm at the pass tomorrow.",
+    tips: [
+      { qZh: "5月·卓玛拉垭口 5630m", aZh: "积雪未化，-10°C到0°C。大风常见。必须带冰爪。" },
+      { qZh: "7-8月·全程", aZh: "最暖月份，白天5-15°C。但每天下午2点后大概率降雨。" },
+      { qZh: "10月·全程", aZh: "天气稳定但寒冷。-5°C到5°C。转山季尾声。" },
+      { qZh: "11月-4月", aZh: "❌ 转山道关闭。卓玛拉垭口积雪，不可通行。" },
+    ]
+  },
+  {
+    icon: "🍲",
+    titleZh: "高原饮食指南",
+    titleEn: "High-Altitude Food Guide",
+    descZh: "转山路上吃什么、喝什么。高原上消化变慢，吃错东西比平地难受十倍。",
+    descEn: "What to eat and drink on the kora. Digestion slows at altitude — wrong food is ten times worse than at sea level.",
+    tips: [
+      { qZh: "转山前吃什么", aZh: "高碳水、低脂肪。面条、馒头、土豆。不吃油炸和生冷。" },
+      { qZh: "转山路上带什么", aZh: "葡萄糖冲剂、巧克力、坚果、能量棒。止热寺有热水泡面。" },
+      { qZh: "每天喝多少水", aZh: "3-4升。高原呼吸失水比平地多一倍。不渴也要喝。" },
+      { qZh: "绝对不要", aZh: "酒精（加重高反）、安眠药（抑制呼吸）、咖啡（利尿脱水）。" },
+    ]
+  },
+  {
+    icon: "🚙",
+    titleZh: "紧急交通指引",
+    titleEn: "Emergency Transport Guide",
+    descZh: "转山路上遇到紧急情况怎么走。最近的医院、最快速的下撤路线。",
+    descEn: "What to do in an emergency on the kora. Nearest hospital, fastest evacuation route.",
+    tips: [
+      { qZh: "路上病了走不动", aZh: "止热寺和祖楚寺有背夫。电信号断续——尽量结伴同行。" },
+      { qZh: "最近医院", aZh: "普兰县人民医院（距塔尔钦约100km）。严重情况需转拉萨。" },
+      { qZh: "紧急电话", aZh: "公安 110 / 急救 120 / 阿里地区旅游局 0897-2821143" },
+    ]
+  },
+  {
+    icon: "📿",
+    titleZh: "转山礼仪须知",
+    titleEn: "Kora Etiquette",
+    descZh: "转山不是普通徒步。这些规矩不知道，无意中可能冒犯当地人。",
+    descEn: "The kora is not ordinary trekking. Without knowing these rules, you may unintentionally offend locals.",
+    tips: [
+      { qZh: "转山方向", aZh: "藏传佛教/印度教：顺时针。苯教：逆时针。不确定就顺时针走。" },
+      { qZh: "玛尼堆", aZh: "路过顺时针绕三圈，添一块石子。不要踢倒或拿走。" },
+      { qZh: "经幡", aZh: "不要跨过或踩踏经幡。从下方钻过去或绕行。" },
+      { qZh: "拍照", aZh: "拍朝圣者前先问。拍寺庙内部前先问。天葬台严禁拍照。" },
+      { qZh: "衣物", aZh: "不要穿短裤背心进寺庙。女性避开僧侣身体接触。" },
+    ]
+  },
+];
+---
+
+<Layout title="西藏AI生活助手 — 转山实用工具 | Kailash 2026" description="高原反应自检、藏语速查、天气预报、饮食指南、紧急交通、转山礼仪——朝圣途中最实用的生存工具。">
+  <style>
+    .asst-hero { background: linear-gradient(135deg, #0F0E0D 0%, #1a3a4a 50%, #0F0E0D 100%); padding: 4rem 0; text-align: center; color: white; }
+    .asst-container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+    .tool-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #f0ece5; }
+    .tool-header { padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; cursor: pointer; border-bottom: 1px solid #f0ece5; }
+    .tool-header:hover { background: #faf8f5; }
+    .tool-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .tool-title { font-weight: 700; font-size: 1.2rem; color: #0F0E0D; }
+    .tool-desc { color: #666; font-size: 0.9rem; margin-top: 0.25rem; }
+    .tool-body { padding: 1.5rem 2rem; }
+    .tip-item { padding: 1rem 1.25rem; margin-bottom: 0.5rem; border-radius: 12px; background: #f8f6f3; }
+    .tip-item:last-child { margin-bottom: 0; }
+    .tip-q { font-weight: 600; color: #0F0E0D; font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .tip-a { color: #555; font-size: 0.9rem; line-height: 1.6; }
+    .emergency-banner { background: #dc2626; color: white; border-radius: 16px; padding: 2rem; text-align: center; margin: 3rem 0; }
+    .emergency-banner h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .emergency-banner p { opacity: 0.9; font-size: 1rem; }
+    details summary { list-style: none; cursor: pointer; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .tool-header { background: #faf8f5; }
+  </style>
+
+  <!-- Hero -->
+  <section class="asst-hero">
+    <div class="asst-container">
+      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-3 font-medium" data-lang-content="zh">实用工具 · 朝圣者必备</p>
+      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-3 font-medium" data-lang-content="en" style="display:none">Practical Tools · Pilgrim Essentials</p>
+      <h1 class="font-display text-4xl md:text-6xl font-bold mb-4">
+        <span data-lang-content="zh">西藏AI生活助手</span>
+        <span data-lang-content="en" style="display:none">Tibet Life Assistant</span>
+      </h1>
+      <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto" data-lang-content="zh">
+        不是AI替你活——是你在海拔5000米时，有个不慌张的声音告诉你怎么做。
+      </p>
+      <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto" data-lang-content="en" style="display:none">
+        Not AI living your life — a calm voice telling you what to do at 5,000 meters.
+      </p>
+    </div>
+  </section>
+
+  <!-- Emergency Banner -->
+  <section style="background:#f8f6f3; padding: 3rem 0;">
+    <div class="asst-container">
+      <div class="emergency-banner">
+        <h3>
+          <span data-lang-content="zh">⚠️ 如果你现在正在转山路上，感觉严重不适</span>
+          <span data-lang-content="en" style="display:none">⚠️ If you're on the kora right now and feel seriously unwell</span>
+        </h3>
+        <p>
+          <span data-lang-content="zh">唯一正确的做法：立即停止前进，下撤到更低海拔。所有其他建议都是其次。</span>
+          <span data-lang-content="en" style="display:none">The only correct action: stop immediately and descend to lower altitude. Everything else is secondary.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section style="padding: 4rem 0; background: #f8f6f3;">
+    <div class="asst-container">
+      {tools.map((tool, i) => (
+        <details class="tool-card" open={i === 0}>
+          <summary class="tool-header">
+            <span class="tool-icon">{tool.icon}</span>
+            <div style="flex:1">
+              <div class="tool-title">
+                <span data-lang-content="zh">{tool.titleZh}</span>
+                <span data-lang-content="en" style="display:none">{tool.titleEn}</span>
+              </div>
+              <div class="tool-desc">
+                <span data-lang-content="zh">{tool.descZh}</span>
+                <span data-lang-content="en" style="display:none">{tool.descEn}</span>
+              </div>
+            </div>
+            <span style="color:#ccc; font-size:1.5rem;">⌄</span>
+          </summary>
+          <div class="tool-body">
+            {tool.tips.map(tip => (
+              <div class="tip-item">
+                <div class="tip-q">
+                  <span data-lang-content="zh">{tip.qZh}</span>
+                  <span data-lang-content="en" style="display:none">{tip.qZh}</span>
+                </div>
+                <div class="tip-a">{tip.aZh}</div>
+              </div>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding: 4rem 0; background: #0F0E0D; text-align: center; color: white;">
+    <div class="asst-container">
+      <h2 class="font-display text-3xl font-bold mb-4" data-lang-content="zh">这些信息在救急时可能救你一命</h2>
+      <h2 class="font-display text-3xl font-bold mb-4" data-lang-content="en" style="display:none">This information could save your life</h2>
+      <p class="text-white/60 mb-6" data-lang-content="zh">收藏这个页面。到了没信号的地方它也能看（已缓存）。</p>
+      <p class="text-white/60 mb-6" data-lang-content="en" style="display:none">Bookmark this page. It works offline (cached).</p>
+    </div>
+  </section>
+</Layout>
