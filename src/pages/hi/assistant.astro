@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const tools = [
+  {
+    icon: "🩺",
+    title: "ऊँचाई बीमारी स्व-जाँच",
+    desc: "अपने लक्षण, ऊँचाई और आगमन के दिन दर्ज करें। पता लगाएँ कि यह सामान्य AMS है या आपातकाल——और क्या करना है।",
+    tips: [
+      { q: "सिरदर्द + 4500मी ऊँचाई + पहला दिन", a: "हल्का AMS, सामान्य। आराम करें, पानी पिएँ, ऊपर न चढ़ें। गंभीर होने पर इबुप्रोफेन लें।" },
+      { q: "साँस लेने में कठिनाई + होंठ नीले + आराम में भी साँस फूलना", a: "⚠️ HAPE का संकेत। तुरंत कम से कम 500 मीटर नीचे उतरें, ऑक्सीजन लें, चिकित्सा सहायता लें।" },
+      { q: "चलने में अस्थिरता + भ्रम की स्थिति", a: "⚠️ HACE का संकेत। यह आपातकालीन स्थिति है। बिना प्रतीक्षा किए तुरंत नीचे उतरें।" },
+    ]
+  },
+  {
+    icon: "🗣️",
+    title: "आवश्यक तिब्बती वाक्यांश",
+    desc: "परिक्रमा पर सबसे उपयोगी 20 तिब्बती वाक्यांश। उच्चारण नहीं आता? सुनने के लिए टैप करें।",
+    tips: [
+      { q: "नमस्ते / शुभकामनाएँ", a: "ताशी देलेक (Tashi Delek)" },
+      { q: "धन्यवाद", a: "थुक जे चे (Thuk je che)" },
+      { q: "शौचालय कहाँ है?", a: "सांग चो खांग पा यो? (Sang chö khang pa yo?)" },
+      { q: "मुझे सिरदर्द है / मैं अस्वस्थ हूँ", a: "ङा गो ना (Nga go na) / ङा दे मिन (Nga de min)" },
+      { q: "क्या गरम पानी है?", a: "छु त्सा पो यो पे? (Chu tsa po yö pe?)" },
+      { q: "कितने का है?", a: "गोंग गा त्सो रे? (Gong ga tsö re?)" },
+    ]
+  },
+  {
+    icon: "☀️",
+    title: "परिक्रमा मौसम गाइड",
+    desc: "प्रत्येक महीने, प्रत्येक खंड की ऊँचाई और सामान्य मौसम। जानें कि कल दर्रे पर बर्फ़ीला तूफ़ान तो नहीं आएगा।",
+    tips: [
+      { q: "मई·द्रोलमा दर्रा 5630मी", a: "बर्फ़ पिघली नहीं, -10°C से 0°C। तेज़ हवाएँ आम। क्रैम्पन (बर्फ़ कील) ज़रूरी।" },
+      { q: "जुलाई-अगस्त·पूर्ण मार्ग", a: "सबसे गर्म महीने, दिन में 5-15°C। लेकिन हर दिन दोपहर 2 बजे के बाद वर्षा की संभावना अधिक।" },
+      { q: "अक्टूबर·पूर्ण मार्ग", a: "मौसम स्थिर लेकिन ठंडा। -5°C से 5°C। परिक्रमा मौसम का अंत।" },
+      { q: "नवंबर-अप्रैल", a: "❌ परिक्रमा मार्ग बंद। द्रोलमा दर्रा बर्फ़ से ढका, आवागमन असंभव।" },
+    ]
+  },
+  {
+    icon: "🍲",
+    title: "ऊँचाई भोजन गाइड",
+    desc: "परिक्रमा पर क्या खाएँ और पिएँ। ऊँचाई पर पाचन धीमा हो जाता है——गलत भोजन समुद्र तल से दस गुना बुरा होता है।",
+    tips: [
+      { q: "परिक्रमा से पहले खाएँ", a: "उच्च कार्बोहाइड्रेट, कम वसा। नूडल्स, बन, आलू। तला हुआ और कच्चा-ठंडा भोजन न खाएँ।" },
+      { q: "परिक्रमा के दौरान साथ ले जाएँ", a: "ग्लूकोज़ पाउडर, चॉकलेट, नट्स, एनर्जी बार। दिरापुक मठ में गरम पानी और नूडल्स उपलब्ध।" },
+      { q: "प्रतिदिन कितना पानी पिएँ", a: "3-4 लीटर। ऊँचाई पर साँस से पानी की हानि समुद्र तल से दोगुनी। प्यास न लगे तब भी पिएँ।" },
+      { q: "बिल्कुल न करें", a: "शराब (AMS बढ़ाती है), नींद की गोलियाँ (श्वास को दबाती हैं), कॉफ़ी (मूत्रवर्धक, निर्जलीकरण)।" },
+    ]
+  },
+  {
+    icon: "🚙",
+    title: "आपातकालीन परिवहन गाइड",
+    desc: "परिक्रमा पर आपातकाल में क्या करें। निकटतम अस्पताल, सबसे तेज़ निकासी मार्ग।",
+    tips: [
+      { q: "रास्ते में बीमार पड़ने पर", a: "दिरापुक और ज़ुतुलपुक मठ में कुली (पोर्टर) उपलब्ध। मोबाइल सिग्नल अनियमित——यथासंभव समूह में चलें।" },
+      { q: "निकटतम अस्पताल", a: "बुरांग काउंटी पीपुल्स हॉस्पिटल (तारचेन से लगभग 100 किमी)। गंभीर मामलों में ल्हासा रेफ़रल आवश्यक।" },
+      { q: "आपातकालीन संपर्क", a: "चीन पुलिस 110 / एम्बुलेंस 120 / भारतीय दूतावास बीजिंग +86-10-8531-2500 / भारतीय वाणिज्य दूतावास ल्हासा (मौसमी) / MOFA भारत हेल्पलाइन +91-11-2301-2113" },
+    ]
+  },
+  {
+    icon: "📿",
+    title: "परिक्रमा शिष्टाचार",
+    desc: "परिक्रमा सामान्य ट्रेकिंग नहीं है। इन नियमों को जाने बिना, आप अनजाने में स्थानीय लोगों को नाराज़ कर सकते हैं।",
+    tips: [
+      { q: "परिक्रमा की दिशा", a: "तिब्बती बौद्ध/हिंदू: दक्षिणावर्त (घड़ी की दिशा में)। बॉन: वामावर्त। अनिश्चित हों तो दक्षिणावर्त चलें।" },
+      { q: "मणि पत्थर", a: "पास से गुज़रते समय दक्षिणावर्त तीन चक्कर लगाएँ, एक पत्थर जोड़ें। लात से न गिराएँ, न हटाएँ।" },
+      { q: "प्रार्थना ध्वज (पंचशील)", a: "ध्वज के ऊपर से न चलें, न रौंदें। नीचे से निकलें या चारों ओर से घूमें।" },
+      { q: "फ़ोटो खींचना", a: "तीर्थयात्रियों की फ़ोटो लेने से पहले पूछें। मंदिर के अंदर फ़ोटो से पहले पूछें। आकाश दफ़न स्थल पर फ़ोटो सख्त वर्जित।" },
+      { q: "पोशाक", a: "मंदिर में शॉर्ट्स और स्लीवलेस न पहनें। महिलाएँ भिक्षुओं से शारीरिक संपर्क से बचें।" },
+    ]
+  },
+];
+---
+
+<Layout title="तिब्बत AI जीवन सहायक — परिक्रमा उपयोगी उपकरण | Kailash 2026" description="ऊँचाई बीमारी स्व-जाँच, तिब्बती वाक्यांश, मौसम गाइड, भोजन मार्गदर्शन, आपातकालीन परिवहन, परिक्रमा शिष्टाचार——तीर्थयात्रा में सबसे उपयोगी जीवन रक्षक उपकरण।" lang="hi">
+  <style>
+    .asst-hero { background: linear-gradient(135deg, #0F0E0D 0%, #1a3a4a 50%, #0F0E0D 100%); padding: 4rem 0; text-align: center; color: white; }
+    .asst-container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+    .tool-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #f0ece5; }
+    .tool-header { padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; cursor: pointer; border-bottom: 1px solid #f0ece5; }
+    .tool-header:hover { background: #faf8f5; }
+    .tool-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .tool-title { font-weight: 700; font-size: 1.2rem; color: #0F0E0D; }
+    .tool-desc { color: #666; font-size: 0.9rem; margin-top: 0.25rem; }
+    .tool-body { padding: 1.5rem 2rem; }
+    .tip-item { padding: 1rem 1.25rem; margin-bottom: 0.5rem; border-radius: 12px; background: #f8f6f3; }
+    .tip-item:last-child { margin-bottom: 0; }
+    .tip-q { font-weight: 600; color: #0F0E0D; font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .tip-a { color: #555; font-size: 0.9rem; line-height: 1.6; }
+    .emergency-banner { background: #dc2626; color: white; border-radius: 16px; padding: 2rem; text-align: center; margin: 3rem 0; }
+    .emergency-banner h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .emergency-banner p { opacity: 0.9; font-size: 1rem; }
+    details summary { list-style: none; cursor: pointer; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .tool-header { background: #faf8f5; }
+  </style>
+
+  <!-- Hero -->
+  <section class="asst-hero">
+    <div class="asst-container">
+      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-3 font-medium">उपयोगी उपकरण · तीर्थयात्री आवश्यक</p>
+      <h1 class="font-display text-4xl md:text-6xl font-bold mb-4">
+        तिब्बत AI जीवन सहायक
+      </h1>
+      <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
+        AI आपके लिए जीवन नहीं जी रहा है——जब आप 5,000 मीटर की ऊँचाई पर हों, तो एक शांत आवाज़ आपको बताए कि क्या करना है।
+      </p>
+    </div>
+  </section>
+
+  <!-- Emergency Banner -->
+  <section style="background:#f8f6f3; padding: 3rem 0;">
+    <div class="asst-container">
+      <div class="emergency-banner">
+        <h3>⚠️ यदि आप अभी परिक्रमा पर हैं और गंभीर रूप से अस्वस्थ महसूस कर रहे हैं</h3>
+        <p>एकमात्र सही कार्य: तुरंत रुकें और निचली ऊँचाई पर उतरें। बाकी सब कुछ गौण है।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section style="padding: 4rem 0; background: #f8f6f3;">
+    <div class="asst-container">
+      {tools.map((tool, i) => (
+        <details class="tool-card" open={i === 0}>
+          <summary class="tool-header">
+            <span class="tool-icon">{tool.icon}</span>
+            <div style="flex:1">
+              <div class="tool-title">{tool.title}</div>
+              <div class="tool-desc">{tool.desc}</div>
+            </div>
+            <span style="color:#ccc; font-size:1.5rem;">⌄</span>
+          </summary>
+          <div class="tool-body">
+            {tool.tips.map(tip => (
+              <div class="tip-item">
+                <div class="tip-q">{tip.q}</div>
+                <div class="tip-a">{tip.a}</div>
+              </div>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding: 4rem 0; background: #0F0E0D; text-align: center; color: white;">
+    <div class="asst-container">
+      <h2 class="font-display text-3xl font-bold mb-4">यह जानकारी आपातकाल में आपकी जान बचा सकती है</h2>
+      <p class="text-white/60 mb-6">इस पेज को बुकमार्क करें। यह बिना सिग्नल वाले स्थानों पर भी काम करता है (कैश्ड)।</p>
+    </div>
+  </section>
+</Layout>

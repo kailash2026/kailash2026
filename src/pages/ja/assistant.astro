@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const tools = [
+  {
+    icon: "🩺",
+    title: "高山病セルフチェック",
+    desc: "症状、標高、到着からの日数を入力。通常の高山病か緊急事態かを判断し、休息すべきか下山すべきかを教えます。",
+    tips: [
+      { q: "頭痛 + 標高4500m + 到着1日目", a: "軽度AMS、正常。休息、水分補給、上昇しないこと。ひどい場合はイブプロフェンを服用。" },
+      { q: "呼吸困難 + 唇が紫色 + 安静時も息切れ", a: "⚠️ HAPEの前兆。すぐに最低500m下降し、酸素吸入、医療援助を求めること。" },
+      { q: "ふらつき + 意識混濁", a: "⚠️ HACEの前兆。緊急事態です。待たずに直ちに下降すること。" },
+    ]
+  },
+  {
+    icon: "🗣️",
+    title: "チベット語基本フレーズ集",
+    desc: "コーラで最も役立つ20のチベット語フレーズ。発音がわからない？タップして音声を聞く。",
+    tips: [
+      { q: "こんにちは / 吉祥如意", a: "タシ・デレク (Tashi Delek)" },
+      { q: "ありがとう", a: "トゥク・ジェ・チェ (Thuk je che)" },
+      { q: "トイレはどこですか？", a: "サンチュー・カンパ・ヨ？(Sang chö khang pa yo?)" },
+      { q: "頭痛がします / 気分が悪い", a: "ガ・ゴ・ナ (Nga go na) / ガ・デ・ミン (Nga de min)" },
+      { q: "お湯はありますか？", a: "チュ・ツァポ・ヨ・ペ？(Chu tsa po yö pe?)" },
+      { q: "いくらですか？", a: "ゴン・ガ・ツォ・レ？(Gong ga tsö re?)" },
+    ]
+  },
+  {
+    icon: "☀️",
+    title: "コーラ天気ガイド",
+    desc: "各月、各区間の標高と典型的な天気。明日、峠で吹雪があるかどうかがわかります。",
+    tips: [
+      { q: "5月·ドルマラ峠 5630m", a: "雪が残り、-10°C〜0°C。強風が一般的。アイゼン必須。" },
+      { q: "7-8月·全行程", a: "最も暖かい月、日中5-15°C。ただし毎日午後2時以降は高確率で雨。" },
+      { q: "10月·全行程", a: "天気は安定しているが寒い。-5°C〜5°C。コーラシーズンの終わり。" },
+      { q: "11月-4月", a: "❌ コーラ道閉鎖。ドルマラ峠は積雪のため通行不可。" },
+    ]
+  },
+  {
+    icon: "🍲",
+    title: "高地食事ガイド",
+    desc: "コーラで何を食べ、何を飲むか。高地では消化が遅くなる——間違った食べ物は平地の10倍つらい。",
+    tips: [
+      { q: "コーラ前に食べるもの", a: "高炭水化物、低脂肪。麺類、饅頭、じゃがいも。揚げ物や生冷は避ける。" },
+      { q: "コーラ中に持っていくもの", a: "ブドウ糖パウダー、チョコレート、ナッツ、エネルギーバー。ディラプク寺ではお湯でカップ麺が可能。" },
+      { q: "1日に飲む水の量", a: "3〜4リットル。高地では呼吸による水分喪失が平地の2倍。喉が渇かなくても飲む。" },
+      { q: "絶対にダメなもの", a: "アルコール（高山病悪化）、睡眠薬（呼吸抑制）、コーヒー（利尿・脱水）。" },
+    ]
+  },
+  {
+    icon: "🚙",
+    title: "緊急時移動ガイド",
+    desc: "コーラで緊急事態が発生した場合の対処法。最寄りの病院、最速の下山ルート。",
+    tips: [
+      { q: "途中で体調を崩して歩けなくなった場合", a: "ディラプク寺とゾクトゥル寺にポーターがいます。電波は断続的——できるだけグループで行動を。" },
+      { q: "最寄りの病院", a: "プラン県人民病院（タルチンから約100km）。重篤な場合はラサへ搬送が必要です。" },
+      { q: "緊急電話番号", a: "警察 110 / 救急 120 / アリ地区観光局 0897-2821143" },
+    ]
+  },
+  {
+    icon: "📿",
+    title: "コーラのマナー",
+    desc: "コーラは普通のトレッキングではありません。これらのルールを知らないと、無意識に地元の人々を怒らせる可能性があります。",
+    tips: [
+      { q: "コーラの方向", a: "チベット仏教/ヒンドゥー教：時計回り。ボン教：反時計回り。わからなければ時計回りで歩く。" },
+      { q: "マニ石", a: "通りかかったら時計回りに3周し、石を一つ積む。蹴り倒したり持ち去ったりしないこと。" },
+      { q: "タルチョ（経旗）", a: "またいだり踏んだりしない。下をくぐるか迂回する。" },
+      { q: "写真撮影", a: "巡礼者を撮る前には尋ねる。寺院内部を撮る前には尋ねる。鳥葬台の撮影は厳禁。" },
+      { q: "服装", a: "寺院にはショートパンツやタンクトップで入らない。女性は僧侶との身体接触を避ける。" },
+    ]
+  },
+];
+---
+
+<Layout title="チベットAI生活アシスタント — コーラ実用ツール | Kailash 2026" description="高山病セルフチェック、チベット語フレーズ集、天気予報、食事ガイド、緊急時移動、コーラのマナー——巡礼の旅で最も役立つサバイバルツール。" lang="ja">
+  <style>
+    .asst-hero { background: linear-gradient(135deg, #0F0E0D 0%, #1a3a4a 50%, #0F0E0D 100%); padding: 4rem 0; text-align: center; color: white; }
+    .asst-container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+    .tool-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #f0ece5; }
+    .tool-header { padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; cursor: pointer; border-bottom: 1px solid #f0ece5; }
+    .tool-header:hover { background: #faf8f5; }
+    .tool-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .tool-title { font-weight: 700; font-size: 1.2rem; color: #0F0E0D; }
+    .tool-desc { color: #666; font-size: 0.9rem; margin-top: 0.25rem; }
+    .tool-body { padding: 1.5rem 2rem; }
+    .tip-item { padding: 1rem 1.25rem; margin-bottom: 0.5rem; border-radius: 12px; background: #f8f6f3; }
+    .tip-item:last-child { margin-bottom: 0; }
+    .tip-q { font-weight: 600; color: #0F0E0D; font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .tip-a { color: #555; font-size: 0.9rem; line-height: 1.6; }
+    .emergency-banner { background: #dc2626; color: white; border-radius: 16px; padding: 2rem; text-align: center; margin: 3rem 0; }
+    .emergency-banner h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .emergency-banner p { opacity: 0.9; font-size: 1rem; }
+    details summary { list-style: none; cursor: pointer; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .tool-header { background: #faf8f5; }
+  </style>
+
+  <!-- Hero -->
+  <section class="asst-hero">
+    <div class="asst-container">
+      <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-3 font-medium">実用ツール · 巡礼者必携</p>
+      <h1 class="font-display text-4xl md:text-6xl font-bold mb-4">
+        チベットAI生活アシスタント
+      </h1>
+      <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
+        AIがあなたの代わりに生きるのではない——標高5,000メートルで、慌てずに何をすべきか教えてくれる声がある。
+      </p>
+    </div>
+  </section>
+
+  <!-- Emergency Banner -->
+  <section style="background:#f8f6f3; padding: 3rem 0;">
+    <div class="asst-container">
+      <div class="emergency-banner">
+        <h3>⚠️ もし今コーラの途中で深刻な体調不良を感じているなら</h3>
+        <p>唯一の正しい行動：すぐに前進を止め、より低い標高へ下ること。他のすべてのアドバイスは二の次です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section style="padding: 4rem 0; background: #f8f6f3;">
+    <div class="asst-container">
+      {tools.map((tool, i) => (
+        <details class="tool-card" open={i === 0}>
+          <summary class="tool-header">
+            <span class="tool-icon">{tool.icon}</span>
+            <div style="flex:1">
+              <div class="tool-title">{tool.title}</div>
+              <div class="tool-desc">{tool.desc}</div>
+            </div>
+            <span style="color:#ccc; font-size:1.5rem;">⌄</span>
+          </summary>
+          <div class="tool-body">
+            {tool.tips.map(tip => (
+              <div class="tip-item">
+                <div class="tip-q">{tip.q}</div>
+                <div class="tip-a">{tip.a}</div>
+              </div>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding: 4rem 0; background: #0F0E0D; text-align: center; color: white;">
+    <div class="asst-container">
+      <h2 class="font-display text-3xl font-bold mb-4">この情報は緊急時にあなたの命を救うかもしれません</h2>
+      <p class="text-white/60 mb-6">このページをブックマークしてください。電波のない場所でも見られます（キャッシュ済み）。</p>
+    </div>
+  </section>
+</Layout>
