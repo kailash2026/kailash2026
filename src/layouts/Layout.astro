@@ -92,13 +92,25 @@ const navItems = [
         <a href="/" class="text-kailash-gold font-display text-2xl font-bold">Kailash 2026</a>
 
         {/* Desktop Nav */}
-        <div class="hidden lg:flex items-center space-x-6">
-          {navItems.slice(0, 5).map(item => (
-            <a href={item.href} class="text-white hover:text-kailash-gold transition text-sm group relative">
+        <div class="hidden lg:flex items-center space-x-5">
+          {navItems.slice(0, 8).map(item => (
+            <a href={item.href} class="text-white hover:text-kailash-gold transition text-sm group relative whitespace-nowrap">
               <span>{item.labelZh}</span>
               <span class="hidden group-hover:inline text-xs text-kailash-gold ml-1">{item.label}</span>
             </a>
           ))}
+
+          {/* More Dropdown */}
+          <div class="relative group">
+            <button class="text-white/60 hover:text-kailash-gold transition text-sm">更多 ▾</button>
+            <div class="absolute right-0 top-full mt-2 w-40 bg-kailash-dark/95 backdrop-blur-sm rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-white/10">
+              {navItems.slice(8).map(item => (
+                <a href={item.href} class="block px-4 py-2.5 text-sm text-white hover:text-kailash-gold hover:bg-white/5 first:rounded-t-xl last:rounded-b-xl transition whitespace-nowrap">
+                  {item.labelZh}
+                </a>
+              ))}
+            </div>
+          </div>
 
           {/* Language Switcher */}
           <div class="flex items-center gap-1 ml-4 border-l border-white/20 pl-4">
