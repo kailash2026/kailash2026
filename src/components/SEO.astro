@@ -9,6 +9,8 @@ export interface Props {
   modifiedDate?: string;
   author?: string;
   keywords?: string[];
+  breadcrumbs?: { name: string; item: string }[];
+  faqs?: { question: string; answer: string }[];
 }
 
 const {
@@ -20,7 +22,9 @@ const {
   publishDate,
   modifiedDate,
   author = "Kailash 2026",
-  keywords = ["冈仁波齐", "Mount Kailash", "Kailash", "朝圣", "pilgrimage", "神山", "sacred mountain", "西藏", "Tibet", "转山", "Kora", "玛旁雍错", "Manasarovar"]
+  keywords = ["冈仁波齐", "Mount Kailash", "Kailash", "朝圣", "pilgrimage", "神山", "sacred mountain", "西藏", "Tibet", "转山", "Kora", "玛旁雍错", "Manasarovar"],
+  breadcrumbs,
+  faqs,
 } = Astro.props;
 
 const siteUrl = "https://kailash2026.com";
@@ -94,8 +98,58 @@ const organizationLd = {
     "Kailash Kora",
     "转山",
     "Pilgrimage"
-  ]
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "kailash2026Lucas@outlook.com",
+    "availableLanguage": ["Chinese", "English", "Japanese", "Hindi"]
+  }
 };
+
+// Auto-generate BreadcrumbList from URL path (or use provided breadcrumbs prop)
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const segmentNameMap = {
+  'en': 'English', 'ja': '日本語', 'hi': 'हिन्दी',
+  'blog': 'Blog', 'guide': 'Guide', 'faq': 'FAQ', 'routes': 'Routes',
+  'about': 'About', 'contact': 'Contact', 'gallery': 'Gallery',
+  'culture': 'Culture', 'stories': 'Stories', 'ali': 'Ngari',
+  'codex': 'Codex', 'horse-year-2026': 'Horse Year 2026',
+  'messages': 'Messages', 'offline': 'Offline', 'assistant': 'Assistant',
+};
+const breadcrumbItems = breadcrumbs || pathSegments.map((seg, i) => {
+  const url = siteUrl + '/' + pathSegments.slice(0, i + 1).join('/');
+  const name = segmentNameMap[seg] || seg.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  return { name, item: url };
+});
+
+const breadcrumbListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    { '@type': 'ListItem', 'position': 1, 'name': 'Kailash 2026', 'item': siteUrl + '/' },
+    ...breadcrumbItems.map((item, index) => ({
+      '@type': 'ListItem',
+      'position': index + 2,
+      'name': item.name,
+      'item': item.item,
+    })),
+  ],
+};
+
+// FAQPage structured data if faqs are provided
+const faqPageLd = faqs && faqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqs.map((item) => ({
+    '@type': 'Question',
+    'name': item.question,
+    'acceptedAnswer': {
+      '@type': 'Answer',
+      'text': item.answer,
+    },
+  })),
+} : null;
 ---
 
 <!-- Basic Meta -->
@@ -147,3 +201,14 @@ const organizationLd = {
 <script type="application/ld+json">
 {JSON.stringify(organizationLd)}
 </script>
+
+<!-- Schema.org: BreadcrumbList -->
+<script type="application/ld+json">
+{JSON.stringify(breadcrumbListLd)}
+</script>
+
+{faqPageLd && (
+  <script type="application/ld+json">
+    {JSON.stringify(faqPageLd)}
+  </script>
+)}

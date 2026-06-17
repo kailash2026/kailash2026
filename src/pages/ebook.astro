@@ -1,0 +1,314 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const features = [
+  {
+    icon: '📚',
+    title: '13部权威著作摘要',
+    titleEn: '13 Verified Book Summaries',
+    desc: '覆盖藏传佛教、印度教、苯教、耆那教四大传统的核心文献，每篇摘要均标注原始出处与版本信息。',
+    descEn: 'Core texts from Tibetan Buddhism, Hinduism, Bön, and Jainism, each summary citing original sources and edition details.',
+  },
+  {
+    icon: '🗺️',
+    title: '完整转山路线指南',
+    titleEn: 'Complete Kora Route Guide',
+    desc: '外圈52公里详细分段描述，含海拔变化、补给点、住宿推荐、卓玛拉山口通行建议。',
+    descEn: 'Detailed 52km outer kora breakdown with elevation changes, supply points, accommodation tips, and Drolma La Pass advice.',
+  },
+  {
+    icon: '🏔️',
+    title: '高原反应防护指南',
+    titleEn: 'Altitude Sickness Guide',
+    desc: '基于医学文献与实地经验，涵盖预防措施、症状识别、紧急应对方案。',
+    descEn: 'Based on medical literature and field experience, covering prevention, symptom recognition, and emergency response.',
+  },
+  {
+    icon: '⚖️',
+    title: '四大宗教对比分析',
+    titleEn: '4-Religion Comparison',
+    desc: '藏传佛教、印度教、苯教、耆那教对冈仁波齐的不同解读与朝圣传统，一目了然的对比表格。',
+    descEn: 'Side-by-side comparison of how Tibetan Buddhism, Hinduism, Bön, and Jainism interpret Mount Kailash and their pilgrimage traditions.',
+  },
+  {
+    icon: '📖',
+    title: '朝圣实用手册',
+    titleEn: 'Pilgrimage Practical Handbook',
+    desc: '涵盖签证办理、最佳季节、装备清单、当地交通、住宿预算等所有行前必备信息。',
+    descEn: 'Covers visas, best seasons, equipment checklist, local transport, accommodation budget—everything you need before departure.',
+  },
+  {
+    icon: '🖼️',
+    title: '高清地图与实拍照片',
+    titleEn: 'HD Maps & Field Photos',
+    desc: '独家手绘路线图与实地拍摄的高清照片，标注关键地标与朝圣节点。',
+    descEn: 'Exclusive hand-drawn route maps and high-resolution field photos, with key landmarks and pilgrimage points marked.',
+  },
+];
+---
+
+<Layout title="冈仁波齐权威指南 - 电子书 | The Authoritative Guide to Mount Kailash - Ebook" description="《冈仁波齐权威指南》电子书：45页PDF，含13部权威著作摘要、转山路线指南、高原反应防护、四大宗教对比。售价 ¥29.9 / $4.99。">
+
+  <!-- Hero -->
+  <section class="relative bg-kailash-dark">
+    <div class="relative w-full h-[35vh] lg:h-[45vh]">
+      <div class="absolute inset-0 bg-[url('/images/kailash-hero.webp')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-kailash-dark"></div>
+    </div>
+
+    <div class="relative -mt-20 z-10 px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="max-w-5xl mx-auto text-center">
+        <p class="text-kailash-gold text-sm tracking-widest uppercase mb-4">
+          <span data-lang-content="zh">权威指南 · 电子书</span>
+          <span data-lang-content="en" style="display: none;">Authoritative Guide · Ebook</span>
+        </p>
+        <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+          <span data-lang-content="zh">冈仁波齐权威指南</span>
+          <span data-lang-content="en" style="display: none;">The Authoritative Guide to Mount Kailash</span>
+        </h1>
+        <p class="text-xl text-white/60 max-w-3xl mx-auto mb-4">
+          <span data-lang-content="zh">一部为朝圣者与研究者准备的完整参考手册</span>
+          <span data-lang-content="en" style="display: none;">A complete reference handbook for pilgrims and researchers</span>
+        </p>
+        <p class="text-lg text-white/40 italic">
+          <span data-lang-content="zh">A complete reference handbook for pilgrims and researchers</span>
+          <span data-lang-content="en" style="display: none;">一部为朝圣者与研究者准备的完整参考手册</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Book Overview -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Book Mockup -->
+        <div class="bg-kailash-dark rounded-2xl p-8 text-center shadow-lg">
+          <div class="text-8xl mb-4">📖</div>
+          <h2 class="font-display text-2xl font-bold text-kailash-gold mb-3">
+            <span data-lang-content="zh">冈仁波齐权威指南</span>
+            <span data-lang-content="en" style="display: none;">The Authoritative Guide to Mount Kailash</span>
+          </h2>
+          <div class="space-y-2 text-white/70 text-sm">
+            <p>
+              <span data-lang-content="zh">45页 · PDF格式</span>
+              <span data-lang-content="en" style="display: none;">45 pages · PDF format</span>
+            </p>
+            <p>
+              <span data-lang-content="zh">中英双语</span>
+              <span data-lang-content="en" style="display: none;">Bilingual (Chinese & English)</span>
+            </p>
+            <p>
+              <span data-lang-content="zh">2026年最新版</span>
+              <span data-lang-content="en" style="display: none;">2026 Latest Edition</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Pricing -->
+        <div>
+          <h2 class="font-display text-3xl font-bold text-kailash-dark mb-6">
+            <span data-lang-content="zh">即刻获取</span>
+            <span data-lang-content="en" style="display: none;">Get It Now</span>
+          </h2>
+          <div class="bg-white rounded-2xl p-8 border border-kailash-cream/50">
+            <p class="text-gray-500 text-sm mb-2">
+              <span data-lang-content="zh">价格</span>
+              <span data-lang-content="en" style="display: none;">Price</span>
+            </p>
+            <div class="flex items-baseline gap-2 mb-2">
+              <span class="font-display text-4xl font-bold text-kailash-dark">
+                <span data-lang-content="zh">¥29.9</span>
+                <span data-lang-content="en" style="display: none;">$4.99</span>
+              </span>
+              <span class="text-gray-400 text-sm">
+                <span data-lang-content="zh">/ 份</span>
+                <span data-lang-content="en" style="display: none;">/ copy</span>
+              </span>
+            </div>
+            <p class="text-kailash-gold text-sm mb-6">
+              <span data-lang-content="zh">一次购买，永久访问</span>
+              <span data-lang-content="en" style="display: none;">One-time purchase, lifetime access</span>
+            </p>
+            <a href="mailto:kailash2026Lucas@outlook.com?subject=购买《冈仁波齐权威指南》" class="block w-full bg-kailash-gold text-kailash-dark px-6 py-3 rounded-lg font-semibold hover:bg-kailash-warm transition text-center mb-4">
+              <span data-lang-content="zh">发送邮件购买</span>
+              <span data-lang-content="en" style="display: none;">Email to Purchase</span>
+            </a>
+            <p class="text-xs text-gray-400 text-center">
+              <span data-lang-content="zh">发送邮件至 kailash2026Lucas@outlook.com，注明"购买指南"，我们将在24小时内发送PDF文件。</span>
+              <span data-lang-content="en" style="display: none;">Email kailash2026Lucas@outlook.com with subject "Purchase Guide". We will send the PDF within 24 hours.</span>
+            </p>
+          </div>
+          <!-- WeChat alternative -->
+          <div class="mt-4 bg-kailash-cream/30 rounded-xl p-4 text-center">
+            <p class="text-sm text-kailash-dark">
+              <span data-lang-content="zh">或通过微信购买：</span>
+              <span data-lang-content="en" style="display: none;">Or purchase via WeChat: </span>
+              <span class="font-semibold text-kailash-gold">Kailash2026</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Inside -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-2">
+          <span data-lang-content="zh">内容概览</span>
+          <span data-lang-content="en" style="display: none;">What's Inside</span>
+        </h2>
+        <p class="text-lg text-gray-500 italic">What's Inside</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature) => (
+          <div class="bg-kailash-light rounded-2xl p-8 hover:shadow-md transition-shadow">
+            <div class="text-4xl mb-4">{feature.icon}</div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">
+              <span data-lang-content="zh">{feature.title}</span>
+              <span data-lang-content="en" style="display: none;">{feature.titleEn}</span>
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              <span data-lang-content="zh">{feature.desc}</span>
+              <span data-lang-content="en" style="display: none;">{feature.descEn}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why This Guide -->
+  <section class="py-20 bg-kailash-stone/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-12 text-center">
+        <span data-lang-content="zh">为什么需要这本指南</span>
+        <span data-lang-content="en" style="display: none;">Why You Need This Guide</span>
+      </h2>
+      <div class="space-y-6">
+        <div class="flex gap-4 items-start">
+          <div class="flex-shrink-0 text-kailash-gold text-2xl mt-1">✓</div>
+          <div>
+            <p class="text-gray-700 leading-relaxed">
+              <span data-lang-content="zh"><strong>省去数百小时</strong> — 13部权威著作的精炼摘要，读完即可掌握核心知识框架，无需逐本研读。</span>
+              <span data-lang-content="en" style="display: none;"><strong>Save hundreds of hours</strong> — Refined summaries of 13 authoritative books. Master the core knowledge framework without reading each volume.</span>
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="flex-shrink-0 text-kailash-gold text-2xl mt-1">✓</div>
+          <div>
+            <p class="text-gray-700 leading-relaxed">
+              <span data-lang-content="zh"><strong>避免信息混乱</strong> — 网络上关于冈仁波齐的信息碎片化、错误百出。这本指南经过严格交叉验证。</span>
+              <span data-lang-content="en" style="display: none;"><strong>Avoid information chaos</strong> — Online information about Mount Kailash is fragmented and full of errors. This guide is rigorously cross-verified.</span>
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="flex-shrink-0 text-kailash-gold text-2xl mt-1">✓</div>
+          <div>
+            <p class="text-gray-700 leading-relaxed">
+              <span data-lang-content="zh"><strong>安全保障</strong> — 高原反应防护章节基于真实医学文献，不是道听途说的"偏方"。</span>
+              <span data-lang-content="en" style="display: none;"><strong>Safety assurance</strong> — The altitude sickness chapter is based on real medical literature, not hearsay or folk remedies.</span>
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="flex-shrink-0 text-kailash-gold text-2xl mt-1">✓</div>
+          <div>
+            <p class="text-gray-700 leading-relaxed">
+              <span data-lang-content="zh"><strong>跨宗教尊重</strong> — 同时呈现四种宗教视角，让你在朝圣中不仅能走完路，更能理解路的意义。</span>
+              <span data-lang-content="en" style="display: none;"><strong>Interfaith respect</strong> — Presenting all four religious perspectives simultaneously. Not just to walk the path, but to understand its meaning.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sample Preview -->
+  <section class="py-20 bg-kailash-gold">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
+        <span data-lang-content="zh">内容预览</span>
+        <span data-lang-content="en" style="display: none;">Sample Preview</span>
+      </h2>
+      <p class="text-kailash-dark/80 text-lg mb-4 leading-relaxed">
+        <span data-lang-content="zh">发送邮件至 kailash2026Lucas@outlook.com，注明"预览指南"，我们将发送样章供您参考。</span>
+        <span data-lang-content="en" style="display: none;">Email kailash2026Lucas@outlook.com with subject "Preview Guide" and we'll send a sample chapter for your reference.</span>
+      </p>
+      <a href="mailto:kailash2026Lucas@outlook.com?subject=预览《冈仁波齐权威指南》" class="inline-block bg-kailash-dark text-kailash-gold px-8 py-3 rounded-lg font-semibold hover:bg-kailash-stone transition">
+        <span data-lang-content="zh">获取免费样章</span>
+        <span data-lang-content="en" style="display: none;">Get Free Sample</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ about the book -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-12 text-center">
+        <span data-lang-content="zh">常见问题</span>
+        <span data-lang-content="en" style="display: none;">FAQ</span>
+      </h2>
+      <div class="space-y-6">
+        <div class="bg-kailash-light rounded-xl p-6">
+          <h3 class="font-semibold text-kailash-dark mb-2">
+            <span data-lang-content="zh">❓ 这本指南适合谁？</span>
+            <span data-lang-content="en" style="display: none;">❓ Who is this guide for?</span>
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            <span data-lang-content="zh">适合计划朝圣的旅行者、研究冈仁波齐的学者与学生、对藏地和喜马拉雅文化感兴趣的读者。零基础可读，有经验者亦有收获。</span>
+            <span data-lang-content="en" style="display: none;">For travelers planning a pilgrimage, scholars and students researching Mount Kailash, and readers interested in Tibetan and Himalayan culture. Accessible to beginners and rewarding for the experienced.</span>
+          </p>
+        </div>
+        <div class="bg-kailash-light rounded-xl p-6">
+          <h3 class="font-semibold text-kailash-dark mb-2">
+            <span data-lang-content="zh">❓ PDF可以在手机上阅读吗？</span>
+            <span data-lang-content="en" style="display: none;">❓ Can I read the PDF on my phone?</span>
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            <span data-lang-content="zh">可以。PDF格式兼容所有主流设备——手机、平板、电脑均可阅读，也可自行打印。</span>
+            <span data-lang-content="en" style="display: none;">Yes. The PDF format is compatible with all major devices — phone, tablet, and computer. You can also print it yourself.</span>
+          </p>
+        </div>
+        <div class="bg-kailash-light rounded-xl p-6">
+          <h3 class="font-semibold text-kailash-dark mb-2">
+            <span data-lang-content="zh">❓ 会有更新吗？</span>
+            <span data-lang-content="en" style="display: none;">❓ Will there be updates?</span>
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            <span data-lang-content="zh">指南将以年度为单位更新（如路线信息、政策变化等）。已购买用户可免费获取当年度的更新版本。</span>
+            <span data-lang-content="en" style="display: none;">The guide will be updated annually (e.g., route changes, policy updates). Purchasers receive the current year's updated version for free.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold mb-4">
+        <span data-lang-content="zh">准备好探索冈仁波齐了吗？</span>
+        <span data-lang-content="en" style="display: none;">Ready to Explore Mount Kailash?</span>
+      </h2>
+      <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+        <span data-lang-content="zh">¥29.9 / $4.99 — 一本指南，成全一次朝圣。</span>
+        <span data-lang-content="en" style="display: none;">$4.99 / ¥29.9 — One guide, one pilgrimage fulfilled.</span>
+      </p>
+      <div class="inline-block bg-white/10 rounded-xl px-8 py-4 mb-6">
+        <a href="mailto:kailash2026Lucas@outlook.com" class="text-kailash-gold text-xl font-semibold hover:text-kailash-warm transition">
+          kailash2026Lucas@outlook.com
+        </a>
+      </div>
+      <p class="text-gray-500 text-sm">
+        <span data-lang-content="zh">或通过微信购买：Kailash2026</span>
+        <span data-lang-content="en" style="display: none;">Or purchase via WeChat: Kailash2026</span>
+      </p>
+    </div>
+  </section>
+
+</Layout>

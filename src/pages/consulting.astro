@@ -1,0 +1,226 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    icon: '🗺️',
+    title: '转山路线规划咨询',
+    titleEn: 'Kora Route Planning',
+    price: '¥500 / 次',
+    priceEn: '¥500 / session',
+    desc: '一对一深度咨询，根据你的行程时间、体能状态、宗教信仰，为您推荐最合适的转山路线与时间安排。覆盖外圈（52km）、内圈、卓玛拉山口等核心节点。',
+    descEn: 'One-on-one deep consultation to recommend the most suitable kora route and schedule based on your itinerary, fitness level, and religious background. Covers the outer kora (52km), inner kora, Drolma La Pass, and other key points.',
+  },
+  {
+    icon: '📖',
+    title: '文献/研究咨询',
+    titleEn: 'Research & Literature Consultation',
+    price: '¥800 / 次',
+    priceEn: '¥800 / session',
+    desc: '面向学者、记者、创作者的研究支持。提供冈仁波齐相关学术文献检索、藏传佛教/印度教/苯教/耆那教四大传统比较分析、一手田野调查资料分享。',
+    descEn: 'Research support for scholars, journalists, and creators. Includes academic literature retrieval on Mount Kailash, comparative analysis of Tibetan Buddhism/Hinduism/Bön/Jainism traditions, and firsthand field research data sharing.',
+  },
+  {
+    icon: '🤝',
+    title: '内容合作',
+    titleEn: 'Content Partnership',
+    price: '议价',
+    priceEn: 'Negotiable',
+    desc: '欢迎媒体、出版社、旅行机构、视频创作者与我们合作。形式包括但不限于：联合撰稿、素材授权、专题策划、纪录片咨询。我们以学术诚实和跨宗教中立为核心竞争力。',
+    descEn: 'We welcome collaboration with media, publishers, travel agencies, and video creators. Formats include but are not limited to: co-authoring, material licensing, special feature planning, and documentary consulting. Our core strengths are academic honesty and interfaith neutrality.',
+  },
+];
+---
+
+<Layout title="咨询服务 - 冈仁波齐专业咨询 | Consulting Services - Kailash 2026" description="提供转山路线规划、文献研究咨询、内容合作等专业服务。面向全球旅行者、学者与创作者。Professional consulting on Kora route planning, literature research, and content partnership.">
+
+  <!-- Hero -->
+  <section class="relative bg-kailash-dark">
+    <div class="relative w-full h-[35vh] lg:h-[45vh]">
+      <div class="absolute inset-0 bg-[url('/images/kailash-hero.webp')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-kailash-dark"></div>
+    </div>
+
+    <div class="relative -mt-20 z-10 px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="max-w-5xl mx-auto text-center">
+        <p class="text-kailash-gold text-sm tracking-widest uppercase mb-4">Consulting Services · 咨询服务</p>
+        <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+          <span data-lang-content="zh">咨询服务</span>
+          <span data-lang-content="en" style="display: none;">Consulting Services</span>
+        </h1>
+        <p class="text-xl text-white/60 max-w-3xl mx-auto mb-4">
+          <span data-lang-content="zh">基于实地经验与学术研究，为全球旅行者、学者与创作者提供专业支持</span>
+          <span data-lang-content="en" style="display: none;">Professional support grounded in field experience and academic research for global travelers, scholars, and creators</span>
+        </p>
+        <p class="text-lg text-white/40 italic">
+          <span data-lang-content="zh">Professional support grounded in field experience and academic research for global travelers, scholars, and creators</span>
+          <span data-lang-content="en" style="display: none;">基于实地经验与学术研究，为全球旅行者、学者与创作者提供专业支持</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Cards -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl font-bold text-kailash-dark mb-2">
+          <span data-lang-content="zh">我们的服务</span>
+          <span data-lang-content="en" style="display: none;">Our Services</span>
+        </h2>
+        <p class="text-lg text-gray-500 italic">Our Services</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-kailash-cream/50">
+            <div class="text-5xl mb-6">{service.icon}</div>
+            <h3 class="font-display text-2xl font-bold text-kailash-dark mb-2">
+              <span data-lang-content="zh">{service.title}</span>
+              <span data-lang-content="en" style="display: none;">{service.titleEn}</span>
+            </h3>
+            <p class="text-kailash-gold font-semibold text-lg mb-4">
+              <span data-lang-content="zh">{service.price}</span>
+              <span data-lang-content="en" style="display: none;">{service.priceEn}</span>
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              <span data-lang-content="zh">{service.desc}</span>
+              <span data-lang-content="en" style="display: none;">{service.descEn}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-12 text-center">
+        <span data-lang-content="zh">咨询流程</span>
+        <span data-lang-content="en" style="display: none;">How It Works</span>
+      </h2>
+      <div class="space-y-8">
+        <div class="flex gap-6 items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-kailash-gold text-kailash-dark rounded-full flex items-center justify-center text-xl font-bold">1</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">
+              <span data-lang-content="zh">发送邮件</span>
+              <span data-lang-content="en" style="display: none;">Send an Email</span>
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              <span data-lang-content="zh">将您的需求、背景和问题发送至 kailash2026Lucas@outlook.com，我们会初步评估并回复。</span>
+              <span data-lang-content="en" style="display: none;">Send your needs, background, and questions to kailash2026Lucas@outlook.com. We will assess and respond.</span>
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-kailash-gold text-kailash-dark rounded-full flex items-center justify-center text-xl font-bold">2</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">
+              <span data-lang-content="zh">确认方案</span>
+              <span data-lang-content="en" style="display: none;">Confirm the Plan</span>
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              <span data-lang-content="zh">我们提出具体咨询方案与交付物清单，您确认后进入工作阶段。</span>
+              <span data-lang-content="en" style="display: none;">We propose a specific consulting plan and deliverables list. Work begins upon your confirmation.</span>
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-kailash-gold text-kailash-dark rounded-full flex items-center justify-center text-xl font-bold">3</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">
+              <span data-lang-content="zh">交付成果</span>
+              <span data-lang-content="en" style="display: none;">Deliver Results</span>
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              <span data-lang-content="zh">按约定时间交付咨询成果，支持一次后续跟进修改。</span>
+              <span data-lang-content="en" style="display: none;">Deliver the consulting results on schedule, with one round of follow-up revisions included.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="py-20 bg-kailash-light">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
+        <span data-lang-content="zh">为什么选择我们</span>
+        <span data-lang-content="en" style="display: none;">Why Choose Us</span>
+      </h2>
+      <p class="text-gray-500 italic mb-12">Why Choose Us</p>
+      <div class="grid md:grid-cols-2 gap-6 text-left">
+        <div class="bg-white rounded-xl p-6">
+          <p class="text-kailash-gold text-2xl mb-2">🥾</p>
+          <h3 class="font-semibold text-kailash-dark mb-1">
+            <span data-lang-content="zh">一手经验</span>
+            <span data-lang-content="en" style="display: none;">Firsthand Experience</span>
+          </h3>
+          <p class="text-sm text-gray-500">
+            <span data-lang-content="zh">所有路线建议基于亲身转山经历，不是网络搬运。</span>
+            <span data-lang-content="en" style="display: none;">All route suggestions are based on personal kora experience, not internet copy.</span>
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6">
+          <p class="text-kailash-gold text-2xl mb-2">📚</p>
+          <h3 class="font-semibold text-kailash-dark mb-1">
+            <span data-lang-content="zh">学术严谨</span>
+            <span data-lang-content="en" style="display: none;">Academic Rigor</span>
+          </h3>
+          <p class="text-sm text-gray-500">
+            <span data-lang-content="zh">区分事实与信仰，标注信息来源，不编造数据。</span>
+            <span data-lang-content="en" style="display: none;">Distinguishing fact from faith, citing sources, never fabricating data.</span>
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6">
+          <p class="text-kailash-gold text-2xl mb-2">⚖️</p>
+          <h3 class="font-semibold text-kailash-dark mb-1">
+            <span data-lang-content="zh">跨宗教中立</span>
+            <span data-lang-content="en" style="display: none;">Interfaith Neutrality</span>
+          </h3>
+          <p class="text-sm text-gray-500">
+            <span data-lang-content="zh">平等尊重四大宗教传统，不偏袒任何一方。</span>
+            <span data-lang-content="en" style="display: none;">Respecting all four religious traditions equally, without favoritism.</span>
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6">
+          <p class="text-kailash-gold text-2xl mb-2">🔒</p>
+          <h3 class="font-semibold text-kailash-dark mb-1">
+            <span data-lang-content="zh">信息保密</span>
+            <span data-lang-content="en" style="display: none;">Confidentiality</span>
+          </h3>
+          <p class="text-sm text-gray-500">
+            <span data-lang-content="zh">客户信息与咨询内容严格保密，未经许可不公开。</span>
+            <span data-lang-content="en" style="display: none;">Client information and consulting content are strictly confidential. Never disclosed without permission.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl font-bold mb-4">
+        <span data-lang-content="zh">开始咨询</span>
+        <span data-lang-content="en" style="display: none;">Start Consulting</span>
+      </h2>
+      <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+        <span data-lang-content="zh">发送邮件至以下地址，简要说明您的需求。我们将在24小时内回复。</span>
+        <span data-lang-content="en" style="display: none;">Send an email to the address below with a brief description of your needs. We will reply within 24 hours.</span>
+      </p>
+      <div class="inline-block bg-white/10 rounded-xl px-8 py-4 mb-6">
+        <a href="mailto:kailash2026Lucas@outlook.com" class="text-kailash-gold text-xl font-semibold hover:text-kailash-warm transition">
+          kailash2026Lucas@outlook.com
+        </a>
+      </div>
+      <p class="text-gray-500 text-sm">
+        <span data-lang-content="zh">或者通过微信联系我们：Kailash2026</span>
+        <span data-lang-content="en" style="display: none;">Or reach us via WeChat: Kailash2026</span>
+      </p>
+    </div>
+  </section>
+
+</Layout>
