@@ -208,4 +208,20 @@ const faqCategories = [
     </div>
   </section>
 
+  <!-- FAQPage Structured Data -->
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqCategories.flatMap(cat => cat.questions.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      })))
+    })}
+  </script>
+
 </Layout>
