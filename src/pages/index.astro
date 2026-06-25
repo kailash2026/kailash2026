@@ -451,4 +451,67 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
       <Newsletter lang="zh" variant="card" />
     </div>
   </section>
+
+  <!-- Support Us -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-display text-2xl font-bold text-kailash-dark mb-1">
+          <span data-lang-content="zh">支持我们</span>
+          <span data-lang-content="en" style="display: none;">Support Us</span>
+          <span data-lang-content="ja" style="display: none;">サポート</span>
+          <span data-lang-content="hi" style="display: none;">हमारा समर्थन करें</span>
+        </h2>
+        <div class="divider-gold w-24 mx-auto"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Buy Me a Butter Tea -->
+        <div class="bg-kailash-light rounded-2xl p-8 text-center hover-lift border border-kailash-cream">
+          <div class="text-5xl mb-4">☕</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">
+            <span data-lang-content="zh">赞助一杯酥油茶</span>
+            <span data-lang-content="en" style="display: none;">Buy Us a Butter Tea</span>
+            <span data-lang-content="ja" style="display: none;">バターティーをおごる</span>
+            <span data-lang-content="hi" style="display: none;">हमें एक मक्खन चाय खरीदें</span>
+          </h3>
+          <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+            <span data-lang-content="zh">这个网站由读者支持。如果您觉得内容有帮助，请赞助我们一杯酥油茶。每一份支持都让我们走得更远。</span>
+            <span data-lang-content="en" style="display: none;">This site is reader-supported. If you find our content helpful, buy us a butter tea. Every bit of support helps us go further.</span>
+            <span data-lang-content="ja" style="display: none;">このサイトは読者によって支えられています。お役に立てたなら、バターティーをおごってください。</span>
+            <span data-lang-content="hi" style="display: none;">यह साइट पाठकों द्वारा समर्थित है। अगर हमारी सामग्री मददगार लगे, तो हमें एक मक्खन चाय खरीदें।</span>
+          </p>
+          <a href="https://www.buymeacoffee.com/kailash2026" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-kailash-gold text-white px-6 py-3 rounded-lg font-medium hover:bg-kailash-accent transition">
+            <span>☕</span>
+            <span data-lang-content="zh">请我们喝一杯茶</span>
+            <span data-lang-content="en" style="display: none;">Buy Us a Tea</span>
+            <span data-lang-content="ja" style="display: none;">お茶をおごる</span>
+            <span data-lang-content="hi" style="display: none;">हमें चाय खरीदें</span>
+          </a>
+        </div>
+        <!-- Get the Guide -->
+        <div class="bg-kailash-light rounded-2xl p-8 text-center hover-lift border border-kailash-cream">
+          <div class="text-5xl mb-4">📖</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">
+            <span data-lang-content="zh">获取权威指南</span>
+            <span data-lang-content="en" style="display: none;">Get the Guide</span>
+            <span data-lang-content="ja" style="display: none;">公式ガイドを入手</span>
+            <span data-lang-content="hi" style="display: none;">गाइड प्राप्त करें</span>
+          </h3>
+          <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+            <span data-lang-content="zh">45页PDF，包含13部权威著作摘要、转山路线指南、高原防护与四大宗教对比。售价 ¥29.9。</span>
+            <span data-lang-content="en" style="display: none;">45-page PDF with 13 authoritative book summaries, kora route guide, altitude protection & 4-religion comparison. $4.99.</span>
+            <span data-lang-content="ja" style="display: none;">45ページPDF、13冊の権威ある書籍の要約、コラルートガイド、高山病対策、4宗教の比較。¥29.9。</span>
+            <span data-lang-content="hi" style="display: none;">45-पृष्ठ पीडीएफ, 13 प्रामाणिक पुस्तक सारांश, कोरा मार्ग गाइड, ऊंचाई से बचाव और 4 धर्मों की तुलना। $4.99।</span>
+          </p>
+          <a href="/ebook" class="inline-flex items-center gap-2 bg-kailash-dark text-white px-6 py-3 rounded-lg font-medium hover:bg-kailash-stone transition">
+            <span>📖</span>
+            <span data-lang-content="zh">了解详情</span>
+            <span data-lang-content="en" style="display: none;">Learn More</span>
+            <span data-lang-content="ja" style="display: none;">詳細を見る</span>
+            <span data-lang-content="hi" style="display: none;">और जानें</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
