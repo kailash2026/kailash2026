@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/booking.js": {
+      "runtime": "nodejs@20.x"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)\\.(jpg|jpeg|png|webp|svg|avif|gif|ico)",
