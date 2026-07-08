@@ -159,7 +159,8 @@ Kailash 2026 团队`;
 
   } catch (err) {
     console.error('Booking API error:', err);
-    return new Response(JSON.stringify({ error: '服务器错误，请稍后重试' }), {
+    const msg = err instanceof Error ? err.message : String(err);
+    return new Response(JSON.stringify({ error: '服务器错误，请稍后重试', detail: msg }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
