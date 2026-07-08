@@ -9,6 +9,8 @@ const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';
 
 const resend = RESEND_API_KEY ? new Resend(RESEND_API_KEY) : null;
 
+export const prerender = false;
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
