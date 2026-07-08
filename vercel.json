@@ -1,4 +1,7 @@
 {
+  "buildCommand": "npx astro build",
+  "outputDirectory": "dist",
+  "framework": "astro",
   "headers": [
     {
       "source": "/(.*)\\.(jpg|jpeg|png|webp|svg|avif|gif|ico)",
