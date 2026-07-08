@@ -128,4 +128,3 @@ Mount Kailash, at 6,656 meters, is not especially tall by Himalayan standards �
 A Buddhist practitioner walking the kora visualizes the Chakrasamvara mandala. A Hindu pilgrim gazes at the summit and sees Shiva in meditation. A Bönpo traces the nine cosmic levels in the mountain's strata. A Jain contemplates the eight stages of liberation. Four different maps of meaning, overlaid on the same geography. All of them deeply coherent within their own traditions. None of them canceling the others out.
 
 Perhaps that is the deepest teaching Kailash offers to a polarized world: that sacredness is not a finite resource, that the devout can share a holy place without sharing a theology, and that reverence — in whatever language, through whatever ritual — is a common human tongue.
-

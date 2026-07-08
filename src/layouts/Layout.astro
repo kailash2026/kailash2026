@@ -1,6 +1,8 @@
 ---
 import Analytics from '../components/Analytics.astro';
 import SEO from '../components/SEO.astro';
+import NewsletterPopup from '../components/NewsletterPopup.astro';
+import ChatWidget from '../components/ChatWidget.astro';
 import '../styles/global.css';
 import { getCollection } from 'astro:content';
 
@@ -51,6 +53,7 @@ const hiAlt = siteUrl + '/hi' + (routePath === '/' ? '' : routePath);
 
 const navItems = [
   { label: 'གཙོ་ངོས།', labelZh: '首页', labelEn: 'Home', href: '/' },
+  { label: '🐎 མཇལ་བསྐོར།', labelZh: '🐎 朝圣套餐', labelEn: '🐎 Tours', href: '/packages' },
   { label: 'ལྷ་རིའི་རིག་གནས།', labelZh: '神山文化', labelEn: 'Culture', href: '/culture' },
   { label: 'མཇལ་བསྐོར་གནས་ཚུལ།', labelZh: '朝圣攻略', labelEn: 'Guide', href: '/guide' },
   { label: 'ལམ་ཐིག', labelZh: '转山路线', labelEn: 'Routes', href: '/routes' },
@@ -63,6 +66,7 @@ const navItems = [
   { label: 'ཟུང་བྲལ།', labelZh: '常见问题', labelEn: 'FAQ', href: '/faq' },
   { label: '💼', labelZh: '💼 咨询服务', labelEn: '💼 Consulting', href: '/consulting' },
   { label: '📖', labelZh: '📖 权威指南', labelEn: '📖 Guide Book', href: '/ebook' },
+  { label: '🤖', labelZh: '🤖 AI服务', labelEn: '🤖 AI Service', href: '/ai-service' },
   { label: 'ང་ཚོ།', labelZh: '关于我们', labelEn: 'About', href: '/about' },
   { label: 'འབྲེལ་བ།', labelZh: '联系我们', labelEn: 'Contact', href: '/contact' },
 ];
@@ -79,13 +83,9 @@ const navItems = [
   <link rel="alternate" hreflang="hi" href={hiAlt} />
   <link rel="alternate" hreflang="ja" href={jaAlt} />
   <link rel="alternate" hreflang="x-default" href={zhAlt} />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
-  <link rel="preload" as="image" href="/images/kailash-hero.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/images/kailash-hero-mobile.webp" media="(max-width: 767px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="/images/kailash-hero.webp" media="(min-width: 768px)" fetchpriority="high" />
   <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable" />
-  <style>body{font-family:system-ui,-apple-system,sans-serif}body.fonts-loaded{font-family:Inter,system-ui,sans-serif}</style>
 </head>
 <body class="bg-kailash-light text-kailash-dark antialiased">
   <header class="fixed top-0 w-full bg-kailash-dark/95 backdrop-blur-sm z-50">
@@ -94,9 +94,9 @@ const navItems = [
         <a href="/" class="text-kailash-gold font-display text-2xl font-bold">Kailash 2026</a>
 
         {/* Desktop Nav */}
-        <div class="hidden lg:flex items-center space-x-5">
-          {navItems.slice(0, 8).map(item => (
-            <a href={item.href} class="text-white hover:text-kailash-gold transition text-sm group relative whitespace-nowrap">
+        <div class="hidden lg:flex items-center gap-1 xl:gap-2">
+          {navItems.slice(0, 6).map(item => (
+            <a href={item.href} class="text-white hover:text-kailash-gold transition text-sm group relative whitespace-nowrap px-1.5 xl:px-2 py-1">
               <span>{item.labelZh}</span>
               <span class="hidden group-hover:inline text-xs text-kailash-gold ml-1">{item.label}</span>
             </a>
@@ -104,9 +104,9 @@ const navItems = [
 
           {/* More Dropdown */}
           <div class="relative group">
-            <button class="text-white/60 hover:text-kailash-gold transition text-sm">更多 ▾</button>
-            <div class="absolute right-0 top-full mt-2 w-40 bg-kailash-dark/95 backdrop-blur-sm rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-white/10">
-              {navItems.slice(8).map(item => (
+            <button class="text-white/60 hover:text-kailash-gold transition text-sm px-2 py-1">更多 ▾</button>
+            <div class="absolute right-0 top-full mt-2 w-44 bg-kailash-dark/95 backdrop-blur-sm rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-white/10">
+              {navItems.slice(6).map(item => (
                 <a href={item.href} class="block px-4 py-2.5 text-sm text-white hover:text-kailash-gold hover:bg-white/5 first:rounded-t-xl last:rounded-b-xl transition whitespace-nowrap">
                   {item.labelZh}
                 </a>
@@ -114,59 +114,48 @@ const navItems = [
             </div>
           </div>
 
-          {/* Language Switcher */}
-          <div class="flex items-center gap-1 ml-4 border-l border-white/20 pl-4">
-            <button
-              class="lang-btn px-2 py-1 rounded text-sm text-kailash-gold font-medium"
-              data-lang="zh"
-              onclick="switchLanguage('zh')"
-            >
-              中文
+          {/* Language Switcher — compact dropdown */}
+          <div class="relative group ml-1 border-l border-white/20 pl-2">
+            <button class="lang-current flex items-center gap-1 px-2 py-1 rounded text-sm text-kailash-gold font-medium whitespace-nowrap">
+              <span id="lang-current-label">中文</span>
+              <svg class="w-3 h-3 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
-            <span class="text-white/30">|</span>
-            <button
-              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition"
-              data-lang="en"
-              onclick="switchLanguage('en')"
-            >
-              EN
-            </button>
-            <span class="text-white/30">|</span>
-            <button
-              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition"
-              data-lang="hi"
-              onclick="switchLanguage('hi')"
-            >
-              हिंदी
-            </button>
-            <span class="text-white/30">|</span>
-            <button
-              class="lang-btn px-2 py-1 rounded text-sm text-white/60 hover:text-white transition"
-              data-lang="ja"
-              onclick="switchLanguage('ja')"
-            >
-              日本語
-            </button>
+            <div class="absolute right-0 top-full mt-1 w-28 bg-kailash-dark/95 backdrop-blur-sm rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-white/10">
+              <button class="lang-btn block w-full text-left px-4 py-2 text-sm text-kailash-gold font-medium hover:bg-white/5 rounded-t-xl transition" data-lang="zh" onclick="switchLanguage('zh')">中文</button>
+              <button class="lang-btn block w-full text-left px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 transition" data-lang="en" onclick="switchLanguage('en')">English</button>
+              <button class="lang-btn block w-full text-left px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 transition" data-lang="hi" onclick="switchLanguage('hi')">हिन्दी</button>
+              <button class="lang-btn block w-full text-left px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-b-xl transition" data-lang="ja" onclick="switchLanguage('ja')">日本語</button>
+            </div>
           </div>
 
-        {/* Search Box */}
-        <div class="relative ml-4">
-          <input
-            type="text"
-            id="nav-search-input"
-            placeholder="搜索..."
-            class="bg-white/10 text-white placeholder-white/50 px-4 py-2 rounded-lg text-sm w-48 focus:outline-none focus:ring-2 focus:ring-kailash-gold/50 focus:bg-white/20 transition"
-          />
-          <button
-            id="nav-search-btn"
-            class="absolute right-2 top-1/2 -translate-y-1/2 text-white/60 hover:text-kailash-gold transition"
-            aria-label="搜索"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          {/* Dark Mode Toggle */}
+          <button id="dark-mode-toggle" class="text-white/60 hover:text-kailash-gold transition ml-1 p-1.5 rounded-lg hover:bg-white/5" aria-label="切换暗色模式" title="切换暗色模式">
+            <svg id="dm-icon-sun" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            <svg id="dm-icon-moon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
             </svg>
           </button>
-        </div>
+
+          {/* Search — icon only, expands on focus */}
+          <div class="relative ml-1">
+            <input
+              type="text"
+              id="nav-search-input"
+              placeholder="搜索"
+              class="bg-white/10 text-white placeholder-transparent px-2 py-2 rounded-lg text-sm w-8 focus:w-40 xl:focus:w-48 focus:pl-8 focus:bg-white/20 transition-all duration-300 ease-out cursor-pointer focus:cursor-text outline-none focus:ring-2 focus:ring-kailash-gold/50"
+            />
+            <button
+              id="nav-search-btn"
+              class="absolute left-1.5 top-1/2 -translate-y-1/2 text-white/60 hover:text-kailash-gold transition pointer-events-none"
+              aria-label="搜索"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -179,15 +168,23 @@ const navItems = [
 
       {/* Mobile Nav */}
       <div id="mobile-menu" class="hidden lg:hidden pb-4">
-        <div class="flex flex-col space-y-3">
+        <div class="flex flex-col space-y-1">
           {navItems.map(item => (
-            <a href={item.href} class="text-white hover:text-kailash-gold transition py-2">
+            <a href={item.href} class="text-white hover:text-kailash-gold transition py-2.5 px-2 rounded-lg hover:bg-white/5">
               {item.labelZh}
             </a>
           ))}
-          <a href="/guide" class="bg-kailash-gold text-kailash-dark px-4 py-3 rounded-lg font-medium text-center">
-            Explore / 探索
-          </a>
+
+          {/* Mobile Language Switcher */}
+          <div class="border-t border-white/10 pt-3 mt-2">
+            <p class="text-white/40 text-xs mb-2 px-2">语言 / Language</p>
+            <div class="grid grid-cols-4 gap-1">
+              <button class="lang-btn px-3 py-2 rounded-lg text-sm text-center text-kailash-gold font-medium bg-white/10" data-lang="zh" onclick="switchLanguage('zh')">中文</button>
+              <button class="lang-btn px-3 py-2 rounded-lg text-sm text-center text-white/60 hover:text-white hover:bg-white/5 transition" data-lang="en" onclick="switchLanguage('en')">EN</button>
+              <button class="lang-btn px-3 py-2 rounded-lg text-sm text-center text-white/60 hover:text-white hover:bg-white/5 transition" data-lang="hi" onclick="switchLanguage('hi')">हिंदी</button>
+              <button class="lang-btn px-3 py-2 rounded-lg text-sm text-center text-white/60 hover:text-white hover:bg-white/5 transition" data-lang="ja" onclick="switchLanguage('ja')">日本語</button>
+            </div>
+          </div>
 
           {/* Mobile Search */}
           <div class="relative mt-3">
@@ -207,6 +204,9 @@ const navItems = [
               </svg>
             </button>
           </div>
+          <a href="/guide" class="bg-kailash-gold text-kailash-dark px-4 py-3 rounded-lg font-medium text-center mt-2">
+            Explore / 探索
+          </a>
         </div>
       </div>
     </nav>
@@ -239,6 +239,9 @@ const navItems = [
         <div>
           <h4 class="font-medium mb-4">服务</h4>
           <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="/packages" class="hover:text-kailash-gold">🐎 朝圣套餐</a></li>
+            <li><a href="/ebook" class="hover:text-kailash-gold">📖 权威指南</a></li>
+            <li><a href="/consulting" class="hover:text-kailash-gold">💼 咨询服务</a></li>
             <li><a href="/faq" class="hover:text-kailash-gold">常见问题</a></li>
             <li><a href="/about" class="hover:text-kailash-gold">关于我们</a></li>
             <li><a href="/contact" class="hover:text-kailash-gold">联系我们</a></li>
@@ -248,35 +251,26 @@ const navItems = [
         <div>
           <h4 class="font-medium mb-4">联系我们</h4>
           <p class="text-gray-400 text-sm">kailash2026Lucas@outlook.com</p>
-          <p class="text-gray-400 text-sm mt-2">微信: Kailash2026</p>
+          <p class="text-gray-400 text-sm mt-2">微信：Kailash2026</p>
+          <ul class="space-y-2 text-gray-400 text-sm mt-3">
+            <li><a href="/privacy" class="hover:text-kailash-gold">隐私政策</a></li>
+            <li><a href="/terms" class="hover:text-kailash-gold">服务条款</a></li>
+          </ul>
         </div>
       </div>
       <!-- Support Row -->
       <div class="border-t border-gray-700 mt-8 pt-8">
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-4">
-          <a href="https://www.buymeacoffee.com/kailash2026" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm text-gray-400 hover:text-kailash-gold transition group">
-            <span class="text-base group-hover:scale-110 transition-transform">☕</span>
-            <span>Buy Me a Coffee</span>
-          </a>
-          <span class="hidden sm:inline text-gray-700">|</span>
-          <a href="/ebook" class="flex items-center gap-2 text-sm text-gray-400 hover:text-kailash-gold transition group">
-            <span class="text-base group-hover:scale-110 transition-transform">📖</span>
-            <span data-lang-content="zh">权威指南</span>
-            <span data-lang-content="en" style="display: none;">The Guide</span>
-          </a>
-          <span class="hidden sm:inline text-gray-700">|</span>
-          <a href="/consulting" class="flex items-center gap-2 text-sm text-gray-400 hover:text-kailash-gold transition group">
-            <span class="text-base group-hover:scale-110 transition-transform">💼</span>
-            <span data-lang-content="zh">咨询服务</span>
-            <span data-lang-content="en" style="display: none;">Consulting</span>
-          </a>
-        </div>
+        <p class="text-center text-gray-500 text-xs mb-2">
+          本站为信息服务平台。朝圣团服务由具备合法资质的西藏本地旅行社执行。本站负责信息整合、行程咨询与品质把控。
+        </p>
         <div class="text-center text-gray-400 text-sm">
-          © 2026 Kailash. 保留所有权利。
+          © 2026 Kailash 2026. 保留所有权利。
         </div>
       </div>
     </div>
   </footer>
+
+  <NewsletterPopup />
 
   <script define:vars={{ index: JSON.stringify(searchIndex) }}>
     const blogSearchIndex = JSON.parse(index);
@@ -332,19 +326,38 @@ const navItems = [
       if (allResults.length === 1) {
         window.location.href = allResults[0].url;
       } else if (allResults.length > 1) {
-        // Show results as a simple modal
+        // Show results as a modal with close button & ESC support
         const existing = document.getElementById('search-results-modal');
         if (existing) existing.remove();
+        const existingBg = document.getElementById('search-results-bg');
+        if (existingBg) existingBg.remove();
+
+        const bg = document.createElement('div');
+        bg.id = 'search-results-bg';
+        bg.style.cssText = 'position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,0.3);';
+
         const modal = document.createElement('div');
         modal.id = 'search-results-modal';
         modal.style.cssText = 'position:fixed;top:4rem;left:50%;transform:translateX(-50%);width:90%;max-width:32rem;max-height:70vh;overflow-y:auto;background:white;border-radius:1rem;box-shadow:0 20px 60px rgba(0,0,0,0.3);z-index:9999;padding:1.5rem;';
-        const bg = document.createElement('div');
-        bg.style.cssText = 'position:fixed;inset:0;z-index:9998;';
-        bg.onclick = () => { modal.remove(); bg.remove(); };
-        modal.innerHTML = '<h3 class="font-bold text-kailash-dark mb-1">搜索结果 (' + allResults.length + ')</h3><p class="text-xs text-gray-400 mb-4">搜索: ' + searchTerm + '</p>' +
+
+        const closeModal = () => { modal.remove(); bg.remove(); };
+        bg.onclick = closeModal;
+
+        modal.innerHTML =
+          '<div class="flex items-center justify-between mb-4"><div><h3 class="font-bold text-kailash-dark">搜索结果 (' + allResults.length + ')</h3><p class="text-xs text-gray-400">搜索: ' + searchTerm + '</p></div><button id="search-modal-close" class="text-gray-400 hover:text-kailash-dark transition p-1 rounded-lg hover:bg-gray-100" aria-label="关闭"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button></div>' +
           allResults.map(r => '<a href="' + r.url + '" class="block p-3 rounded-lg hover:bg-kailash-cream transition mb-1"><span class="font-medium text-kailash-dark">' + r.title + '</span><span class="text-xs text-gray-400 ml-2">' + (r.type === 'blog' ? '📝' : '📄') + '</span>' + (r.description ? '<p class="text-sm text-gray-500 mt-1 line-clamp-1">' + r.description + '</p>' : '') + '</a>').join('');
+
         document.body.appendChild(bg);
         document.body.appendChild(modal);
+
+        // Close button
+        modal.querySelector('#search-modal-close')?.addEventListener('click', closeModal);
+
+        // ESC to close
+        const escHandler = (e) => {
+          if (e.key === 'Escape') { closeModal(); document.removeEventListener('keydown', escHandler); }
+        };
+        document.addEventListener('keydown', escHandler);
       } else {
         alert('未找到相关内容，请尝试其他关键词');
       }
@@ -378,6 +391,37 @@ const navItems = [
       }
     });
   </script>
+  <!-- Dark Mode Toggle -->
+  <script>
+    (function() {
+      const html = document.documentElement;
+      const toggle = document.getElementById('dark-mode-toggle');
+      const sunIcon = document.getElementById('dm-icon-sun');
+      const moonIcon = document.getElementById('dm-icon-moon');
+
+      function setDark(isDark) {
+        html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        if (sunIcon) sunIcon.classList.toggle('hidden', isDark);
+        if (moonIcon) moonIcon.classList.toggle('hidden', !isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      }
+
+      // Init: check localStorage or system preference
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') setDark(true);
+      else if (saved === 'light') setDark(false);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setDark(true);
+
+      // Toggle on click
+      toggle?.addEventListener('click', () => {
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        setDark(!isDark);
+      });
+    })();
+  </script>
+
+  <ChatWidget />
+
   <!-- PWA Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
@@ -413,7 +457,12 @@ const navItems = [
         document.documentElement.setAttribute('data-lang', lang);
         localStorage.setItem('preferred-lang', lang);
 
-        // Update button styles
+        // Update dropdown label
+        const langLabels = { zh: '中文', en: 'English', hi: 'हिन्दी', ja: '日本語' };
+        const labelEl = document.getElementById('lang-current-label');
+        if (labelEl) labelEl.textContent = langLabels[lang] || '中文';
+
+        // Update button styles in dropdown
         document.querySelectorAll('.lang-btn').forEach(btn => {
           if (btn.getAttribute('data-lang') === lang) {
             btn.classList.remove('text-white/60', 'hover:text-white');

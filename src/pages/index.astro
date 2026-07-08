@@ -13,59 +13,37 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
   
   <!-- Hero Section -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-[url('/images/kailash-hero.webp')] bg-cover bg-center md:bg-[url('/images/kailash-hero.webp')]"></div>
+    <div class="absolute inset-0 bg-[url('/images/kailash-hero-mobile.webp')] bg-cover bg-center md:bg-[url('/images/kailash-hero.webp')]"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/60 via-kailash-dark/40 to-kailash-dark"></div>
     
     <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
       <!-- 中文 -->
       <div data-lang-content="zh">
-        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">世界中心 · 神圣朝圣之旅</p>
+        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">🐎 2026 藏历马年 · 十二年一遇</p>
         <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">冈仁波齐<span class="block text-kailash-gold mt-2">2026</span></h1>
-        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">四大宗教共同的圣地，连接印度、西藏与世界的精神桥梁</p>
+        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">四大宗教共同的圣地 — 专业朝圣团、深度攻略、权威指南</p>
         <p class="text-lg text-white/60 mb-8">藏传佛教 · 印度教 · 苯教 · 耆那教</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/guide" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition">开始探索</a>
-          <a href="/culture" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">了解文化</a>
+          <a href="/packages" class="bg-kailash-gold text-kailash-dark px-10 py-5 rounded-xl font-bold text-lg hover:bg-kailash-accent transition shadow-lg shadow-kailash-gold/25">🐎 2026 朝圣团</a>
+          <a href="/guide" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">朝圣攻略</a>
         </div>
       </div>
-      
+
       <!-- English -->
       <div data-lang-content="en" style="display: none;">
-        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">Center of the World · Sacred Pilgrimage</p>
+        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">🐎 2026 Horse Year · Once Every 12 Years</p>
         <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">Mount Kailash<span class="block text-kailash-gold mt-2">2026</span></h1>
-        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">Sacred to Four Religions, Connecting India, Tibet & the World</p>
+        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">Sacred to Four Religions — Guided Tours, Expert Guides, Premium Resources</p>
         <p class="text-lg text-white/60 mb-8">Tibetan Buddhism · Hinduism · Bön · Jainism</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/guide" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition">Start Exploring</a>
-          <a href="/culture" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">Explore Culture</a>
-        </div>
-      </div>
-      
-      <!-- 日本語 -->
-      <div data-lang-content="ja" style="display: none;">
-        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">世界の中心 · 神聖なる巡礼の旅</p>
-        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">カイラス山<span class="block text-kailash-gold mt-2">2026</span></h1>
-        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">四大宗教が共に崇める聖地、インド・チベット・世界をつなぐ精神の橋</p>
-        <p class="text-lg text-white/60 mb-8">チベット仏教 · ヒンドゥー教 · ボン教 · ジャイナ教</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/guide" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition">探索を始める</a>
-          <a href="/culture" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">文化を知る</a>
+          <a href="/packages" class="bg-kailash-gold text-kailash-dark px-10 py-5 rounded-xl font-bold text-lg hover:bg-kailash-accent transition shadow-lg shadow-kailash-gold/25">🐎 2026 Pilgrimage Tours</a>
+          <a href="/guide" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">Pilgrim Guide</a>
         </div>
       </div>
       
       
       
-      <!-- हिन्दी -->
-      <div data-lang-content="hi" style="display: none;">
-        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">विश्व का केंद्र · पवित्र तीर्थयात्रा</p>
-        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">कैलाश पर्वत<span class="block text-kailash-gold mt-2">2026</span></h1>
-        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-3xl mx-auto font-light leading-relaxed">चार धर्मों का पवित्र स्थल, भारत, तिब्बत और विश्व को जोड़ने वाला आध्यात्मिक पुल</p>
-        <p class="text-lg text-white/60 mb-8">तिब्बती बौद्ध धर्म · हिंदू धर्म · बॉन धर्म · जैन धर्म</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/guide" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition">खोज शुरू करें</a>
-          <a href="/culture" class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition">संस्कृति जानें</a>
-        </div>
-      </div>
+      
     </div>
   </section>
 
@@ -86,20 +64,44 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
         <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">5,630m</p><p class="text-white/60 text-sm mt-1">Highest Pass</p></div>
         <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p><p class="text-white/60 text-sm mt-1">Sacred Traditions</p></div>
       </div>
-      <!-- 日本語 -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-lang-content="ja" style="display: none;">
-        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">6656m</p><p class="text-white/60 text-sm mt-1">カイラス山の標高</p></div>
-        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">52km</p><p class="text-white/60 text-sm mt-1">コーラ全長</p></div>
-        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">5630m</p><p class="text-white/60 text-sm mt-1">最高地点ドマラ峠</p></div>
-        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p><p class="text-white/60 text-sm mt-1">宗教の聖地</p></div>
-      </div>
       
-      <!-- हिन्दी -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-lang-content="hi" style="display: none;">
-        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">6656m</p><p class="text-white/60 text-sm mt-1">कैलाश की ऊँचाई</p></div>
-        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">52km</p><p class="text-white/60 text-sm mt-1">परिक्रमा दूरी</p></div>
-        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">5630m</p><p class="text-white/60 text-sm mt-1">सबसे ऊँचा दर्रा</p></div>
-        <div><p class="text-3xl md:text-4xl font-bold text-kailash-gold">4</p><p class="text-white/60 text-sm mt-1">धार्मिक स्थल</p></div>
+    </div>
+  </section>
+
+  <!-- 2026 Horse Year Tour CTA -->
+  <section class="py-16 bg-white border-b border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-kailash-dark to-kailash-stone rounded-3xl p-8 md:p-12 shadow-xl">
+        <div class="flex flex-col lg:flex-row items-center gap-8">
+          <div class="flex-1 text-center lg:text-left">
+            <span class="inline-block bg-kailash-gold/20 text-kailash-gold text-sm font-bold px-4 py-1.5 rounded-full mb-4">
+              <span data-lang-content="zh">🐎 2026 藏历马年 · 十二年一遇</span>
+              <span data-lang-content="en" style="display: none;">🐎 2026 Horse Year · Once Every 12 Years</span>
+            </span>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+              <span data-lang-content="zh">冈仁波齐转山朝圣团</span>
+              <span data-lang-content="en" style="display: none;">Kailash Kora Pilgrimage Tours</span>
+            </h2>
+            <p class="text-white/70 text-lg mb-2 leading-relaxed">
+              <span data-lang-content="zh">8-12天深度体验 · 专业向导带队 · 三档套餐 ¥8,800 起</span>
+              <span data-lang-content="en" style="display: none;">8-12 Day Immersion · Expert Guides · From $1,299</span>
+            </p>
+            <p class="text-white/50 text-sm">
+              <span data-lang-content="zh">马年转山一圈 = 13圈功德。每月发团，名额有限。</span>
+              <span data-lang-content="en" style="display: none;">One Horse Year kora = 13 circuits of merit. Monthly departures, limited spots.</span>
+            </p>
+          </div>
+          <div class="flex-shrink-0 flex flex-col sm:flex-row gap-4">
+            <a href="/packages" class="bg-kailash-gold text-kailash-dark px-8 py-4 rounded-xl font-bold text-lg hover:bg-kailash-accent transition shadow-lg shadow-kailash-gold/25 whitespace-nowrap text-center">
+              <span data-lang-content="zh">查看详情 & 预订</span>
+              <span data-lang-content="en" style="display: none;">View & Book</span>
+            </a>
+            <a href="/guide" class="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition whitespace-nowrap text-center">
+              <span data-lang-content="zh">先看攻略</span>
+              <span data-lang-content="en" style="display: none;">Read Guide</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -117,17 +119,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">Why Kailash?</h2>
         <p class="text-lg text-gray-600">Center of the World, Pinnacle of Faith</p>
       </div>
-      <!-- 日本語 -->
-      <div class="text-center mb-16" data-lang-content="ja" style="display: none;">
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">なぜカイラスなのか</h2>
-        <p class="text-lg text-gray-600">世界の中心、信仰の頂点</p>
-      </div>
       
-      <!-- हिन्दी -->
-      <div class="text-center mb-16" data-lang-content="hi" style="display: none;">
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">क्यों कैलाश?</h2>
-        <p class="text-lg text-gray-600">विश्व का केंद्र, आस्था का शिखर</p>
-      </div>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Feature 1: Four Religions -->
@@ -135,12 +127,8 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <div class="text-4xl mb-4">🕉️</div>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">四大宗教圣地</h3>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Four Sacred Traditions</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">四大宗教の聖地</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="hi" style="display: none;">चार पवित्र परंपराएँ</h3>
           <p class="text-gray-600" data-lang-content="zh">藏传佛教、印度教、苯教、耆那教共同尊奉的世界中心，全球唯一被四大宗教同时视为圣地的山峰</p>
           <p class="text-gray-600" data-lang-content="en" style="display: none;">Tibetan Buddhism, Hinduism, Bön, and Jainism all revere this as the center of the world. The only mountain sacred to all four religions simultaneously.</p>
-          <p class="text-gray-600" data-lang-content="ja" style="display: none;">チベット仏教、ヒンドゥー教、ボン教、ジャイナ教が共に崇める世界の中心。全球で唯一、四大宗教が同時に聖地とする山。</p>
-          <p class="text-gray-600" data-lang-content="hi" style="display: none;">तिब्बती बौद्ध धर्म, हिंदू धर्म, बॉन धर्म और जैन धर्म इसे विश्व का केंद्र मानते हैं। एकमात्र पर्वत जो चारों धर्मों को एक साथ पवित्र है।</p>
         </div>
         
         <!-- Feature 2: 6656m -->
@@ -148,12 +136,8 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <div class="text-4xl mb-4">🏔️</div>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">6656米神山</h3>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">6,656m Sacred Peak</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">6656メートルの聖山</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="hi" style="display: none;">6,656मी पवित्र शिखर</h3>
           <p class="text-gray-600" data-lang-content="zh">从未被攀登的圣洁之峰，金字塔形山体独一无二，南坡万字符印记神秘庄严</p>
           <p class="text-gray-600" data-lang-content="en" style="display: none;">An unclimbed sacred summit with a unique pyramid shape. The mysterious swastika mark on its southern face radiates solemn divinity.</p>
-          <p class="text-gray-600" data-lang-content="ja" style="display: none;">未踏の聖なる峰、ピラミッド型の山体は独一无二。南斜面の万字印は神秘に満ちた荘厳さを放つ。</p>
-          <p class="text-gray-600" data-lang-content="hi" style="display: none;">एक अविजित पवित्र शिखर जिसका पिरामिड आकार अद्वितीय है। दक्षिणी ढलान पर स्वस्तिक चिह्न रहस्यमय और गंभीर दिव्यता बिखेरता है।</p>
         </div>
         
         <!-- Feature 3: 52km -->
@@ -161,12 +145,8 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <div class="text-4xl mb-4">🚶</div>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">52公里转山</h3>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">52km Kora Circuit</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">52キロのコーラ</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="hi" style="display: none;">52km परिक्रमा मार्ग</h3>
           <p class="text-gray-600" data-lang-content="zh">三天两夜高原徒步，翻越5630米卓玛拉垭口，每转一圈相当于念诵六字真言六亿遍</p>
           <p class="text-gray-600" data-lang-content="en" style="display: none;">A three-day high-altitude trek crossing the 5,630m Drolma La pass. One circuit equals 600 million recitations of the six-syllable mantra.</p>
-          <p class="text-gray-600" data-lang-content="ja" style="display: none;">三日二夜の高原ハイキング、5630メートルのドマラ峠を越えて。一周することで六字真言を六億遍唱えたのと同等の功徳。</p>
-          <p class="text-gray-600" data-lang-content="hi" style="display: none;">तीन दिनों की उच्च ऊँचाई वाली यात्रा, 5630मी के दोलमा ला दर्रे को पार करना। एक परिक्रमा छह अरब मंत्रों के जाप के बराबर पुण्य देती है।</p>
         </div>
         
         <!-- Feature 4: Lake -->
@@ -174,12 +154,8 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <div class="text-4xl mb-4">💧</div>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">圣湖玛旁雍错</h3>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Lake Manasarovar</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">聖湖マナサロワール</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="hi" style="display: none;">मानसरोवर झील</h3>
           <p class="text-gray-600" data-lang-content="zh">世界上海拔最高的淡水湖之一，四大河流的发源地，被称为「西天瑶池」</p>
           <p class="text-gray-600" data-lang-content="en" style="display: none;">One of the world's highest freshwater lakes, source of four great rivers. Known as the "Western Heaven Jade Pool."</p>
-          <p class="text-gray-600" data-lang-content="ja" style="display: none;">世界で最も高い淡水湖の一つ、四大河の発源地。「西天瑶池」と称される。</p>
-          <p class="text-gray-600" data-lang-content="hi" style="display: none;">दुनिया की सबसे ऊँची मीठे पानी की झीलों में से एक, चार महान नदियों का उद्गम स्थल। इसे 'स्वर्ग का जेड तालाब' कहा जाता है।</p>
         </div>
         
         <!-- Feature 5: Global -->
@@ -187,12 +163,8 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <div class="text-4xl mb-4">🌏</div>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">全球朝圣者</h3>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Global Pilgrims</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">世界の巡礼者</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="hi" style="display: none;">वैश्विक तीर्थयात्री</h3>
           <p class="text-gray-600" data-lang-content="zh">每年数十万朝圣者来自印度、尼泊尔、中国及世界各地，不同信仰者在此平等朝拜</p>
           <p class="text-gray-600" data-lang-content="en" style="display: none;">Hundreds of thousands of pilgrims gather annually from India, Nepal, China, and across the globe. Different faiths worship here as equals.</p>
-          <p class="text-gray-600" data-lang-content="ja" style="display: none;">年間数十万の巡礼者がインド、ネパール、中国、世界各地から集まる。異なる信仰者がここで平等に礼拝する。</p>
-          <p class="text-gray-600" data-lang-content="hi" style="display: none;">हर साल लाखों तीर्थयात्री भारत, नेपाल, चीन और दुनिया भर से आते हैं। विभिन्न धर्मों के लोग यहाँ समान रूप से पूजा करते हैं।</p>
         </div>
         
         <!-- Feature 6: 2026 -->
@@ -200,12 +172,8 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <div class="text-4xl mb-4">📅</div>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">2026朝圣之旅</h3>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">2026 Pilgrimage</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">2026年巡礼の旅</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="hi" style="display: none;">2026 तीर्थयात्रा</h3>
           <p class="text-gray-600" data-lang-content="zh">精心的行程规划与专业团队支持，为您的神圣朝圣之旅保驾护航</p>
           <p class="text-gray-600" data-lang-content="en" style="display: none;">Carefully planned itinerary with professional team support for your sacred pilgrimage journey.</p>
-          <p class="text-gray-600" data-lang-content="ja" style="display: none;">丁寧に計画された行程、プロチームが安全をフルサポート。早期予約で特別割引を享受。</p>
-          <p class="text-gray-600" data-lang-content="hi" style="display: none;">सावधानीपूर्वक योजनाबद्ध यात्राएँ, पेशेवर टीमें आपकी सुरक्षा सुनिश्चित करती हैं। जल्दी बुकिंग पर विशेष छूट।</p>
         </div>
       </div>
     </div>
@@ -224,17 +192,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">52km Kora Route</h2>
         <p class="text-lg text-gray-600">A three-day high-altitude trek starting from Darchen, crossing the 5,630m Drolma La pass</p>
       </div>
-      <!-- 日本語 -->
-      <div class="text-center mb-16" data-lang-content="ja" style="display: none;">
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">52キロのコーラルート</h2>
-        <p class="text-lg text-gray-600">三日二夜の高原ハイキング、タルチェンを出発して5630メートルのドマラ峠を越える</p>
-      </div>
       
-      <!-- हिन्दी -->
-      <div class="text-center mb-16" data-lang-content="hi" style="display: none;">
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">52km परिक्रमा मार्ग</h2>
-        <p class="text-lg text-gray-600">तीन दिनों की उच्च ऊँचाई वाली यात्रा, दार्चेन से शुरू होकर 5630मी के दोलमा ला दर्रे को पार करना</p>
-      </div>
       
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Day 1 -->
@@ -242,12 +200,8 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <div class="text-kailash-gold text-4xl font-bold mb-4">1</div>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">第一天：塔尔钦 → 止热寺（20km）</h3>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Day 1: Darchen → Drirapuk (20km)</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">初日：タルチェン → ディラプク寺（20km）</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="hi" style="display: none;">दिन 1: दार्चेन → दिरापुक (20km)</h3>
           <p class="text-gray-600" data-lang-content="zh">平缓起步，适应海拔，沿途可见神山北壁</p>
           <p class="text-gray-600" data-lang-content="en" style="display: none;">Gentle start, acclimatizing to altitude, viewing the north face</p>
-          <p class="text-gray-600" data-lang-content="ja" style="display: none;">緩やかなスタート、標高に慣れながら、道中神山北壁を眺める</p>
-          <p class="text-gray-600" data-lang-content="hi" style="display: none;">हल्की शुरुआत, ऊँचाई के अनुकूल होना, रास्ते में पर्वत का उत्तरी भाग दिखाई देता है</p>
         </div>
         
         <!-- Day 2 -->
@@ -255,12 +209,8 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <div class="text-kailash-gold text-4xl font-bold mb-4">2</div>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">第二天：止热寺 → 尊珠寺（18km）</h3>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Day 2: Drirapuk → Zongchu (18km)</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">二日目：ディラプク寺 → ゾンチュ寺（18km）</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="hi" style="display: none;">दिन 2: दिरापुक → ज़ोंगचु (18km)</h3>
           <p class="text-gray-600" data-lang-content="zh">翻越卓玛拉垭口，最具挑战的一天</p>
           <p class="text-gray-600" data-lang-content="en" style="display: none;">Crossing Drolma La pass, the most challenging day</p>
-          <p class="text-gray-600" data-lang-content="ja" style="display: none;">ドマラ峠を越えて、最も挑戦的な一日</p>
-          <p class="text-gray-600" data-lang-content="hi" style="display: none;">दोलमा ला दर्रे को पार करना, सबसे चुनौतीपूर्ण दिन</p>
         </div>
         
         <!-- Day 3 -->
@@ -268,12 +218,8 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <div class="text-kailash-gold text-4xl font-bold mb-4">3</div>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="zh">第三天：尊珠寺 → 塔尔钦（14km）</h3>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="en" style="display: none;">Day 3: Zongchu → Darchen (14km)</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="ja" style="display: none;">三日目：ゾンチュ寺 → タルチェン（14km）</h3>
-          <h3 class="font-display text-xl font-bold text-kailash-dark mb-3" data-lang-content="hi" style="display: none;">दिन 3: ज़ोंगचु → दार्चेन (14km)</h3>
           <p class="text-gray-600" data-lang-content="zh">轻松返程，完成神圣的转山之旅</p>
           <p class="text-gray-600" data-lang-content="en" style="display: none;">Easy return, completing the sacred kora</p>
-          <p class="text-gray-600" data-lang-content="ja" style="display: none;">軽やかな帰路、神聖なコーラを完走する</p>
-          <p class="text-gray-600" data-lang-content="hi" style="display: none;">आसान वापसी, पवित्र परिक्रमा पूरी करना</p>
         </div>
       </div>
       
@@ -281,8 +227,6 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
         <a href="/routes" class="inline-flex items-center bg-kailash-gold text-kailash-dark px-8 py-3 rounded-lg font-semibold hover:bg-kailash-accent transition">
           <span data-lang-content="zh">查看详细路线</span>
           <span data-lang-content="en" style="display: none;">View Detailed Route</span>
-          <span data-lang-content="ja" style="display: none;">詳細ルートを見る</span>
-          <span data-lang-content="hi" style="display: none;">विस्तृत मार्ग देखें</span>
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
@@ -297,12 +241,8 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="zh">朝圣者心声</h2>
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="en" style="display: none;">Pilgrim Voices</h2>
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="ja" style="display: none;">巡礼者の声</h2>
-        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-2" data-lang-content="hi" style="display: none;">तीर्थयात्रियों की आवाज़</h2>
         <p class="text-lg text-gray-600" data-lang-content="zh">来自世界各地的转山者分享他们的真实体验</p>
         <p class="text-lg text-gray-600" data-lang-content="en" style="display: none;">Real experiences from pilgrims around the world</p>
-        <p class="text-lg text-gray-600" data-lang-content="ja" style="display: none;">世界各地からの巡礼者が語る真実の体験</p>
-        <p class="text-lg text-gray-600" data-lang-content="hi" style="display: none;">दुनिया भर के तीर्थयात्रियों के वास्तविक अनुभव</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
@@ -311,15 +251,11 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <div class="text-kailash-gold mb-4">★★★★★</div>
           <p class="text-gray-700 mb-6 italic" data-lang-content="zh">"当翻越卓玛拉垭口的那一刻，我终于明白什么是信仰的力量。5630米，这是我人生到达的最高点，也是心灵的最高点。"</p>
           <p class="text-gray-700 mb-6 italic" data-lang-content="en" style="display: none;">"The moment I crossed Drolma La pass, I finally understood the power of faith. At 5,630 meters, this is the highest point of my life, and also the highest point of my soul."</p>
-          <p class="text-gray-700 mb-6 italic" data-lang-content="ja" style="display: none;">"ドマラ峠を越えた瞬間、信仰の力とは何かを初めて理解しました。標高5630メートル、これは私の人生で最も高い地点であり、同時に心の最も高い地点でもあります。"</p>
-          <p class="text-gray-700 mb-6 italic" data-lang-content="hi" style="display: none;">"जिस पल मैंने दोलमा ला दर्रा पार किया, मैंने समझ लिया कि आस्था की शक्ति क्या होती है। 5630 मीटर, यह मेरे जीवन की सबसे ऊँचाई है, और मेरी आत्मा की भी।"</p>
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">张</div>
             <div>
               <p class="font-medium" data-lang-content="zh">张先生</p>
               <p class="font-medium" data-lang-content="en" style="display: none;">Mr. Zhang</p>
-              <p class="font-medium" data-lang-content="ja" style="display: none;">張さん</p>
-              <p class="font-medium" data-lang-content="hi" style="display: none;">श्री झांग</p>
               <p class="text-sm text-gray-500">北京 · 2025年9月</p>
             </div>
           </div>
@@ -330,15 +266,11 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
           <div class="text-kailash-gold mb-4">★★★★★</div>
           <p class="text-gray-700 mb-6 italic" data-lang-content="zh">"带着70岁的母亲完成转山，她在止热寺前双手合十的样子，是我这辈子见过最美的画面。朝圣无关年龄，只关乎心愿。"</p>
           <p class="text-gray-700 mb-6 italic" data-lang-content="en" style="display: none;">"I completed the kora with my 70-year-old mother. Watching her pray at Drirapuk Monastery was the most beautiful sight I've ever seen. Pilgrimage knows no age—it only requires a sincere heart."</p>
-          <p class="text-gray-700 mb-6 italic" data-lang-content="ja" style="display: none;">"70歳の母と共にコーラを完成させました。ディラプク寺で母が手を合わせる姿は、私が今まで見た中で最も美しい光景でした。巡礼は年齢に関係なく、心の願いに関わるものです。"</p>
-          <p class="text-gray-700 mb-6 italic" data-lang-content="hi" style="display: none;">"मैंने अपनी 70 वर्षीय माँ के साथ परिक्रमा पूरी की। दिरापुक मठ में हाथ जोड़कर प्रार्थना करते हुए उन्हें देखना मेरे जीवन का सबसे सुंदर दृश्य था। तीर्थयात्रा उम्र नहीं देखती, केवल मन की इच्छा देखती है।"</p>
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 bg-kailash-gold/20 rounded-full flex items-center justify-center font-bold">李</div>
             <div>
               <p class="font-medium" data-lang-content="zh">李女士</p>
               <p class="font-medium" data-lang-content="en" style="display: none;">Ms. Li</p>
-              <p class="font-medium" data-lang-content="ja" style="display: none;">李さん</p>
-              <p class="font-medium" data-lang-content="hi" style="display: none;">सुश्री ली</p>
               <p class="text-sm text-gray-500">成都 · 2025年6月</p>
             </div>
           </div>
@@ -362,8 +294,6 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
         <a href="/stories" class="inline-flex items-center text-kailash-gold font-semibold hover:text-kailash-dark transition">
           <span data-lang-content="zh">查看更多朝圣故事</span>
           <span data-lang-content="en" style="display: none;">Read More Stories</span>
-          <span data-lang-content="ja" style="display: none;">巡礼者のストーリーをもっと見る</span>
-          <span data-lang-content="hi" style="display: none;">और कहानियाँ पढ़ें</span>
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
@@ -378,14 +308,10 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
       <h2 class="font-display text-3xl font-bold text-kailash-dark mb-4">
         <span data-lang-content="zh">搜索冈仁波齐</span>
         <span data-lang-content="en" style="display: none;">Search Kailash</span>
-        <span data-lang-content="ja" style="display: none;">カイラスを検索</span>
-        <span data-lang-content="hi" style="display: none;">कैलाश खोजें</span>
       </h2>
       <p class="text-kailash-dark/80 mb-8">
         <span data-lang-content="zh">输入关键词，快速找到您需要的信息</span>
         <span data-lang-content="en" style="display: none;">Type keywords to quickly find what you need</span>
-        <span data-lang-content="ja" style="display: none;">キーワードを入力して、必要な情報を素早く見つける</span>
-        <span data-lang-content="hi" style="display: none;">कीवर्ड टाइप करें, अपनी ज़रूरत की जानकारी जल्दी पाएँ</span>
       </p>
       <SearchBox />
     </div>
@@ -398,14 +324,10 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
           <span data-lang-content="zh">最新朝圣指南</span>
           <span data-lang-content="en" style="display: none;">Latest Pilgrimage Guides</span>
-          <span data-lang-content="ja" style="display: none;">最新巡礼ガイド</span>
-          <span data-lang-content="hi" style="display: none;">नवीनतम तीर्थयात्रा गाइड</span>
         </h2>
         <p class="text-gray-500">
           <span data-lang-content="zh">深度解读冈仁波齐的宗教、路线与朝圣故事</span>
           <span data-lang-content="en" style="display: none;">In-depth guides on Kailash religion, routes, and pilgrimage stories</span>
-          <span data-lang-content="ja" style="display: none;">カイラス山の宗教、ルート、巡礼の物語を深く解説</span>
-          <span data-lang-content="hi" style="display: none;">कैलाश पर्वत के धर्म, मार्ग और तीर्थ कथाओं पर गहन मार्गदर्शन</span>
         </p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
@@ -428,7 +350,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
                 <a href={`/blog/${cleanSlug}`}>
                   <h3 class="font-display text-lg font-bold text-kailash-dark mb-2 group-hover:text-kailash-gold transition line-clamp-2">{post.data.title}</h3>
                 </a>
-                <p class="text-gray-500 text-sm line-clamp-2">{post.data.description}</p>
+                <p class="text-gray-600 text-sm line-clamp-2">{post.data.description}</p>
               </div>
             </article>
           );
@@ -438,8 +360,6 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
         <a href="/blog" class="inline-flex items-center text-kailash-gold font-semibold hover:text-kailash-dark transition">
           <span data-lang-content="zh">查看全部文章 →</span>
           <span data-lang-content="en" style="display: none;">View All Articles →</span>
-          <span data-lang-content="ja" style="display: none;">すべての記事を見る →</span>
-          <span data-lang-content="hi" style="display: none;">सभी लेख देखें →</span>
         </a>
       </div>
     </div>
@@ -452,63 +372,63 @@ const latestPosts = (await getCollection('blog', ({ data }) => data.lang === 'zh
     </div>
   </section>
 
-  <!-- Support Us -->
+  <!-- Products & Services -->
   <section class="py-16 bg-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
         <h2 class="font-display text-2xl font-bold text-kailash-dark mb-1">
-          <span data-lang-content="zh">支持我们</span>
-          <span data-lang-content="en" style="display: none;">Support Us</span>
-          <span data-lang-content="ja" style="display: none;">サポート</span>
-          <span data-lang-content="hi" style="display: none;">हमारा समर्थन करें</span>
+          <span data-lang-content="zh">朝圣服务</span>
+          <span data-lang-content="en" style="display: none;">Pilgrimage Services</span>
         </h2>
         <div class="divider-gold w-24 mx-auto"></div>
       </div>
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Buy Me a Butter Tea -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Tour Packages -->
         <div class="bg-kailash-light rounded-2xl p-8 text-center hover-lift border border-kailash-cream">
-          <div class="text-5xl mb-4">☕</div>
+          <div class="text-5xl mb-4">🐎</div>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">
-            <span data-lang-content="zh">赞助一杯酥油茶</span>
-            <span data-lang-content="en" style="display: none;">Buy Us a Butter Tea</span>
-            <span data-lang-content="ja" style="display: none;">バターティーをおごる</span>
-            <span data-lang-content="hi" style="display: none;">हमें एक मक्खन चाय खरीदें</span>
+            <span data-lang-content="zh">2026 朝圣团</span>
+            <span data-lang-content="en" style="display: none;">2026 Pilgrimage Tours</span>
           </h3>
-          <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-            <span data-lang-content="zh">这个网站由读者支持。如果您觉得内容有帮助，请赞助我们一杯酥油茶。每一份支持都让我们走得更远。</span>
-            <span data-lang-content="en" style="display: none;">This site is reader-supported. If you find our content helpful, buy us a butter tea. Every bit of support helps us go further.</span>
-            <span data-lang-content="ja" style="display: none;">このサイトは読者によって支えられています。お役に立てたなら、バターティーをおごってください。</span>
-            <span data-lang-content="hi" style="display: none;">यह साइट पाठकों द्वारा समर्थित है। अगर हमारी सामग्री मददगार लगे, तो हमें एक मक्खन चाय खरीदें।</span>
+          <p class="text-gray-500 text-sm mb-4 leading-relaxed">
+            <span data-lang-content="zh">8-12天深度转山体验，专业向导带队。马年限定，¥8,800起。</span>
+            <span data-lang-content="en" style="display: none;">8-12 day kora immersion with expert guides. Horse Year special. From $1,299.</span>
           </p>
-          <a href="https://www.buymeacoffee.com/kailash2026" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-kailash-gold text-white px-6 py-3 rounded-lg font-medium hover:bg-kailash-accent transition">
-            <span>☕</span>
-            <span data-lang-content="zh">请我们喝一杯茶</span>
-            <span data-lang-content="en" style="display: none;">Buy Us a Tea</span>
-            <span data-lang-content="ja" style="display: none;">お茶をおごる</span>
-            <span data-lang-content="hi" style="display: none;">हमें चाय खरीदें</span>
+          <a href="/packages" class="inline-flex items-center gap-2 bg-kailash-gold text-white px-6 py-3 rounded-lg font-medium hover:bg-kailash-accent transition">
+            <span data-lang-content="zh">查看套餐</span>
+            <span data-lang-content="en" style="display: none;">View Packages</span>
           </a>
         </div>
-        <!-- Get the Guide -->
+        <!-- Ebook -->
         <div class="bg-kailash-light rounded-2xl p-8 text-center hover-lift border border-kailash-cream">
           <div class="text-5xl mb-4">📖</div>
           <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">
-            <span data-lang-content="zh">获取权威指南</span>
-            <span data-lang-content="en" style="display: none;">Get the Guide</span>
-            <span data-lang-content="ja" style="display: none;">公式ガイドを入手</span>
-            <span data-lang-content="hi" style="display: none;">गाइड प्राप्त करें</span>
+            <span data-lang-content="zh">权威指南</span>
+            <span data-lang-content="en" style="display: none;">The Guide</span>
           </h3>
-          <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-            <span data-lang-content="zh">45页PDF，包含13部权威著作摘要、转山路线指南、高原防护与四大宗教对比。售价 ¥29.9。</span>
-            <span data-lang-content="en" style="display: none;">45-page PDF with 13 authoritative book summaries, kora route guide, altitude protection & 4-religion comparison. $4.99.</span>
-            <span data-lang-content="ja" style="display: none;">45ページPDF、13冊の権威ある書籍の要約、コラルートガイド、高山病対策、4宗教の比較。¥29.9。</span>
-            <span data-lang-content="hi" style="display: none;">45-पृष्ठ पीडीएफ, 13 प्रामाणिक पुस्तक सारांश, कोरा मार्ग गाइड, ऊंचाई से बचाव और 4 धर्मों की तुलना। $4.99।</span>
+          <p class="text-gray-500 text-sm mb-4 leading-relaxed">
+            <span data-lang-content="zh">45页PDF，13部著作摘要，转山路线+高原防护+四大宗教对比。¥29.9。</span>
+            <span data-lang-content="en" style="display: none;">45-page PDF with 13 book summaries, route guide, altitude protection. $4.99.</span>
           </p>
           <a href="/ebook" class="inline-flex items-center gap-2 bg-kailash-dark text-white px-6 py-3 rounded-lg font-medium hover:bg-kailash-stone transition">
-            <span>📖</span>
             <span data-lang-content="zh">了解详情</span>
             <span data-lang-content="en" style="display: none;">Learn More</span>
-            <span data-lang-content="ja" style="display: none;">詳細を見る</span>
-            <span data-lang-content="hi" style="display: none;">और जानें</span>
+          </a>
+        </div>
+        <!-- Consulting -->
+        <div class="bg-kailash-light rounded-2xl p-8 text-center hover-lift border border-kailash-cream">
+          <div class="text-5xl mb-4">💼</div>
+          <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">
+            <span data-lang-content="zh">一对一咨询</span>
+            <span data-lang-content="en" style="display: none;">1-on-1 Consulting</span>
+          </h3>
+          <p class="text-gray-500 text-sm mb-4 leading-relaxed">
+            <span data-lang-content="zh">路线规划、学术研究、内容合作。专家级服务，¥500起。</span>
+            <span data-lang-content="en" style="display: none;">Route planning, academic research, content partnership. From $75.</span>
+          </p>
+          <a href="/consulting" class="inline-flex items-center gap-2 bg-kailash-dark text-white px-6 py-3 rounded-lg font-medium hover:bg-kailash-stone transition">
+            <span data-lang-content="zh">立即咨询</span>
+            <span data-lang-content="en" style="display: none;">Consult Now</span>
           </a>
         </div>
       </div>

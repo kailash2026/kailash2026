@@ -1,0 +1,142 @@
+/* 暗色模式 — 通过 [data-theme="dark"] 激活 */
+
+[data-theme="dark"] {
+  /* 全局背景和文字 */
+  body {
+    background: #111110;
+    color: #e5e3e0;
+  }
+
+  /* 浅色背景 → 深色 */
+  .bg-kailash-light,
+  .bg-white {
+    background-color: #1a1a18 !important;
+  }
+
+  /* 卡片 */
+  .bg-white.rounded-2xl,
+  .bg-white.rounded-xl,
+  .bg-white.shadow-md,
+  .bg-white.shadow-lg,
+  .bg-white.shadow-sm {
+    background-color: #1e1e1c !important;
+    border-color: #2a2a28 !important;
+  }
+
+  /* 浅色背景卡片 → 深色 */
+  div[class*="bg-kailash-light"].rounded-2xl,
+  div[class*="bg-kailash-light"].rounded-xl {
+    background-color: #1e1e1c !important;
+  }
+
+  /* 文字颜色 */
+  .text-kailash-dark {
+    color: #e5e3e0 !important;
+  }
+  .text-gray-600 {
+    color: #a8a6a0 !important;
+  }
+  .text-gray-500 {
+    color: #8a8882 !important;
+  }
+  .text-gray-400 {
+    color: #6a6862 !important;
+  }
+
+  /* 保持金色不变 */
+  .text-kailash-gold {
+    color: #B8956A !important;
+  }
+
+  /* 深色区域保持深色 */
+  .bg-kailash-dark {
+    background-color: #0a0a08 !important;
+  }
+
+  /* 分割线 */
+  .border-kailash-cream\/50 {
+    border-color: rgba(255,255,255,0.08) !important;
+  }
+
+  /* 表单 */
+  input[class*="border-gray-200"],
+  textarea[class*="border-gray-200"] {
+    background-color: #252523 !important;
+    border-color: #3a3a38 !important;
+    color: #e5e3e0 !important;
+  }
+  input[class*="border-gray-200"]::placeholder,
+  textarea[class*="border-gray-200"]::placeholder {
+    color: #6a6862 !important;
+  }
+
+  /* 目录组件 */
+  #page-toc aside > div,
+  #page-toc > div {
+    background-color: #1e1e1c !important;
+    border-color: rgba(255,255,255,0.08) !important;
+  }
+  #page-toc a {
+    color: #a8a6a0 !important;
+  }
+  #page-toc a:hover {
+    color: #B8956A !important;
+    background-color: rgba(184,149,106,0.1) !important;
+  }
+
+  /* 搜索弹窗 */
+  #search-results-modal {
+    background: #1e1e1c !important;
+  }
+  #search-results-modal h3 {
+    color: #e5e3e0 !important;
+  }
+  #search-results-modal a {
+    color: #e5e3e0 !important;
+  }
+  #search-results-modal a:hover {
+    background-color: rgba(184,149,106,0.1) !important;
+  }
+
+  /* 页脚保持深色 */
+  footer {
+    background-color: #0a0a08 !important;
+  }
+
+  /* 引用块 */
+  .bg-amber-50 {
+    background-color: #2a2010 !important;
+  }
+  .bg-gray-50 {
+    background-color: #1e1e1c !important;
+  }
+
+  /* 悬停卡片效果调整 */
+  .hover\:shadow-xl:hover,
+  .hover\:shadow-lg:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
+  }
+
+  /* 自定义滚动条 */
+  ::-webkit-scrollbar-track {
+    background: #1a1a18;
+  }
+
+  /* 选中文本 */
+  ::selection {
+    background: #7A5A24;
+    color: #e5e3e0;
+  }
+}
+
+/* 切换按钮样式 */
+#dark-mode-toggle {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+#dark-mode-toggle:hover {
+  transform: rotate(15deg);
+}
+[data-theme="dark"] #dark-mode-toggle {
+  transform: rotate(180deg);
+}

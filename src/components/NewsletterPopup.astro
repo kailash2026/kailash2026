@@ -1,0 +1,125 @@
+---
+// Popup newsletter — appears after 40s or 60% scroll, once per 7 days
+---
+
+<div id="newsletter-popup" class="fixed bottom-6 right-6 z-[9999] max-w-sm w-[calc(100%-3rem)] sm:w-96 opacity-0 translate-y-4 pointer-events-none transition-all duration-500 ease-out" aria-hidden="true">
+  <div class="bg-white rounded-2xl shadow-2xl border border-kailash-cream/50 overflow-hidden">
+    <!-- Close button -->
+    <button id="nl-popup-close" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition z-10" aria-label="关闭">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <!-- Header -->
+    <div class="bg-kailash-dark px-6 py-4 text-center">
+      <p class="text-2xl mb-1">🏔️</p>
+      <h3 class="font-display text-lg font-bold text-white">
+        <span data-lang-content="zh">获取朝圣最新资讯</span>
+        <span data-lang-content="en" style="display: none;">Get Pilgrimage Updates</span>
+        <span data-lang-content="ja" style="display: none;">巡礼の最新情報</span>
+        <span data-lang-content="hi" style="display: none;">तीर्थयात्रा अपडेट पाएँ</span>
+      </h3>
+      <p class="text-white/60 text-sm mt-1">
+        <span data-lang-content="zh">2026火马年 · 攻略· 文化 · 故事</span>
+        <span data-lang-content="en" style="display: none;">2026 Fire Horse Year · Guides · Culture · Stories</span>
+        <span data-lang-content="ja" style="display: none;">2026年火馬年 · ガイド · 文化 · 物語</span>
+        <span data-lang-content="hi" style="display: none;">2026 अश्व वर्ष · गाइड · संस्कृति · कहानियाँ</span>
+      </p>
+    </div>
+
+    <!-- Form -->
+    <div class="px-6 py-5">
+      <form id="nl-popup-form" class="flex gap-2">
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="your@email.com"
+          class="flex-1 px-4 py-2.5 rounded-lg border border-gray-200 focus:border-kailash-gold focus:ring-1 focus:ring-kailash-gold outline-none text-sm transition"
+        />
+        <button type="submit" class="bg-kailash-gold text-kailash-dark px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-kailash-accent hover:text-white transition whitespace-nowrap">
+          <span data-lang-content="zh">订阅</span>
+          <span data-lang-content="en" style="display: none;">Join</span>
+        </button>
+      </form>
+      <p class="text-xs text-gray-400 mt-3 text-center">
+        <span data-lang-content="zh">不发送垃圾邮件 · 随时可退订</span>
+        <span data-lang-content="en" style="display: none;">No spam · Unsubscribe anytime</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const popup = document.getElementById('newsletter-popup');
+    const closeBtn = document.getElementById('nl-popup-close');
+    const form = document.getElementById('nl-popup-form');
+    if (!popup || !form) return;
+
+    const DISMISSED_KEY = 'nl_popup_dismissed';
+    const SHOWN_KEY = 'nl_popup_shown';
+
+    // Check if already dismissed or shown recently
+    const isDismissed = localStorage.getItem(DISMISSED_KEY);
+    const wasShown = localStorage.getItem(SHOWN_KEY);
+    if (isDismissed || wasShown) return;
+
+    function show() {
+      popup.setAttribute('aria-hidden', 'false');
+      popup.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+      localStorage.setItem(SHOWN_KEY, Date.now().toString());
+    }
+
+    function hide() {
+      popup.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+      localStorage.setItem(DISMISSED_KEY, Date.now().toString());
+      // Clean old keys after 7 days
+      setTimeout(() => {
+        localStorage.removeItem(DISMISSED_KEY);
+        localStorage.removeItem(SHOWN_KEY);
+      }, 7 * 24 * 60 * 60 * 1000);
+    }
+
+    // Trigger: 40 seconds OR 60% scroll
+    let hasShown = false;
+    setTimeout(() => { if (!hasShown) { hasShown = true; show(); } }, 40000);
+
+    window.addEventListener('scroll', () => {
+      if (hasShown) return;
+      const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      if (scrollPercent > 0.6) { hasShown = true; show(); }
+    }, { passive: true });
+
+    // Close
+    closeBtn?.addEventListener('click', hide);
+
+    // Submit
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.querySelector('input[name="email"]')?.value?.trim();
+      if (!email) return;
+
+      const btn = form.querySelector('button');
+      const orig = btn?.textContent;
+      if (btn) { btn.textContent = '...'; btn.disabled = true; }
+
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source: 'popup', lang: document.documentElement.getAttribute('data-lang') || 'zh' }),
+        });
+        if (res.ok || res.status === 201) {
+          form.innerHTML = '<p class="text-center text-kailash-gold font-semibold py-4">🙏 Thank you! Check your email.</p>';
+          setTimeout(hide, 3000);
+        } else {
+          if (btn) { btn.textContent = orig; btn.disabled = false; }
+        }
+      } catch {
+        if (btn) { btn.textContent = orig; btn.disabled = false; }
+      }
+    });
+  })();
+</script>

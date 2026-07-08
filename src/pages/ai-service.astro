@@ -1,0 +1,273 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const features = [
+  {
+    icon: '🤖',
+    title: '微信AI助手',
+    titleEn: 'WeChat AI Assistant',
+    desc: '装好后你直接在微信上跟它聊天。翻译、写作、查资料、回答问题——就像你随时有个聪明助手在微信里。',
+    descEn: 'Once set up, chat with it directly on WeChat. Translation, writing, research, Q&A — like having a smart assistant in your WeChat at all times.',
+  },
+  {
+    icon: '🔒',
+    title: '数据在你手里',
+    titleEn: 'Your Data Stays Yours',
+    desc: '所有数据存你本机或你自己的服务器。不经过任何第三方云平台，没有内容审核，没有关键词过滤。',
+    descEn: 'All data stored on your own machine or server. No third-party cloud platforms, no content censorship, no keyword filtering.',
+  },
+  {
+    icon: '🧠',
+    title: '支持多语言',
+    titleEn: 'Multilingual',
+    desc: '中文、藏文、英文、印地语、日文……你说什么语言它都能回。适合做跨境业务或多语言社群运营。',
+    descEn: 'Chinese, Tibetan, English, Hindi, Japanese… whatever language you speak, it responds. Perfect for cross-border business or multilingual community management.',
+  },
+  {
+    icon: '🔧',
+    title: '无限自定义',
+    titleEn: 'Fully Customizable',
+    desc: '不像Coze/Dify那些平台有功能限制。你的助手想做什么就做什么——接API、查数据库、处理文件，只要你需要。',
+    descEn: 'Unlike Coze/Dify platforms with feature limits. Your assistant can do whatever you need — API integration, database queries, file processing, anything.',
+  },
+  {
+    icon: '📱',
+    title: '多渠道接入',
+    titleEn: 'Multi-Channel',
+    desc: '不止微信。Telegram、Discord、网页端……你想在哪用就在哪用。一个AI，所有地方都能叫。',
+    descEn: 'Not just WeChat. Telegram, Discord, web interface… use it wherever you want. One AI, accessible everywhere.',
+  },
+  {
+    icon: '💼',
+    title: '持续维护',
+    titleEn: 'Ongoing Maintenance',
+    desc: '不是装了就不管了。按月维护，有问题随时找我，功能也会持续更新迭代。',
+    descEn: 'Not a one-time setup. Monthly maintenance, available when issues arise, and continuous feature updates.',
+  },
+];
+
+const plans = [
+  {
+    name: '个人版',
+    nameEn: 'Personal',
+    price: '99',
+    priceEn: '99',
+    unit: '元/月',
+    unitEn: 'CNY/month',
+    desc: '适合个人使用，日常助手',
+    descEn: 'For personal daily use',
+    items: [
+      '微信端AI助手',
+      '中文/英文/藏文等多语言',
+      '基础问答、翻译、写作',
+      '有问题随时找我',
+    ],
+  },
+  {
+    name: '商家版',
+    nameEn: 'Business',
+    price: '299',
+    priceEn: '299',
+    unit: '元/月',
+    unitEn: 'CNY/month',
+    popular: true,
+    desc: '适合企业/团队/客服场景',
+    descEn: 'For businesses and customer service',
+    items: [
+      '个人版所有功能',
+      '可配置为自动客服',
+      '知识库接入（你的文档、产品信息等）',
+      '优先响应',
+    ],
+  },
+  {
+    name: '定制版',
+    nameEn: 'Custom',
+    price: '议价',
+    priceEn: 'Negotiable',
+    unit: '',
+    unitEn: '',
+    desc: '有特殊需求？我们聊聊',
+    descEn: 'Special requirements? Let\'s talk',
+    items: [
+      '定制化AI Agent',
+      '私有数据训练/检索',
+      '企业级部署',
+      '长期维护与合作',
+    ],
+  },
+];
+
+const steps = [
+  {
+    step: '1',
+    title: '告诉我你要它干什么',
+    titleEn: 'Tell me what you need',
+    desc: '一句话就行。比如"帮我做个微信AI客服"或者"我要一个能翻译藏文的助手"。',
+    descEn: 'One sentence is enough. Like "I need a WeChat AI customer service" or "I want an assistant that can translate Tibetan."',
+  },
+  {
+    step: '2',
+    title: '我来装好',
+    titleEn: 'I set it up',
+    desc: '你什么都不用管。配置服务器、安装程序、接入微信——全部我来搞定。',
+    descEn: 'You don\'t need to do anything. Server config, installation, WeChat integration — all handled.',
+  },
+  {
+    step: '3',
+    title: '你直接用',
+    titleEn: 'Start using it',
+    desc: '装好后你微信上跟它说话就行。不会用？我教你怎么指挥它。',
+    descEn: 'Once set up, just chat with it on WeChat. Don\'t know how to use it? I\'ll show you how to command it.',
+  },
+];
+---
+
+<Layout title="AI助手部署服务 | 把你的微信变成AI入口" description="提供AI助手部署服务。微信接入、自部署、不限内容、支持多语言。西藏地区优先服务。">
+  
+  <!-- Hero -->
+  <section class="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-kailash-dark via-kailash-dark/95 to-kailash-dark">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-72 h-72 bg-kailash-gold rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <!-- 中文 -->
+      <div data-lang-content="zh">
+        <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-4 font-light">让你的微信拥有AI能力</p>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-white mb-6">AI 助手部署服务</h1>
+        <p class="text-xl text-white/70 max-w-3xl mx-auto mb-4">你出需求，我搭好，你直接用</p>
+        <p class="text-lg text-white/50 max-w-2xl mx-auto mb-8">不用学技术、不用写代码、不用自己配置服务器。你说一句话，剩下的我来。</p>
+        <a href="/contact" class="inline-block bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition text-lg">立即咨询</a>
+      </div>
+      
+      <!-- English -->
+      <div data-lang-content="en" style="display: none;">
+        <p class="text-kailash-gold text-sm tracking-[0.3em] uppercase mb-4 font-light">AI Power for Your WeChat</p>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-white mb-6">AI Assistant Deployment</h1>
+        <p class="text-xl text-white/70 max-w-3xl mx-auto mb-4">You tell me what you need, I build it, you use it</p>
+        <p class="text-lg text-white/50 max-w-2xl mx-auto mb-8">No tech skills, no coding, no server config needed. You say the word, I handle everything else.</p>
+        <a href="/contact" class="inline-block bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition text-lg">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 为什么选我 -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div data-lang-content="zh">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-kailash-dark mb-4">为什么选我？</h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">市面上做AI的很多，但在西藏本地能帮你从零搭好、长期维护的，没几个。</p>
+      </div>
+      <div data-lang-content="en" style="display: none;">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-kailash-dark mb-4">Why Choose Us?</h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">There are plenty of AI services out there, but few who can set it up from scratch and maintain it locally in Tibet.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map(f => (
+          <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+            <div class="text-3xl mb-4">{f.icon}</div>
+            <div data-lang-content="zh"><h3 class="text-xl font-bold text-kailash-dark mb-2">{f.title}</h3></div>
+            <div data-lang-content="en" style="display: none;"><h3 class="text-xl font-bold text-kailash-dark mb-2">{f.titleEn}</h3></div>
+            <div data-lang-content="zh"><p class="text-gray-600 leading-relaxed">{f.desc}</p></div>
+            <div data-lang-content="en" style="display: none;"><p class="text-gray-600 leading-relaxed">{f.descEn}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 怎么合作 -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div data-lang-content="zh">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">怎么合作？</h2>
+        <p class="text-white/60 text-center max-w-2xl mx-auto mb-12">三步搞定</p>
+      </div>
+      <div data-lang-content="en" style="display: none;">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">How It Works</h2>
+        <p class="text-white/60 text-center max-w-2xl mx-auto mb-12">Three simple steps</p>
+      </div>
+      
+      <div class="space-y-8">
+        {steps.map(s => (
+          <div class="flex gap-6 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-kailash-gold text-kailash-dark flex items-center justify-center text-xl font-bold">{s.step}</div>
+            <div>
+              <div data-lang-content="zh"><h3 class="text-xl font-bold text-kailash-gold mb-2">{s.title}</h3></div>
+              <div data-lang-content="en" style="display: none;"><h3 class="text-xl font-bold text-kailash-gold mb-2">{s.titleEn}</h3></div>
+              <div data-lang-content="zh"><p class="text-white/70">{s.desc}</p></div>
+              <div data-lang-content="en" style="display: none;"><p class="text-white/70">{s.descEn}</p></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 价格 -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div data-lang-content="zh">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-kailash-dark mb-4">价格</h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">简单透明，没有隐藏费用</p>
+      </div>
+      <div data-lang-content="en" style="display: none;">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-kailash-dark mb-4">Pricing</h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Simple and transparent, no hidden fees</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {plans.map(p => (
+          <div class={`bg-white rounded-2xl p-8 ${p.popular ? 'ring-2 ring-kailash-gold shadow-xl relative' : 'shadow-lg'}`}>
+            {p.popular && (
+              <div data-lang-content="zh"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-kailash-gold text-kailash-dark text-sm font-bold px-4 py-1 rounded-full">推荐</span></div>
+            )}
+            {p.popular && (
+              <div data-lang-content="en" style="display: none;"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-kailash-gold text-kailash-dark text-sm font-bold px-4 py-1 rounded-full">Popular</span></div>
+            )}
+            <div data-lang-content="zh"><h3 class="text-2xl font-bold text-kailash-dark mb-2">{p.name}</h3></div>
+            <div data-lang-content="en" style="display: none;"><h3 class="text-2xl font-bold text-kailash-dark mb-2">{p.nameEn}</h3></div>
+            <div data-lang-content="zh"><p class="text-gray-500 mb-4">{p.desc}</p></div>
+            <div data-lang-content="en" style="display: none;"><p class="text-gray-500 mb-4">{p.descEn}</p></div>
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-kailash-dark">{p.price}</span>
+              {p.unit && <span class="text-gray-500 text-lg ml-1">{p.unit}</span>}
+            </div>
+            <ul class="space-y-3 mb-8">
+              {p.items.map(item => (
+                <li class="flex items-start gap-2 text-gray-600">
+                  <span class="text-kailash-gold mt-1">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="/contact" class={`block text-center py-3 rounded-lg font-semibold transition ${p.popular ? 'bg-kailash-gold text-kailash-dark hover:bg-kailash-accent' : 'border-2 border-kailash-dark/20 text-kailash-dark hover:bg-gray-100'}`}>
+              <span data-lang-content="zh">立即咨询</span>
+              <span data-lang-content="en" style="display: none;">Get Started</span>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <div data-lang-content="zh">
+        <h2 class="text-3xl font-bold mb-4">现在开始？</h2>
+        <p class="text-white/70 mb-8">免费帮前三位安装试用三天。用得好再说，不好删了就行。</p>
+        <a href="/contact" class="inline-block bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition text-lg">联系我</a>
+      </div>
+      <div data-lang-content="en" style="display: none;">
+        <h2 class="text-3xl font-bold mb-4">Ready to Start?</h2>
+        <p class="text-white/70 mb-8">Free 3-day trial for the first three clients. If you like it, great. If not, no hard feelings.</p>
+        <a href="/contact" class="inline-block bg-kailash-gold text-kailash-dark px-8 py-4 rounded-lg font-semibold hover:bg-kailash-accent transition text-lg">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

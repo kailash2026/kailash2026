@@ -1,0 +1,68 @@
+---
+interface TocItem {
+  id: string;
+  label: string;
+  labelEn: string;
+}
+
+const { items = [] } = Astro.props as { items: TocItem[] };
+const displayItems = items.slice(0, 12); // max 12 items
+---
+
+<div id="page-toc" class="mb-8">
+  <!-- Desktop: sticky sidebar -->
+  <aside class="hidden lg:block fixed left-4 xl:left-[calc((100vw-1280px)/2+16px)] top-24 w-48 max-h-[70vh] overflow-y-auto z-40">
+    <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-kailash-cream/50 p-4">
+      <h4 class="text-xs font-semibold text-kailash-gold uppercase tracking-wider mb-3">
+        <span data-lang-content="zh">📑 目录</span>
+        <span data-lang-content="en" style="display: none;">📑 Contents</span>
+      </h4>
+      <nav class="space-y-1">
+        {displayItems.map((item) => (
+          <a href={`#${item.id}`} class="block text-sm text-gray-600 hover:text-kailash-gold transition py-1.5 px-2 rounded-lg hover:bg-kailash-cream/30 leading-tight">
+            <span data-lang-content="zh">{item.label}</span>
+            <span data-lang-content="en" style="display: none;">{item.labelEn}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Mobile: horizontal scroll -->
+  <div class="lg:hidden bg-white/90 backdrop-blur-sm rounded-xl shadow-sm border border-kailash-cream/50 p-3 overflow-x-auto">
+    <nav class="flex gap-2 whitespace-nowrap">
+      {displayItems.map((item) => (
+        <a href={`#${item.id}`} class="text-xs text-gray-600 hover:text-kailash-gold transition px-3 py-1.5 rounded-full bg-kailash-light hover:bg-kailash-cream flex-shrink-0">
+          <span data-lang-content="zh">{item.label}</span>
+          <span data-lang-content="en" style="display: none;">{item.labelEn}</span>
+        </a>
+      ))}
+    </nav>
+  </div>
+</div>
+
+<script>
+  // Highlight current section in TOC on scroll
+  const tocLinks = document.querySelectorAll('#page-toc nav a');
+  const sectionIds = [...tocLinks].map(a => a.getAttribute('href')?.replace('#', '')).filter(Boolean);
+
+  if (sectionIds.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => {
+            const isActive = link.getAttribute('href') === `#${entry.target.id}`;
+            link.classList.toggle('text-kailash-gold', isActive);
+            link.classList.toggle('font-medium', isActive);
+            link.classList.toggle('bg-kailash-cream/50', isActive);
+          });
+        }
+      });
+    }, { rootMargin: '-80px 0px -70% 0px' });
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+  }
+</script>

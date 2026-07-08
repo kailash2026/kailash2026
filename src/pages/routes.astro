@@ -1,5 +1,16 @@
 ---
+
 import Layout from '../layouts/Layout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ElevationChart from '../components/ElevationChart.astro';
+
+const tocItems = [
+  { id: 'overview', label: '路线概览', labelEn: 'Overview' },
+  { id: 'scenery', label: '沿途风光', labelEn: 'Scenery' },
+  { id: 'supplies', label: '补给明细', labelEn: 'Supplies' },
+  { id: 'plans', label: '路线方案', labelEn: 'Route Plans' },
+];
+
 
 const routePlans = {
   twoDay: {
@@ -410,6 +421,12 @@ const supplyStations = [
     </div>
   </section>
 
+
+  <!-- Table of Contents -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <TableOfContents items={tocItems} />
+  </div>
+
   <!-- Route Overview -->
   <section class="py-20 bg-kailash-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -447,6 +464,11 @@ const supplyStations = [
         </div>
       </div>
 
+      <!-- 海拔变化图 -->
+      <div class="mt-12">
+        <ElevationChart />
+      </div>
+
       <!-- 沿途风光 -->
       <div class="mt-16 mb-16">
         <div class="text-center mb-12">
@@ -464,7 +486,7 @@ const supplyStations = [
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div class="relative aspect-[4/3] bg-gray-100">
-              <img src="/images/route-map-1.webp" alt="卓玛拉垭口经幡与朝圣者" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <img src="/images/route-map-1.webp" alt="卓玛拉垭口经幡与朝圣者" class="absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
               <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
                 <span>图片加载失败</span>
               </div>
@@ -481,7 +503,7 @@ const supplyStations = [
 
           <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div class="relative aspect-[4/3] bg-gray-100">
-              <img src="/images/route-map-2.webp" alt="冈仁波齐与马帮" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <img src="/images/route-map-2.webp" alt="冈仁波齐与马帮" class="absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
               <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
                 <span>图片加载失败</span>
               </div>
@@ -498,7 +520,7 @@ const supplyStations = [
 
           <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div class="relative aspect-[4/3] bg-gray-100">
-              <img src="/images/route-scenery-1.webp" alt="曲古寺路标" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <img src="/images/route-scenery-1.webp" alt="曲古寺路标" class="absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
               <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
                 <span>图片加载失败</span>
               </div>
@@ -515,7 +537,7 @@ const supplyStations = [
 
           <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div class="relative aspect-[4/3] bg-gray-100">
-              <img src="/images/route-scenery-2.webp" alt="冈仁波齐近景" class="absolute inset-0 w-full h-full object-cover" loading="eager" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
+              <img src="/images/route-scenery-2.webp" alt="冈仁波齐近景" class="absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';" />
               <div class="fallback absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400" style="display: none;">
                 <span>图片加载失败</span>
               </div>

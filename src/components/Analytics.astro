@@ -1,19 +1,15 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<!-- 百度统计 — 延迟加载，不阻塞渲染 -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-
-<!-- 百度统计 -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?3131ea1972baa38d09549648f680a80e";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+  if (window.location.hostname !== 'localhost') {
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var _hmt = _hmt || [];
+        var hm = document.createElement('script');
+        hm.async = true;
+        hm.src = 'https://hm.baidu.com/hm.js?3131ea1972baa38d09549648f680a80e';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+      }, 1000);
+    });
+  }
 </script>

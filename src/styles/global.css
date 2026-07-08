@@ -1,3 +1,13 @@
+/* 自托管字体 — 仅 Latin 子集 */
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/playfair-display/latin-400.css';
+@import '@fontsource/playfair-display/latin-600.css';
+@import '@fontsource/playfair-display/latin-700.css';
+
+@import './dark-mode.css';
+
 /* 全局样式 - 高级色调 */
 
 /* 平滑滚动 */
@@ -8,7 +18,7 @@ html {
 /* 性能优化：延迟渲染折叠线以下内容 */
 section:not(:first-of-type) {
   content-visibility: auto;
-  contain-intrinsic-size: 500px;
+  contain-intrinsic-size: auto 2000px;
 }
 
 /* 自定义滚动条 - 高级色调 */
@@ -49,7 +59,7 @@ img[loading="lazy"].loaded {
 /* 响应式字体 */
 @media (max-width: 640px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 

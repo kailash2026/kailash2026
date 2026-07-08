@@ -1,0 +1,209 @@
+---
+interface Props {
+  packages: Array<{ name: string; nameEn: string; icon: string }>;
+}
+const { packages } = Astro.props;
+---
+
+<div id="booking-modal-overlay" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+  <div id="booking-modal" class="bg-white rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl" onclick="event.stopPropagation()">
+    <!-- Header -->
+    <div class="flex items-center justify-between p-6 border-b border-gray-100">
+      <div>
+        <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="zh">预订朝圣之旅</h3>
+        <h3 class="font-display text-xl font-bold text-kailash-dark" data-lang-content="en" style="display: none;">Book Your Pilgrimage</h3>
+      </div>
+      <button id="booking-modal-close" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-700 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Form -->
+    <form id="booking-form" class="p-6 space-y-5">
+      <!-- Package Selection -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="zh">选择套餐</label>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="en" style="display: none;">Select Package</label>
+        <select name="package" required
+          class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-kailash-gold focus:border-transparent bg-white">
+          <option value="" data-lang-content="zh">请选择套餐</option>
+          <option value="" data-lang-content="en" style="display: none;">Select a package</option>
+          {packages.map((pkg) => (
+            <>
+              <option value={pkg.name} data-lang-content="zh">{pkg.icon} {pkg.name}</option>
+              <option value={pkg.name} data-lang-content="en" style="display: none;">{pkg.icon} {pkg.nameEn}</option>
+            </>
+          ))}
+        </select>
+      </div>
+
+      <!-- Name -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="zh">姓名</label>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="en" style="display: none;">Full Name</label>
+        <input type="text" name="name" required
+          class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-kailash-gold focus:border-transparent"
+          placeholder="Your name" />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="zh">邮箱</label>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="en" style="display: none;">Email</label>
+        <input type="email" name="email" required
+          class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-kailash-gold focus:border-transparent"
+          placeholder="your@email.com" />
+      </div>
+
+      <!-- Phone -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="zh">手机号 / WhatsApp</label>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="en" style="display: none;">Phone / WhatsApp</label>
+        <input type="tel" name="phone"
+          class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-kailash-gold focus:border-transparent"
+          placeholder="+86 138..." />
+      </div>
+
+      <!-- Group Size -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="zh">人数</label>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="en" style="display: none;">Number of People</label>
+        <input type="number" name="people" min="1" max="20" value="1" required
+          class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-kailash-gold focus:border-transparent" />
+      </div>
+
+      <!-- Preferred Date -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="zh">期望出发时间</label>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="en" style="display: none;">Preferred Departure</label>
+        <input type="month" name="month" min="2026-05" max="2026-10"
+          class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-kailash-gold focus:border-transparent" />
+      </div>
+
+      <!-- Message -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="zh">备注 / 特殊需求</label>
+        <label class="block text-sm font-semibold text-gray-700 mb-1.5" data-lang-content="en" style="display: none;">Notes / Special Requests</label>
+        <textarea name="message" rows="3"
+          class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-kailash-gold focus:border-transparent resize-none"
+          placeholder="Any special requests..."></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" id="booking-submit-btn"
+        class="w-full bg-kailash-gold text-kailash-dark py-4 rounded-xl font-bold text-lg hover:bg-kailash-accent transition shadow-lg shadow-kailash-gold/25 disabled:opacity-50 disabled:cursor-not-allowed">
+        <span data-lang-content="zh" id="submit-btn-text">📩 提交预订信息</span>
+        <span data-lang-content="en" style="display: none;" id="submit-btn-text-en">📩 Submit Booking</span>
+      </button>
+
+      <!-- Status Messages -->
+      <div id="booking-success" class="hidden text-center py-6">
+        <div class="text-5xl mb-4">🎉</div>
+        <p class="text-xl font-bold text-kailash-dark mb-2" data-lang-content="zh">预订信息已提交！</p>
+        <p class="text-xl font-bold text-kailash-dark mb-2" data-lang-content="en" style="display: none;">Booking Submitted!</p>
+        <p class="text-gray-500 text-sm" data-lang-content="zh">我们将在24小时内通过邮件联系您。请查收您的确认邮件 📬</p>
+        <p class="text-gray-500 text-sm" data-lang-content="en" style="display: none;">We'll contact you within 24 hours. Please check your confirmation email 📬</p>
+        <button type="button" id="booking-close-success"
+          class="mt-6 bg-kailash-dark text-white px-8 py-3 rounded-xl font-semibold hover:bg-kailash-stone transition">
+          <span data-lang-content="zh">知道了</span>
+          <span data-lang-content="en" style="display: none;">Got it</span>
+        </button>
+      </div>
+
+      <div id="booking-error" class="hidden text-center py-6">
+        <div class="text-5xl mb-4">😓</div>
+        <p class="text-xl font-bold text-kailash-dark mb-2" data-lang-content="zh">提交失败</p>
+        <p class="text-xl font-bold text-kailash-dark mb-2" data-lang-content="en" style="display: none;">Submission Failed</p>
+        <p class="text-gray-500 text-sm mb-4" data-lang-content="zh">请稍后重试，或直接发送邮件到 kailash2026Lucas@outlook.com</p>
+        <p class="text-gray-500 text-sm mb-4" data-lang-content="en" style="display: none;">Please try again later, or email kailash2026Lucas@outlook.com</p>
+        <button type="button" id="booking-retry"
+          class="bg-kailash-gold text-kailash-dark px-8 py-3 rounded-xl font-semibold hover:bg-kailash-accent transition">
+          <span data-lang-content="zh">再试一次</span>
+          <span data-lang-content="en" style="display: none;">Try Again</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('booking-modal-overlay');
+  const modal = document.getElementById('booking-modal');
+  const closeBtn = document.getElementById('booking-modal-close');
+  const form = document.getElementById('booking-form');
+  const submitBtn = document.getElementById('booking-submit-btn');
+  const successDiv = document.getElementById('booking-success');
+  const errorDiv = document.getElementById('booking-error');
+  const retryBtn = document.getElementById('booking-retry');
+  const closeSuccessBtn = document.getElementById('booking-close-success');
+
+  // Open modal — called from buttons in packages page
+  (window as any).openBookingModal = (pkgName?: string) => {
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    if (pkgName) {
+      const select = form.querySelector<HTMLSelectElement>('select[name="package"]');
+      if (select) {
+        for (const opt of select.options) {
+          if (opt.value === pkgName) {
+            select.value = pkgName;
+            break;
+          }
+        }
+      }
+    }
+    // Reset form state
+    form.querySelectorAll('input, textarea, select').forEach(el => {
+      if (el.getAttribute('name') !== 'package') {
+        (el as HTMLInputElement).value = '';
+      }
+    });
+    form.style.display = 'block';
+    successDiv.classList.add('hidden');
+    errorDiv.classList.add('hidden');
+    submitBtn.disabled = false;
+    submitBtn.querySelector<HTMLSpanElement>('[id="submit-btn-text"]')!.textContent = '📩 提交预订信息';
+  };
+
+  // Close modal
+  const closeModal = () => {
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
+  closeBtn?.addEventListener('click', closeModal);
+  overlay?.addEventListener('click', closeModal);
+  closeSuccessBtn?.addEventListener('click', closeModal);
+
+  // Submit
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.querySelector<HTMLSpanElement>('[id="submit-btn-text"]')!.textContent = '⏳ 提交中...';
+
+    const formData = new FormData(form);
+    const data: Record<string, string> = {};
+    formData.forEach((value, key) => { data[key] = value.toString(); });
+
+    try {
+      const res = await fetch('/api/booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('Server error');
+      form.style.display = 'none';
+      successDiv.classList.remove('hidden');
+    } catch (err) {
+      console.error('Booking error:', err);
+      form.style.display = 'none';
+      errorDiv.classList.remove('hidden');
+    }
+  });
+
+  retryBtn?.addEventListener('click', () => {
+    form.style.display = 'block';
+    errorDiv.classList.add('hidden');
+    submitBtn.disabled = false;
+    submitBtn.querySelector<HTMLSpanElement>('[id="submit-btn-text"]')!.textContent = '📩 提交预订信息';
+  });
+</script>

@@ -1,5 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+
+const tocItems = [
+  { id: 'meanings', label: '转山的四重意义', labelEn: 'Four Meanings' },
+  { id: 'best-time', label: '最佳时间', labelEn: 'Best Time' },
+  { id: 'equipment', label: '装备清单', labelEn: 'Equipment' },
+  { id: 'altitude', label: '高原反应预防', labelEn: 'Altitude Sickness' },
+  { id: 'permits', label: '证件办理', labelEn: 'Permits' },
+  { id: 'transport', label: '交通指南', labelEn: 'Transport' },
+  { id: 'accommodation', label: '住宿详解', labelEn: 'Accommodation' },
+  { id: 'cost', label: '费用参考', labelEn: 'Cost' },
+  { id: 'fitness', label: '身体准备', labelEn: 'Fitness' },
+  { id: 'horse-year', label: '马年专题', labelEn: 'Horse Year 2026' },
+];
 
 const bestTime = {
   season: "4月-10月",
@@ -476,8 +490,13 @@ const suggestedItineraries = [
     </div>
   </section>
 
+  <!-- Table of Contents -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <TableOfContents items={tocItems} />
+  </div>
+
   <!-- Four Meanings of Kora -->
-<section class="py-20 bg-kailash-dark text-white">
+<section class="py-20 bg-kailash-dark text-white" id="meanings">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="font-display text-4xl font-bold mb-4" data-lang-content="zh">转山的四重意义</h2>
@@ -551,7 +570,7 @@ const suggestedItineraries = [
 </section>
 
 <!-- Best Time -->
-  <section class="py-20 bg-kailash-light">
+  <section id="best-time" class="py-20 bg-kailash-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 items-start">
         <div>
@@ -623,7 +642,7 @@ const suggestedItineraries = [
   </section>
 
   <!-- Equipment -->
-  <section class="py-20 bg-white">
+  <section id="equipment" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">装备清单</h2>
@@ -782,7 +801,7 @@ const suggestedItineraries = [
   </section>
 
   <!-- Altitude Sickness -->
-  <section class="py-20 bg-kailash-dark text-white">
+  <section id="altitude" class="py-20 bg-kailash-dark text-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-bold mb-4" data-lang-content="zh">高原反应预防</h2>
@@ -870,7 +889,7 @@ const suggestedItineraries = [
   </section>
 
   <!-- Permits -->
-  <section class="py-20 bg-kailash-light">
+  <section id="permits" class="py-20 bg-kailash-light">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">证件办理</h2>
@@ -927,7 +946,7 @@ const suggestedItineraries = [
   </section>
 
   <!-- Transportation Guide (NEW) -->
-  <section class="py-20 bg-white">
+  <section id="transport" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">交通指南</h2>
@@ -1011,7 +1030,7 @@ const suggestedItineraries = [
   </section>
 
   <!-- Accommodation Details (NEW) -->
-  <section class="py-20 bg-kailash-light">
+  <section id="accommodation" class="py-20 bg-kailash-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">住宿详解</h2>
@@ -1074,7 +1093,7 @@ const suggestedItineraries = [
   </section>
 
   <!-- Cost Reference (NEW) -->
-  <section class="py-20 bg-white">
+  <section id="cost" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">费用参考</h2>
@@ -1186,7 +1205,7 @@ const suggestedItineraries = [
   </section>
 
   <!-- Physical Preparation (NEW) -->
-  <section class="py-20 bg-kailash-light">
+  <section id="fitness" class="py-20 bg-kailash-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4" data-lang-content="zh">身体准备</h2>
@@ -1248,7 +1267,7 @@ const suggestedItineraries = [
   </section>
 
   <!-- 2026 Horse Year Special (NEW) -->
-  <section class="py-20 bg-kailash-dark text-white">
+  <section id="horse-year" class="py-20 bg-kailash-dark text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <span class="inline-block bg-kailash-gold text-kailash-dark px-4 py-1 rounded-full text-sm font-semibold mb-4" data-lang-content="zh">🐴 马年限定</span>

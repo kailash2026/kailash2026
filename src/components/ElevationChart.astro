@@ -1,0 +1,155 @@
+---
+// Elevation profile for the 3-day Kora (52km outer circuit)
+const waypoints = [
+  { km: 0, alt: 4600, label: "塔尔钦\nDarchen", labelEn: "Darchen", type: "start" },
+  { km: 8, alt: 4820, label: "曲古寺\nChoku", labelEn: "Choku Gompa", type: "checkpoint" },
+  { km: 14, alt: 5000, label: "", labelEn: "", type: "waypoint" },
+  { km: 22, alt: 5200, label: "止热寺\nDrirapuk", labelEn: "Drirapuk", type: "camp" },
+  { km: 28, alt: 5480, label: "", labelEn: "", type: "waypoint" },
+  { km: 30, alt: 5648, label: "卓玛拉垭口\nDrolma La", labelEn: "Drolma La Pass", type: "peak" },
+  { km: 34, alt: 5280, label: "托吉错\nTsoji", labelEn: "Tsoji Lake", type: "checkpoint" },
+  { km: 36, alt: 5050, label: "", labelEn: "", type: "waypoint" },
+  { km: 40, alt: 4800, label: "尊最普寺\nZunzhepu", labelEn: "Zunzhepu", type: "camp" },
+  { km: 44, alt: 4700, label: "", labelEn: "", type: "waypoint" },
+  { km: 48, alt: 4650, label: "", labelEn: "", type: "waypoint" },
+  { km: 52, alt: 4600, label: "塔尔钦\nDarchen", labelEn: "Darchen", type: "end" },
+];
+
+// Chart dimensions
+const W = 760;
+const H = 320;
+const pad = { top: 30, right: 20, bottom: 55, left: 60 };
+const cw = W - pad.left - pad.right;
+const ch = H - pad.top - pad.bottom;
+
+const minAlt = 4400;
+const maxAlt = 5800;
+const altRange = maxAlt - minAlt;
+
+const yPos = (alt: number) => pad.top + ch - ((alt - minAlt) / altRange) * ch;
+const xPos = (km: number) => pad.left + (km / 52) * cw;
+
+// Generate smooth path
+const steps = 208;
+let pathD = '';
+for (let i = 0; i <= steps; i++) {
+  const km = (i / steps) * 52;
+  // Interpolate altitude between waypoints
+  let alt = 4600;
+  for (let j = 1; j < waypoints.length; j++) {
+    if (km <= waypoints[j].km) {
+      const prev = waypoints[j - 1];
+      const curr = waypoints[j];
+      const t = (km - prev.km) / (curr.km - prev.km);
+      alt = prev.alt + (curr.alt - prev.alt) * t;
+      break;
+    }
+  }
+  const cmd = i === 0 ? 'M' : 'L';
+  pathD += `${cmd}${xPos(km).toFixed(1)},${yPos(alt).toFixed(1)} `;
+}
+
+const dayColors = ['#fbbf24', '#f59e0b', '#d97706'];
+const dayLabels = ['Day 1', 'Day 2', 'Day 3'];
+const dayLabelsZh = ['第一天', '第二天', '第三天'];
+const dayBreaks = [22, 40];
+---
+
+<figure class="bg-white rounded-2xl shadow-lg overflow-hidden my-8 not-prose">
+  <div class="px-6 pt-6">
+    <h3 class="font-display text-xl font-bold text-kailash-dark text-center">
+      <span data-lang-content="zh">冈仁波齐转山海拔变化图</span>
+      <span data-lang-content="en" style="display: none;">Mount Kailash Kora Elevation Profile</span>
+    </h3>
+    <p class="text-sm text-gray-500 text-center mt-1">
+      <span data-lang-content="zh">52公里 · 最高点卓玛拉垭口 5,648m</span>
+      <span data-lang-content="en" style="display: none;">52km circuit · Highest point: Drolma La 5,648m</span>
+    </p>
+  </div>
+
+  <div class="overflow-x-auto">
+    <svg viewBox={`0 0 ${W} ${H}`} class="w-full" style="min-width: 600px;" aria-label="Kailash Kora elevation chart" role="img">
+      {/* Grid lines */}
+      {[4600, 4800, 5000, 5200, 5400, 5600].map(alt => (
+        <g>
+          <line x1={pad.left} y1={yPos(alt)} x2={W - pad.right} y2={yPos(alt)} stroke="#e5e7eb" stroke-width="0.5" stroke-dasharray="4,4" />
+          <text x={pad.left - 8} y={yPos(alt) + 4} text-anchor="end" class="text-[10px] fill-gray-400" font-family="system-ui">{alt}m</text>
+        </g>
+      ))}
+
+      {/* Day background bands */}
+      {[0, 22, 40, 52].map((start, i) => {
+        if (i >= 3) return null;
+        const end = [22, 40, 52][i];
+        return (
+          <rect x={xPos(start)} y={pad.top} width={xPos(end) - xPos(start)} height={ch} fill={dayColors[i]} opacity="0.06" rx="4" />
+        );
+      })}
+
+      {/* Day labels */}
+      {[11, 31, 46].map((mid, i) => (
+        <text x={xPos(mid)} y={pad.top - 8} text-anchor="middle" class="text-[11px] font-semibold" fill={dayColors[i]} font-family="system-ui">
+          <tspan data-lang-content="zh">{dayLabelsZh[i]}</tspan>
+          <tspan data-lang-content="en" style="display: none;">{dayLabels[i]}</tspan>
+        </text>
+      ))}
+
+      {/* Area fill */}
+      <path d={`${pathD} L${xPos(52)},${pad.top + ch} L${xPos(0)},${pad.top + ch} Z`} fill="url(#elevGrad)" opacity="0.25" />
+      <defs>
+        <linearGradient id="elevGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#B8956A" />
+          <stop offset="100%" stop-color="#B8956A" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+
+      {/* Elevation line */}
+      <path d={pathD} fill="none" stroke="#B8956A" stroke-width="2.5" stroke-linejoin="round" />
+
+      {/* Waypoints */}
+      {waypoints.filter(w => w.type !== 'waypoint').map(w => {
+        const isPeak = w.type === 'peak';
+        const r = isPeak ? 5 : 3.5;
+        const fill = isPeak ? '#dc2626' : w.type === 'camp' ? '#B8956A' : '#6b7280';
+        return (
+          <g>
+            <circle cx={xPos(w.km)} cy={yPos(w.alt)} r={r} fill={fill} stroke="white" stroke-width="2" />
+            {w.label && (
+              <>
+                <text x={xPos(w.km)} y={yPos(w.alt) - r - 6} text-anchor="middle" class="text-[10px] font-semibold fill-kailash-dark" font-family="system-ui">
+                  {w.label.split('\n').map((line, li) => (
+                    <tspan x={xPos(w.km)} dy={li === 0 ? 0 : 12} data-lang-content="zh">{line}</tspan>
+                  ))}
+                </text>
+                {/* English label below */}
+                <text x={xPos(w.km)} y={yPos(w.alt) - r - 6} text-anchor="middle" class="text-[10px] fill-gray-500" font-family="system-ui" data-lang-content="en" style="display: none;">
+                  {w.labelEn}
+                </text>
+              </>
+            )}
+          </g>
+        );
+      })}
+
+      {/* Distance markers */}
+      {[0, 10, 20, 30, 40, 52].map(km => (
+        <g>
+          <line x1={xPos(km)} y1={pad.top + ch} x2={xPos(km)} y2={pad.top + ch + 5} stroke="#9ca3af" stroke-width="0.5" />
+          <text x={xPos(km)} y={pad.top + ch + 20} text-anchor="middle" class="text-[10px] fill-gray-400" font-family="system-ui">{km}km</text>
+        </g>
+      ))}
+
+      {/* Y axis label */}
+      <text x={12} y={H / 2} text-anchor="middle" transform={`rotate(-90, 12, ${H / 2})`} class="text-[10px] fill-gray-400" font-family="system-ui">
+        <tspan data-lang-content="zh">海拔 (m)</tspan>
+        <tspan data-lang-content="en" style="display: none;">Elevation (m)</tspan>
+      </text>
+    </svg>
+  </div>
+
+  <div class="px-6 pb-4 flex flex-wrap gap-4 justify-center text-xs text-gray-500">
+    <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-[#B8956A] inline-block"></span> <span data-lang-content="zh">住宿点</span><span data-lang-content="en" style="display: none;">Lodging</span></span>
+    <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-[#6b7280] inline-block"></span> <span data-lang-content="zh">途经点</span><span data-lang-content="en" style="display: none;">Checkpoint</span></span>
+    <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-[#dc2626] inline-block"></span> <span data-lang-content="zh">最高点 5,648m</span><span data-lang-content="en" style="display: none;">Peak 5,648m</span></span>
+  </div>
+</figure>

@@ -61,7 +61,7 @@ This transition from "mythical space" to "geographical sacred site" is a common 
     chapterEn: "Foreword & Chapter 1",
     sourceType: 'academic',
     verified: true,
-    fullQuote: `John Snelling（1943-1992）是伦敦佛教学会秘书长，他于1983年出版了《The Sacred Mountain: Travellers and Pilgrims at Mount Kailas in Western Tibet》一书。该书由第十四世达赖喇嘛和Christmas Humphreys作序，是西方学术界关于冈仁波齐朝圣研究的重要著作。1990年的修订扩展版副标题增加了"The Complete Guide to Tibet's Mount Kailas"。
+    fullQuote: `John Snelling（1943-1992）是伦敦佛教学会秘书长，他于1983年出版了《The Sacred Mountain: Travellers and Pilgrims at Mount Kailas in Western Tibet》一书。该书由藏传佛教领袖和Christmas Humphreys作序，是西方学术界关于冈仁波齐朝圣研究的重要著作。1990年的修订扩展版副标题增加了"The Complete Guide to Tibet's Mount Kailas"。
 
 Snelling在书中写道：
 「冈仁波齐——世界上最神圣的山。这座偏远而卓越的山峰位于禁地西藏，其对称之完美，仿佛由超人之手建造。它从原始的景观中拔地而起：数千英尺高的水平分层基座，顶部冠以纯雪的完美锥体。」

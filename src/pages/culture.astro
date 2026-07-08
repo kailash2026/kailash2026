@@ -1,5 +1,21 @@
 ---
+
 import Layout from '../layouts/Layout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+
+const tocItems = [
+  { id: 'timeline', label: '历史时间线', labelEn: 'Timeline' },
+  { id: 'four-religions', label: '四大宗教观', labelEn: 'Four Religions' },
+  { id: 'figures', label: '历史人物', labelEn: 'Figures' },
+  { id: 'debates', label: '学术争议', labelEn: 'Debates' },
+  { id: 'legends', label: '传说与神话', labelEn: 'Legends' },
+  { id: 'meanings', label: '转山的意义', labelEn: 'Meanings' },
+  { id: 'geography', label: '地理奇观', labelEn: 'Geography' },
+  { id: 'horse-year', label: '马年转山', labelEn: 'Horse Year' },
+  { id: 'literature', label: '经典文献', labelEn: 'Literature' },
+  { id: 'seasons', label: '四季冈仁波齐', labelEn: 'Seasons' },
+];
+
 
 import { bookQuotes } from '../data/bookQuotes';
 const religions = [
@@ -16,7 +32,7 @@ const religions = [
 11世纪，藏传佛教噶举派祖师玛尔巴译师多次前往印度那烂陀寺学习密法，将时轮金刚等密续带回西藏。噶举派开始系统性地将冈仁波齐建构为密宗修行圣地。米拉日巴（1052-1135）在此修行的传说，使冈仁波齐成为噶举派的重要圣地。
 
 **格鲁派时期（14世纪后）**
-宗喀巴大师创立格鲁派后，冈仁波齐也被纳入格鲁派的圣地体系。五世达赖喇嘛时期（17世纪），西藏地方政府开始对朝圣活动进行规范管理。
+宗喀巴大师创立格鲁派后，冈仁波齐也被纳入格鲁派的圣地体系。17世纪，格鲁派成为西藏主导教派，开始系统性地管理朝圣活动。
 
 **现代时期（20世纪至今）**
 1950年代后，西藏社会经历重大变革。1980年代起，中国逐渐开放阿里地区，国际朝圣者可以申请进入。近年来，冈仁波齐成为藏传佛教徒重要的朝圣目的地。`,
@@ -189,8 +205,8 @@ const timeline = [
     yearEn: `17th-18th Century`,
     title: `格鲁派统治与朝圣规范`,
     titleEn: `Gelug Rule and Pilgrimage Regulation`,
-    content: `五世达赖喇嘛建立甘丹颇章政权，格鲁派成为西藏主导宗教。西藏地方政府开始对冈仁波齐朝圣活动进行规范管理，建立了沿途的住宿和补给设施。印度教朝圣路线逐渐固定。`,
-    contentEn: `The Fifth Dalai Lama established the Ganden Phodrang government; Gelug became Tibet's dominant school. The Tibetan government began regulating Kailash pilgrimage, establishing accommodations and supply facilities along the route. Hindu pilgrimage routes gradually stabilized.`
+    content: `17世纪，格鲁派主导西藏宗教事务，开始对冈仁波齐朝圣活动进行规范管理，建立了沿途的住宿和补给设施。印度教朝圣路线逐渐固定。`,
+    contentEn: `In the 17th century, the Gelug school led religious affairs in Tibet, systematically regulating Kailash pilgrimage, establishing accommodations and supply facilities along the route. Hindu pilgrimage routes gradually stabilized.`
   },
   {
     year: `公元19世纪`,
@@ -754,6 +770,12 @@ const academicDebates = [
       </div>
     </div>
   </section>
+
+
+  <!-- Table of Contents -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <TableOfContents items={tocItems} />
+  </div>
 
   <!-- Introduction -->
   <section class="py-20 bg-kailash-light">

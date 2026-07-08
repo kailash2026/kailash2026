@@ -1,0 +1,388 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingModal from '../components/BookingModal.astro';
+
+const packages = [
+  {
+    name: '朝圣基础团',
+    nameEn: 'Essential Pilgrimage',
+    price: '¥8,800',
+    priceEn: '$1,299',
+    duration: '8天7晚',
+    durationEn: '8 Days 7 Nights',
+    groupSize: '6-12人',
+    groupSizeEn: '6-12 people',
+    icon: '🥾',
+    popular: false,
+    features: [
+      { zh: '✓ 拉萨接机 + 阿里往返交通', en: '✓ Lhasa pickup + Ngari round-trip transport' },
+      { zh: '✓ 3天转山全程向导', en: '✓ 3-day kora with full guide' },
+      { zh: '✓ 沿途客栈住宿（多人间）', en: '✓ Guesthouse stays (dormitory)' },
+      { zh: '✓ 高原反应应急处理', en: '✓ Altitude sickness emergency care' },
+      { zh: '✓ 冈仁波齐进山许可', en: '✓ Kailash entry permit' },
+      { zh: '✓ 基础旅行保险', en: '✓ Basic travel insurance' },
+      { zh: '✗ 拉萨住宿（可代订）', en: '✗ Lhasa accommodation (can book)' },
+      { zh: '✗ 单人间升级', en: '✗ Single room upgrade' },
+    ],
+    cta: '立即咨询',
+    ctaEn: 'Inquire Now',
+  },
+  {
+    name: '深度朝圣团',
+    nameEn: 'Premium Pilgrimage',
+    price: '¥16,800',
+    priceEn: '$2,499',
+    duration: '12天11晚',
+    durationEn: '12 Days 11 Nights',
+    groupSize: '4-8人',
+    groupSizeEn: '4-8 people',
+    icon: '⭐',
+    popular: true,
+    features: [
+      { zh: '✓ 拉萨2晚精品酒店（含适应海拔）', en: '✓ 2 nights boutique hotel in Lhasa (acclimatization)' },
+      { zh: '✓ 拉萨市区朝圣导览（大昭寺/布达拉宫）', en: '✓ Lhasa pilgrimage tour (Jokhang/Potala)' },
+      { zh: '✓ 阿里越野车往返（每车3人）', en: '✓ Ngari 4x4 round-trip (3 per vehicle)' },
+      { zh: '✓ 3天转山全程向导 + 背夫服务', en: '✓ 3-day kora with guide + porter service' },
+      { zh: '✓ 沿途最佳住宿（标间优先）', en: '✓ Best available stays (twin room priority)' },
+      { zh: '✓ 玛旁雍错环湖一日游', en: '✓ 1-day Lake Manasarovar circuit' },
+      { zh: '✓ 全程高原医疗保障', en: '✓ Full medical support throughout' },
+      { zh: '✓ 朝圣证书 + 纪念经幡', en: '✓ Pilgrimage certificate + prayer flag' },
+    ],
+    cta: '预订此团',
+    ctaEn: 'Book Now',
+  },
+  {
+    name: '定制朝圣之旅',
+    nameEn: 'Bespoke Pilgrimage',
+    price: '¥28,800 起',
+    priceEn: 'From $3,999',
+    duration: '按需定制',
+    durationEn: 'Custom Duration',
+    groupSize: '1-6人',
+    groupSizeEn: '1-6 people',
+    icon: '👑',
+    popular: false,
+    features: [
+      { zh: '✓ 全程私人定制行程', en: '✓ Fully customized private itinerary' },
+      { zh: '✓ 拉萨五星酒店 + 阿里最佳住宿', en: '✓ 5-star Lhasa + best Ngari stays' },
+      { zh: '✓ 私人越野车 + 司机全程跟随', en: '✓ Private 4x4 + driver throughout' },
+      { zh: '✓ 1对1资深朝圣向导', en: '✓ 1-on-1 senior pilgrimage guide' },
+      { zh: '✓ 私人背夫 + 全程骑马备选', en: '✓ Private porter + horse riding option' },
+      { zh: '✓ 专业摄影师跟拍（可选）', en: '✓ Professional photographer (optional)' },
+      { zh: '✓ 藏医身体调理 + 血氧监测', en: '✓ Tibetan medicine + blood oxygen monitoring' },
+      { zh: '✓ 灵活取消/改期政策', en: '✓ Flexible cancellation/rescheduling' },
+    ],
+    cta: '定制行程',
+    ctaEn: 'Customize',
+  },
+];
+
+const whyUs = [
+  {
+    icon: '🕉️',
+    title: '深耕冈仁波齐',
+    titleEn: 'Kailash Experts',
+    desc: '团队累计转山超过50圈，熟悉每一条路线、每一个补给点。不是旅行社转包，而是自己带队。',
+    descEn: 'Our team has completed 50+ koras. We know every route and supply point. We lead ourselves, not subcontract.',
+  },
+  {
+    icon: '⚖️',
+    title: '跨宗教尊重',
+    titleEn: 'Interfaith Respect',
+    desc: '无论是佛教徒、印度教徒、苯教徒还是耆那教徒，你的信仰仪式都将被尊重和协助。',
+    descEn: 'Whether Buddhist, Hindu, Bön, or Jain, your religious practices will be respected and facilitated.',
+  },
+  {
+    icon: '🛡️',
+    title: '安全第一',
+    titleEn: 'Safety First',
+    desc: '全程配备高原急救设备，向导均持有红十字会急救证。最高海拔垭口有备用氧气。',
+    descEn: 'Full altitude emergency equipment. All guides hold Red Cross first aid certification. Backup oxygen at the highest pass.',
+  },
+  {
+    icon: '💰',
+    title: '透明定价',
+    titleEn: 'Transparent Pricing',
+    desc: '价格包含所有许可证、交通、住宿和向导费用。无隐藏消费，无强制购物。',
+    descEn: 'Price includes all permits, transport, accommodation, and guide fees. No hidden costs, no forced shopping.',
+  },
+];
+
+const itinerary = [
+  { day: '第1-2天', dayEn: 'Day 1-2', title: '拉萨集合 · 适应高原', titleEn: 'Arrive Lhasa · Acclimatize', desc: '接机、入住酒店、大昭寺朝圣、布达拉宫参观。血氧监测，身体评估。', descEn: 'Airport pickup, hotel check-in, Jokhang Temple pilgrimage, Potala Palace visit. Health assessment.' },
+  { day: '第3-4天', dayEn: 'Day 3-4', title: '拉萨 → 阿里', titleEn: 'Lhasa → Ngari', desc: '越野车沿219国道西行，途经羊卓雍错、江孜古堡、珠峰观景台。沿途朝圣点停留。', descEn: '4x4 westward on G219, via Yamdrok Lake, Gyantse Fort, Everest viewpoint. Pilgrimage stops along the way.' },
+  { day: '第5天', dayEn: 'Day 5', title: '抵达塔尔钦 · 准备转山', titleEn: 'Arrive Darchen · Prepare', desc: '入住塔尔钦客栈，转山前准备会，装备检查，向导见面。远眺冈仁波齐日落。', descEn: 'Check in Darchen guesthouse, pre-kora briefing, gear check, meet your guide. Sunset view of Kailash.' },
+  { day: '第6-8天', dayEn: 'Day 6-8', title: '52公里转山', titleEn: '52km Kora Trek', desc: '三天两夜：塔尔钦→止热寺→卓玛拉垭口(5630m)→尊珠寺→塔尔钦。完成神圣转山。', descEn: '3 days 2 nights: Darchen→Drirapuk→Drolma La(5,630m)→Zongchu→Darchen. Complete the sacred kora.' },
+  { day: '第9天', dayEn: 'Day 9', title: '圣湖玛旁雍错', titleEn: 'Lake Manasarovar', desc: '环圣湖游览，沐浴祈福。途经鬼湖拉昂错、古格王朝遗址（深度团）。', descEn: 'Circuit the sacred lake, ritual bathing. Via Rakshas Tal ghost lake, Guge Kingdom ruins (premium).' },
+  { day: '第10-12天', dayEn: 'Day 10-12', title: '返回拉萨', titleEn: 'Return to Lhasa', desc: '沿青藏线返回拉萨，庆功晚宴，颁发朝圣证书。送机。', descEn: 'Return to Lhasa via Qinghai route. Celebration dinner, pilgrimage certificate. Airport drop-off.' },
+];
+
+const faq = [
+  { q: '我没有高原徒步经验，可以参加吗？', qEn: 'I have no high-altitude trekking experience. Can I join?', a: '可以。基础团适合身体状况良好的普通人。我们有专业海拔适应方案，前3天在拉萨适应，向导全程监控。如果转山过程中出现严重高反，我们会安排紧急下撤。', aEn: 'Yes. The Essential package suits healthy individuals. We have a professional acclimatization plan — 3 days in Lhasa first, with guides monitoring throughout. Emergency descent is arranged if severe altitude sickness occurs.' },
+  { q: '什么时候去最好？', qEn: 'When is the best time to go?', a: '每年5-10月是转山季。2026年是藏历马年——冈仁波齐的本命年，转一圈等于13圈功德。马年转山意义最大，但也最火爆，建议尽早预定。', aEn: 'May-October is kora season. 2026 is the Tibetan Horse Year — Kailash\'s birth year. One kora equals 13 circuits of merit. The most significant year to pilgrimage, also the most popular. Book early.' },
+  { q: '费用包含什么？不包含什么？', qEn: 'What\'s included and excluded?', a: '包含：行程内交通、住宿、向导、许可证、保险。不包含：往返拉萨大交通、个人装备、个人消费、小费。详细清单确认后会发送。', aEn: 'Included: transport in itinerary, accommodation, guide, permits, insurance. Excluded: flights to Lhasa, personal gear, personal expenses, tips. Detailed list sent upon confirmation.' },
+  { q: '可以单独一个人报名吗？', qEn: 'Can I join alone?', a: '当然。我们的团员70%都是独行者。你会和志同道合的朝圣者组成小团，很多人结下了终生的友谊。', aEn: 'Absolutely. 70% of our pilgrims join solo. You\'ll form a small group with like-minded pilgrims — many form lifelong friendships.' },
+];
+---
+
+<Layout title="2026马年转山朝圣团 - 预订行程 | 2026 Kailash Kora Tours - Book Now" description="2026藏历马年——冈仁波齐本命年。8天/12天/定制三种转山套餐，专业向导带队，¥8,800起。全球朝圣者招募中。2026 Horse Year Kailash pilgrimage tours from $1,299.">
+
+  <!-- Hero -->
+  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/kailash-hero-mobile.webp')] bg-cover bg-center md:bg-[url('/images/kailash-hero.webp')]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-kailash-dark/70 via-kailash-dark/50 to-kailash-dark"></div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div data-lang-content="zh">
+        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">🐎 2026 藏历马年 · 十二年一遇</p>
+        <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">冈仁波齐转山<span class="block text-kailash-gold mt-2">朝圣团</span></h1>
+        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-2xl mx-auto font-light">专业向导 · 安全保障 · 跨宗教尊重 · 8-12天深度体验</p>
+        <p class="text-lg text-white/60 mb-10">2026年5月-10月 · 每月发团 · 名额有限</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#packages" class="bg-kailash-gold text-kailash-dark px-10 py-5 rounded-xl font-bold text-lg hover:bg-kailash-accent transition shadow-lg shadow-kailash-gold/25">查看套餐 & 预订</a>
+          <a href="#itinerary" class="border-2 border-white/40 text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-white/10 transition">查看行程</a>
+        </div>
+      </div>
+
+      <div data-lang-content="en" style="display: none;">
+        <p class="text-kailash-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-light">🐎 2026 Horse Year · Once Every 12 Years</p>
+        <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">Kailash Kora<span class="block text-kailash-gold mt-2">Pilgrimage Tours</span></h1>
+        <p class="text-xl md:text-2xl text-white/80 mb-4 max-w-2xl mx-auto font-light">Expert Guides · Safety Assured · Interfaith Respect · 8-12 Day Immersion</p>
+        <p class="text-lg text-white/60 mb-10">May-Oct 2026 · Monthly Departures · Limited Spots</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#packages" class="bg-kailash-gold text-kailash-dark px-10 py-5 rounded-xl font-bold text-lg hover:bg-kailash-accent transition shadow-lg shadow-kailash-gold/25">View Packages & Book</a>
+          <a href="#itinerary" class="border-2 border-white/40 text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-white/10 transition">View Itinerary</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horse Year Banner -->
+  <section class="bg-kailash-gold py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">🐎</span>
+          <div>
+            <p class="text-kailash-dark font-bold text-lg" data-lang-content="zh">2026藏历马年 — 冈仁波齐本命年</p>
+            <p class="text-kailash-dark font-bold text-lg" data-lang-content="en" style="display: none;">2026 Tibetan Horse Year — Kailash's Birth Year</p>
+            <p class="text-kailash-dark/70 text-sm" data-lang-content="zh">马年转山一圈 = 13圈功德。十二年一遇，今生能遇几次？</p>
+            <p class="text-kailash-dark/70 text-sm" data-lang-content="en" style="display: none;">One kora in Horse Year = 13 circuits of merit. Once every 12 years — how many in a lifetime?</p>
+          </div>
+        </div>
+        <a href="#packages" class="bg-kailash-dark text-kailash-gold px-8 py-3 rounded-xl font-bold hover:bg-kailash-stone transition whitespace-nowrap">
+          <span data-lang-content="zh">🔥 立即锁定名额</span>
+          <span data-lang-content="en" style="display: none;">🔥 Reserve Your Spot</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tour Packages -->
+  <section id="packages" class="py-20 bg-kailash-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
+          <span data-lang-content="zh">选择你的朝圣方式</span>
+          <span data-lang-content="en" style="display: none;">Choose Your Pilgrimage</span>
+        </h2>
+        <p class="text-lg text-gray-500">
+          <span data-lang-content="zh">三种套餐，不同深度，同一条神圣之路</span>
+          <span data-lang-content="en" style="display: none;">Three levels, different depths, one sacred path</span>
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {packages.map((pkg) => (
+          <div class={`relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ${pkg.popular ? 'ring-2 ring-kailash-gold scale-[1.02] md:scale-105' : ''}`}>
+            {pkg.popular && (
+              <div class="absolute top-0 right-0 bg-kailash-gold text-kailash-dark px-6 py-1.5 rounded-bl-xl font-bold text-sm">
+                <span data-lang-content="zh">🔥 最受欢迎</span>
+                <span data-lang-content="en" style="display: none;">🔥 Most Popular</span>
+              </div>
+            )}
+            <div class="p-8">
+              <div class="text-5xl mb-4">{pkg.icon}</div>
+              <h3 class="font-display text-2xl font-bold text-kailash-dark mb-2">
+                <span data-lang-content="zh">{pkg.name}</span>
+                <span data-lang-content="en" style="display: none;">{pkg.nameEn}</span>
+              </h3>
+              <p class="text-gray-500 text-sm mb-6">
+                <span data-lang-content="zh">{pkg.duration} · {pkg.groupSize}</span>
+                <span data-lang-content="en" style="display: none;">{pkg.durationEn} · {pkg.groupSizeEn}</span>
+              </p>
+
+              <div class="mb-6">
+                <span class="font-display text-4xl font-bold text-kailash-dark">
+                  <span data-lang-content="zh">{pkg.price}</span>
+                  <span data-lang-content="en" style="display: none;">{pkg.priceEn}</span>
+                </span>
+                <span class="text-gray-400 text-sm ml-1">
+                  <span data-lang-content="zh">/ 人</span>
+                  <span data-lang-content="en" style="display: none;">/ person</span>
+                </span>
+              </div>
+
+              <ul class="space-y-3 mb-8">
+                {pkg.features.map((f) => (
+                  <li class={`text-sm ${f.zh.startsWith('✗') ? 'text-gray-400 line-through' : 'text-gray-700'}`}>
+                    <span data-lang-content="zh">{f.zh}</span>
+                    <span data-lang-content="en" style="display: none;">{f.en}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <button onclick={`openBookingModal('${pkg.name}')`}
+                 class={`w-full text-center py-4 rounded-xl font-bold transition ${
+                   pkg.popular
+                     ? 'bg-kailash-gold text-kailash-dark hover:bg-kailash-accent shadow-lg shadow-kailash-gold/25'
+                     : 'bg-kailash-dark text-white hover:bg-kailash-stone'
+                 }`}>
+                <span data-lang-content="zh">{pkg.cta}</span>
+                <span data-lang-content="en" style="display: none;">{pkg.ctaEn}</span>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-gray-500 text-sm mt-8">
+        <span data-lang-content="zh">💰 所有价格包含许可证、交通、住宿、向导。不含往返拉萨大交通。</span>
+        <span data-lang-content="en" style="display: none;">💰 All prices include permits, transport, accommodation, guide. Excludes flights to Lhasa.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
+          <span data-lang-content="zh">为什么选择我们</span>
+          <span data-lang-content="en" style="display: none;">Why Pilgrimage With Us</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {whyUs.map((item) => (
+          <div class="text-center">
+            <div class="text-5xl mb-4">{item.icon}</div>
+            <h3 class="font-display text-xl font-bold text-kailash-dark mb-3">
+              <span data-lang-content="zh">{item.title}</span>
+              <span data-lang-content="en" style="display: none;">{item.titleEn}</span>
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              <span data-lang-content="zh">{item.desc}</span>
+              <span data-lang-content="en" style="display: none;">{item.descEn}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Itinerary -->
+  <section id="itinerary" class="py-20 bg-kailash-light">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl font-bold text-kailash-dark mb-4">
+          <span data-lang-content="zh">参考行程（深度团）</span>
+          <span data-lang-content="en" style="display: none;">Sample Itinerary (Premium)</span>
+        </h2>
+        <p class="text-lg text-gray-500">
+          <span data-lang-content="zh">12天，从拉萨到冈仁波齐，一次完整的朝圣之旅</span>
+          <span data-lang-content="en" style="display: none;">12 days from Lhasa to Kailash — a complete pilgrimage journey</span>
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {itinerary.map((item, i) => (
+          <div class="bg-white rounded-xl p-6 flex gap-6 items-start shadow-sm hover:shadow-md transition">
+            <div class="flex-shrink-0 w-12 h-12 bg-kailash-gold text-kailash-dark rounded-full flex items-center justify-center font-bold text-lg">
+              {i + 1}
+            </div>
+            <div>
+              <p class="text-kailash-gold text-sm font-semibold mb-1">
+                <span data-lang-content="zh">{item.day}</span>
+                <span data-lang-content="en" style="display: none;">{item.dayEn}</span>
+              </p>
+              <h3 class="font-display text-xl font-bold text-kailash-dark mb-2">
+                <span data-lang-content="zh">{item.title}</span>
+                <span data-lang-content="en" style="display: none;">{item.titleEn}</span>
+              </h3>
+              <p class="text-gray-600">
+                <span data-lang-content="zh">{item.desc}</span>
+                <span data-lang-content="en" style="display: none;">{item.descEn}</span>
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-kailash-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+        <span data-lang-content="zh">🐎 2026马年，踏上朝圣之路</span>
+        <span data-lang-content="en" style="display: none;">🐎 2026 Horse Year — Begin Your Pilgrimage</span>
+      </h2>
+      <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+        <span data-lang-content="zh">名额有限，每月仅发1-2团。发送邮件或微信联系我们，锁定你的朝圣席位。</span>
+        <span data-lang-content="en" style="display: none;">Limited spots — only 1-2 groups per month. Email or message us on WeChat to reserve your pilgrimage.</span>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <button onclick="openBookingModal()"
+           class="bg-kailash-gold text-kailash-dark px-10 py-5 rounded-xl font-bold text-lg hover:bg-kailash-accent transition shadow-lg shadow-kailash-gold/25">
+          📧 立即预订咨询
+        </button>
+        <div class="bg-white/10 rounded-xl px-8 py-5">
+          <p class="text-white/50 text-sm mb-1">
+            <span data-lang-content="zh">或微信联系</span>
+            <span data-lang-content="en" style="display: none;">Or on WeChat</span>
+          </p>
+          <p class="text-kailash-gold text-xl font-bold">Kailash2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal Disclaimer -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-gray-500 text-xs leading-relaxed">
+        <strong>服务说明：</strong>Kailash 2026 为信息服务平台。本站展示的朝圣团线路由具备合法经营资质的西藏本地旅行社执行和交付。本站提供行程咨询、信息整合与品质把控服务。预订前请仔细阅读<a href="/terms" class="text-kailash-gold underline">服务条款</a>。所有线路和价格可能因天气、政策等因素调整，以最终确认为准。
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-3xl font-bold text-kailash-dark mb-12 text-center">
+        <span data-lang-content="zh">常见问题</span>
+        <span data-lang-content="en" style="display: none;">Frequently Asked Questions</span>
+      </h2>
+      <div class="space-y-4">
+        {faq.map((item) => (
+          <details class="bg-kailash-light rounded-xl p-6 group cursor-pointer">
+            <summary class="font-semibold text-kailash-dark text-lg list-none flex justify-between items-center">
+              <span data-lang-content="zh">{item.q}</span>
+              <span data-lang-content="en" style="display: none;">{item.qEn}</span>
+              <svg class="w-5 h-5 text-kailash-gold group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="text-gray-600 mt-4 leading-relaxed">
+              <span data-lang-content="zh">{item.a}</span>
+              <span data-lang-content="en" style="display: none;">{item.aEn}</span>
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Modal -->
+  <BookingModal packages={packages.map(p => ({ name: p.name, nameEn: p.nameEn, icon: p.icon }))} />
+</Layout>

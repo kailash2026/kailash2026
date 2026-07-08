@@ -201,4 +201,39 @@ image: /images/kailash-golden.webp
 
 ---
 
+---
+
+## 推荐购买渠道
+
+以下渠道为朝圣者常用的装备采购平台。**通过以下链接购买，本站可获得少量佣金（价格不变），支持我们继续产出内容。**
+
+### 一站式采购
+
+| 平台 | 适合 | 链接 |
+|------|:--:|------|
+| 🛒 **迪卡侬旗舰店** | 入门预算首选，性价比高 | [前往选购](https://www.decathlon.com.cn) |
+| 🏔️ **三夫户外** | 中高端专业装备 | [前往选购](https://www.sanfo.com) |
+| 📦 **京东户外装备** | 品牌齐全，次日达 | [前往选购](https://search.jd.com/Search?keyword=徒步装备) |
+
+### 单品推荐
+
+| 品类 | 推荐款 | 参考价 |
+|------|--------|:--:|
+| 登山鞋 | Salomon X Ultra 4 GTX / 凯乐石 征途 | ¥800-1,500 |
+| 冲锋衣 | Arc'teryx Beta AR / 探路者 三合一 | ¥600-3,000 |
+| 睡袋 | Black Ice G400 / 天石 -10°C | ¥400-800 |
+| 登山杖 | Black Diamond Trail / Naturehike | ¥150-400 |
+| 头灯 | Petzl Tikkina / Fenix HL18R | ¥80-250 |
+
+> ⚠️ **转山安全第一。** 睡袋、登山鞋、冲锋衣三件核心装备不要贪便宜。在5,600米海拔上，装备就是你的命。
+
+---
+
 *祝各位转山顺利，扎西德勒！*
+*需要完整的朝圣指南？[下载我们的权威电子书](/ebook) 📖*
+
+---
+
+---
+
+**📖 相关阅读：** [高原反应指南](/blog/kailash-altitude-sickness) · [交通指南](/blog/kailash-transport-guide) · [花费全解析](/blog/kailash-cost-budget-2026)
