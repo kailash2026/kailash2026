@@ -13,7 +13,16 @@ export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const body = await request.json();
+    // Read body as text - Vercel may pre-consume the stream
+    let rawText;
+    try {
+      rawText = await request.text();
+    } catch {
+      // Body already consumed, create from request params
+      rawText = '{}';
+    }
+    console.log('Raw body:', rawText.substring(0, 200));
+    let body = JSON.parse(rawText);
     const { name, email, phone, people, month, message, package: pkg } = body;
 
     // Basic validation
