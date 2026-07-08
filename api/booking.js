@@ -1,10 +1,8 @@
-// Vercel Serverless Function for Booking API
-// This file is at /api/booking.js - automatically picked up by Vercel
+// Vercel Serverless Function for Booking API (v2 - with debug logging)
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const RESEND_FROM = process.env.RESEND_FROM_EMAIL || 'noreply@kailash2026.com';
 const ADMIN_EMAIL = 'kailash2026Lucas@outlook.com';
-const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 
 export default async function handler(req, res) {
   // CORS headers
@@ -26,8 +24,7 @@ export default async function handler(req, res) {
     const { name, email, phone, people, month, message, package: pkg } = req.body;
 
     if (!name || !email || !pkg) {
-      res.status(400).json({ error: '请填写必填项' });
-      return;
+      return res.status(400).json({ error: '请填写必填项' });
     }
 
     // Format booking details
@@ -46,16 +43,14 @@ export default async function handler(req, res) {
     ].join('\n');
 
     // 1. Send notification to admin
-    const resendUrl = 'https://api.resend.com/emails';
-    const emailHeaders = {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${RESEND_API_KEY}`,
-    };
-
     if (RESEND_API_KEY) {
-      await fetch(resendUrl, {
+      console.log('Sending admin notification...');
+      const adminRes = await fetch('https://api.resend.com/emails', {
         method: 'POST',
-        headers: emailHeaders,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${RESEND_API_KEY}`,
+        },
         body: JSON.stringify({
           from: `Kailash 2026 <${RESEND_FROM}>`,
           to: ADMIN_EMAIL,
@@ -63,65 +58,21 @@ export default async function handler(req, res) {
           text: details,
         }),
       });
-    }
-
-    // 2. Generate AI auto-reply
-    let autoReply = '';
-    const isEnglish = /^[a-zA-Z]/.test(name) || (email && /^[a-zA-Z]/.test(email));
-
-    if (DEEPSEEK_API_KEY) {
-      try {
-        const langHint = isEnglish ? 'English' : '中文';
-        const deepseekRes = await fetch('https://api.deepseek.com/v1/chat/completions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${DEEPSEEK_API_KEY}`,
-          },
-          body: JSON.stringify({
-            model: 'deepseek-chat',
-            messages: [
-              {
-                role: 'system',
-                content: `你是 Kailash 2026 的预订客服助手。你的任务是：用${langHint}写一封温暖、专业的预订确认邮件回复给客户。
-
-客户信息：
-- 姓名：${name}
-- 套餐：${pkg}
-- 人数：${people || 1}
-- 期望时间：${month || '未指定'}
-- 备注：${message || '无'}
-
-邮件风格：
-- 开头感谢预订
-- 确认已收到信息
-- 提及他们选择的套餐和人数
-- 告知 24 小时内会有专人联系
-- 留下联系邮箱 kailash2026Lucas@outlook.com 和微信 Kailash2026
-- 结尾祝福语
-- 用 ${langHint === 'English' ? 'English' : '中文'} 撰写
-- 控制在 250 字以内
-- 纯文本，不要 markdown 格式`
-              },
-            ],
-            max_tokens: 500,
-            temperature: 0.7,
-          }),
-        });
-
-        if (deepseekRes.ok) {
-          const data = await deepseekRes.json();
-          autoReply = data.choices?.[0]?.message?.content || '';
-        }
-      } catch (err) {
-        console.error('DeepSeek auto-reply error:', err);
+      console.log('Admin email response:', adminRes.status);
+      if (!adminRes.ok) {
+        const errText = await adminRes.text();
+        console.error('Admin email error:', errText);
       }
+    } else {
+      console.log('RESEND_API_KEY not set, skipping admin email');
     }
 
-    // Fallback auto-reply
-    if (!autoReply) {
-      if (isEnglish) {
-        autoReply = `Dear ${name},
+    // 2. Generate auto-reply (template only, no AI)
+    const isEnglish = /^[a-zA-Z]/.test(name) || (email && /^[a-zA-Z]/.test(email));
+    let autoReply = '';
+
+    if (isEnglish) {
+      autoReply = `Dear ${name},
 
 Thank you for your interest in the ${pkg} pilgrimage to Mount Kailash!
 
@@ -133,8 +84,8 @@ If you have any urgent questions, please feel free to contact us:
 
 With blessings from Kailash,
 The Kailash 2026 Team`;
-      } else {
-        autoReply = `${name} 您好，
+    } else {
+      autoReply = `${name} 您好，
 
 感谢您预订${pkg}的冈仁波齐朝圣之旅！
 
@@ -146,37 +97,42 @@ The Kailash 2026 Team`;
 
 冈仁波齐保佑，
 Kailash 2026 团队`;
-      }
     }
 
     // 3. Send auto-reply to customer
     let customerEmailSent = false;
     if (RESEND_API_KEY && email) {
-      try {
-        await fetch(resendUrl, {
-          method: 'POST',
-          headers: emailHeaders,
-          body: JSON.stringify({
-            from: `Kailash 2026 <${RESEND_FROM}>`,
-            to: email,
-            subject: `✅ 预订确认 - ${pkg} - Kailash 2026`,
-            text: autoReply,
-          }),
-        });
+      console.log('Sending customer auto-reply...');
+      const customerRes = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: `Kailash 2026 <${RESEND_FROM}>`,
+          to: email,
+          subject: `✅ 预订确认 - ${pkg} - Kailash 2026`,
+          text: autoReply,
+        }),
+      });
+      console.log('Customer email response:', customerRes.status);
+      if (customerRes.ok) {
         customerEmailSent = true;
-      } catch (err) {
-        console.error('Failed to send customer email:', err);
+      } else {
+        const errText = await customerRes.text();
+        console.error('Customer email error:', errText);
       }
     }
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: '预订信息已提交',
       customerEmailSent,
     });
 
   } catch (err) {
-    console.error('Booking API error:', err);
-    res.status(500).json({ error: '服务器错误，请稍后重试' });
+    console.error('Booking API error:', err.message, err.stack);
+    return res.status(500).json({ error: '服务器错误，请稍后重试', detail: err.message });
   }
 }
