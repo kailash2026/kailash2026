@@ -1,22 +1,23 @@
 ---
-// Search Component - Bilingual with Extended Keywords
+// Search Component - AI-Powered Search
+// Static keyword index (instant) + DeepSeek AI answers via /api/chat (小冈)
 ---
 
 <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="relative">
-    <input 
-      type="text" 
+    <input
+      type="text"
       id="searchInput"
-      placeholder="搜索冈仁波齐..."
+      placeholder="搜索冈仁波齐… 例如：转山装备、高原反应、马年"
       class="w-full px-6 py-4 pl-14 bg-white/90 backdrop-blur-sm border border-white/30 rounded-full text-kailash-dark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-kailash-dark focus:border-transparent transition"
-      data-lang-placeholder="zh"
+      autocomplete="off"
     />
-    <input 
-      type="text" 
+    <input
+      type="text"
       id="searchInputEn"
-      placeholder="Search Kailash..."
+      placeholder="Search Kailash… e.g. gear, altitude, kora"
       class="w-full px-6 py-4 pl-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-kailash-gold focus:border-transparent transition hidden"
-      data-lang-placeholder="en"
+      autocomplete="off"
     />
     <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
@@ -26,255 +27,522 @@
       <span data-lang-content="en" style="display: none;">Search</span>
     </button>
   </div>
-  
+
+  <!-- 热门问题 Hot Chips -->
+  <div id="hotChips" class="flex flex-wrap gap-2 mt-4 justify-center">
+    <button class="hot-chip" data-lang="zh" data-q="转山需要准备什么装备？">🎒 转山装备</button>
+    <button class="hot-chip" data-lang="zh" data-q="高原反应怎么预防和应对？">⚠️ 高反应对</button>
+    <button class="hot-chip" data-lang="zh" data-q="2026年马年转山有什么特别？">🐎 马年转山</button>
+    <button class="hot-chip" data-lang="zh" data-q="外圈52公里3天怎么走？">🗺️ 路线规划</button>
+    <button class="hot-chip" data-lang="zh" data-q="从拉萨到冈仁波齐怎么去？">🚙 怎么去</button>
+    <button class="hot-chip" data-lang="zh" data-q="转山大概要花多少钱？">💰 费用预算</button>
+    <button class="hot-chip" data-lang="en" data-q="What gear do I need for the kora?" style="display: none;">🎒 Packing list</button>
+    <button class="hot-chip" data-lang="en" data-q="How to prevent altitude sickness?" style="display: none;">⚠️ Altitude sickness</button>
+    <button class="hot-chip" data-lang="en" data-q="What is special about Horse Year 2026 kora?" style="display: none;">🐎 Horse Year 2026</button>
+    <button class="hot-chip" data-lang="en" data-q="How to plan the 52km kora in 3 days?" style="display: none;">🗺️ Kora route</button>
+    <button class="hot-chip" data-lang="en" data-q="How to get to Mount Kailash from Lhasa?" style="display: none;">🚙 Getting there</button>
+    <button class="hot-chip" data-lang="en" data-q="How much does the kora cost?" style="display: none;">💰 Cost</button>
+  </div>
+
   <!-- Search Results Dropdown -->
-  <div id="searchResults" class="hidden mt-2 bg-white rounded-xl shadow-lg overflow-hidden max-h-96 overflow-y-auto">
-    <div class="p-4 text-gray-500 text-sm" id="searchEmpty">
-      <span data-lang-content="zh">输入关键词搜索...</span>
-      <span data-lang-content="en" style="display: none;">Type keywords to search...</span>
+  <div id="searchResults" class="hidden mt-2 bg-white rounded-xl shadow-lg overflow-hidden text-left">
+
+    <!-- AI Answer Section -->
+    <div id="aiSection" class="hidden border-b border-gray-100 bg-gradient-to-br from-kailash-light/60 to-white">
+      <div class="flex items-center justify-between px-4 pt-3 pb-1">
+        <span class="text-xs font-bold text-kailash-dark uppercase tracking-wide">🤖 AI智能回答 · 小冈</span>
+        <span id="aiBadge" class="text-[10px] text-gray-400"></span>
+      </div>
+      <div id="aiAnswer" class="px-4 pb-2 text-sm text-gray-700 leading-relaxed"></div>
+      <div class="px-4 pb-3 flex items-center gap-4 flex-wrap">
+        <button id="aiRetry" class="hidden text-xs text-kailash-gold font-medium hover:underline">↻ 重新生成</button>
+        <button id="aiChatLink" class="hidden text-xs text-kailash-gold font-medium hover:underline">💬 去和小冈继续聊 →</button>
+        <span class="text-[10px] text-gray-300">AI生成内容仅供参考</span>
+      </div>
     </div>
-    <div id="searchResultsList" class="hidden">
-      <!-- Results will be populated by JavaScript -->
+
+    <!-- Static Results -->
+    <div id="staticWrap" class="max-h-72 overflow-y-auto">
+      <div class="p-4 text-gray-500 text-sm" id="searchEmpty">
+        <span data-lang-content="zh">输入关键词搜索…</span>
+        <span data-lang-content="en" style="display: none;">Type keywords to search…</span>
+      </div>
+      <div id="searchCount" class="hidden px-4 pt-3 text-xs text-gray-400"></div>
+      <div id="searchResultsList" class="hidden">
+        <!-- Results will be populated by JavaScript -->
+      </div>
+      <div id="searchFallback" class="hidden p-4">
+        <p class="text-gray-500 text-sm mb-3">
+          <span data-lang-content="zh">没有找到相关页面，让小冈AI直接回答你 👇</span>
+          <span data-lang-content="en" style="display: none;">No matching pages. Ask 小冈 AI directly 👇</span>
+        </p>
+        <button id="askAiBtn" class="bg-kailash-dark text-white text-sm px-4 py-2 rounded-full font-medium hover:bg-kailash-stone transition">🤖 问问小冈</button>
+      </div>
     </div>
   </div>
 </div>
 
-<script>
-  // Extended search data with comprehensive keywords
-  const searchData = [
-    // 主要页面
-    { title: '转山路线', titleEn: 'Kora Route', url: '/routes', category: '主要页面', 
-      keywords: ['路线', '转山', '52公里', '三天', '两天', '行程', '徒步', '公里', '距离', '地图', 'route', 'kora', '52km', 'trail', 'trek', 'hiking', 'distance', 'map', 'path'] },
-    { title: '朝圣攻略', titleEn: 'Pilgrimage Guide', url: '/guide', category: '主要页面',
-      keywords: ['攻略', '准备', '装备', '高反', '指南', '建议', '注意事项', '怎么', '如何', '新手', '第一次', 'guide', 'preparation', 'gear', 'tips', 'advice', 'altitude', 'beginner', 'first time'] },
-    { title: '神山文化', titleEn: 'Sacred Culture', url: '/culture', category: '主要页面',
-      keywords: ['文化', '宗教', '佛教', '印度教', '苯教', '耆那教', '信仰', '神圣', '历史', '传统', 'culture', 'religion', 'buddhism', 'hinduism', 'bon', 'jainism', 'faith', 'sacred', 'history', 'tradition'] },
-    { title: '朝圣故事', titleEn: 'Pilgrim Stories', url: '/stories', category: '主要页面',
-      keywords: ['故事', '经历', '分享', '体验', '感受', '心得', '游记', '日记', 'stories', 'experience', 'sharing', 'journey', 'diary', 'testimonial'] },
-    { title: '图库', titleEn: 'Gallery', url: '/gallery', category: '主要页面',
-      keywords: ['图片', '照片', '影像', '摄影', '风景', '相册', 'gallery', 'photos', 'images', 'pictures', 'photography', 'scenery'] },
-    { title: '常见问题', titleEn: 'FAQ', url: '/faq', category: '主要页面',
-      keywords: ['问题', 'FAQ', '疑问', '问答', '咨询', '疑惑', 'questions', 'faq', 'help', 'support'] },
-    { title: '关于我们', titleEn: 'About Us', url: '/about', category: '主要页面',
-      keywords: ['关于', '团队', '介绍', '背景', '使命', '愿景', 'about', 'team', 'introduction', 'background', 'mission'] },
-    { title: '联系我们', titleEn: 'Contact', url: '/contact', category: '主要页面',
-      keywords: ['联系', '邮箱', '电话', '微信', '咨询', '反馈', 'contact', 'email', 'phone', 'wechat', 'feedback'] },
-    
-    // 路线相关
-    { title: '卓玛拉垭口', titleEn: 'Drolma La Pass', url: '/routes', category: '路线地标',
-      keywords: ['垭口', '最高点', '5648', '5648米', '山顶', '顶峰', 'pass', 'highest', 'summit', 'peak', 'top'] },
-    { title: '止热寺', titleEn: 'Drirapuk', url: '/routes', category: '路线地标',
-      keywords: ['止热寺', '住宿', '寺庙', '寺院', '营地', '过夜', 'drirapuk', 'lodging', 'temple', 'monastery', 'camp', 'stay'] },
-    { title: '塔尔钦', titleEn: 'Darchen', url: '/routes', category: '路线地标',
-      keywords: ['塔尔钦', '起点', '终点', '小镇', '城镇', '基地', 'darchen', 'start', 'finish', 'town', 'base'] },
-    { title: '曲古寺', titleEn: 'Choku Gompa', url: '/routes', category: '路线地标',
-      keywords: ['曲古寺', '寺庙', 'choku', 'gompa', 'temple'] },
-    { title: '尊最普寺', titleEn: 'Zunzhepu', url: '/routes', category: '路线地标',
-      keywords: ['尊最普寺', '祖楚寺', '仲哲普寺', '寺庙', 'zunzhepu', 'zhongzhepu', 'temple'] },
-    { title: '托吉措', titleEn: 'Tsoji Lake', url: '/routes', category: '路线地标',
-      keywords: ['托吉措', '慈悲湖', '湖', '湖泊', 'tsoji', 'lake', 'mercy'] },
-    { title: '色雄大经幡', titleEn: 'Sexung Prayer Flags', url: '/routes', category: '路线地标',
-      keywords: ['色雄', '经幡', '大经幡', 'sexung', 'prayer flags'] },
-    { title: '马头明王石', titleEn: 'Hayagriva Rock', url: '/routes', category: '路线地标',
-      keywords: ['马头明王', '石头', '岩石', 'hayagriva', 'rock'] },
-    
-    // 文化相关
-    { title: '玛旁雍错', titleEn: 'Lake Manasarovar', url: '/culture', category: '文化地标',
-      keywords: ['圣湖', '玛旁雍错', '玛法木错', '湖', '湖泊', 'manasarovar', 'lake', 'holy lake'] },
-    { title: '拉昂错', titleEn: 'Lake Rakshastal', url: '/culture', category: '文化地标',
-      keywords: ['鬼湖', '拉昂错', 'rakshastal', 'lake'] },
-    { title: '经幡', titleEn: 'Prayer Flags', url: '/culture', category: '文化元素',
-      keywords: ['经幡', '风马旗', '隆达', '五彩', 'prayer flags', 'lungta', 'wind horse'] },
-    { title: '玛尼堆', titleEn: 'Mani Stones', url: '/culture', category: '文化元素',
-      keywords: ['玛尼堆', '玛尼石', '石头', 'mani stones', 'mani pile'] },
-    { title: '磕长头', titleEn: 'Prostration', url: '/culture', category: '文化元素',
-      keywords: ['磕长头', '朝拜', '跪拜', '五体投地', 'prostration', 'prostrate', 'bow'] },
-    { title: '转经筒', titleEn: 'Prayer Wheel', url: '/culture', category: '文化元素',
-      keywords: ['转经筒', '经筒', 'prayer wheel', 'mani wheel'] },
-    { title: '酥油茶', titleEn: 'Butter Tea', url: '/culture', category: '文化元素',
-      keywords: ['酥油茶', '奶茶', '茶', 'butter tea', 'tea'] },
-    { title: '六字真言', titleEn: 'Om Mani Padme Hum', url: '/culture', category: '文化元素',
-      keywords: ['六字真言', '唵嘛呢叭咪吽', '真言', '咒语', 'om mani', 'mantra'] },
-    
-    // 攻略相关
-    { title: '高原反应', titleEn: 'Altitude Sickness', url: '/guide', category: '健康问题',
-      keywords: ['高反', '高原反应', '缺氧', '头痛', '恶心', '呕吐', '呼吸困难', 'altitude sickness', 'AMS', 'headache', 'nausea', 'oxygen'] },
-    { title: '最佳时间', titleEn: 'Best Time', url: '/guide', category: '时间规划',
-      keywords: ['时间', '季节', '最佳', '几月', '什么时候', '夏天', '冬天', '五月', '六月', '七月', '八月', '九月', 'time', 'season', 'best', 'month', 'summer', 'winter'] },
-    { title: '装备清单', titleEn: 'Packing List', url: '/guide', category: '装备准备',
-      keywords: ['装备', '清单', '带什么', '衣服', '鞋子', '背包', '睡袋', '冲锋衣', '登山鞋', 'packing', 'gear', 'clothes', 'shoes', 'backpack', 'sleeping bag', 'jacket'] },
-    { title: '许可证', titleEn: 'Permit', url: '/guide', category: '证件办理',
-      keywords: ['许可证', '边防证', '通行证', '证件', '手续', '办理', 'permit', 'border permit', 'pass', 'document'] },
-    { title: '交通', titleEn: 'Transportation', url: '/guide', category: '交通方式',
-      keywords: ['交通', '怎么去', '飞机', '火车', '汽车', '班车', '包车', '自驾', '拉萨', '阿里', 'transportation', 'flight', 'train', 'bus', 'car', 'lhasa', 'ali'] },
-    { title: '费用', titleEn: 'Cost', url: '/guide', category: '预算规划',
-      keywords: ['费用', '多少钱', '价格', '预算', '花费', 'cost', 'price', 'budget', 'money', 'expensive'] },
-    { title: '住宿', titleEn: 'Accommodation', url: '/guide', category: '住宿信息',
-      keywords: ['住宿', '酒店', '客栈', '旅馆', '宾馆', '房间', '床位', 'accommodation', 'hotel', 'guesthouse', 'room', 'bed'] },
-    { title: '食物', titleEn: 'Food', url: '/guide', category: '饮食信息',
-      keywords: ['食物', '吃', '餐厅', '饭', '干粮', '泡面', '零食', 'food', 'eat', 'restaurant', 'meal', 'snacks'] },
-    
-    // 补给相关
-    { title: '补给站', titleEn: 'Supply Stations', url: '/routes', category: '补给信息',
-      keywords: ['补给', '茶馆', '小卖部', '商店', '买', '食物', '水', '饮料', '氧气', 'supply', 'teahouse', 'shop', 'buy', 'water', 'oxygen'] },
-    { title: '氧气瓶', titleEn: 'Oxygen', url: '/guide', category: '装备',
-      keywords: ['氧气', '氧气瓶', '吸氧', '缺氧', 'oxygen', 'bottle', 'tank'] },
-    { title: '登山杖', titleEn: 'Trekking Poles', url: '/guide', category: '装备',
-      keywords: ['登山杖', '手杖', '拐杖', 'trekking poles', 'walking sticks'] },
-    
-    // 宗教相关
-    { title: '藏传佛教', titleEn: 'Tibetan Buddhism', url: '/culture', category: '宗教',
-      keywords: ['藏传佛教', '密宗', '喇嘛', '活佛', '班禅', 'tibetan buddhism', 'lama', 'tulku'] },
-    { title: '印度教', titleEn: 'Hinduism', url: '/culture', category: '宗教',
-      keywords: ['印度教', '湿婆', '毗湿奴', 'hinduism', 'shiva', 'vishnu', 'hindu'] },
-    { title: '苯教', titleEn: 'Bon', url: '/culture', category: '宗教',
-      keywords: ['苯教', '本教', '雍仲苯教', 'bon', 'bonism'] },
-    { title: '耆那教', titleEn: 'Jainism', url: '/culture', category: '宗教',
-      keywords: ['耆那教', '大雄', 'jainism', 'jain', 'mahavira'] },
-    
-    // 人物相关
-    { title: '米拉日巴', titleEn: 'Milarepa', url: '/culture', category: '历史人物',
-      keywords: ['米拉日巴', '大师', '尊者', 'milarepa', 'master', 'saint'] },
-    { title: '莲花生大士', titleEn: 'Guru Rinpoche', url: '/culture', category: '历史人物',
-      keywords: ['莲花生', '莲师', '邬金', 'guru rinpoche', 'padmasambhava'] },
-    { title: '格萨尔王', titleEn: 'Gesar Khan', url: '/culture', category: '历史人物',
-      keywords: ['格萨尔', '格萨尔王', '英雄', '史诗', 'gesar', 'khan', 'epic', 'hero'] },
-    
-    // 经典文献
-    { title: '冈仁波齐志', titleEn: 'Kailash Records', url: '/culture', category: '经典文献',
-      keywords: ['经典', '文献', '书籍', '经书', '经文', '冈仁波齐志', 'classic', 'text', 'book', 'scripture'] },
-    { title: '米拉日巴传', titleEn: 'Milarepa Biography', url: '/culture', category: '经典文献',
-      keywords: ['米拉日巴传', '传记', '道歌', 'biography', 'songs'] },
-    { title: '格萨尔王传', titleEn: 'Gesar Epic', url: '/culture', category: '经典文献',
-      keywords: ['格萨尔王传', '史诗', 'epic', 'gesar'] }
-  ];
-
-  const searchInput = document.getElementById('searchInput');
-  const searchInputEn = document.getElementById('searchInputEn');
-  const searchBtn = document.getElementById('searchBtn');
-  const searchResults = document.getElementById('searchResults');
-  const searchResultsList = document.getElementById('searchResultsList');
-  const searchEmpty = document.getElementById('searchEmpty');
-
-  function performSearch(query) {
-    if (!query || query.length < 1) {
-      searchResults.classList.add('hidden');
-      return;
-    }
-
-    const lowerQuery = query.toLowerCase().trim();
-    
-    // Split query into individual characters for Chinese matching
-    const queryChars = lowerQuery.split('');
-    
-    const results = searchData.filter(item => {
-      // Check if any keyword contains the query
-      const keywordMatch = item.keywords.some(k => k.toLowerCase().includes(lowerQuery));
-      
-      // Check title match
-      const titleMatch = item.title.toLowerCase().includes(lowerQuery) || 
-                        item.titleEn.toLowerCase().includes(lowerQuery);
-      
-      // For Chinese, check if all query characters appear in the string (fuzzy match)
-      const fuzzyMatch = queryChars.every(char => 
-        item.title.includes(char) || 
-        item.keywords.some(k => k.includes(char))
-      );
-      
-      return keywordMatch || titleMatch || fuzzyMatch;
-    });
-
-    // Remove duplicates based on URL
-    const uniqueResults = results.filter((item, index, self) => 
-      index === self.findIndex(t => t.url === item.url)
-    );
-
-    searchResults.classList.remove('hidden');
-    
-    if (uniqueResults.length === 0) {
-      searchResultsList.classList.add('hidden');
-      searchEmpty.classList.remove('hidden');
-      searchEmpty.innerHTML = '<span>未找到 "' + query + '" 的相关结果</span>';
-    } else {
-      searchEmpty.classList.add('hidden');
-      searchResultsList.classList.remove('hidden');
-      
-      // Group results by category
-      const grouped = uniqueResults.reduce((acc, item) => {
-        if (!acc[item.category]) acc[item.category] = [];
-        acc[item.category].push(item);
-        return acc;
-      }, {});
-      
-      let html = '';
-      for (const [category, items] of Object.entries(grouped)) {
-        html += `<div class="px-4 py-2 bg-gray-50 text-xs font-semibold text-gray-500 uppercase">${category}</div>`;
-        html += items.map(item => `
-          <a href="${item.url}" class="block p-4 hover:bg-kailash-light transition border-b border-gray-100 last:border-0">
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="font-medium text-kailash-dark">${item.title}</p>
-                <p class="text-sm text-gray-500">${item.titleEn}</p>
-              </div>
-              <svg class="w-5 h-5 text-kailash-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
-            </div>
-          </a>
-        `).join('');
-      }
-      
-      searchResultsList.innerHTML = html;
-    }
+<style is:global>
+  .hot-chip {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+    border: 1px solid rgba(15,14,13,0.25);
+    background: rgba(255,255,255,0.55);
+    color: #3b2f23;
+    cursor: pointer;
+    transition: all 0.2s;
+    backdrop-filter: blur(4px);
   }
+  .hot-chip:hover {
+    border-color: #8B6914;
+    color: #8B6914;
+    background: rgba(255,255,255,0.85);
+  }
+  .ai-dot {
+    width: 6px;
+    height: 6px;
+    background: #B8956A;
+    border-radius: 50%;
+    display: inline-block;
+    animation: aiBounce 1.2s infinite ease-in-out both;
+  }
+  .ai-dot:nth-child(2) { animation-delay: -0.4s; }
+  .ai-dot:nth-child(3) { animation-delay: -0.2s; }
+  @keyframes aiBounce {
+    0%, 80%, 100% { transform: scale(0.55); opacity: 0.4; }
+    40% { transform: scale(1); opacity: 1; }
+  }
+  .ai-thinking {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #9a8c7a;
+    padding: 0.35rem 0;
+  }
+</style>
 
-  // Event listeners with debounce
-  let debounceTimer;
-  [searchInput, searchInputEn].forEach(input => {
-    if (input) {
+<script>
+  (function () {
+    // ============ SEARCH DATA (static index) ============
+    const searchData = [
+      // 主要页面
+      { title: '转山路线', titleEn: 'Kora Route', url: '/routes', category: '主要页面',
+        keywords: ['路线', '转山', '52公里', '三天', '两天', '行程', '徒步', '公里', '距离', '地图', 'route', 'kora', '52km', 'trail', 'trek', 'hiking', 'distance', 'map', 'path'] },
+      { title: '朝圣攻略', titleEn: 'Pilgrimage Guide', url: '/guide', category: '主要页面',
+        keywords: ['攻略', '准备', '装备', '高反', '指南', '建议', '注意事项', '怎么', '如何', '新手', '第一次', 'guide', 'preparation', 'gear', 'tips', 'advice', 'altitude', 'beginner', 'first time'] },
+      { title: '神山文化', titleEn: 'Sacred Culture', url: '/culture', category: '主要页面',
+        keywords: ['文化', '宗教', '佛教', '印度教', '苯教', '耆那教', '信仰', '神圣', '历史', '传统', 'culture', 'religion', 'buddhism', 'hinduism', 'bon', 'jainism', 'faith', 'sacred', 'history', 'tradition'] },
+      { title: '朝圣故事', titleEn: 'Pilgrim Stories', url: '/stories', category: '主要页面',
+        keywords: ['故事', '经历', '分享', '体验', '感受', '心得', '游记', '日记', 'stories', 'experience', 'sharing', 'journey', 'diary', 'testimonial'] },
+      { title: '图库', titleEn: 'Gallery', url: '/gallery', category: '主要页面',
+        keywords: ['图片', '照片', '影像', '摄影', '风景', '相册', 'gallery', 'photos', 'images', 'pictures', 'photography', 'scenery'] },
+      { title: '常见问题', titleEn: 'FAQ', url: '/faq', category: '主要页面',
+        keywords: ['问题', 'FAQ', '疑问', '问答', '咨询', '疑惑', 'questions', 'faq', 'help', 'support'] },
+      { title: '关于我们', titleEn: 'About Us', url: '/about', category: '主要页面',
+        keywords: ['关于', '团队', '介绍', '背景', '使命', '愿景', 'about', 'team', 'introduction', 'background', 'mission'] },
+      { title: '联系我们', titleEn: 'Contact', url: '/contact', category: '主要页面',
+        keywords: ['联系', '邮箱', '反馈', 'contact', 'email', 'feedback'] },
+      { title: '朝圣套餐', titleEn: 'Pilgrimage Packages', url: '/packages', category: '套餐服务',
+        keywords: ['套餐', '朝圣团', '跟团', '报名', '定金', '成团', '日期', '团费', '多少钱', '价格', 'packages', 'tour', 'tours', 'group', 'price', 'cost', 'book', 'deposit'] },
+      { title: '电子书《冈仁波齐权威指南》', titleEn: 'E-book Guide', url: '/ebook', category: '电子书',
+        keywords: ['电子书', 'ebook', '指南', '书', '购买', 'pdf', '下载', '29.9', '权威指南'] },
+      { title: '深度咨询服务', titleEn: 'Consulting', url: '/consulting', category: '咨询服务',
+        keywords: ['咨询', '顾问', '定制', '一对一', '1对1', '规划', 'consulting', 'consultant', 'custom', 'planning'] },
+      { title: 'AI服务介绍', titleEn: 'AI Services', url: '/ai-service', category: 'AI服务',
+        keywords: ['AI', '人工智能', '智能', '助手', '小冈', 'ai', 'assistant', 'service'] },
+      { title: '朝圣留言墙', titleEn: 'Messages', url: '/messages', category: '互动',
+        keywords: ['留言', '祝福', '心愿', '许愿', '祈祷', '留言墙', 'messages', 'blessing', 'wish', 'prayer'] },
+      { title: '博客资讯', titleEn: 'Blog', url: '/blog', category: '博客',
+        keywords: ['博客', '文章', '资讯', '新闻', 'blog', 'article', 'news'] },
+      { title: '阿里人文风情', titleEn: 'Ali / Ngari Culture', url: '/ali', category: '人文地理',
+        keywords: ['阿里', '阿里地区', '人文', '风光', '风景', '狮泉河', '札达', '古格', 'ali', 'ngari', 'landscape'] },
+
+      // 路线相关
+      { title: '卓玛拉垭口（5630m）', titleEn: 'Drolma La Pass', url: '/routes', category: '路线地标',
+        keywords: ['垭口', '最高点', '5630', '5630米', '5648', '5648米', '山顶', '顶峰', 'pass', 'highest', 'summit', 'peak', 'top'] },
+      { title: '止热寺', titleEn: 'Drirapuk', url: '/routes', category: '路线地标',
+        keywords: ['止热寺', '住宿', '寺庙', '寺院', '营地', '过夜', 'drirapuk', 'lodging', 'temple', 'monastery', 'camp', 'stay'] },
+      { title: '塔尔钦', titleEn: 'Darchen', url: '/routes', category: '路线地标',
+        keywords: ['塔尔钦', '起点', '终点', '小镇', '城镇', '基地', 'darchen', 'start', 'finish', 'town', 'base'] },
+      { title: '曲古寺', titleEn: 'Choku Gompa', url: '/routes', category: '路线地标',
+        keywords: ['曲古寺', '寺庙', 'choku', 'gompa', 'temple'] },
+      { title: '尊最普寺', titleEn: 'Zunzhepu', url: '/routes', category: '路线地标',
+        keywords: ['尊最普寺', '祖楚寺', '仲哲普寺', '寺庙', 'zunzhepu', 'zhongzhepu', 'temple'] },
+      { title: '托吉措', titleEn: 'Tsoji Lake', url: '/routes', category: '路线地标',
+        keywords: ['托吉措', '慈悲湖', '湖', '湖泊', 'tsoji', 'lake', 'mercy'] },
+      { title: '色雄大经幡', titleEn: 'Sexung Prayer Flags', url: '/routes', category: '路线地标',
+        keywords: ['色雄', '经幡', '大经幡', 'sexung', 'prayer flags'] },
+      { title: '马头明王石', titleEn: 'Hayagriva Rock', url: '/routes', category: '路线地标',
+        keywords: ['马头明王', '石头', '岩石', 'hayagriva', 'rock'] },
+      { title: '补给站', titleEn: 'Supply Stations', url: '/routes', category: '补给信息',
+        keywords: ['补给', '茶馆', '小卖部', '商店', '买', '食物', '水', '饮料', '氧气', 'supply', 'teahouse', 'shop', 'buy', 'water', 'oxygen'] },
+
+      // 文化相关
+      { title: '玛旁雍错', titleEn: 'Lake Manasarovar', url: '/culture', category: '文化地标',
+        keywords: ['圣湖', '玛旁雍错', '玛法木错', '湖', '湖泊', 'manasarovar', 'lake', 'holy lake'] },
+      { title: '拉昂错', titleEn: 'Lake Rakshastal', url: '/culture', category: '文化地标',
+        keywords: ['鬼湖', '拉昂错', 'rakshastal', 'lake'] },
+      { title: '经幡', titleEn: 'Prayer Flags', url: '/culture', category: '文化元素',
+        keywords: ['经幡', '风马旗', '隆达', '五彩', 'prayer flags', 'lungta', 'wind horse'] },
+      { title: '玛尼堆', titleEn: 'Mani Stones', url: '/culture', category: '文化元素',
+        keywords: ['玛尼堆', '玛尼石', '石头', 'mani stones', 'mani pile'] },
+      { title: '磕长头', titleEn: 'Prostration', url: '/culture', category: '文化元素',
+        keywords: ['磕长头', '朝拜', '跪拜', '五体投地', 'prostration', 'prostrate', 'bow'] },
+      { title: '转经筒', titleEn: 'Prayer Wheel', url: '/culture', category: '文化元素',
+        keywords: ['转经筒', '经筒', 'prayer wheel', 'mani wheel'] },
+      { title: '酥油茶', titleEn: 'Butter Tea', url: '/culture', category: '文化元素',
+        keywords: ['酥油茶', '奶茶', '茶', 'butter tea', 'tea'] },
+      { title: '六字真言', titleEn: 'Om Mani Padme Hum', url: '/culture', category: '文化元素',
+        keywords: ['六字真言', '唵嘛呢叭咪吽', '真言', '咒语', 'om mani', 'mantra'] },
+
+      // 攻略相关
+      { title: '高原反应', titleEn: 'Altitude Sickness', url: '/guide', category: '健康问题',
+        keywords: ['高反', '高原反应', '缺氧', '头痛', '恶心', '呕吐', '呼吸困难', 'altitude sickness', 'AMS', 'headache', 'nausea', 'oxygen'] },
+      { title: '最佳时间', titleEn: 'Best Time', url: '/guide', category: '时间规划',
+        keywords: ['时间', '季节', '最佳', '几月', '什么时候', '夏天', '冬天', '五月', '六月', '七月', '八月', '九月', 'time', 'season', 'best', 'month', 'summer', 'winter'] },
+      { title: '装备清单', titleEn: 'Packing List', url: '/guide', category: '装备准备',
+        keywords: ['装备', '清单', '带什么', '衣服', '鞋子', '背包', '睡袋', '冲锋衣', '登山鞋', 'packing', 'gear', 'clothes', 'shoes', 'backpack', 'sleeping bag', 'jacket'] },
+      { title: '许可证', titleEn: 'Permit', url: '/guide', category: '证件办理',
+        keywords: ['许可证', '边防证', '通行证', '证件', '手续', '办理', '入藏函', 'permit', 'border permit', 'pass', 'document'] },
+      { title: '交通', titleEn: 'Transportation', url: '/guide', category: '交通方式',
+        keywords: ['交通', '怎么去', '飞机', '火车', '汽车', '班车', '包车', '自驾', '拉萨', '阿里', 'transportation', 'flight', 'train', 'bus', 'car', 'lhasa', 'ali'] },
+      { title: '费用', titleEn: 'Cost', url: '/guide', category: '预算规划',
+        keywords: ['费用', '多少钱', '价格', '预算', '花费', 'cost', 'price', 'budget', 'money', 'expensive'] },
+      { title: '住宿', titleEn: 'Accommodation', url: '/guide', category: '住宿信息',
+        keywords: ['住宿', '酒店', '客栈', '旅馆', '宾馆', '房间', '床位', 'accommodation', 'hotel', 'guesthouse', 'room', 'bed'] },
+      { title: '食物', titleEn: 'Food', url: '/guide', category: '饮食信息',
+        keywords: ['食物', '吃', '餐厅', '饭', '干粮', '泡面', '零食', 'food', 'eat', 'restaurant', 'meal', 'snacks'] },
+
+      // 装备相关
+      { title: '氧气瓶', titleEn: 'Oxygen', url: '/guide', category: '装备',
+        keywords: ['氧气', '氧气瓶', '吸氧', '缺氧', 'oxygen', 'bottle', 'tank'] },
+      { title: '登山杖', titleEn: 'Trekking Poles', url: '/guide', category: '装备',
+        keywords: ['登山杖', '手杖', '拐杖', 'trekking poles', 'walking sticks'] },
+
+      // 宗教相关
+      { title: '藏传佛教', titleEn: 'Tibetan Buddhism', url: '/culture', category: '宗教',
+        keywords: ['藏传佛教', '密宗', '喇嘛', '活佛', '班禅', 'tibetan buddhism', 'lama', 'tulku'] },
+      { title: '印度教', titleEn: 'Hinduism', url: '/culture', category: '宗教',
+        keywords: ['印度教', '湿婆', '毗湿奴', 'hinduism', 'shiva', 'vishnu', 'hindu'] },
+      { title: '苯教', titleEn: 'Bon', url: '/culture', category: '宗教',
+        keywords: ['苯教', '本教', '雍仲苯教', 'bon', 'bonism'] },
+      { title: '耆那教', titleEn: 'Jainism', url: '/culture', category: '宗教',
+        keywords: ['耆那教', '大雄', 'jainism', 'jain', 'mahavira'] },
+
+      // 人物相关
+      { title: '米拉日巴', titleEn: 'Milarepa', url: '/culture', category: '历史人物',
+        keywords: ['米拉日巴', '大师', '尊者', 'milarepa', 'master', 'saint'] },
+      { title: '莲花生大士', titleEn: 'Guru Rinpoche', url: '/culture', category: '历史人物',
+        keywords: ['莲花生', '莲师', '邬金', 'guru rinpoche', 'padmasambhava'] },
+      { title: '格萨尔王', titleEn: 'Gesar Khan', url: '/culture', category: '历史人物',
+        keywords: ['格萨尔', '格萨尔王', '英雄', '史诗', 'gesar', 'khan', 'epic', 'hero'] },
+
+      // 经典文献
+      { title: '冈仁波齐志', titleEn: 'Kailash Records', url: '/culture', category: '经典文献',
+        keywords: ['经典', '文献', '书籍', '经书', '经文', '冈仁波齐志', 'classic', 'text', 'book', 'scripture'] },
+      { title: '米拉日巴传', titleEn: 'Milarepa Biography', url: '/culture', category: '经典文献',
+        keywords: ['米拉日巴传', '传记', '道歌', 'biography', 'songs'] },
+      { title: '格萨尔王传', titleEn: 'Gesar Epic', url: '/culture', category: '经典文献',
+        keywords: ['格萨尔王传', '史诗', 'epic', 'gesar'] },
+
+      // 马年专题
+      { title: '2026藏历马年', titleEn: 'Horse Year 2026', url: '/horse-year-2026', category: '马年专题',
+        keywords: ['马年', '藏历', '2026', '十二年', '本命年', '属马', '马年转山', 'horse year', 'zodiac'] },
+    ];
+
+    const CATEGORY_ICONS = {
+      '主要页面': '🔗', '路线地标': '🗺️', '文化地标': '🏔️', '文化元素': '📿', '健康问题': '⚠️',
+      '时间规划': '📅', '装备准备': '🎒', '证件办理': '📋', '交通方式': '🚙', '预算规划': '💰',
+      '住宿信息': '🏨', '饮食信息': '🍜', '补给信息': '⛽', '装备': '🥾', '宗教': '⛩️',
+      '历史人物': '👤', '经典文献': '📜', '套餐服务': '✨', '电子书': '📖', '咨询服务': '💼',
+      'AI服务': '🤖', '互动': '💌', '博客': '✍️', '人文地理': '🏞️', '马年专题': '🐎'
+    };
+
+    // ============ ELEMENTS ============
+    const inputZh = document.getElementById('searchInput');
+    const inputEn = document.getElementById('searchInputEn');
+    const btn = document.getElementById('searchBtn');
+    const results = document.getElementById('searchResults');
+    const listEl = document.getElementById('searchResultsList');
+    const countEl = document.getElementById('searchCount');
+    const emptyEl = document.getElementById('searchEmpty');
+    const fallbackEl = document.getElementById('searchFallback');
+    const askAiBtn = document.getElementById('askAiBtn');
+    const aiSection = document.getElementById('aiSection');
+    const aiAnswer = document.getElementById('aiAnswer');
+    const aiBadge = document.getElementById('aiBadge');
+    const aiRetry = document.getElementById('aiRetry');
+    const aiChatLink = document.getElementById('aiChatLink');
+    const hotChips = document.querySelectorAll('.hot-chip');
+
+    // ============ STATE ============
+    let activeLang = document.documentElement.getAttribute('data-lang') || 'zh';
+    let staticTimer = null;
+    let aiTimer = null;
+    let aiController = null;
+    let aiCooldownUntil = 0;   // client-side cooldown (ms) to protect rate limit
+    let lastAiQuery = '';
+    let lastQuery = '';
+
+    const AI_COOLDOWN_MS = 8000;
+
+    function getActiveInput() { return activeLang === 'en' ? inputEn : inputZh; }
+    function getValue() { const i = getActiveInput(); return i ? i.value.trim() : ''; }
+    function isQuestion(q) {
+      return /[?？]$/.test(q) || /(怎么|如何|什么|多少|可以|需要|注意|准备|哪里|何时|why|how|what|when|where|can|should|need)/i.test(q);
+    }
+
+    // ============ LANGUAGE WATCH ============
+    function syncInputs() {
+      inputZh.classList.toggle('hidden', activeLang !== 'zh');
+      inputEn.classList.toggle('hidden', activeLang !== 'en');
+      hotChips.forEach(c => {
+        c.style.display = c.getAttribute('data-lang') === activeLang ? '' : 'none';
+      });
+    }
+    syncInputs();
+    const mo = new MutationObserver(() => {
+      const lang = document.documentElement.getAttribute('data-lang') || 'zh';
+      if (lang !== activeLang) {
+        activeLang = lang;
+        syncInputs();
+        const v = getValue();
+        if (v.length) performSearch(v); else hideAll();
+      }
+    });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-lang'] });
+
+    // ============ HELPERS ============
+    function escapeHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function highlight(text, query) {
+      const esc = escapeHtml(text);
+      const q = (query || '').trim().toLowerCase();
+      if (!q || q.length < 2) return esc;
+      const idx = esc.toLowerCase().indexOf(q);
+      if (idx === -1) return esc;
+      const qEsc = esc.slice(idx, idx + q.length);
+      return esc.slice(0, idx) + '<mark class="bg-kailash-gold/30 rounded px-0.5">' + qEsc + '</mark>' + esc.slice(idx + q.length);
+    }
+
+    function formatAI(text) {
+      const lines = escapeHtml(text).split('\n');
+      let html = '';
+      let inList = false;
+      for (let raw of lines) {
+        let line = raw.trim();
+        if (!line) {
+          if (inList) { html += '</div>'; inList = false; }
+          continue;
+        }
+        line = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        line = line.replace(/\*(.+?)\*/g, '<em>$1</em>');
+        if (/^[-•·]\s+/.test(line)) {
+          if (!inList) { html += '<div class="mt-1.5 space-y-1">'; inList = true; }
+          html += '<div class="flex gap-2"><span class="text-kailash-gold flex-shrink-0">•</span><span>' + line.replace(/^[-•·]\s+/, '') + '</span></div>';
+        } else if (/^\d+[.、)]\s+/.test(line)) {
+          if (!inList) { html += '<div class="mt-1.5 space-y-1">'; inList = true; }
+          html += '<div class="flex gap-2"><span class="text-kailash-gold flex-shrink-0">' + line.match(/^\d+/)[0] + '.</span><span>' + line.replace(/^\d+[.、)]\s+/, '') + '</span></div>';
+        } else {
+          if (inList) { html += '</div>'; inList = false; }
+          html += '<p class="mt-1.5 first:mt-0">' + line + '</p>';
+        }
+      }
+      if (inList) html += '</div>';
+      return html;
+    }
+
+    function showTyping() {
+      aiSection.classList.remove('hidden');
+      aiBadge.textContent = '';
+      aiRetry.classList.add('hidden');
+      aiChatLink.classList.add('hidden');
+      aiAnswer.innerHTML = '<div class="ai-thinking"><span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span>&nbsp;小冈正在思考…</div>';
+    }
+
+    // ============ AI ANSWER ============
+    async function askAI(query, force) {
+      if (!query || query.length < 2) return;
+      const now = Date.now();
+      // Skip auto calls during cooldown; force (button/Enter) bypasses cooldown but not repeated identical queries
+      if (!force && now < aiCooldownUntil) return;
+      if (query === lastAiQuery && aiController) return;
+
+      if (aiController) aiController.abort();
+      aiController = new AbortController();
+      lastAiQuery = query;
+      showTyping();
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: [{ role: 'user', content: query }] }),
+          signal: aiController.signal,
+        });
+        aiCooldownUntil = Date.now() + AI_COOLDOWN_MS;
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error || 'AI服务暂时不可用');
+        }
+        const data = await res.json();
+        if (!data.reply) throw new Error('空回复');
+        aiAnswer.innerHTML = formatAI(data.reply);
+        aiBadge.textContent = '⚡ ' + (data.reply.length > 60 ? '摘要回答' : '已回复');
+        aiRetry.classList.remove('hidden');
+        aiChatLink.classList.remove('hidden');
+      } catch (e) {
+        if (e.name === 'AbortError') return;
+        aiAnswer.innerHTML = '<p class="text-gray-400">😅 小冈暂时没回答上来，稍后再试试。</p>';
+        aiBadge.textContent = '';
+        aiRetry.classList.remove('hidden');
+        aiChatLink.classList.remove('hidden');
+      }
+    }
+
+    // ============ STATIC SEARCH ============
+    function matches(item, query) {
+      const q = query.toLowerCase().trim();
+      if (!q) return false;
+      // token match (space-separated)
+      const tokens = q.split(/\s+/).filter(Boolean);
+      if (tokens.length > 1) {
+        return tokens.every(tok =>
+          item.title.toLowerCase().includes(tok) ||
+          item.titleEn.toLowerCase().includes(tok) ||
+          item.keywords.some(k => k.toLowerCase().includes(tok))
+        );
+      }
+      const keywordMatch = item.keywords.some(k => k.toLowerCase().includes(q));
+      const titleMatch = item.title.toLowerCase().includes(q) || item.titleEn.toLowerCase().includes(q);
+      // Chinese fuzzy: all query chars present across title/keywords
+      const chars = q.split('');
+      const fuzzyMatch = /[\u4e00-\u9fff]/.test(q) && chars.every(ch =>
+        item.title.includes(ch) || item.keywords.some(k => k.includes(ch))
+      );
+      return keywordMatch || titleMatch || fuzzyMatch;
+    }
+
+    function renderStatic(query) {
+      const q = query.toLowerCase().trim();
+      const found = searchData.filter(item => matches(item, q));
+      const unique = found.filter((item, idx, self) => idx === self.findIndex(t => t.url === item.url));
+
+      const hasResults = unique.length > 0;
+      listEl.classList.toggle('hidden', !hasResults);
+      // emptyEl: only the initial "type to search" hint when nothing typed
+      emptyEl.classList.toggle('hidden', q.length > 0);
+      // fallback: show "ask AI" only when a query exists but no static results
+      fallbackEl.classList.toggle('hidden', hasResults || q.length === 0);
+      countEl.classList.toggle('hidden', !hasResults);
+      if (hasResults) {
+        countEl.textContent = '找到 ' + unique.length + ' 条相关结果';
+        const grouped = unique.reduce((acc, it) => {
+          (acc[it.category] = acc[it.category] || []).push(it);
+          return acc;
+        }, {});
+        let html = '';
+        for (const [cat, items] of Object.entries(grouped)) {
+          const icon = CATEGORY_ICONS[cat] || '🔍';
+          html += '<div class="px-4 py-2 bg-gray-50 text-xs font-semibold text-gray-500 uppercase">' + icon + ' ' + escapeHtml(cat) + '</div>';
+          html += items.map(it => `
+            <a href="${it.url}" class="block p-3 hover:bg-kailash-light transition border-b border-gray-100 last:border-0">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-medium text-kailash-dark">${highlight(it.title, q)}</p>
+                  <p class="text-sm text-gray-500">${highlight(it.titleEn, q)}</p>
+                </div>
+                <svg class="w-5 h-5 text-kailash-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+          `).join('');
+        }
+        listEl.innerHTML = html;
+      } else {
+        listEl.innerHTML = '';
+      }
+    }
+
+    // ============ MAIN SEARCH ============
+    function performSearch(query, forceAi) {
+      const q = (query || '').trim();
+      lastQuery = q;
+
+      if (aiTimer) { clearTimeout(aiTimer); aiTimer = null; }
+
+      if (!q) { hideAll(); return; }
+
+      results.classList.remove('hidden');
+      renderStatic(q);
+
+      // AI answer: delay slightly so static results show first; forceAi (Enter/btn) goes immediately
+      if (forceAi) {
+        askAI(q, true);
+      } else {
+        aiTimer = setTimeout(() => askAI(q, false), 700);
+      }
+    }
+
+    function hideAll() {
+      results.classList.add('hidden');
+      if (aiTimer) { clearTimeout(aiTimer); aiTimer = null; }
+      if (aiController) { aiController.abort(); aiController = null; }
+      aiSection.classList.add('hidden');
+    }
+
+    // ============ EVENTS ============
+    let debounceTimer;
+    [inputZh, inputEn].forEach(input => {
+      if (!input) return;
       input.addEventListener('input', (e) => {
         clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => performSearch(e.target.value), 200);
+        debounceTimer = setTimeout(() => performSearch(e.target.value), 180);
       });
-      
       input.addEventListener('focus', () => {
-        if (input.value.length >= 1) {
-          performSearch(input.value);
-        }
+        if (input.value.trim().length >= 1) performSearch(input.value);
       });
-    }
-  });
-
-  // Close search results when clicking outside
-  document.addEventListener('click', (e) => {
-    const resultsEl = document.getElementById('searchResults');
-    const inputEl = document.getElementById('searchInput');
-    const inputEnEl = document.getElementById('searchInputEn');
-    const btnEl = document.getElementById('searchBtn');
-    
-    // Don't close if clicking on results, input, or button
-    if (resultsEl && !resultsEl.contains(e.target) && 
-        inputEl && !inputEl.contains(e.target) && 
-        inputEnEl && !inputEnEl.contains(e.target) && 
-        btnEl && !btnEl.contains(e.target)) {
-      resultsEl.classList.add('hidden');
-    }
-  });
-
-  // Search button click
-  searchBtn.addEventListener('click', () => {
-    const activeInput = !searchInput.classList.contains('hidden') ? searchInput : searchInputEn;
-    performSearch(activeInput.value);
-  });
-
-  // Enter key
-  [searchInput, searchInputEn].forEach(input => {
-    if (input) {
-      input.addEventListener('keypress', (e) => {
+      input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-          performSearch(input.value);
+          e.preventDefault();
+          performSearch(input.value, true);
         }
       });
-    }
-  });
+    });
+
+    btn.addEventListener('click', () => performSearch(getValue(), true));
+
+    askAiBtn.addEventListener('click', () => askAI(lastQuery, true));
+
+    aiRetry.addEventListener('click', () => askAI(lastAiQuery || lastQuery, true));
+
+    aiChatLink.addEventListener('click', () => {
+      const bubble = document.getElementById('chat-bubble');
+      const chatInput = document.getElementById('chat-input');
+      if (chatInput) chatInput.value = lastAiQuery || lastQuery;
+      if (bubble) bubble.click();
+    });
+
+    hotChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const q = chip.getAttribute('data-q') || '';
+        const input = getActiveInput();
+        if (input) input.value = q;
+        performSearch(q, true);
+      });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      const wrap = document.getElementById('searchResults');
+      if (!wrap) return;
+      const box = wrap.closest('.max-w-2xl');
+      if (box && !box.contains(e.target)) wrap.classList.add('hidden');
+    });
+  })();
 </script>
