@@ -25,6 +25,8 @@
     <button id="searchBtn" class="absolute right-2 top-1/2 -translate-y-1/2 bg-kailash-gold text-kailash-dark px-4 py-2 rounded-full font-medium hover:bg-kailash-accent transition">
       <span data-lang-content="zh">搜索</span>
       <span data-lang-content="en" style="display: none;">Search</span>
+      <span data-lang-content="hi" style="display: none;">खोजें</span>
+      <span data-lang-content="ja" style="display: none;">検索</span>
     </button>
   </div>
 
@@ -50,13 +52,13 @@
     <!-- AI Answer Section -->
     <div id="aiSection" class="hidden border-b border-gray-100 bg-gradient-to-br from-kailash-light/60 to-white">
       <div class="flex items-center justify-between px-4 pt-3 pb-1">
-        <span class="text-xs font-bold text-kailash-dark uppercase tracking-wide">🤖 AI智能回答 · 小冈</span>
+        <span class="text-xs font-bold text-kailash-dark uppercase tracking-wide">🤖 <span data-lang-content="zh">AI智能回答 · 小冈</span><span data-lang-content="en" style="display: none;">AI Answer · Xiaogang</span><span data-lang-content="hi" style="display: none;">AI उत्तर · शियाओगांग</span><span data-lang-content="ja" style="display: none;">AI回答 · シャオガン</span></span>
         <span id="aiBadge" class="text-[10px] text-gray-400"></span>
       </div>
       <div id="aiAnswer" class="px-4 pb-2 text-sm text-gray-700 leading-relaxed"></div>
       <div class="px-4 pb-3 flex items-center gap-4 flex-wrap">
-        <button id="aiRetry" class="hidden text-xs text-kailash-gold font-medium hover:underline">↻ 重新生成</button>
-        <button id="aiChatLink" class="hidden text-xs text-kailash-gold font-medium hover:underline">💬 去和小冈继续聊 →</button>
+        <button id="aiRetry" class="hidden text-xs text-kailash-gold font-medium hover:underline">↻ <span data-lang-content="zh">重新生成</span><span data-lang-content="en" style="display: none;">Regenerate</span><span data-lang-content="hi" style="display: none;">फिर से बनाएं</span><span data-lang-content="ja" style="display: none;">再生成</span></button>
+        <button id="aiChatLink" class="hidden text-xs text-kailash-gold font-medium hover:underline">💬 <span data-lang-content="zh">去和小冈继续聊 →</span><span data-lang-content="en" style="display: none;">Chat with Xiaogang →</span><span data-lang-content="hi" style="display: none;">शियाओगांग से बात करें →</span><span data-lang-content="ja" style="display: none;">シャオガンと話す →</span></button>
         <span class="text-[10px] text-gray-300">AI生成内容仅供参考</span>
       </div>
     </div>
@@ -75,8 +77,10 @@
         <p class="text-gray-500 text-sm mb-3">
           <span data-lang-content="zh">没有找到相关页面，让小冈AI直接回答你 👇</span>
           <span data-lang-content="en" style="display: none;">No matching pages. Ask 小冈 AI directly 👇</span>
+          <span data-lang-content="hi" style="display: none;">कोई पृष्ठ नहीं मिला। शियाओगांग AI से पूछें 👇</span>
+          <span data-lang-content="ja" style="display: none;">該当ページがありません。シャオガンAIに聞く 👇</span>
         </p>
-        <button id="askAiBtn" class="bg-kailash-dark text-white text-sm px-4 py-2 rounded-full font-medium hover:bg-kailash-stone transition">🤖 问问小冈</button>
+        <button id="askAiBtn" class="bg-kailash-dark text-white text-sm px-4 py-2 rounded-full font-medium hover:bg-kailash-stone transition">🤖 <span data-lang-content="zh">问问小冈</span><span data-lang-content="en" style="display: none;">Ask Xiaogang</span><span data-lang-content="hi" style="display: none;">शियाओगांग से पूछें</span><span data-lang-content="ja" style="display: none;">シャオガンに聞く</span></button>
       </div>
     </div>
   </div>
@@ -295,10 +299,14 @@
 
     // ============ LANGUAGE WATCH ============
     function syncInputs() {
-      inputZh.classList.toggle('hidden', activeLang !== 'zh');
-      inputEn.classList.toggle('hidden', activeLang !== 'en');
+      // zh -> zh input; en/hi/ja -> en input (fallback since index data is zh/en)
+      const showZh = activeLang === 'zh';
+      const showEn = activeLang !== 'zh';
+      inputZh.classList.toggle('hidden', !showZh);
+      inputEn.classList.toggle('hidden', !showEn);
       hotChips.forEach(c => {
-        c.style.display = c.getAttribute('data-lang') === activeLang ? '' : 'none';
+        const chipLang = c.getAttribute('data-lang');
+        c.style.display = (chipLang === 'zh' && activeLang === 'zh') || (chipLang === 'en' && activeLang !== 'zh') ? '' : 'none';
       });
     }
     syncInputs();
@@ -355,12 +363,19 @@
       return html;
     }
 
+    function t(zh, en, hi, ja) {
+      if (activeLang === 'en') return en;
+      if (activeLang === 'hi') return hi;
+      if (activeLang === 'ja') return ja;
+      return zh;
+    }
+
     function showTyping() {
       aiSection.classList.remove('hidden');
       aiBadge.textContent = '';
       aiRetry.classList.add('hidden');
       aiChatLink.classList.add('hidden');
-      aiAnswer.innerHTML = '<div class="ai-thinking"><span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span>&nbsp;小冈正在思考…</div>';
+      aiAnswer.innerHTML = '<div class="ai-thinking"><span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span>&nbsp;' + t('小冈正在思考…', 'Xiaogang is thinking…', 'शियाओगांग सोच रहा है…', 'シャオガンが考えています…') + '</div>';
     }
 
     // ============ AI ANSWER ============
@@ -392,12 +407,12 @@
         const data = await res.json();
         if (!data.reply) throw new Error('空回复');
         aiAnswer.innerHTML = formatAI(data.reply);
-        aiBadge.textContent = '⚡ ' + (data.reply.length > 60 ? '摘要回答' : '已回复');
+        aiBadge.textContent = '⚡ ' + (data.reply.length > 60 ? t('摘要回答', 'Summary', 'सारांश', '要約') : t('已回复', 'Answered', 'उत्तर दिया गया', '回答済み'));
         aiRetry.classList.remove('hidden');
         aiChatLink.classList.remove('hidden');
       } catch (e) {
         if (e.name === 'AbortError') return;
-        aiAnswer.innerHTML = '<p class="text-gray-400">😅 小冈暂时没回答上来，稍后再试试。</p>';
+        aiAnswer.innerHTML = '<p class="text-gray-400">😅 ' + t('小冈暂时没回答上来，稍后再试试。', 'Xiaogang could not answer right now, try again later.', 'शियाओगांग अभी उत्तर नहीं दे सका, बाद में फिर कोशिश करें।', 'シャオガンは今答えることができませんでした。後でもう一度お試しください。') + '</p>';
         aiBadge.textContent = '';
         aiRetry.classList.remove('hidden');
         aiChatLink.classList.remove('hidden');
