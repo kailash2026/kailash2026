@@ -2,7 +2,6 @@
 import Analytics from '../components/Analytics.astro';
 import SEO from '../components/SEO.astro';
 import NewsletterPopup from '../components/NewsletterPopup.astro';
-import ChatWidget from '../components/ChatWidget.astro';
 import '../styles/global.css';
 import { getCollection } from 'astro:content';
 
@@ -435,8 +434,6 @@ const navItems = [
       });
     })();
   </script>
-
-  <ChatWidget />
 
   <!-- PWA Service Worker -->
   <script>

@@ -58,7 +58,6 @@
       <div id="aiAnswer" class="px-4 pb-2 text-sm text-gray-700 leading-relaxed"></div>
       <div class="px-4 pb-3 flex items-center gap-4 flex-wrap">
         <button id="aiRetry" class="hidden text-xs text-kailash-gold font-medium hover:underline">↻ <span data-lang-content="zh">重新生成</span><span data-lang-content="en" style="display: none;">Regenerate</span><span data-lang-content="hi" style="display: none;">फिर से बनाएं</span><span data-lang-content="ja" style="display: none;">再生成</span></button>
-        <button id="aiChatLink" class="hidden text-xs text-kailash-gold font-medium hover:underline">💬 <span data-lang-content="zh">去和小冈继续聊 →</span><span data-lang-content="en" style="display: none;">Chat with Xiaogang →</span><span data-lang-content="hi" style="display: none;">शियाओगांग से बात करें →</span><span data-lang-content="ja" style="display: none;">シャオガンと話す →</span></button>
         <span class="text-[10px] text-gray-300">AI生成内容仅供参考</span>
       </div>
     </div>
@@ -277,7 +276,6 @@
     const aiAnswer = document.getElementById('aiAnswer');
     const aiBadge = document.getElementById('aiBadge');
     const aiRetry = document.getElementById('aiRetry');
-    const aiChatLink = document.getElementById('aiChatLink');
     const hotChips = document.querySelectorAll('.hot-chip');
 
     // ============ STATE ============
@@ -374,7 +372,6 @@
       aiSection.classList.remove('hidden');
       aiBadge.textContent = '';
       aiRetry.classList.add('hidden');
-      aiChatLink.classList.add('hidden');
       aiAnswer.innerHTML = '<div class="ai-thinking"><span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span>&nbsp;' + t('小冈正在思考…', 'Xiaogang is thinking…', 'शियाओगांग सोच रहा है…', 'シャオガンが考えています…') + '</div>';
     }
 
@@ -409,13 +406,11 @@
         aiAnswer.innerHTML = formatAI(data.reply);
         aiBadge.textContent = '⚡ ' + (data.reply.length > 60 ? t('摘要回答', 'Summary', 'सारांश', '要約') : t('已回复', 'Answered', 'उत्तर दिया गया', '回答済み'));
         aiRetry.classList.remove('hidden');
-        aiChatLink.classList.remove('hidden');
       } catch (e) {
         if (e.name === 'AbortError') return;
         aiAnswer.innerHTML = '<p class="text-gray-400">😅 ' + t('小冈暂时没回答上来，稍后再试试。', 'Xiaogang could not answer right now, try again later.', 'शियाओगांग अभी उत्तर नहीं दे सका, बाद में फिर कोशिश करें।', 'シャオガンは今答えることができませんでした。後でもう一度お試しください。') + '</p>';
         aiBadge.textContent = '';
         aiRetry.classList.remove('hidden');
-        aiChatLink.classList.remove('hidden');
       }
     }
 
@@ -535,13 +530,6 @@
     askAiBtn.addEventListener('click', () => askAI(lastQuery, true));
 
     aiRetry.addEventListener('click', () => askAI(lastAiQuery || lastQuery, true));
-
-    aiChatLink.addEventListener('click', () => {
-      const bubble = document.getElementById('chat-bubble');
-      const chatInput = document.getElementById('chat-input');
-      if (chatInput) chatInput.value = lastAiQuery || lastQuery;
-      if (bubble) bubble.click();
-    });
 
     hotChips.forEach(chip => {
       chip.addEventListener('click', () => {
