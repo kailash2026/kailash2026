@@ -404,6 +404,10 @@
         const data = await res.json();
         if (!data.reply) throw new Error('空回复');
         aiAnswer.innerHTML = formatAI(data.reply);
+        // 埋点：把用户提问记入百度统计（截断 80 字，避免超长/敏感信息）
+        try {
+          if (window._hmt) window._hmt.push(['_trackEvent', 'ai_search', 'question', String(query).slice(0, 80)]);
+        } catch (_) { /* 统计失败不影响回答 */ }
         aiBadge.textContent = '⚡ ' + (data.reply.length > 60 ? t('摘要回答', 'Summary', 'सारांश', '要約') : t('已回复', 'Answered', 'उत्तर दिया गया', '回答済み'));
         aiRetry.classList.remove('hidden');
       } catch (e) {
