@@ -49,8 +49,8 @@ const SYSTEM_PROMPT = `你是 Kailash 2026 的 AI 朝圣助手（小冈）。你
 // ---- 成本护栏 ----------------------------------------------------------
 // 注意：Vercel serverless 下这些计数器是"每个实例一份"，只能兜底，
 // 不是真正可靠的全局限流。真正的硬限制需要外部存储（Vercel KV / Upstash）。
-const PER_IP_PER_MINUTE = 8;      // 单 IP 每分钟最多 8 次
-const GLOBAL_PER_DAY = 400;       // 单实例每天最多 400 次（兜底，防刷爆额度）
+const PER_IP_PER_MINUTE = 20;     // 单 IP 每分钟最多 20 次（正常用户够用，别卡住真人）
+const GLOBAL_PER_DAY = 600;       // 单实例每天最多 600 次（真正的成本兜底防线）
 const MAX_MESSAGES = 10;          // 最多带 10 条上下文
 const MAX_CHARS_PER_MESSAGE = 800;
 const MAX_TOTAL_CHARS = 4000;
