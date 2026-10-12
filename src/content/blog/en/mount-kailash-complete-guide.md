@@ -15,7 +15,7 @@ The year 2026 marks the Fire Horse Year in the Tibetan calendar. According to Bu
 
 ## The Kora Route: Three Days, 52 Kilometers
 
-The classic outer kora (Barkor) covers approximately 52 kilometers over three days, reaching a maximum altitude of 5,648 meters at the Drolma La pass. It is one of the highest trekking routes in the world.
+The classic outer kora (Barkor) covers approximately 52 kilometers over three days, reaching a maximum altitude of 5,630 meters at the Drolma La pass. It is one of the highest trekking routes in the world.
 
 ### Day 1: Darchen (4,560m) to Drirapuk Monastery (5,080m)
 
@@ -37,7 +37,7 @@ At Drirapuk Monastery, you face the magnificent north face of Mount Kailash. The
 - **Duration**: 10-12 hours
 - **Difficulty**: Extremely challenging
 
-Day two is the crux of the entire kora — a grueling ascent to the 5,648-meter Drolma La pass followed by a knee-crushing descent. This is the highest and most physically demanding segment.
+Day two is the crux of the entire kora — a grueling ascent to the 5,630-meter Drolma La pass followed by a knee-crushing descent. This is the highest and most physically demanding segment.
 
 You should depart well before sunrise. The climb to the pass takes 4-5 hours from Drirapuk. The final 500 vertical meters are punishingly steep at an altitude where every step requires conscious effort. At the pass itself, a sea of multicolored prayer flags stretches as far as the eye can see, flapping in the fierce wind. Pilgrims stop here to hang their own flags, scatter lungta (wind horse papers), and chant mantras.
 
@@ -99,7 +99,7 @@ The kora trail is officially closed from November through March due to heavy sno
 
 ## Altitude Sickness: Understanding the Risk
 
-Mount Kailash presents a serious altitude challenge. The trailhead at Darchen sits at 4,560 meters — higher than any point in the contiguous United States or the European Alps. The Drolma La pass at 5,648 meters reaches into the "extreme altitude" zone where physiological adaptation becomes impossible.
+Mount Kailash presents a serious altitude challenge. The trailhead at Darchen sits at 4,560 meters — higher than any point in the contiguous United States or the European Alps. The Drolma La pass at 5,630 meters reaches into the "extreme altitude" zone where physiological adaptation becomes impossible.
 
 ### Golden Rules
 

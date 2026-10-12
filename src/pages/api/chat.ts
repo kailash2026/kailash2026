@@ -108,7 +108,7 @@ function toolGetRouteInfo(query?: string) {
   const q = String(query || '').trim();
   const base = {
     totalDistance: '52公里（外圈）',
-    highestPoint: '卓玛拉山口 5648m',
+    highestPoint: '卓玛拉山口 5630m',
     plans: ROUTE_PLANS,
     note: '距离为页面标注的相对上一站距离，总里程按页面口径为52km。'
   };

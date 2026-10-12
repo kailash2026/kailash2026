@@ -40,7 +40,7 @@ Here's everything you need to know to plan yours.
 
 **Day 2: Drirapuk → Zunzhepu (18 km, 8-10 hours)**
 - **The hard day.** Start at 3-4 AM with a headlamp
-- Cross Drolma La Pass (5,648m) — the highest point
+- Cross Drolma La Pass (5,630m) — the highest point
 - The kilometer before the pass is brutally steep
 - After the pass: steep descent past Tsoji Lake
 - **Headlamp is mandatory. Poles will save your knees.**
@@ -78,7 +78,7 @@ The Indian government Yatra route (via Lipulekh Pass) costs significantly less (
 
 ### Altitude: The Real Challenge
 
-At 5,648 meters on Drolma La, oxygen is at ~50% of sea level. **Every step feels like running.**
+At 5,630 meters on Drolma La, oxygen is at ~50% of sea level. **Every step feels like running.**
 
 **How to prepare:**
 - Spend 2-3 days in Lhasa (3,650m) before heading to Kailash

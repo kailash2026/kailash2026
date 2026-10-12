@@ -13,7 +13,7 @@ const routePlans = {
     difficulty: "Hard",
     difficultyColor: "red",
     description: "Day 1: Darchen to Drirapuk (22km). Day 2: Start at 3-4 AM, cross Drolma La and return to Darchen (30km). Only one night stay, extremely demanding second day.",
-    warning: "⚠️ Day 2 requires 30km with 5648m pass crossing. Extremely demanding. Not recommended for first-time pilgrims.",
+    warning: "⚠️ Day 2 requires 30km with 5630m pass crossing. Extremely demanding. Not recommended for first-time pilgrims.",
     days: [
       {
         day: "Day 1",
@@ -29,10 +29,10 @@ const routePlans = {
         day: "Day 2",
         title: "Drirapuk → Drolma La → Darchen",
         distance: "30 km",
-        altitude: "5200m → 5648m → 4600m",
+        altitude: "5200m → 5630m → 4600m",
         duration: "10-14 hours",
-        description: "Depart at 3-4 AM in darkness with headlamps. Cross 5648m Drolma La. Descend past Tsoji Lake and Zhongzhepu Temple without stopping, continue directly to Darchen. Ultimate test of body and will.",
-        highlights: ["Drolma La (5648m, highest point)", "Tsoji Lake", "Zhongzhepu Temple", "Darchen (finish)"],
+        description: "Depart at 3-4 AM in darkness with headlamps. Cross 5630m Drolma La. Descend past Tsoji Lake and Zhongzhepu Temple without stopping, continue directly to Darchen. Ultimate test of body and will.",
+        highlights: ["Drolma La (5630m, highest point)", "Tsoji Lake", "Zhongzhepu Temple", "Darchen (finish)"],
         tips: "Headlamp mandatory! The 1km before the pass is steepest—pace yourself. Protect knees on descent. Quick hot water refills at teahouses. Consider porter or horse to save energy."
       }
     ]
@@ -61,10 +61,10 @@ const routePlans = {
         day: "Day 2",
         title: "Drirapuk → Zunzhepu",
         distance: "18 km",
-        altitude: "5200m → 5648m → 4800m",
+        altitude: "5200m → 5630m → 4800m",
         duration: "8-10 hours",
-        description: "The hardest day. Depart early to cross 5648m Drolma La, the highest point. Descend past Tsoji Lake (Mercy Lake) to Zunzhepu Temple. Multiple teahouses along the way for rest and resupply.",
-        highlights: ["Drolma La (5648m, highest point)", "Tsoji Lake", "Zunzhepu Temple (D2 camp)"],
+        description: "The hardest day. Depart early to cross 5630m Drolma La, the highest point. Descend past Tsoji Lake (Mercy Lake) to Zunzhepu Temple. Multiple teahouses along the way for rest and resupply.",
+        highlights: ["Drolma La (5630m, highest point)", "Tsoji Lake", "Zunzhepu Temple (D2 camp)"],
         tips: "The 1km before the pass is steepest—pace yourself. Protect knees on descent. Zunzhepu lodging is more basic than Drirapuk and may be full in peak season."
       },
       {
@@ -86,17 +86,17 @@ const routePlans = {
     totalDuration: "1 Day (12-22 hours)",
     difficulty: "Extreme",
     difficultyColor: "purple",
-    description: "Completing the 52-56 km outer Kora in one day is the most challenging form of pilgrimage. Elevation 4560m→5648m→4560m. Ultimate test of fitness, altitude adaptation, and willpower. Every year there are rescue cases due to altitude sickness, hypothermia, and getting lost.",
+    description: "Completing the 52-56 km outer Kora in one day is the most challenging form of pilgrimage. Elevation 4560m→5630m→4560m. Ultimate test of fitness, altitude adaptation, and willpower. Every year there are rescue cases due to altitude sickness, hypothermia, and getting lost.",
     warning: "⚠️ Extremely high risk! Rescue cases occur every year. Only for three groups: experienced Tibetan pilgrims, professional endurance athletes/trail runners, and rare hardcore trekkers with exceptional fitness. Ordinary tourists must NOT attempt!",
     days: [
       {
         day: "Day 1",
         title: "Darchen → Drolma La → Darchen",
         distance: "52-56 km",
-        altitude: "4560m → 5648m → 4560m",
+        altitude: "4560m → 5630m → 4560m",
         duration: "12-22 hours",
         description: "Start before midnight (23:00-24:00), reach Drolma La at dawn, descend and return to Darchen by evening. No lodging, minimal rest. Requires exceptional fitness and altitude adaptation.",
-        highlights: ["Drolma La (5648m, highest point)", "Tsoji Lake", "Zhongzhepu Temple", "Darchen (finish)"],
+        highlights: ["Drolma La (5630m, highest point)", "Tsoji Lake", "Zhongzhepu Temple", "Darchen (finish)"],
         tips: "Mandatory: headlamp, GPS, emergency whistle, -20°C sleeping bag (emergency), 3L water, high-calorie food. Inform someone of your plan. Turn back if you feel unwell."
       }
     ]
@@ -110,7 +110,7 @@ const supplyStations = [
   { id: 4, name: "Jomu Waterfall", altitude: 4900, distance: "+4.5km", type: "teahouse", supplies: ["Butter Tea", "Hot Water", "Instant Noodles"], services: "Temporary shelter" },
   { id: 5, name: "Hayagriva Rock Teahouse", altitude: 5000, distance: "+2.3km", type: "teahouse", supplies: ["Butter Tea", "Milk Tea", "Hot Water", "Instant Noodles", "Biscuits", "Energy Bars"], services: "Medium teahouse" },
   { id: 6, name: "Drirapuk Gompa", altitude: 5200, distance: "+4.2km (D1 Camp)", type: "camp", supplies: ["Full meals", "Snacks", "Basic Medicine", "Oxygen"], services: "Major supply station: restaurant + lodging + shop" },
-  { id: 7, name: "Drolma La Pass", altitude: 5648, distance: "+5.8km (Highest Point)", type: "peak", supplies: [], services: "Prayer flags & mani stones only. Stop 5–10 min, pass quickly. Stay warm & windproof" },
+  { id: 7, name: "Drolma La Pass", altitude: 5630, distance: "+5.8km (Highest Point)", type: "peak", supplies: [], services: "Prayer flags & mani stones only. Stop 5–10 min, pass quickly. Stay warm & windproof" },
   { id: 8, name: "Tsoji Lake", altitude: 5400, distance: "+2.6km", type: "teahouse", supplies: ["Butter Tea", "Hot Water", "Instant Noodles"], services: "Small teahouse" },
   { id: 9, name: "3rd Immovable Peg Teahouse", altitude: 5100, distance: "+2.4km", type: "teahouse", supplies: ["Butter Tea", "Hot Water", "Instant Noodles", "Snacks"], services: "Small teahouse" },
   { id: 10, name: "Zunzhepu Temple", altitude: 4800, distance: "+3.2km (D2 Camp)", type: "camp", supplies: ["Basic meals", "Hot Water", "Instant Noodles", "Snacks"], services: "Medium supply station: restaurant + lodging" },

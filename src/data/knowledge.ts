@@ -35,7 +35,7 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
   { id: 6, name: '止热寺 / 哲日普寺', nameEn: 'Drirapuk Gompa', altitude: 5200, distanceFromPrev: '+4.2km（D1住宿点）', type: 'camp',
     supply: ['酥油茶','奶茶','藏面','蛋炒饭','泡面','饼干','巧克力','牛肉干','矿泉水','饮料','零食','简单药品','氧气瓶'],
     lodging: '多人间（5–10人）、毛毯/被子，建议自备-10℃睡袋', services: '大型补给站：餐厅+住宿+商店' },
-  { id: 7, name: '卓玛拉山口', nameEn: 'Drolma La Pass', altitude: 5648, distanceFromPrev: '+5.8km（最高点）', type: 'peak',
+  { id: 7, name: '卓玛拉山口', nameEn: 'Drolma La Pass', altitude: 5630, distanceFromPrev: '+5.8km（最高点）', type: 'peak',
     supply: [], lodging: '无补给', services: '只有经幡、玛尼堆，停留5–10分钟，快速通过，注意防风保暖' },
   { id: 8, name: '托吉措 / 慈悲湖', nameEn: 'Tsoji Lake', altitude: 5400, distanceFromPrev: '+2.6km', type: 'teahouse',
     supply: ['酥油茶','热水','泡面'], lodging: '无住宿', services: '小茶馆' },
@@ -57,15 +57,15 @@ export const ROUTE_PLANS = [
   { name: '三天转山（标准）', distance: '52公里', duration: '3天2夜', difficulty: '中等',
     days: [
       { day: '第一天', route: '塔尔钦 → 止热寺', distance: '22公里', altitude: '4600m → 5200m', duration: '6-8小时' },
-      { day: '第二天', route: '止热寺 → 尊最普寺（翻卓玛拉垭口5648m）', distance: '18公里', altitude: '5200m → 5648m → 4800m', duration: '8-10小时' },
+      { day: '第二天', route: '止热寺 → 尊最普寺（翻卓玛拉垭口5630m）', distance: '18公里', altitude: '5200m → 5630m → 4800m', duration: '8-10小时' },
       { day: '第三天', route: '尊最普寺 → 塔尔钦', distance: '12公里', altitude: '4800m → 4600m', duration: '3-4小时' }
     ] },
   { name: '两天转山（挑战）', distance: '52公里', duration: '2天1夜', difficulty: '困难',
     days: [
       { day: '第一天', route: '塔尔钦 → 止热寺', distance: '22公里', altitude: '4600m → 5200m', duration: '6-8小时' },
-      { day: '第二天', route: '止热寺 → 卓玛拉垭口 → 塔尔钦', distance: '30公里', altitude: '5200m → 5648m → 4600m', duration: '10-14小时' }
+      { day: '第二天', route: '止热寺 → 卓玛拉垭口 → 塔尔钦', distance: '30公里', altitude: '5200m → 5630m → 4600m', duration: '10-14小时' }
     ],
-    warning: '第二天需行走30公里且翻越5648米垭口，不建议初次转山者选择。' },
+    warning: '第二天需行走30公里且翻越5630米垭口，不建议初次转山者选择。' },
   { name: '一天转山（极限）', distance: '52-56公里', duration: '1天（12-22小时）', difficulty: '极限',
     warning: '⚠️ 极高风险！每年均有救援案例。仅限藏族资深朝圣者、专业耐力运动员、极少数硬核驴友。普通游客禁止尝试！' }
 ];
@@ -90,7 +90,7 @@ export const SEASON = {
 
 // ---- 3. 高原反应分级与处置（来源：src/content/blog/zh/kailash-altitude-sickness.md + src/pages/guide.astro） ----
 export const AMS = {
-  overview: '冈仁波齐转山最高点卓玛拉山口约5648m（部分页面写5630m），平均徒步海拔超4700m，空气含氧量约为海平面55%。AMS本质是脑部轻度水肿。',
+  overview: '冈仁波齐转山最高点卓玛拉山口约5630m（部分页面写5630m），平均徒步海拔超4700m，空气含氧量约为海平面55%。AMS本质是脑部轻度水肿。',
   // 路易斯湖 AMS 评分分级
   levels: [
     { level: '轻微', symptoms: '轻度头痛（弯腰时加重）、乏力、食欲下降', severity: '不影响基本活动', action: '原地休息1天，不继续上升，多喝水，可服布洛芬' },

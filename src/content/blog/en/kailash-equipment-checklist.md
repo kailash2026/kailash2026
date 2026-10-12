@@ -9,7 +9,7 @@ image: /images/kailash-golden.webp
 
 # Mount Kailash Packing List 2026: Complete Gear Guide for Pilgrims
 
-The Mount Kailash Kora covers approximately 52 kilometers, cresting at the Drolma La pass at 5,648 meters (18,530 feet). The average trekking altitude hovers above 4,700 meters. Between the volatile high-altitude weather, brutal day-night temperature swings, and long, punishing ascents, your gear is not a matter of comfort — it is a matter of safety and success. This packing list covers every essential category, whether you are a first-time pilgrim or a seasoned high-altitude trekker.
+The Mount Kailash Kora covers approximately 52 kilometers, cresting at the Drolma La pass at 5,630 meters (18,530 feet). The average trekking altitude hovers above 4,700 meters. Between the volatile high-altitude weather, brutal day-night temperature swings, and long, punishing ascents, your gear is not a matter of comfort — it is a matter of safety and success. This packing list covers every essential category, whether you are a first-time pilgrim or a seasoned high-altitude trekker.
 
 ---
 

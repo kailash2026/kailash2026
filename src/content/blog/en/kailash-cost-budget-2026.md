@@ -113,7 +113,7 @@ The biggest expense isn't money — it's **time**. Between travel, acclimatizati
 
 The second cost is **preparation**. You'll spend 2-3 months training. You'll buy gear. You'll read. You'll worry. No budget spreadsheet captures this.
 
-But when you're standing at Drolma La at sunrise, watching prayer flags snap in the wind at 5,648 meters — you won't be thinking about the money.
+But when you're standing at Drolma La at sunrise, watching prayer flags snap in the wind at 5,630 meters — you won't be thinking about the money.
 
 ---
 

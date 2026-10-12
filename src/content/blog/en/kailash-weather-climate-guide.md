@@ -25,7 +25,7 @@ The single most important weather fact about the Kailash region is the staggerin
 
 ### Wind Patterns
 
-The Tibetan Plateau is notorious for persistent wind. Prevailing westerlies sweep across the open landscape with little topographic shelter. At Drolma La pass (5,648 meters), wind speeds of 40 to 60 kilometers per hour are common even on "good" days. During weather fronts, gusts above 80 kilometers per hour have been recorded. Wind chill routinely drives the felt temperature 10 to 15 degrees below the air temperature.
+The Tibetan Plateau is notorious for persistent wind. Prevailing westerlies sweep across the open landscape with little topographic shelter. At Drolma La pass (5,630 meters), wind speeds of 40 to 60 kilometers per hour are common even on "good" days. During weather fronts, gusts above 80 kilometers per hour have been recorded. Wind chill routinely drives the felt temperature 10 to 15 degrees below the air temperature.
 
 ### Precipitation Regime
 
@@ -155,11 +155,11 @@ The table below summarizes the typical diurnal temperature ranges at Darchen (4,
 | September | 8 to 16 deg C | -4 to -10 deg C | 12 to 22 deg |
 | October | 0 to 12 deg C | -8 to -20 deg C | 12 to 28 deg |
 
-These figures are for Darchen. At higher elevations on the trail (Drirapuk at 5,080 meters, Drolma La at 5,648 meters), subtract 3 to 8 degrees Celsius from these values.
+These figures are for Darchen. At higher elevations on the trail (Drirapuk at 5,080 meters, Drolma La at 5,630 meters), subtract 3 to 8 degrees Celsius from these values.
 
 ## Wind Chill at Drolma La: What It Really Feels Like
 
-Wind chill is not a theoretical concern at Drolma La — it is the dominant physical sensation. The pass sits at 5,648 meters on an exposed saddle with no natural shelter. The wind accelerates as it funnels through the gap.
+Wind chill is not a theoretical concern at Drolma La — it is the dominant physical sensation. The pass sits at 5,630 meters on an exposed saddle with no natural shelter. The wind accelerates as it funnels through the gap.
 
 The table below estimates the felt temperature at various combinations of air temperature and wind speed, using the standard wind chill formula:
 
