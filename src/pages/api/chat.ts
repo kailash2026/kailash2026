@@ -5,7 +5,7 @@ export const prerender = false;
 
 const DEEPSEEK_API_KEY = import.meta.env.DEEPSEEK_API_KEY;
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';
-const MODEL = 'deepseek-chat';
+const MODEL = 'deepseek-v4-pro';
 
 const SYSTEM_PROMPT = `你是 Kailash 2026 的 AI 朝圣助手（小冈）。你的知识聚焦于冈仁波齐（Mount Kailash）转山。
 
@@ -284,7 +284,9 @@ async function callDeepSeek(payload: Record<string, unknown>): Promise<any> {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + DEEPSEEK_API_KEY
     },
-    body: JSON.stringify(payload)
+    // V4 默认开思考模式；工具调用会要求回传 reasoning_content，否则 400。
+    // 小冈是 FAQ 客服，不需要深度推理，关闭思考模式更省 token、更快。
+    body: JSON.stringify({ ...payload, thinking: { type: 'disabled' } })
   });
   if (!response.ok) {
     const err = await response.text();
